@@ -1,0 +1,7 @@
+.browsers/
+node_modules/
+*.png
+*.jpg
+*.jpeg
+*.gif
+.playwright-mcp/

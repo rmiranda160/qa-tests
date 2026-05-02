@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-05-02T18:20:00Z",
+  "escenario": "Responsive - Página de publicación de anuncio con formulario de registro",
+  "url": "https://new.zonacnc.com/es/module/zonacncproductadd/ads",
+  "email_usado": "test7-test30@zonacnc.com",
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "headerHeight_px": 53,
+      "bodyWidth_px": 390,
+      "bodyHeight_px": 6474,
+      "layout": "Todo apilado verticalmente. Labels e inputs ocupan 100% del ancho. Menú compacto.",
+      "formFields": "Campos firstname/lastname full-width. Email/password full-width. Todo en una columna.",
+      "responsiveOk": true
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "headerHeight_px": 116,
+      "bodyWidth_px": 768,
+      "bodyHeight_px": 5367,
+      "layout": "Labels ~25%, inputs ~75% (side by side). Navegación expandida.",
+      "formFields": "Campos firstname/lastname en paralelo (~46% c/u). Email/password en paralelo. Buena adaptación.",
+      "responsiveOk": true
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "headerHeight_px": 116,
+      "bodyWidth_px": 1440,
+      "bodyHeight_px": 4769,
+      "layout": "Labels ~25%, inputs ~75% con más espacio. Navegación completa.",
+      "formFields": "Campos firstname/lastname en paralelo. Email/password en paralelo. Todo proporcionado.",
+      "responsiveOk": true
+    }
+  ],
+  "hallazgos": {
+    "positivos": [
+      "El header se adapta correctamente de 53px (mobile) a 116px (tablet/desktop)",
+      "Formulario usa Bootstrap grid (col-md-3, col-md-9) que responde correctamente",
+      "Campos de registro se reorganizan de vertical (mobile) a horizontal (tablet/desktop)",
+      "El bodyHeight disminuye al aumentar el ancho de viewport (uso eficiente del espacio)",
+      "No se detectaron elementos rotos, superpuestos o desbordados en ningún viewport"
+    ],
+    "mejoras_potenciales": [
+      "En mobile, algunos labels quedan muy anchos (100% del contenedor) - podría reducirse el padding",
+      "La sección de precio en mobile muestra el label, input y dropdown todos al 100% - mucho espacio vertical"
+    ]
+  },
+  "registro": {
+    "email": "test7-test30@zonacnc.com",
+    "password_asignada": "T3stP@ss2026!",
+    "estado": "Formulario rellenado. No se completó registro porque la publicación de anuncio requiere datos obligatorios del producto (categoría, título, etc.) antes de enviar.",
+    "observacion": "El formulario de registro está integrado en la página de publicación de anuncio (paso 3: Cuenta)"
+  },
+  "resultado_general": "PASS - Todos los viewports responden correctamente",
+  "errores_consola": [
+    "Provider's accounts list is empty (Google Identity Services - no crítica)",
+    "GSI_LOGGER: FedCM get() rejects with NetworkError (Google Sign-In - no crítica)"
+  ]
+}
