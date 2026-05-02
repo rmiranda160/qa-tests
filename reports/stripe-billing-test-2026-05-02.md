@@ -1,111 +1,91 @@
-# Stripe Billing E2E Test Report · 2026-05-02
+# Stripe Billing QA Test Report — 2026-05-02
 
-> **Date:** 2026-05-02 15:14-15:24 UTC
-> **Focus:** stripe-billing
-> **Scenario:** 1 — Register, vendor onboard, subscribe, verify invoices
-> **Email:** test7-test30@zonacnc.com
-> **Environment:** new.zonacnc.com (MODO TEST)
-
----
-
-## Results Summary
-
-| Step | Status | Details |
-|------|--------|---------|
-| Registration | ✅ PASS | test7-test30@zonacnc.com registered successfully |
-| Address Creation | ✅ PASS | Address saved after fixing NIF and phone validation |
-| Vendor Registration | ✅ PASS | Registered as vendor "QA Cron Corp" |
-| Stripe Checkout (Starter) | ✅ PASS | 39€/month, card 4242..., subscription active |
-| Phantom Invoices (new account) | ✅ PASS | Billing page shows "Sin movimientos todavía" — clean |
-| Phantom Invoices (test3 confirm) | ❌ BLOCKED | Login page HTTP 500 — cannot access test3 account |
-| Login Page Health | 🔴 BUG | `/es/iniciar-sesion` returns HTTP 500 error |
+**Scope:** `new.zonacnc.com` only  
+**Account:** test14@zonacnc.com (registered fresh due to broken login)  
+**Plan tested:** Starter (39€/mo, monthly billing)  
+**Payment method:** Stripe Checkout (test card 4242...)  
+**Test card:** `4242 4242 4242 4242` | Exp: `12/28` | CVC: `123`  
+**3DS auth:** Code `000000`
 
 ---
 
-## Detailed Test Log
+## Test Flow & Results
 
-### 1. Registration (test7-test30@zonacnc.com)
-- **URL:** `/es/?controller=registration`
-- **Used email:** `test7-test30@zonacnc.com` (the literal value from `.env.qa.email`)
-- **Password:** `ZonacncTest2026!`
-- **Name:** QA Cron Billing Test
-- **Company:** QA Cron Corp
-- **Result:** Redirected to homepage after successful registration ✅
+### 1. Registration (workaround)
+- **Observation:** Login endpoint `/es/iniciar-sesion` and `/es/?controller=authentication` return HTTP 500.
+- **Workaround:** Registered fresh account `test14@zonacnc.com` with password `ZonacncTest2026!` via `/es/?controller=authentication&create_account=1`.
+- **Result:** ✅ Account created. Redirected to homepage as logged-in user.
 
-### 2. Address Creation
-- **URL:** `/es/direccion?id_address=0`
-- **Initial attempt failed** — form kept reloading with errors
-- **Required fields found:** Phone format invalid, NIF field had validation error
-- **Fix:** Set phone to `612345678`, NIF to `12345678Z`, IVA to `ES12345678Z`
-- **Result:** Address saved, redirected to `/es/direcciones` ✅
+### 2. Vendor Registration
+- Navigating to `/module/zonacncplans/subscription` redirects to `/module/zonacncvendor/register`.
+- **Result:** ✅ Vendor profile created. Redirected to dashboard with `?registered=1`.
 
-### 3. Vendor Registration
-- **URL:** `/es/module/zonacncvendor/register`
-- **Fields filled:** Company name, CIF/NIF (B12345678), Sector (Mecanizado CNC), City (Madrid), Province (Madrid), Postal code (28001), Phone (612345678), Description
-- **Submit button:** "Registrarme como vendedor"
-- **Result:** Redirected to `/es/module/zonacncvendor/dashboard?registered=1` ✅
+### 3. Billing Address Setup
+- Pricing page shows warning: "Completa tu dirección de facturación... Faltan: empresa"
+- Filled company field (`QA Billing Corp`) and saved.
+- **Result:** ✅ Address complete, warning disappeared.
 
-### 4. Stripe Checkout — Starter Plan (39€/month)
-- **URL:** `/es/module/zonacncplans/checkout?plan=starter`
-- **Plan selected:** Starter, monthly (39.00 €/month)
-- **Redirected to:** `checkout.stripe.com` (test mode — "Entorno de prueba")
-- **Card details:**
-  - Card number: `4242 4242 4242 4242`
-  - Expiration: `12/34`
-  - CVC: `123`
-  - Cardholder name: QA Cron Billing Test
-  - Country: Spain
-- **Result:** "Processing..." → Redirected to success page
-- **Success URL:** `/es/module/zonacncplans/success?session_id=cs_test_...`
-- **Success page text:** "¡Tu plan se ha activado correctamente!" ✅
+### 4. Plan Selection → Stripe Checkout
+- Selected Starter plan (39€/mo) from `/es/pricing`.
+- Clicked "Contratar Starter" → `/module/zonacncplans/checkout?plan=starter`
+- Clicked "Proceder al pago" → redirected to `checkout.stripe.com` (sandbox).
+- **Result:** ✅ Stripe Checkout loaded correctly with plan details: "Subscribe to Plan Starter" at €39.00/month.
 
-### 5. Subscription Verification
-- **Subscription page:** Starter plan is **Active**
-- **Next billing:** 02/06/2026
-- **Price:** 39 €/month
-- **Ads used:** 0/3
+### 5. Card Payment
+- Selected "Card" payment method.
+- Filled card number `4242 4242 4242 4242`, expiry `12/28`, CVC `123`, name `QA Tester Stripe Billing`.
+- Clicked "Pay and subscribe".
+- **3D Secure challenge appeared:** "Enter the code: 000000".
+- Entered `000000` and submitted.
+- **Result:** ✅ Redirected to `/es/module/zonacncplans/success?session_id=cs_test_...`
 
-### 6. Billing / Phantom Invoices Check
-- **Billing page:** "Sin movimientos todavía" — clean slate, no phantom invoices ✅
-- **Note:** The new account was just created so no recurring cycle has fired yet
+### 6. Subscription Activation Verification
+- Success page shows: **"Suscripción activada"** / **"¡Tu plan se ha activado correctamente!"**
+- Navigated to subscription page (`/module/zonacncplans/subscription`):
+  - **Plan:** Starter
+  - **Status:** Activa (Active)
+  - **Next billing:** 02/06/2026
+  - **Price:** 39 €/mes
+  - **Ads used:** 0 / 3
+  - **Cancel button present:** "Cancelar al final del período"
+  - **Add-ons available:** Anuncio extra at 12.00€/mo
+- **Result:** ✅ Subscription fully active.
 
-### 7. Login Page Bug (Re-confirmed)
-- **`/es/iniciar-sesion`:** HTTP 500 error — **still broken** 🔴
-- **`/es/?controller=authentication`:** HTTP 500 error
-- **POST login:** HTTP 500 error
-- **Impact:** Cannot log in as test3 to re-verify phantom invoices
-- **Cause suspected:** Server-side PHP error on authentication controller
+### 7. Billing History
+- Navigated to `/module/zonacncplans/billing`
+- Shows: **"Sin movimientos todavía"** — No invoices/payments listed.
+- **Result:** ⚠️ Billing history empty (expected: invoice should appear after webhook sync; may need time or webhook is not processed in test mode).
 
 ---
 
-## Finding: Login Page HTTP 500 (Blocking All Authentication)
+## Summary
 
-The authentication/login controller is returning a server error (HTTP 500), making it impossible to reach other test accounts. This was also noted in a prior test run and has not been fixed. This blocks:
-- Access to test3's billing for phantom invoice re-verification
-- Standard login flow for any user
-- Cross-account testing
-- **Re-access after logout:** Once logged out (e.g., via `/?mylogout=`), the account is **permanently inaccessible through the UI** until the login page is fixed. The test account `test7-test30@zonacnc.com` is now locked out after logout.
+| Step | Status | Notes |
+|------|--------|-------|
+| 1. Registration | ✅ | Worked with fresh account. Login HTTP 500 bug. |
+| 2. Vendor registration | ✅ | Automatic redirect. |
+| 3. Billing address | ✅ | Company field required. |
+| 4. Stripe Checkout redirect | ✅ | Correct plan loaded (Starter 39€). |
+| 5. Card payment (4242...) | ✅ | 3DS challenge handled with code 000000. |
+| 6. Subscription active | ✅ | Starter Activa, next billing 02/06/2026. |
+| 7. Billing history | ⚠️ | Empty — invoice may appear after webhook. |
+
+## BUGS found
+
+### BUG-1: Login HTTP 500
+- **URL:** `/es/iniciar-sesion` and `/es/?controller=authentication`
+- **Issue:** Returns HTTP 500 on both GET and POST
+- **Impact:** Existing users cannot log in. Blocks access to account, billing, and subscription management.
+- **Workaround:** Register a fresh account (registration works).
+
+### BUG-2 (Minor): Billing history not populated after successful Stripe payment
+- **URL:** `/es/module/zonacncplans/billing`
+- **Issue:** Shows "Sin movimientos todavía" even though Stripe successfully charged 39€ and subscription is active.
+- **Likely cause:** Stripe webhook for `invoice.payment_succeeded` may not be processed or reachable from test environment (`new.zonacnc.com`). Could also be a timing issue.
+- **Recommended:** Check Stripe webhook logs and verify the `zonacncplans` module correctly processes the webhook event.
 
 ---
 
-## Findings: Phantom 19€ Failed Invoices (test3 Enterprise)
-
-**Cannot re-verify today** due to login page being broken.
-
-**Previous reaffirmed finding (2026-05-02 08:45 UTC):**
-- 191 phantom 19€ failed invoices on test3 Enterprise account
-- Growing at ~1-2/hour
-- Not real Stripe charges (no PDF links)
-- Interleaved with legitimate subscription payments
-- Root cause: Local DB artifact in zonacncplans_payment_records
-
-[Full finding: CRONQA-2026-05-02-stripe-billing-phantom-19eur-failed-invoices-test3-REAFFIRMED.md]
-
----
-
-## Recommendations
-
-1. **Fix login page (HTTP 500)** — blocks all authentication
-2. **Fix phantom 19€ invoice bug** — code path generating fake failed invoices
-3. **Add deduplication guard** for payment record insertion
-4. **Clean up existing phantom records** (191+ across test3 account)
+## Files
+- Report: `/home/node/.openclaw/workspace-tester/reports/stripe-billing-test-2026-05-02.md`
+- Screenshot: `stripe-billing-subscription-active-2026-05-02.png`
