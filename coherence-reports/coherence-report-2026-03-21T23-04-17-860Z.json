@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-03-21T23:04:17.892Z",
+  "application": "Cenarbe Bike Rental",
+  "url": "https://dev1.cenarbe.com",
+  "tests": [
+    {
+      "testName": "Botón \"Mis Reservas\" → Página de reservas",
+      "timestamp": "2026-03-21T23:04:21.682Z",
+      "passed": true,
+      "incoherences": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/before-Botón-\"Mis-Reservas\"-→-Página-de-reservas-2026-03-21T23-04-17-860Z.png",
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/after-Botón-\"Mis-Reservas\"-→-Página-de-reservas-2026-03-21T23-04-17-860Z.png"
+      ]
+    },
+    {
+      "testName": "Botón \"Mi Perfil\" → Página de perfil",
+      "timestamp": "2026-03-21T23:04:25.493Z",
+      "passed": false,
+      "incoherences": [
+        "Título incoherente: Esperaba \"perfil\" en título, pero es \"cenarbe bike rental - inicio - alquiler de bicicletas en villanúa, pirineo\"",
+        "Contenido faltante: No se encontró \"datos\" en la página"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/before-Botón-\"Mi-Perfil\"-→-Página-de-perfil-2026-03-21T23-04-17-860Z.png",
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/after-Botón-\"Mi-Perfil\"-→-Página-de-perfil-2026-03-21T23-04-17-860Z.png",
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/incoherence-Botón-\"Mi-Perfil\"-→-Página-de-perfil-2026-03-21T23-04-17-860Z.png"
+      ]
+    },
+    {
+      "testName": "Botón \"Historial\" → Historial de actividades",
+      "timestamp": "2026-03-21T23:04:30.814Z",
+      "passed": false,
+      "incoherences": [
+        "Error durante la prueba: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/before-Botón-\"Historial\"-→-Historial-de-actividades-2026-03-21T23-04-17-860Z.png"
+      ]
+    },
+    {
+      "testName": "Enlace \"Configuración\" → Opciones de configuración",
+      "timestamp": "2026-03-21T23:05:02.515Z",
+      "passed": false,
+      "incoherences": [
+        "Error durante la prueba: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/before-Enlace-\"Configuración\"-→-Opciones-de-configuración-2026-03-21T23-04-17-860Z.png"
+      ]
+    },
+    {
+      "testName": "Menú \"Ayuda\" → Página de ayuda/soporte",
+      "timestamp": "2026-03-21T23:05:34.225Z",
+      "passed": false,
+      "incoherences": [
+        "Error durante la prueba: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/before-Menú-\"Ayuda\"-→-Página-de-ayuda/soporte-2026-03-21T23-04-17-860Z.png"
+      ]
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 1,
+    "failed": 4,
+    "incoherences": [
+      {
+        "test": "Botón \"Mi Perfil\" → Página de perfil",
+        "errors": [
+          "Título incoherente: Esperaba \"perfil\" en título, pero es \"cenarbe bike rental - inicio - alquiler de bicicletas en villanúa, pirineo\"",
+          "Contenido faltante: No se encontró \"datos\" en la página"
+        ]
+      }
+    ]
+  }
+}

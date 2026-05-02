@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Dolibarr Development Team">
+<meta name="anti-csrf-newtoken" content="6c1fc843d47d28a2ad5f500777f9ad50">
+<meta name="anti-csrf-currenttoken" content="6c1fc843d47d28a2ad5f500777f9ad50">
+<link rel="shortcut icon" type="image/x-icon" href="/theme/dolibarr_256x256_color.png"/>
+<link rel="apple-touch-icon" href="/theme/apple-touch-icon.png"/>
+<link rel="manifest" href="/theme/eldy/manifest.json.php" />
+<title>Home - Dolibarr 23.0.0</title>
+<!-- Includes CSS for JQuery (Ajax library) -->
+<link rel="stylesheet" type="text/css" href="/includes/jquery/css/base/jquery-ui.css?layout=classic&version=23.0.0">
+<link rel="stylesheet" type="text/css" href="/includes/jquery/plugins/jnotify/jquery.jnotify-alt.min.css?layout=classic&version=23.0.0">
+<link rel="stylesheet" type="text/css" href="/includes/jquery/plugins/select2/dist/css/select2.css?layout=classic&version=23.0.0">
+<!-- Includes CSS for font awesome -->
+<link rel="stylesheet" type="text/css" href="/theme/common/fontawesome-5/css/all.min.css?layout=classic&version=23.0.0">
+<!-- Includes CSS for Dolibarr theme -->
+<link rel="stylesheet" type="text/css" href="/theme/eldy/style.css.php?lang=en_US&amp;theme=eldy&amp;userid=1&amp;entity=1&layout=classic&version=23.0.0&revision=25">
+<!-- Includes JS for JQuery -->
+<script nonce="6bfbdfa5" src="/includes/jquery/js/jquery.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="6bfbdfa5" src="/includes/jquery/js/jquery-ui.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="6bfbdfa5" src="/includes/jquery/plugins/jnotify/jquery.jnotify.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="6bfbdfa5" src="/includes/jquery/plugins/tablednd/jquery.tablednd.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="6bfbdfa5" src="/includes/nnnick/chartjs/dist/chart.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="6bfbdfa5" src="/includes/jquery/plugins/select2/dist/js/select2.full.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="6bfbdfa5" src="/includes/jquery/plugins/multiselect/jquery.multi-select.js?layout=classic&version=23.0.0"></script>
+<!-- Includes JS of Dolibarr -->
+<script nonce="6bfbdfa5" src="/core/js/lib_head.js.php?lang=en_US&layout=classic&version=23.0.0"></script>
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/debugbar.css">
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets.css">
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/openhandler.css">
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets/sqlqueries/widget.css">
+<link rel="stylesheet" type="text/css" href="/debugbar/css/widgets.css">
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/debugbar.js"></script>
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets.js"></script>
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/openhandler.js"></script>
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets/sqlqueries/widget.js"></script>
+<script type="text/javascript" src="/debugbar/js/widgets.js"></script>
+
+</head>
+
+<body id="mainbody" class="sidebar-collapse">
+
+<!-- Start top horizontal -->
+<header id="id-top" class="side-nav-vert"><div id="tmenu_tooltip" class="tmenu">
+<div class="tmenudiv"><ul role="navigation" class="tmenu"><li class="tmenu menuhider nohover" id="mainmenutd_menu"><div class="tmenucenter"><a class="tmenuimage tmenu menuhider nohover" tabindex="-1" href="#" title=""><div class="mainmenu menu topmenuimage"><span class="fas fa-bars size12x"></span></div></a><a class="tmenulabel tmenu menuhider nohover" id="mainmenua_menu" href="#" title=""><span class="mainmenuaspan"></span></a></div></li>
+<li class="tmenusel" id="mainmenutd_home"><div class="tmenucenter"><a class="tmenuimage tmenusel" tabindex="-1" href="/index.php?mainmenu=home&leftmenu=home" title="Home"><div class="mainmenu home topmenuimage"><span class="fas fa-home fa-fw"></span></div></a><a class="tmenulabel tmenusel" id="mainmenua_home" href="/index.php?mainmenu=home&leftmenu=home" title="Home"><span class="mainmenuaspan">Home</span></a></div></li>
+<li class="tmenu" id="mainmenutd_members"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/adherents/index.php?mainmenu=members&leftmenu=" title="Members"><div class="mainmenu members topmenuimage"><span class="fas fa-user-alt  em092 infobox-adherent fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_members" href="/adherents/index.php?mainmenu=members&leftmenu=" title="Members"><span class="mainmenuaspan">Members</span></a></div></li>
+<li class="tmenu" id="mainmenutd_companies"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/societe/index.php?mainmenu=companies&leftmenu=" title="Third parties"><div class="mainmenu companies topmenuimage"><span class="fas fa-building fa-fw pictofixedwidth" style=" color: #6c6aa8;"></span></div></a><a class="tmenulabel tmenu" id="mainmenua_companies" href="/societe/index.php?mainmenu=companies&leftmenu=" title="Third parties"><span class="mainmenuaspan">Third parties</span></a></div></li>
+<li class="tmenu" id="mainmenutd_products"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/product/index.php?mainmenu=products&leftmenu=" title="Products | Services"><div class="mainmenu products topmenuimage"><span class="fas fa-cube fa-fw pictofixedwidth" style=" color: #a69944;"></span></div></a><a class="tmenulabel tmenu" id="mainmenua_products" href="/product/index.php?mainmenu=products&leftmenu=" title="Products | Services"><span class="mainmenuaspan">Products | Services</span></a></div></li>
+<li class="tmenu" id="mainmenutd_commercial"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/comm/index.php?mainmenu=commercial&leftmenu=" title="Commerce"><div class="mainmenu commercial topmenuimage"><span class="fas fa-suitcase  em092 infobox-contrat fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_commercial" href="/comm/index.php?mainmenu=commercial&leftmenu=" title="Commerce"><span class="mainmenuaspan">Commerce</span></a></div></li>
+<li class="tmenu" id="mainmenutd_billing"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/compta/index.php?mainmenu=billing&leftmenu=" title="Billing | Payment"><div class="mainmenu billing topmenuimage"><span class="fas fa-file-invoice-dollar infobox-commande fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_billing" href="/compta/index.php?mainmenu=billing&leftmenu=" title="Billing | Payment"><span class="mainmenuaspan">Billing | Payment</span></a></div></li>
+<li class="tmenu" id="mainmenutd_hrm"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/hrm/index.php?mainmenu=hrm&leftmenu=" title="HRM"><div class="mainmenu hrm topmenuimage"><span class="fas fa-user-tie infobox-adherent fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_hrm" href="/hrm/index.php?mainmenu=hrm&leftmenu=" title="HRM"><span class="mainmenuaspan">HRM</span></a></div></li>
+<li class="tmenu" id="mainmenutd_tools"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/core/tools.php?mainmenu=tools&leftmenu=" title="Tools"><div class="mainmenu tools topmenuimage"><span class="fas fa-tools fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_tools" href="/core/tools.php?mainmenu=tools&leftmenu=" title="Tools"><span class="mainmenuaspan">Tools</span></a></div></li>
+<li class="tmenuend" id="mainmenutd_"><div class="tmenucenter"></div></li>
+</ul></div>
+</div>
+<div class="login_block usedropdown">
+<div class="login_block_tools valignmiddle"><div class="inline-block nowrap" style="padding: 0px;"></div></div>
+<div class="login_block_other valignmiddle"><div class="inline-block"><div class="classfortooltip inline-block login_block_elem inline-block" style="padding: 0px; padding: 0px; padding-right: 2px;" title="Show page to print main content area"><a href="/index.php?mainmenu=home&token=6c1fc843d47d28a2ad5f500777f9ad50&actionlogin=login&loginfunction=loginfunction&username=admin&optioncss=print" target="_blank" rel="noopener noreferrer"><span class="fa fa-print atoplogin valignmiddle"></span></a></div></div><div class="inline-block"><div class="classfortooltip inline-block login_block_elem inline-block" style="padding: 0px; padding: 0px; padding-right: 2px;" title="Read online help (Internet access needed), &lt;br&gt;<span class=&quot;fas fa-external-link-alt pictofixedwidth&quot; style=&quot;&quot;></span>Wiki page &quot;User documentation&quot; <span class=&quot;opacitymedium&quot;>(Home Page)</span>"><a class="help" target="_blank" rel="noopener noreferrer" href="http://wiki.dolibarr.org/index.php/User_documentation"><span class="fa fa-question-circle atoplogin valignmiddle"></span><span class="fa fa-long-arrow-alt-up helppresentcircle unvisible"></span></a></div></div><div class="inline-block"><div class="classfortooltip inline-block login_block_elem inline-block" style="padding: 0px; padding: 0px; padding-right: 2px;" title="Dolibarr 23.0.0"><span class="aversion"><span class="hideonsmartphone small">23.0.0</span></span></div></div></div><div class="login_block_user"><div class="inline-block login_block_elem login_block_elem_name nowrap centpercent" style="padding: 0px;"><!-- div for user link -->
+	    <div id="topmenu-login-dropdown" class="userimg atoplogin dropdown user user-menu inline-block">
+	        <a href="/user/card.php?id=1" class="dropdown-toggle login-dropdown-a valignmiddle" data-toggle="dropdown">
+	            <span class="fas fa-user infobox-adherent photo photouserphoto userphoto" style=""></span><!-- no photo so show also the login --><span class="hidden-xs maxwidth200 atoploginusername hideonsmartphone paddingleft valignmiddle small">admin</span>
+	        </a>
+	        <div class="dropdown-menu">
+	            <!-- User image -->
+	            <div class="user-header">
+	                <img class="photo dropdown-user-image" alt="" src="/public/theme/common/user_anonymous.png" aria-hidden="true">
+	                <p>
+	                    <span class="fas fa-star opacitymedium" style="" title="System administrator"></span> SuperAdmin (admin)<br><small class="classfortooltip" title="Connected since : 03/25/2026 08:40 AM&lt;br&gt;Previous login : 03/25/2026 08:29 AM" ><i class="fa fa-user-clock"></i> 03/25/2026 08:40 AM</small><br><small class="classfortooltip" title="Connected since : 03/25/2026 08:40 AM&lt;br&gt;Previous login : 03/25/2026 08:29 AM" ><i class="fa fa-user-clock opacitymedium"></i> 03/25/2026 08:29 AM</small><br>
+	                </p>
+	            </div>
+
+	            <!-- Menu Body user-->
+	            <div class="user-body"><span id="topmenulogincompanyinfo-btn"><i class="fa fa-caret-right"></i> Show company infos</span><div id="topmenulogincompanyinfo" ><br><b>Company</b>: <span>Veleta test</span><br><b>Prof Id 1 (CIF/NIF)</b>: <span></span><br><b>Prof Id 2 (Social security number)</b>: <span></span><br><b>Prof Id 3 (CNAE)</b>: <span></span><br><b>Prof Id 4 (Collegiate number)</b>: <span></span><br><b>Prof Id 5 (EORI number)</b>: <span></span><br><b>Professional ID 6</b>: <span></span><br><b>VAT ID</b>: <span></span><br><b>Country</b>: <span>Spain <span class="flag-sprite us none" title="en_US"></span></span></div><br><span id="topmenuloginmoreinfo-btn"><i class="fa fa-caret-right"></i> Show More Infos</span><div id="topmenuloginmoreinfo" ><br><b>System administrator</b>: Yes <span class="fas fa-star opacitymedium" style=""></span><br><b>Type:</b> Internal<br><b>Status</b>: Enabled<br><br><u>Session</u><br><b>IP address</b>: 172.24.0.1<br><b>Authentication mode:</b> dolibarr<br><b>Connected since:</b> 03/25/2026 08:40 AM<br><b>Previous login:</b> 03/25/2026 08:29 AM<br><b>Current theme:</b> eldy<br><b>Current menu manager:</b> eldy<br><b>Current language:</b> en_US <span class="flag-sprite us none" title="en_US"></span><br><b>Client Time Zone (user):</b>  <span class="opacitymedium">()</span><br><b>Browser:</b> Unknown<span class="classfortooltiponclick valignmiddle" style="padding: 0px; padding: 0px; padding-right: 2px;" dolid="useragent"><div style="display: none;" id="idfortooltiponclick_useragent" class="classfortooltiponclicktext" title="Note">curl/7.88.1</div><span class="fas fa-info-circle  em088 opacityhigh" style=" vertical-align: middle; cursor: pointer" title="Click to show tooltip help"></span></span><br><b>Layout:</b> classic<br><b>Screen:</b>  x </div></div>
+
+	            <!-- Menu Footer-->
+	            <div class="user-footer">
+	                <div class="pull-left">
+	                    <a accesskey="u" href="/user/card.php?id=1" class="button-top-menu-dropdown" title="Your user file (Keyboard shortcut CTL + u)"><i class="fa fa-user"></i>  Card</a>
+	                </div>
+	                <div class="pull-left">
+	                    <!-- a link for button to open url into a dialog popup --><a  accesskey="v" class="cursorpointer reposition button_publicvirtualcardmenu button-top-menu-dropdown marginleftonly nohover" title="Virtual business card page URL - SuperAdmin (Keyboard shortcut CTL + v)" href="#" onclick="closeTopMenuLoginDropdown()"><span class="far fa-address-card" style="" title="Virtual business card page URL (Keyboard shortcut CTL + v)"></span></a><!-- code to open popup and variables to retrieve returned variables --><div id="idfordialogpublicvirtualcardmenu" class="hidden">div for dialog</div><!-- Add js code to open dialog popup on dialog --><script nonce="6bfbdfa5" type="text/javascript">
+					jQuery(document).ready(function () {
+						jQuery(".button_publicvirtualcardmenu").click(function () {
+							console.log('Open popup with jQuery(...).dialog() on URL /user/virtualcard.php?id=1&dol_hide_topmenu=1&dol_hide_leftmenu=1&dol_openinpopup=publicvirtualcardmenu');
+							var $tmpdialog = $('#idfordialogpublicvirtualcardmenu');
+							$tmpdialog.html('<iframe class="iframedialog" id="iframedialogpublicvirtualcardmenu" style="border: 0px;" src="/user/virtualcard.php?id=1&dol_hide_topmenu=1&dol_hide_leftmenu=1&dol_openinpopup=publicvirtualcardmenu" width="100%" height="98%"></iframe>');
+							$tmpdialog.dialog({
+								autoOpen: false,
+							 	modal: true,
+							 	height: (window.innerHeight - 150),
+							 	width: '80%',
+							 	title: 'Virtual business card page URL - SuperAdmin (Keyboard shortcut CTL + v)',
+								open: function (event, ui) {
+									console.log("open popup name=publicvirtualcardmenu");
+		   						},
+								close: function (event, ui) {
+									console.log("Popup is closed, run jsonclose = ");
+									
+								}
+							});
+
+							$tmpdialog.dialog('open');
+							return false;
+						});
+					});
+				</script>
+	                </div>
+	                <div class="pull-right">
+	                    <a accesskey="l" href="/user/logout.php?mainmenu=home&token=6c1fc843d47d28a2ad5f500777f9ad50" class="button-top-menu-dropdown" title="Logout (Keyboard shortcut CTL + l)"><i class="fa fa-sign-out-alt pictofixedwidth"></i><span class="hideonsmartphone">Logout</span></a>
+	                </div>
+	                <div class="clearboth"></div>
+	            </div>
+
+	        </div>
+	    </div>
+        <!-- Code to show/hide the user drop-down -->
+        <script>
+		function closeTopMenuLoginDropdown() {
+			console.log("close login dropdown");	// This is called at each click on page, so we disable the log
+			// Hide the menus.
+            jQuery("#topmenu-login-dropdown").removeClass("open");
+		}
+        jQuery(document).ready(function() {
+            jQuery(document).on("click", function(event) {
+				if (jQuery("#topmenu-login-dropdown").hasClass("open")) {
+	                if (!$(event.target).closest("#topmenu-login-dropdown").length) {
+						/* console.log("click close login - we click outside"); */
+						closeTopMenuLoginDropdown();
+	                }
+				}
+            });
+		
+	            jQuery("#topmenu-login-dropdown .dropdown-toggle").on("click", function(event) {
+					console.log("Click on #topmenu-login-dropdown .dropdown-toggle");
+					event.preventDefault();
+	                jQuery("#topmenu-login-dropdown").toggleClass("open");
+	            });
+
+	            jQuery("#topmenulogincompanyinfo-btn").on("click", function() {
+					console.log("Click on #topmenulogincompanyinfo-btn");
+					if (!jQuery("#topmenuloginmoreinfo").is(':hidden')) {
+	                	jQuery("#topmenuloginmoreinfo").slideToggle();
+					}
+	                jQuery("#topmenulogincompanyinfo").slideToggle();
+	            });
+
+	            jQuery("#topmenuloginmoreinfo-btn").on("click", function() {
+					console.log("Click on #topmenuloginmoreinfo-btn");
+					if (!jQuery("#topmenulogincompanyinfo").is(':hidden')) {
+		                jQuery("#topmenulogincompanyinfo").slideToggle();
+					}
+	                jQuery("#topmenuloginmoreinfo").slideToggle();
+	            });
+        });
+        </script>
+        </div></div>
+</div>
+</header><div style="clear: both;"></div><!-- End top horizontal menu -->
+
+<!-- Begin div id-container --><div id="id-container" class="id-container">
+<!-- Begin side-nav id-left -->
+<div class="side-nav"><div id="id-left">
+
+<!-- Begin left menu -->
+<div class="vmenu">
+
+
+<!-- Begin SearchForm -->
+<div id="blockvmenusearch" class="blockvmenusearch">
+<select type="text" title="Keyboard shortcut CTL + s" id="searchselectcombo" class="searchselectcombo vmenusearchselectcombo" accesskey="s" name="searchselectcombo"><option></option></select><script>
+				jQuery(document).keydown(function(e){
+					if( e.which === 70 && e.ctrlKey && e.shiftKey ){
+						console.log('control + shift + f : trigger open global-search dropdown');
+		                openGlobalSearchDropDown();
+		            }
+		            if( (e.which === 83 || e.which === 115) && e.altKey ){
+		                console.log('alt + s : trigger open global-search dropdown');
+		                openGlobalSearchDropDown();
+		            }
+		        });
+
+		        var openGlobalSearchDropDown = function() {
+		            jQuery("#searchselectcombo").select2('open');
+		        }
+			</script></div>
+<!-- End SearchForm -->
+<div class="blockvmenu blockvmenupair blockvmenufirst">
+<!-- Process menu entry with mainmenu=home, leftmenu=home, level=0 enabled=1, position=0 positionfull=0.1 -->
+<div class="menu_titre"><a class="vmenu" title="My Dashboard" href="/index.php?mainmenu=home&leftmenu=home"><i class="fas fa-chart-bar fa-fw paddingright pictofixedwidth"></i>My Dashboard</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenu blockvmenuimpair">
+<!-- Process menu entry with mainmenu=home, leftmenu=setup, level=0 enabled=1, position=0 positionfull=0.2 -->
+<div class="menu_titre"><a class="vmenu" title="Setup" href="/admin/index.php?mainmenu=home&leftmenu=setup"><i class="fa fa-tools fa-fw paddingright pictofixedwidth"></i>Setup</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenu blockvmenupair">
+<!-- Process menu entry with mainmenu=home, leftmenu=admintools, level=0 enabled=1, position=0 positionfull=0.3 -->
+<div class="menu_titre"><a class="vmenu" title="Admin Tools" href="/admin/tools/index.php?mainmenu=home&leftmenu=admintools"><i class="fa fa-server fa-fw paddingright pictofixedwidth"></i>Admin Tools</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenu blockvmenuimpair blockvmenulast">
+<!-- Process menu entry with mainmenu=home, leftmenu=users, level=0 enabled=1, position=0 positionfull=0.4 -->
+<div class="menu_titre"><a class="vmenu" title="Users &amp; Groups" href="/user/home.php?leftmenu=users&mainmenu=home"><span class="fas fa-user infobox-adherent paddingright pictofixedwidth" style=""></span>Users &amp; Groups</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenuend"></div></div>
+<!-- End left menu -->
+
+</div></div> <!-- End side-nav id-left -->
+<!-- Begin right area -->
+<div id="id-right">
+<!-- Begin div class="fiche" -->
+<div class="fiche">
+
+<table class="centpercent notopnoleftnoright table-fiche-title titleforhome"><tr class="toptitle"><td class="nobordernopadding valignmiddle col-title"><div class="titre inline-block"><span class="inline-block valignmiddle">&nbsp;</span></div></td><td class="nobordernopadding titre_right wordbreakimp right valignmiddle col-right"><script nonce="6bfbdfa5" type="text/javascript">
+
+	        // To update list of activated boxes
+	        function updateBoxOrder(closing) {
+	        	var left_list = cleanSerialize(jQuery("#boxhalfleft").sortable("serialize"));
+	        	var right_list = cleanSerialize(jQuery("#boxhalfright").sortable("serialize"));
+	        	var boxorder = 'A:' + left_list + '-B:' + right_list;
+	        	if (boxorder=='A:A-B:B' && closing == 1)	// There is no more boxes on screen, and we are after a delete of a box so we must hide title
+	        	{
+	        		jQuery.ajax({
+	        			url: '/core/ajax/box.php?closing=1&boxorder='+boxorder+'&zone=0&userid='+1,
+	        			async: false
+	        		});
+	        		// We force reload to be sure to get all boxes into list
+	        		window.location.search='mainmenu=home&leftmenu=&action=delbox&token=6c1fc843d47d28a2ad5f500777f9ad50';
+	        	}
+	        	else
+	        	{
+	        		jQuery.ajax({
+	        			url: '/core/ajax/box.php?closing='+closing+'&boxorder='+boxorder+'&zone=0&userid='+1,
+	        			async: true
+	        		});
+	        	}
+	        }
+
+	        jQuery(document).ready(function() {
+	        	jQuery("#boxcombo").change(function() {
+	        	var boxid=jQuery("#boxcombo").val();
+	        		if (boxid > 0) {
+						console.log("A box widget has been selected for addition, we call ajax page to add it.")
+	            		var left_list = cleanSerialize(jQuery("#boxhalfleft").sortable("serialize"));
+	            		var right_list = cleanSerialize(jQuery("#boxhalfright").sortable("serialize"));
+	            		var boxorder = 'A:' + left_list + '-B:' + right_list;
+	    				jQuery.ajax({
+	    					url: '/core/ajax/box.php?boxorder='+boxorder+'&boxid='+boxid+'&zone=0&userid=1'
+	    		        }).done(function() {
+	        				window.location.search='mainmenu=home&leftmenu=';
+						});
+	                }
+	        	});jQuery("#boxcombo").hide();
+
+	        	jQuery("#boxhalfleft, #boxhalfright").sortable({
+	    	    	handle: '.boxhandle',
+	    	    	revert: 'invalid',
+	       			items: '.boxdraggable',
+					containment: 'document',
+	        		connectWith: '#boxhalfleft, #boxhalfright',
+	        		stop: function(event, ui) {
+		        		console.log("We moved box so we call updateBoxOrder with ajax actions");
+	        			updateBoxOrder(1);  /* 1 to avoid message after a move */
+	        		}
+	    		});
+
+	        	jQuery(".boxclose").click(function() {
+	        		var self = this;	// because JQuery can modify this
+	        		var boxid = self.id.substring(8);
+					if (boxid > 0) {
+		        		var label = jQuery('#boxlabelentry'+boxid).val();
+		        		console.log("We close box "+boxid);
+	    	    		jQuery('#boxto_'+boxid).remove();
+	        			jQuery('#boxcombo').append(new Option(label, boxid));
+	        			updateBoxOrder(1);  /* 1 to avoid message after a remove */
+					}
+	        	});
+
+        	});
+</script>
+</td></tr></table>
+<div class="fichecenter"><div class="opened-dash-board-wrap"><div class="box-flex-container"><div class="box-flex-item "><div class="box-flex-item-with-margin">
+	<div class="info-box  info-box-weather info-box-weather-level0">
+		<span class="info-box-icon"><i class="fa fa-weather-level0"></i>       </span>
+		<div class="info-box-content">
+			<div class="info-box-title">Global view</div>
+			<span class="info-box-number">0 late</span>
+		</div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-propal">
+		<i class="fa fa-dol-propal"></i>
+		<a href="/comm/propal/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Commercial proposals">Commercial proposals</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/comm/propal/list.php?search_status=1&mainmenu=commercial&leftmenu=propals" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Commercial proposals to close">To accept | refuse</div></a><div class="inline-block nowraponall"><a href="/comm/propal/list.php?search_status=1&mainmenu=commercial&leftmenu=propals" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Commercial proposals to close (0)">0</span></a></div>
+</div>
+<div class="info-box-line spanoverflow nowrap"><a href="/comm/propal/list.php?search_status=2&mainmenu=commercial&leftmenu=propals" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Signed commercial proposals to bill">To bill</div></a><div class="inline-block nowraponall"><a href="/comm/propal/list.php?search_status=2&mainmenu=commercial&leftmenu=propals" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Signed commercial proposals to bill (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-commande">
+		<i class="fa fa-dol-commande"></i>
+		<a href="/commande/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Orders">Orders</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/commande/list.php?search_status=-2&mainmenu=commercial&leftmenu=orders" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Sales orders to process">Open</div></a><div class="inline-block nowraponall"><a href="/commande/list.php?search_status=-2&mainmenu=commercial&leftmenu=orders" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Sales orders to process (0)">0</span></a></div>
+</div>
+<div class="info-box-line spanoverflow nowrap"><a href="/commande/list.php?search_status=3&search_billed=0&mainmenu=commercial&leftmenu=orders" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Sales orders delivered">Delivered and To bill</div></a><div class="inline-block nowraponall"><a href="/commande/list.php?search_status=3&search_billed=0&mainmenu=commercial&leftmenu=orders" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Sales orders delivered (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-facture">
+		<i class="fa fa-dol-facture"></i>
+		<a href="/compta/facture/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Invoices">Invoices</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/compta/facture/list.php?search_status=1&mainmenu=billing&leftmenu=customers_bills" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Unpaid customer invoices">Unpaid</div></a><div class="inline-block nowraponall"><a href="/compta/facture/list.php?search_status=1&mainmenu=billing&leftmenu=customers_bills" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Unpaid customer invoices (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-supplier_proposal">
+		<i class="fa fa-dol-supplier_proposal"></i>
+		<a href="/supplier_proposal/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Vendor proposals">Vendor proposals</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/supplier_proposal/list.php?search_status=1" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Vendor proposals to close">To accept | refuse</div></a><div class="inline-block nowraponall"><a href="/supplier_proposal/list.php?search_status=1" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Vendor proposals to close (0)">0</span></a></div>
+</div>
+<div class="info-box-line spanoverflow nowrap"><a href="/supplier_proposal/list.php?search_status=2" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Vendor proposals to process">To close</div></a><div class="inline-block nowraponall"><a href="/supplier_proposal/list.php?search_status=2" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Vendor proposals to process (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-order_supplier">
+		<i class="fa fa-dol-order_supplier"></i>
+		<a href="/fourn/commande/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Purchase orders">Purchase orders</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/fourn/commande/list.php?search_status=1,2&mainmenu=commercial&leftmenu=orders_suppliers" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Purchase orders to process">Open</div></a><div class="inline-block nowraponall"><a href="/fourn/commande/list.php?search_status=1,2&mainmenu=commercial&leftmenu=orders_suppliers" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Purchase orders to process (0)">0</span></a></div>
+</div>
+<div class="info-box-line spanoverflow nowrap"><a href="/fourn/commande/list.php?search_status=3,4&mainmenu=commercial&leftmenu=orders_suppliers" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Purchase orders awaiting reception">Awaiting reception</div></a><div class="inline-block nowraponall"><a href="/fourn/commande/list.php?search_status=3,4&mainmenu=commercial&leftmenu=orders_suppliers" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Purchase orders awaiting reception (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-invoice_supplier">
+		<i class="fa fa-dol-invoice_supplier"></i>
+		<a href="/fourn/facture/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Vendor invoices">Vendor invoices</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/fourn/facture/list.php?search_status=1&mainmenu=billing&leftmenu=suppliers_bills" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Unpaid vendor invoices">To pay</div></a><div class="inline-block nowraponall"><a href="/fourn/facture/list.php?search_status=1&mainmenu=billing&leftmenu=suppliers_bills" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Unpaid vendor invoices (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-member">
+		<i class="fa fa-dol-member"></i>
+		<a href="/adherents/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Members">Members</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/adherents/list.php?mainmenu=members&statut=-1" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="List of draft members (to be validated)">To validate</div></a><div class="inline-block nowraponall"><a href="/adherents/list.php?mainmenu=members&statut=-1" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="List of draft members (to be validated) (0)">0</span></a></div>
+</div>
+<div class="info-box-line spanoverflow nowrap"><a href="/adherents/list.php?mainmenu=members&statut=1&filter=outofdate" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Members with contribution to receive">Contributions to receive</div></a><div class="inline-block nowraponall"><a href="/adherents/list.php?mainmenu=members&statut=1&filter=outofdate" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Members with contribution to receive (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item"><div class="box-flex-item-with-margin">
+	<div class="info-box  infobox-haslink">
+		<span class="info-box-icon bg-infobox-holiday">
+		<i class="fa fa-dol-holiday"></i>
+		<a href="/holiday/card.php?action=create" class="info-box-createlink"><span class="fas fa-plus-circle"></span></a>
+</span>
+<div class="info-box-content">
+<div class="info-box-title" title="Leaves">Leaves</div>
+<div class="info-box-lines">
+<div class="info-box-line spanoverflow nowrap"><a href="/holiday/list.php?search_status=2&amp;mainmenu=hrm&amp;leftmenu=holiday" class="info-box-text info-box-text-a"><div class="marginrightonly inline-block valignmiddle info-box-line-text" title="Holidays to approve">To approve</div></a><div class="inline-block nowraponall"><a href="/holiday/list.php?search_status=2&amp;mainmenu=hrm&amp;leftmenu=holiday" class="info-box-text info-box-text-a"><span class="classfortooltip opacitymedium" title="Holidays to approve (0)">0</span></a></div>
+</div>
+		</div><!-- /.info-box-lines --></div><!-- /.info-box-content -->
+	</div><!-- /.info-box -->
+</div><!-- /.box-flex-item-with-margin -->
+</div><!-- /.box-flex-item -->
+
+<div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div><div class="box-flex-item filler"></div></div></div></div><div class="clearboth"></div><div class="fichecenter fichecenterbis"><div class="twocolumns"><div class="firstcolumn fichehalfleft boxhalfleft" id="boxhalfleft">
+<!-- Box left container -->
+
+<!-- Box box_lastlogin start -->
+<div class="box divboxtable boxdraggable" id="boxto_1">
+<table summary="boxtable1" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th colspan="2" title="Login Information"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Login Information</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose1"></span><input type="hidden" id="boxlabelentry1" value="Login Information"></div></th></tr>
+<tr class="oddeven"><td class="tdoverflowmax150 maxwidth150onsmartphone">
+User</td>
+<td class="tdoverflowmax150 maxwidth150onsmartphone">
+<a href="/user/card.php?id=1&mainmenu=home" title="tocomplete" data-params="{&quot;id&quot;:&quot;1&quot;,&quot;objecttype&quot;:&quot;user&quot;,&quot;infologin&quot;:0,&quot;option&quot;:&quot;&quot;,&quot;hidethirdpartylogo&quot;:0}" class="classforajaxtooltip"><!-- picto photo user --><span class="nopadding userimg" style="margin-right: 3px;"><img class="photouserphoto userphoto" alt=""  src="/public/theme/common/user_anonymous.png"></span><span class="nopadding usertext">SuperAdmin</span></a></td>
+</tr>
+<tr class="oddeven"><td>
+Previous login</td>
+<td>
+03/25/2026 08:29 AM - <span class="opacitymedium">From IP 80.103.191.28</span></td>
+</tr>
+<tr class="oddeven"><td>
+Last password change</td>
+<td>
+<span class="opacitymedium">Unknown</span></td>
+</tr>
+</table>
+</div>
+<!-- Box box_lastlogin end -->
+
+
+<!-- Box box_fournisseurs start -->
+<div class="box divboxtable boxdraggable" id="boxto_22">
+<table summary="boxtable22" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Vendors: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Vendors: last 3 modified<a class="paddingleft" href="/societe/list.php?type=f&sortfield=s.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose22"></span><input type="hidden" id="boxlabelentry22" value="Vendors: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No vendor recorded </span><a href="/societe/card.php?action=create&type=f"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_fournisseurs end -->
+
+
+<!-- Box box_factures_fourn_imp start -->
+<div class="box divboxtable boxdraggable" id="boxto_23">
+<table summary="boxtable23" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Vendor Invoices: oldest 3 unpai&hellip;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Vendor Invoices: oldest 3 unpai…</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose23"></span><input type="hidden" id="boxlabelentry23" value="Vendor Invoices: oldest 3 unpaid&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven"><td class="center" colspan="3">
+<span class="opacitymedium">No unpaid vendor invoices</span></td>
+</tr>
+</table>
+</div>
+<!-- Box box_factures_fourn_imp end -->
+
+
+<!-- Box box_factures_fourn start -->
+<div class="box divboxtable boxdraggable" id="boxto_24">
+<table summary="boxtable24" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Vendor Invoices: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Vendor Invoices: last 3 modified<a class="paddingleft" href="/fourn/facture/list.php?sortfield=f.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose24"></span><input type="hidden" id="boxlabelentry24" value="Vendor Invoices: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No vendor invoices recorded </span><a href="/fourn/facture/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_factures_fourn end -->
+
+
+<!-- Box box_supplier_orders start -->
+<div class="box divboxtable boxdraggable" id="boxto_25">
+<table summary="boxtable25" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Vendor Orders: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Vendor Orders: last 3 modified<a class="paddingleft" href="/fourn/commande/list.php?sortfield=cf.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose25"></span><input type="hidden" id="boxlabelentry25" value="Vendor Orders: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No purchase order recorded </span><a href="/fourn/commande/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_supplier_orders end -->
+
+
+<!-- Box box_supplier_orders_awaiting_reception start -->
+<div class="box divboxtable boxdraggable" id="boxto_26">
+<table summary="boxtable26" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Supplier orders awaiting reception"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Supplier orders awaiting reception</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose26"></span><input type="hidden" id="boxlabelentry26" value="Supplier orders awaiting reception"></div></th></tr>
+<tr class="oddeven"><td class="center">
+<span class="opacitymedium">No purchase order recorded</span></td>
+</tr>
+</table>
+</div>
+<!-- Box box_supplier_orders_awaiting_reception end -->
+
+
+<!-- Box box_factures_imp start -->
+<div class="box divboxtable boxdraggable" id="boxto_27">
+<table summary="boxtable27" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Customer Invoices: oldest 3 unpai&hellip;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Customer Invoices: oldest 3 unpai…</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose27"></span><input type="hidden" id="boxlabelentry27" value="Customer Invoices: oldest 3 unpaid&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No unpaid customer invoices </span><a href="/compta/facture/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_factures_imp end -->
+
+
+<!-- Box box_factures start -->
+<div class="box divboxtable boxdraggable" id="boxto_28">
+<table summary="boxtable28" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Customer Invoices: last 3 modified&hellip;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Customer Invoices: last 3 modified…</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose28"></span><input type="hidden" id="boxlabelentry28" value="Customer Invoices: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No customer invoices recorded </span><a href="/compta/facture/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_factures end -->
+
+
+<!-- Box box_graph_invoices_permonth start -->
+<div class="box divboxtable boxdraggable" id="boxto_29">
+<table summary="boxtable29" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Customer Invoices per month"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Customer Invoices per month</div><div class="nocellnopadd boxclose floatright nowraponall"><img src="/theme/eldy/img/filter.png" alt="" title="Filter" class="opacitymedium marginleftonly linkobject boxfilter" id="idsubimginvoicespermonth"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose29"></span><input type="hidden" id="boxlabelentry29" value="Customer Invoices per month &lt;span class=&quot;opacitymedium fas fa-chart-bar&quot;&gt;&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven nohover"><td class="nohover center">
+
+<script nonce="6bfbdfa5" type="text/javascript">
+					jQuery(document).ready(function() {
+						jQuery("#idsubimginvoicespermonth").click(function() {
+							jQuery("#idfilterinvoicespermonth").toggle();
+						});
+					});
+					</script><div class="center hideobject" id="idfilterinvoicespermonth"><form class="flat formboxfilter" method="POST" action="/index.php?mainmenu=home"><input type="hidden" name="token" value="6c1fc843d47d28a2ad5f500777f9ad50"><input type="hidden" name="action" value="refresh_invoicespermonth"><input type="hidden" name="page_y" value=""><input type="hidden" name="DOL_AUTOSET_COOKIE" value="DOLUSER_box_invoicespermonth:year,shownb,showtot"><input type="checkbox" id="DOLUSER_box_invoicespermonth_shownb" name="DOLUSER_box_invoicespermonth_shownb" checked><label for="DOLUSER_box_invoicespermonth_shownb"> No. of invoices per month</label> &nbsp; <input type="checkbox" id="DOLUSER_box_invoicespermonth_showtot" name="DOLUSER_box_invoicespermonth_showtot" checked><label for="DOLUSER_box_invoicespermonth_showtot"> Amount of invoices by month (net of tax)</label><br>Year <input class="flat" size="4" type="text" name="DOLUSER_box_invoicespermonth_year" value="2026"><input type="image" class="reposition inline-block valigntextbottom" alt="Refresh" src="/theme/eldy/img/refresh.png"></form></div><div class="fichecenter"><div class="fichehalfleft"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">No. of invoices per month</div><div id="placeholder_invoicesnbinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_invoicesnbinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="invoicesnbinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_invoicesnbinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div><div class="fichehalfright"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Amount of invoices by month (net of tax)</div><div id="placeholder_invoicesamountinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_invoicesamountinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="invoicesamountinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_invoicesamountinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div></div>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_graph_invoices_permonth end -->
+
+
+<!-- Box box_customers_outstanding_bill_reached start -->
+<div class="box divboxtable boxdraggable" id="boxto_30">
+<table summary="boxtable30" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Customers with maximum outstanding exceeded"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Customers with maximum outstanding exceeded</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose30"></span><input type="hidden" id="boxlabelentry30" value="Customers with maximum outstanding exceeded"></div></th></tr>
+<tr class="oddeven"><td class="center">
+<span class="opacitymedium">None</span></td>
+</tr>
+</table>
+</div>
+<!-- Box box_customers_outstanding_bill_reached end -->
+
+
+<!-- Box box_produits start -->
+<div class="box divboxtable boxdraggable" id="boxto_31">
+<table summary="boxtable31" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Products/Services: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Products/Services: last 3 modified<a class="paddingleft" href="/product/list.php?sortfield=p.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose31"></span><input type="hidden" id="boxlabelentry31" value="Products/Services: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No products/services recorded </span><a href="/product/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_produits end -->
+
+
+<!-- Box box_graph_product_distribution start -->
+<div class="box divboxtable boxdraggable" id="boxto_33">
+<table summary="boxtable33" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Products/Services Distribution - Year: 2026"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Products/Services Distribution - Year: 2026</div><div class="nocellnopadd boxclose floatright nowraponall"><img src="/theme/eldy/img/filter.png" alt="" title="Filter" class="opacitymedium marginleftonly linkobject boxfilter" id="idsubimgproductdistribution"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose33"></span><input type="hidden" id="boxlabelentry33" value="Products/Services Distribution - Year: 2026 &lt;span class=&quot;opacitymedium fas fa-chart-bar&quot;&gt;&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven nohover"><td class="nohover center">
+
+<script nonce="6bfbdfa5" type="text/javascript">
+				jQuery(document).ready(function() {
+					jQuery("#idsubimgproductdistribution").click(function() {
+						jQuery("#idfilterproductdistribution").toggle();
+					});
+				});
+			</script><div class="center hideobject" id="idfilterproductdistribution"><form class="flat formboxfilter" method="POST" action="/index.php?mainmenu=home"><input type="hidden" name="token" value="6c1fc843d47d28a2ad5f500777f9ad50"><input type="hidden" name="action" value="refresh_productdistribution"><input type="hidden" name="page_y" value=""><input type="hidden" name="DOL_AUTOSET_COOKIE" value="DOLUSER_box_productdistribution:year,showinvoicenb,showpropalnb,showordernb"><input type="checkbox" name="DOLUSER_box_productdistribution_showpropalnb" checked> Proposals&nbsp;<input type="checkbox" name="DOLUSER_box_productdistribution_showordernb" checked> Customers orders<input type="checkbox" name="DOLUSER_box_productdistribution_showinvoicenb" checked> Customers invoices &nbsp; <br>Year <input class="flat" size="4" type="text" name="DOLUSER_box_productdistribution_year" value="2026"><input type="image" class="reposition inline-block valigntextbottom" alt="Refresh" src="/theme/eldy/img/refresh.png"></form></div><div class="fichecenter"><div class="containercenter"><div class="fichehalfleft"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">On Commercial proposals</div><div id="placeholder_prodserforpropal_2026_png" style="min-height: 150px; max-height: 250px; width:300px;" class="dolgraphchart dolgraphcharpie dolgraph dolgraphcssboxes center">
+<canvas id="canvas_prodserforpropal_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="prodserforpropal_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, legend: { labels: { boxWidth: 15 }, position: 'right' }, 
+plugins: { legend: { labels: { boxWidth: 15 }, position: 'right' }, 
+ }, 
+elements: { arc: {
+backgroundColor: ['rgb(220, 220, 220)'], 
+} } };
+
+				var ctx = document.getElementById("canvas_prodserforpropal_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'doughnut',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['None'],
+					datasets: [{
+  data: [1]}
+]
+}
+});
+</script>
+</div><div class="fichehalfright"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">On Orders</div><div id="placeholder_prodserfororder_2026_png" style="min-height: 150px; max-height: 250px; width:300px;" class="dolgraphchart dolgraphcharpie dolgraph dolgraphcssboxes center">
+<canvas id="canvas_prodserfororder_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="prodserfororder_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, legend: { labels: { boxWidth: 15 }, position: 'right' }, 
+plugins: { legend: { labels: { boxWidth: 15 }, position: 'right' }, 
+ }, 
+elements: { arc: {
+backgroundColor: ['rgb(220, 220, 220)'], 
+} } };
+
+				var ctx = document.getElementById("canvas_prodserfororder_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'doughnut',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['None'],
+					datasets: [{
+  data: [1]}
+]
+}
+});
+</script>
+</div></div></div><div class="fichecenter"><div class="containercenter"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">On Invoices</div><div id="placeholder_prodserforinvoice_2026_png" style="min-height: 150px; max-height: 250px; width:300px;" class="dolgraphchart dolgraphcharpie dolgraph dolgraphcssboxes center">
+<canvas id="canvas_prodserforinvoice_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="prodserforinvoice_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, legend: { labels: { boxWidth: 15 }, position: 'right' }, 
+plugins: { legend: { labels: { boxWidth: 15 }, position: 'right' }, 
+ }, 
+elements: { arc: {
+backgroundColor: ['rgb(220, 220, 220)'], 
+} } };
+
+				var ctx = document.getElementById("canvas_prodserforinvoice_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'doughnut',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['None'],
+					datasets: [{
+  data: [1]}
+]
+}
+});
+</script>
+</div></div>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_graph_product_distribution end -->
+
+
+<!-- Box ModeleBoxes start -->
+<div class="box divboxtable boxdraggable" id="boxto_A">
+<br>
+</div>
+<!-- Box ModeleBoxes end -->
+
+<!-- End box left container -->
+</div><div class="secondcolumn fichehalfright boxhalfright" id="boxhalfright">
+<!-- Box right container -->
+
+<!-- Box box_graph_orders_supplier_permonth start -->
+<div class="box divboxtable boxdraggable" id="boxto_21">
+<table summary="boxtable21" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Vendor Orders per month"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Vendor Orders per month</div><div class="nocellnopadd boxclose floatright nowraponall"><img src="/theme/eldy/img/filter.png" alt="" title="Filter" class="opacitymedium marginleftonly linkobject boxfilter" id="idsubimgorderssupplierpermonth"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose21"></span><input type="hidden" id="boxlabelentry21" value="Vendor Orders per month &lt;span class=&quot;opacitymedium fas fa-chart-bar&quot;&gt;&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven nohover"><td class="nohover center">
+
+<script nonce="6bfbdfa5" type="text/javascript">
+					jQuery(document).ready(function() {
+						jQuery("#idsubimgorderssupplierpermonth").click(function() {
+							jQuery("#idfilterorderssupplierpermonth").toggle();
+						});
+					});
+					</script><div class="center hideobject" id="idfilterorderssupplierpermonth"><form class="flat formboxfilter" method="POST" action="/index.php?mainmenu=home"><input type="hidden" name="token" value="6c1fc843d47d28a2ad5f500777f9ad50"><input type="hidden" name="action" value="refresh_orderssupplierpermonth"><input type="hidden" name="page_y" value=""><input type="hidden" name="DOL_AUTOSET_COOKIE" value="DOLUSER_box_orderssupplierpermonth:year,shownb,showtot"><input type="checkbox" id="DOLUSER_box_orderssupplierpermonth_shownb" name="DOLUSER_box_orderssupplierpermonth_shownb" checked><label for="DOLUSER_box_orderssupplierpermonth_shownb"> Number of orders by month</label> &nbsp; <input type="checkbox" id="DOLUSER_box_orderssupplierpermonth_showtot" name="DOLUSER_box_orderssupplierpermonth_showtot" checked><label for="DOLUSER_box_orderssupplierpermonth_showtot"> Amount of orders by month (excl. tax)</label><br>Year <input class="flat" size="4" type="text" name="DOLUSER_box_orderssupplierpermonth_year" value="2026"><input type="image" class="reposition inline-block valigntextbottom" alt="Refresh" src="/theme/eldy/img/refresh.png"></form></div><div class="fichecenter"><div class="fichehalfleft"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Number of orders by month</div><div id="placeholder_orderssuppliernbinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_orderssuppliernbinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="orderssuppliernbinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_orderssuppliernbinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div><div class="fichehalfright"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Amount of orders by month (excl. tax)</div><div id="placeholder_orderssupplieramountinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_orderssupplieramountinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="orderssupplieramountinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_orderssupplieramountinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div></div>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_graph_orders_supplier_permonth end -->
+
+
+<!-- Box box_graph_invoices_supplier_permonth start -->
+<div class="box divboxtable boxdraggable" id="boxto_20">
+<table summary="boxtable20" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Vendor Invoices per month"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Vendor Invoices per month</div><div class="nocellnopadd boxclose floatright nowraponall"><img src="/theme/eldy/img/filter.png" alt="" title="Filter" class="opacitymedium marginleftonly linkobject boxfilter" id="idsubimginvoicessupplierpermonth"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose20"></span><input type="hidden" id="boxlabelentry20" value="Vendor Invoices per month &lt;span class=&quot;opacitymedium fas fa-chart-bar&quot;&gt;&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven nohover"><td class="nohover center">
+
+<script nonce="6bfbdfa5" type="text/javascript">
+					jQuery(document).ready(function() {
+						jQuery("#idsubimginvoicessupplierpermonth").click(function() {
+							jQuery("#idfilterinvoicessupplierpermonth").toggle();
+						});
+					});
+					</script><div class="center hideobject" id="idfilterinvoicessupplierpermonth"><form class="flat formboxfilter" method="POST" action="/index.php?mainmenu=home"><input type="hidden" name="token" value="6c1fc843d47d28a2ad5f500777f9ad50"><input type="hidden" name="action" value="refresh_invoicessupplierpermonth"><input type="hidden" name="page_y" value=""><input type="hidden" name="DOL_AUTOSET_COOKIE" value="DOLUSER_box_invoicessupplierpermonth:year,shownb,showtot"><input type="checkbox" id="DOLUSER_box_invoicessupplierpermonth_shownb" name="DOLUSER_box_invoicessupplierpermonth_shownb" checked><label for="DOLUSER_box_invoicessupplierpermonth_shownb"> No. of invoices per month</label> &nbsp; <input type="checkbox" id="DOLUSER_box_invoicessupplierpermonth_showtot" name="DOLUSER_box_invoicessupplierpermonth_showtot" checked><label for="DOLUSER_box_invoicessupplierpermonth_showtot"> Amount of invoices by month (net of tax)</label><br>Year <input class="flat" size="4" type="text" name="DOLUSER_box_invoicessupplierpermonth_year" value="2026"><input type="image" class="reposition inline-block valigntextbottom" alt="Refresh" src="/theme/eldy/img/refresh.png"></form></div><div class="fichecenter"><div class="fichehalfleft"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">No. of invoices per month</div><div id="placeholder_invoicessuppliernbinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_invoicessuppliernbinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="invoicessuppliernbinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_invoicessuppliernbinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div><div class="fichehalfright"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Amount of invoices by month (net of tax)</div><div id="placeholder_invoicessupplieramountinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_invoicessupplieramountinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="invoicessupplieramountinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_invoicessupplieramountinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div></div>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_graph_invoices_supplier_permonth end -->
+
+
+<!-- Box box_graph_orders_permonth start -->
+<div class="box divboxtable boxdraggable" id="boxto_19">
+<table summary="boxtable19" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Sales Orders per month"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Sales Orders per month</div><div class="nocellnopadd boxclose floatright nowraponall"><img src="/theme/eldy/img/filter.png" alt="" title="Filter" class="opacitymedium marginleftonly linkobject boxfilter" id="idsubimgorderspermonth"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose19"></span><input type="hidden" id="boxlabelentry19" value="Sales Orders per month &lt;span class=&quot;opacitymedium fas fa-chart-bar&quot;&gt;&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven nohover"><td class="nohover center">
+
+<script nonce="6bfbdfa5" type="text/javascript">
+					jQuery(document).ready(function() {
+						jQuery("#idsubimgorderspermonth").click(function() {
+							jQuery("#idfilterorderspermonth").toggle();
+						});
+					});
+					</script><div class="center hideobject" id="idfilterorderspermonth"><form class="flat formboxfilter" method="POST" action="/index.php?mainmenu=home"><input type="hidden" name="token" value="6c1fc843d47d28a2ad5f500777f9ad50"><input type="hidden" name="action" value="refresh_orderspermonth"><input type="hidden" name="page_y" value=""><input type="hidden" name="DOL_AUTOSET_COOKIE" value="DOLUSER_box_orderspermonth:year,shownb,showtot"><input type="checkbox" id="DOLUSER_box_orderspermonth_shownb" name="DOLUSER_box_orderspermonth_shownb" checked><label for="DOLUSER_box_orderspermonth_shownb"> Number of orders by month</label> &nbsp; <input type="checkbox" id="DOLUSER_box_orderspermonth_showtot" name="DOLUSER_box_orderspermonth_showtot" checked><label for="DOLUSER_box_orderspermonth_showtot"> Amount of orders by month (excl. tax)</label><br>Year <input class="flat" size="4" type="text" name="DOLUSER_box_orderspermonth_year" value="2026"><input type="image" class="reposition inline-block valigntextbottom" alt="Refresh" src="/theme/eldy/img/refresh.png"></form></div><div class="fichecenter"><div class="fichehalfleft"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Number of orders by month</div><div id="placeholder_ordersnbinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_ordersnbinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="ordersnbinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_ordersnbinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div><div class="fichehalfright"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Amount of orders by month (excl. tax)</div><div id="placeholder_ordersamountinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraph dolgraphcssboxes center">
+<canvas id="canvas_ordersamountinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="ordersamountinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_ordersamountinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div></div>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_graph_orders_permonth end -->
+
+
+<!-- Box box_birthdays start -->
+<div class="box divboxtable boxdraggable" id="boxto_2">
+<table summary="boxtable2" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Birthdays of this month (users)"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Birthdays of this month (users)</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose2"></span><input type="hidden" id="boxlabelentry2" value="Birthdays of this month (users)"></div></th></tr>
+<tr class="oddeven"><td class="center">
+<span class="opacitymedium">None</span></td>
+</tr>
+</table>
+</div>
+<!-- Box box_birthdays end -->
+
+
+<!-- Box box_dolibarr_state_board start -->
+<div class="box divboxtable boxdraggable" id="boxto_3">
+<table summary="boxtable3" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Database Statistics"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Database Statistics</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose3"></span><input type="hidden" id="boxlabelentry3" value="Database Statistics"></div></th></tr>
+<tr class="nohover"><td class="tdwidgetstate center">
+
+<a href="/user/list.php" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Users">Users</span><br><span class="boxstatsindicator"><span class="fas fa-user infobox-adherent inline-block" style=""></span> 1</span></div></a><a href="/adherents/list.php?statut=1&mainmenu=members" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Members">Members</span><br><span class="boxstatsindicator"><span class="fas fa-user-alt  em092 infobox-adherent inline-block" style=""></span> 0</span></div></a><a href="/holiday/list.php?mainmenu=hrm&leftmenu=holiday" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Leaves">Leaves</span><br><span class="boxstatsindicator"><span class="fas fa-umbrella-beach  em088 infobox-holiday inline-block" style=""></span> 0</span></div></a><a href="/societe/list.php?type=c&mainmenu=companies" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Customers">Customers</span><br><span class="boxstatsindicator"><span class="fas fa-building inline-block" style=" color: #6c6aa8;"></span> 1</span></div></a><a href="/societe/list.php?type=p&mainmenu=companies" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Prospects">Prospects</span><br><span class="boxstatsindicator"><span class="fas fa-building inline-block" style=" color: #6c6aa8;"></span> 0</span></div></a><a href="/societe/list.php?type=f&mainmenu=companies" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Vendors">Vendors</span><br><span class="boxstatsindicator"><span class="fas fa-building inline-block" style=" color: #6c6aa8;"></span> 0</span></div></a><a href="/contact/list.php?mainmenu=companies" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Contacts/Addresses">Contacts/Addresses</span><br><span class="boxstatsindicator"><span class="fas fa-address-book inline-block" style=" color: #6c6aa8;"></span> 0</span></div></a><a href="/product/list.php?type=0&mainmenu=products" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Products">Products</span><br><span class="boxstatsindicator"><span class="fas fa-cube inline-block" style=" color: #a69944;"></span> 0</span></div></a><a href="/product/list.php?type=1&mainmenu=products" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Services">Services</span><br><span class="boxstatsindicator"><span class="fas fa-cube inline-block" style=" color: #a69944;"></span> 0</span></div></a><a href="/comm/propal/list.php?mainmenu=commercial&leftmenu=propals" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Commercial proposals">Commercial proposals</span><br><span class="boxstatsindicator"><span class="fas fa-file-signature infobox-propal inline-block" style=""></span> 0</span></div></a><a href="/commande/list.php?mainmenu=commercial&leftmenu=orders" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Sales Orders">Sales Orders</span><br><span class="boxstatsindicator"><span class="fas fa-file-invoice infobox-commande inline-block" style=""></span> 0</span></div></a><a href="/compta/facture/list.php?mainmenu=billing&leftmenu=customers_bills" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Customer invoices">Customer invoices</span><br><span class="boxstatsindicator"><span class="fas fa-file-invoice-dollar infobox-commande inline-block" style=""></span> 1</span></div></a><a href="/supplier_proposal/list.php?mainmenu=commercial&leftmenu=" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Vendor proposal">Vendor proposal</span><br><span class="boxstatsindicator"><span class="fas fa-file-signature infobox-supplier_proposal inline-block" style=""></span> 0</span></div></a><a href="/fourn/commande/list.php?mainmenu=commercial&leftmenu=orders_suppliers" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Purchase orders">Purchase orders</span><br><span class="boxstatsindicator"><span class="fas fa-dol-order_supplier infobox-order_supplier inline-block" style=""></span> 0</span></div></a><a href="/fourn/facture/list.php?mainmenu=billing&leftmenu=suppliers_bills" class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstats"><span class="boxstatstext" title="Vendor invoices">Vendor invoices</span><br><span class="boxstatsindicator"><span class="fas fa-file-invoice-dollar infobox-order_supplier inline-block" style=""></span> 0</span></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a><a class="boxstatsindicator thumbstat nobold nounderline"><div class="boxstatsempty"></div></a>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_dolibarr_state_board end -->
+
+
+<!-- Box box_birthdays_members start -->
+<div class="box divboxtable boxdraggable" id="boxto_5">
+<table summary="boxtable5" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Birthdays of this month (members)"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Birthdays of this month (members)</div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose5"></span><input type="hidden" id="boxlabelentry5" value="Birthdays of this month (members)"></div></th></tr>
+<tr class="oddeven"><td class="center">
+<span class="opacitymedium">None</span></td>
+</tr>
+</table>
+</div>
+<!-- Box box_birthdays_members end -->
+
+
+<!-- Box box_clients start -->
+<div class="box divboxtable boxdraggable" id="boxto_11">
+<table summary="boxtable11" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th colspan="3" title="Customers: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Customers: last 3 modified<a class="paddingleft" href="/societe/list.php?type=c&sortfield=s.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose11"></span><input type="hidden" id="boxlabelentry11" value="Customers: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven"><td class="tdoverflowmax150">
+<a href="/societe/card.php?socid=1" title="tocomplete" data-params="{&quot;id&quot;:&quot;1&quot;,&quot;objecttype&quot;:&quot;societe&quot;,&quot;option&quot;:&quot;&quot;,&quot;nofetch&quot;:1}" class="classforajaxtooltip refurl valignmiddle"><span class="fas fa-building paddingright" style=" color: #6c6aa8;"></span>Cliente de prueba 1 (Roberto Miranda Rodr&iacute;guez miranda)</a></td>
+<td class="center nowraponall" title="Modification date: 03/24/2026 06:26 PM">
+03/24/2026</td>
+<td class="right" width="18">
+<span class="badge badge-dot badge-status4 classfortooltip badge-status" title="Open" aria-label="Open"></span></td>
+</tr>
+</table>
+</div>
+<!-- Box box_clients end -->
+
+
+<!-- Box box_prospect start -->
+<div class="box divboxtable boxdraggable" id="boxto_12">
+<table summary="boxtable12" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Prospects: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Prospects: last 3 modified<a class="paddingleft" href="/societe/list.php?type=p&sortfield=s.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose12"></span><input type="hidden" id="boxlabelentry12" value="Prospects: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No prospects recorded </span><a href="/societe/card.php?action=create&type=p"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_prospect end -->
+
+
+<!-- Box box_contacts start -->
+<div class="box divboxtable boxdraggable" id="boxto_13">
+<table summary="boxtable13" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Contacts/Addresses: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Contacts/Addresses: last 3 modified<a class="paddingleft" href="/contact/list.php?sortfield=p.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose13"></span><input type="hidden" id="boxlabelentry13" value="Contacts/Addresses: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No contacts recorded </span><a href="/contact/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_contacts end -->
+
+
+<!-- Box box_graph_propales_permonth start -->
+<div class="box divboxtable boxdraggable" id="boxto_16">
+<table summary="boxtable16" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Proposals per month"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Proposals per month</div><div class="nocellnopadd boxclose floatright nowraponall"><img src="/theme/eldy/img/filter.png" alt="" title="Filter" class="opacitymedium marginleftonly linkobject boxfilter" id="idsubimgpropalpermonth"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose16"></span><input type="hidden" id="boxlabelentry16" value="Proposals per month &lt;span class=&quot;opacitymedium fas fa-chart-bar&quot;&gt;&lt;/span&gt;"></div></th></tr>
+<tr class="oddeven nohover"><td class="nohover center">
+
+<script nonce="6bfbdfa5" type="text/javascript">
+					jQuery(document).ready(function() {
+						jQuery("#idsubimgpropalpermonth").click(function() {
+							jQuery("#idfilterpropalpermonth").toggle();
+						});
+					});
+					</script><div class="center hideobject divboxfilter" id="idfilterpropalpermonth"><form class="flat formboxfilter" method="POST" action="/index.php?mainmenu=home"><input type="hidden" name="token" value="6c1fc843d47d28a2ad5f500777f9ad50"><input type="hidden" name="action" value="refresh_propalpermonth"><input type="hidden" name="page_y" value=""><input type="hidden" name="DOL_AUTOSET_COOKIE" value="DOLUSER_box_propalpermonth:year,shownb,showtot"><input type="checkbox" id="DOLUSER_box_propalpermonth_shownb" name="DOLUSER_box_propalpermonth_shownb" checked><label for="DOLUSER_box_propalpermonth_shownb"> Number by month</label> &nbsp; <input type="checkbox" id="DOLUSER_box_propalpermonth_showtot" name="DOLUSER_box_propalpermonth_showtot" checked><label for="DOLUSER_box_propalpermonth_showtot"> Amount by month (excl. tax)</label><br>Year <input class="flat" size="4" type="text" name="DOLUSER_box_propalpermonth_year" value="2026"><input type="image" class="reposition inline-block valigntextbottom" alt="Refresh" src="/theme/eldy/img/refresh.png"></form></div><div class="fichecenter"><div class="fichehalfleft"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Number by month</div><div id="placeholder_propalsnbinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraphcharbars dolgraph dolgraphcssboxes center">
+<canvas id="canvas_propalsnbinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="propalsnbinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_propalsnbinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div><div class="fichehalfright"><!-- Build using chart -->
+<div class="center dolgraphtitle dolgraphtitlecssboxes">Amount by month (excl. tax)</div><div id="placeholder_propalsamountinyear_2026_png" style="min-height: 192px; max-height: 292px; width:256px;" class="dolgraphchart dolgraphcharbars dolgraph dolgraphcssboxes center">
+<canvas id="canvas_propalsamountinyear_2026_png"></canvas></div>
+<script nonce="6bfbdfa5" id="propalsamountinyear_2026_png">
+
+var options = { maintainAspectRatio: false, aspectRatio: 2.5, plugins: { 
+legend: { maxWidth: 128, labels: { boxWidth: 15 }, position: 'top' },
+}, 
+};
+				var ctx = document.getElementById("canvas_propalsamountinyear_2026_png").getContext("2d");
+				var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+    			type: 'bar',
+				// Configuration options go here
+    			options: options,
+				data: {
+					labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+					datasets: [
+{dolibarrinfo: 'y_0', label: '2024', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(137, 86, 161, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(137, 86, 161, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_1', label: '2025', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(60, 147, 183, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(60, 147, 183, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+, 
+{dolibarrinfo: 'y_2', label: '2026', pointStyle: 'circle', fill: true, borderWidth: '1', borderColor: 'rgb(250, 190, 80, 0.9)', borderSkipped: 'start', backgroundColor: 'rgb(250, 190, 80, 0.9)', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+]
+}
+});
+</script>
+</div></div>
+</td>
+</tr>
+</table>
+</div>
+<!-- Box box_graph_propales_permonth end -->
+
+
+<!-- Box box_propales start -->
+<div class="box divboxtable boxdraggable" id="boxto_17">
+<table summary="boxtable17" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Latest 3 modified proposals&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Latest 3 modified proposals<a class="paddingleft" href="/comm/propal/list.php?sortfield=p.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose17"></span><input type="hidden" id="boxlabelentry17" value="Latest 3 modified proposals&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No proposals recorded </span><a href="/comm/propal/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_propales end -->
+
+
+<!-- Box box_commandes start -->
+<div class="box divboxtable boxdraggable" id="boxto_18">
+<table summary="boxtable18" class="noborder boxtable centpercent">
+<tr class="liste_titre box_titre"><th title="Sales Orders: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"><div class="tdoverflowmax400 maxwidth250onsmartphone float">Sales Orders: last 3 modified<a class="paddingleft" href="/commande/list.php?sortfield=c.tms&sortorder=DESC"><span class="badge">...</span></a></div><div class="nocellnopadd boxclose floatright nowraponall"><span class="fas fa-arrows-alt opacitymedium boxhandle hideonsmartphone cursormove marginleftonly" style="" title="Move widget"></span><span class="fas fa-times opacitymedium boxclose cursorpointer marginleftonly" style="" title="Remove widget from your dashboard" rel="x:y" id="imgclose18"></span><input type="hidden" id="boxlabelentry18" value="Sales Orders: last 3 modified&lt;span class=&quot;badge&quot;&gt;...&lt;/span&gt;"></div></th></tr>
+<tr><td colspan="2" class="center"><span class="opacitymedium">No sales orders recorded </span><a href="/commande/card.php?action=create"><span class="fas fa-plus-circle" style="" title="New" pictofixedwidth></span></a></td></tr></table>
+</div>
+<!-- Box box_commandes end -->
+
+
+<!-- Box ModeleBoxes start -->
+<div class="box divboxtable boxdraggable" id="boxto_B">
+<br>
+</div>
+<!-- Box ModeleBoxes end -->
+
+<!-- End box right container -->
+</div>
+</div></div>
+
+</div> <!-- End div class="fiche" -->
+</div> <!-- End div id-right -->
+</div> <!-- End div id-container -->
+
+
+<!-- Common footer for private page -->
+
+<!-- A div to store page_y POST parameter -->
+<div id="page_y" style="display: none;"></div>
+
+
+<!-- A script section to add menuhider handler on backoffice, manage focus and mandatory fields, tuning info, ... -->
+<script>
+jQuery(document).ready(function() {
+
+/* JS CODE TO ENABLE to manage handler to switch left menu page (menuhider) */
+jQuery("li.menuhider").click(function(event) {  if (!$( "body" ).hasClass( "sidebar-collapse" )){ event.preventDefault(); }
+  console.log("We click on .menuhider");
+  $("body").toggleClass("sidebar-collapse")
+});
+});
+
+</script>
+<!-- Output debugbar data -->
+<script type="text/javascript">
+var phpdebugbar = new PhpDebugBar.DebugBar();
+phpdebugbar.addTab("Variables", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Variables", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Duration of request"}), "right");
+phpdebugbar.addTab("Timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+phpdebugbar.addTab("Error handler", new PhpDebugBar.DebugBar.Tab({"icon":"list","title":"Error handler", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory usage"}), "right");
+phpdebugbar.addTab("Database", new PhpDebugBar.DebugBar.Tab({"icon":"arrow-right","title":"Database", "widget": new PhpDebugBar.Widgets.SQLQueriesWidget()}));
+phpdebugbar.addIndicator("database_info", new PhpDebugBar.DebugBar.TooltipIndicator({"icon":"database","tooltip":{"html":"Host: <strong>db<\/strong><br>Port: <strong>3306<\/strong><br>Name: <strong>dolibarr<\/strong><br>User: <strong>dolibarr<\/strong><br>Type: <strong>mysqli<\/strong><br>Prefix: <strong>llx_<\/strong><br>Charset: <strong>utf8mb4<\/strong>","class":"tooltip-wide"}}), "right");
+phpdebugbar.addIndicator("dolibarr_info", new PhpDebugBar.DebugBar.TooltipIndicator({"icon":"desktop","tooltip":{"html":"Version: <strong>23.0.0<\/strong><br>Theme: <strong>eldy<\/strong><br>Locale: <strong>auto<\/strong><br>Currency: <strong>EUR<\/strong><br>Environment: <strong>1<\/strong><br>MaxSizeList: <strong>20<\/strong><br>MaxSizeForUploadedFiles: <strong>2048<\/strong><br>$dolibarr_main_prod = <strong>1<\/strong><br>$dolibarr_nocsrfcheck = <strong><\/strong><br>MAIN_SECURITY_CSRF_WITH_TOKEN = <strong>2<\/strong><br>MAIN_FEATURES_LEVEL = <strong>0<\/strong><br>","class":"tooltip-wide"}}), "right");
+phpdebugbar.addIndicator("mail_info", new PhpDebugBar.DebugBar.TooltipIndicator({"icon":"envelope","tooltip":{"html":"Method: <strong><\/strong><br>Server: <strong><\/strong><br>Port: <strong><\/strong><br>ID: <strong><\/strong><br>Pwd: <strong><\/strong><br>TLS\/STARTTLS: <strong><\/strong> \/ <strong><\/strong><br>MAIN_DISABLE_ALL_MAILS: <strong>No<\/strong><br>dolibarr_mailing_limit_sendbyweb = <strong>0<\/strong><br>dolibarr_mailing_limit_sendbycli = <strong>0<\/strong><br>dolibarr_mailing_limit_sendbyday = <strong>0<\/strong><br>","class":"tooltip-extra-wide"}}), "right");
+phpdebugbar.addTab("Hooks", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Hooks", "widget": new PhpDebugBar.Widgets.HookListWidget()}));
+phpdebugbar.addTab("Logs", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Logs", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.setDataMap({
+"Variables": ["request", {}],
+"time": ["time.duration_str", '0ms'],
+"Timeline": ["time", {}],
+"Error handler": ["Error handler.messages", []],
+"Error handler:badge": ["Error handler.count", null],
+"memory": ["memory.peak_usage_str", '0B'],
+"Database": ["query", []],
+"Database:badge": ["query.nb_statements", 0],
+"database_info": ["", ],
+"dolibarr_info": ["", ],
+"mail_info": ["", ],
+"Hooks": ["hooks.hooks", {}],
+"Hooks:badge": ["hooks.nb_of_hooks", 0],
+"Logs": ["logs.messages", []],
+"Logs:badge": ["logs.count", null]
+});
+phpdebugbar.restoreState();
+phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar, undefined, true);
+if (jQuery) phpdebugbar.ajaxHandler.bindToJquery(jQuery);
+phpdebugbar.addDataSet({"__meta":{"id":"X0d524dd6a29f027bcd03839228d04e8f","datetime":"2026-03-25 09:40:39","utime":1774428039.214933,"method":"POST","uri":"\/index.php?mainmenu=home","ip":"172.24.0.1"},"request":{"$_GET":"array:1 [\n  \"mainmenu\" => \"home\"\n]","$_POST":"array:10 [\n  \"token\" => \"6c1fc843d47d28a2ad5f500777f9ad50\"\n  \"actionlogin\" => \"login\"\n  \"loginfunction\" => \"loginfunction\"\n  \"backtopage\" => \"\"\n  \"tz\" => \"\"\n  \"tz_string\" => \"\"\n  \"dst_observed\" => \"\"\n  \"dst_first\" => \"\"\n  \"username\" => \"admin\"\n  \"password\" => \"admin123!\"\n]","$_SESSION":"array:20 [\n  \"newtoken\" => \"6c1fc843d47d28a2ad5f500777f9ad50\"\n  \"dol_loginmesg\" => \"\"\n  \"token\" => \"6c1fc843d47d28a2ad5f500777f9ad50\"\n  \"dol_login\" => \"admin\"\n  \"dol_logindate\" => 1774428039\n  \"dol_authmode\" => \"dolibarr\"\n  \"dol_tz\" => \"\"\n  \"dol_tz_string\" => \"\"\n  \"dol_dst\" => 0\n  \"dol_dst_observed\" => 0\n  \"dol_dst_first\" => \"\"\n  \"dol_dst_second\" => \"\"\n  \"dol_screenwidth\" => \"\"\n  \"dol_screenheight\" => \"\"\n  \"dol_company\" => \"Veleta test\"\n  \"dol_entity\" => 1\n  \"mainmenu\" => \"home\"\n  \"leftmenuopened\" => \"\"\n  \"idmenu\" => \"\"\n  \"PHPDEBUGBAR_STACK_DATA\" => []\n]","$_COOKIE":"array:1 [\n  \"DOLSESSID_9a96599003f015a153d9d6a89c2a7f2276f5f83f\" => \"*****hidden*****\"\n]","$_SERVER":"array:29 [\n  \"HTTP_HOST\" => \"51.254.244.216:8080\"\n  \"HTTP_USER_AGENT\" => \"curl\/7.88.1\"\n  \"HTTP_ACCEPT\" => \"*\/*\"\n  \"HTTP_COOKIE\" => \"DOLSESSID_9a96599003f015a153d9d6a89c2a7f2276f5f83f=npdrm6e52oomb7ed45db60gu6v\"\n  \"CONTENT_LENGTH\" => \"170\"\n  \"CONTENT_TYPE\" => \"application\/x-www-form-urlencoded\"\n  \"PATH\" => \"\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin\"\n  \"SERVER_SIGNATURE\" => \"\"\n  \"SERVER_SOFTWARE\" => \"Apache\"\n  \"SERVER_NAME\" => \"51.254.244.216\"\n  \"SERVER_ADDR\" => \"172.24.0.3\"\n  \"SERVER_PORT\" => \"8080\"\n  \"REMOTE_ADDR\" => \"172.24.0.1\"\n  \"DOCUMENT_ROOT\" => \"\/var\/www\/html\"\n  \"REQUEST_SCHEME\" => \"http\"\n  \"CONTEXT_PREFIX\" => \"\"\n  \"CONTEXT_DOCUMENT_ROOT\" => \"\/var\/www\/html\"\n  \"SERVER_ADMIN\" => \"webmaster@localhost\"\n  \"SCRIPT_FILENAME\" => \"\/var\/www\/html\/index.php\"\n  \"REMOTE_PORT\" => \"52266\"\n  \"GATEWAY_INTERFACE\" => \"CGI\/1.1\"\n  \"SERVER_PROTOCOL\" => \"HTTP\/1.1\"\n  \"REQUEST_METHOD\" => \"POST\"\n  \"QUERY_STRING\" => \"mainmenu=home\"\n  \"REQUEST_URI\" => \"\/index.php?mainmenu=home\"\n  \"SCRIPT_NAME\" => \"\/index.php\"\n  \"PHP_SELF\" => \"\/index.php\"\n  \"REQUEST_TIME_FLOAT\" => 1774428039.1803\n  \"REQUEST_TIME\" => 1774428039\n]"},"time":{"start":1774428039.180306,"end":1774428039.215177,"duration":0.03487110137939453,"duration_str":"34.87ms","measures":[{"label":"Page generation (after environment init)","start":1774428039.181818,"relative_start":0.0015120506286621094,"end":1774428039.21451,"relative_end":1774428039.21451,"duration":0.03269195556640625,"duration_str":"32.69ms","params":[],"collector":null}]},"Error handler":{"count":0,"messages":[]},"memory":{"peak_usage":2284688,"peak_usage_str":"2284688 Bytes"},"query":{"nb_statements":48,"nb_failed_statements":0,"accumulated_duration":0.006624460220336914,"memory_usage":2097152,"statements":[{"sql":"SELECT COUNT(e.rowid) as nbevent FROM llx_events as e WHERE e.type = 'USER_LOGIN_FAILED' AND e.ip = '172.24.0.1' AND e.dateevent > '2026-03-24 09:40:39'","duration":0.00014495849609375,"duration_str":0.14,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT rowid, login, entity, pass, pass_crypted, datestartvalidity, dateendvalidity, flagdelsessionsbefore FROM llx_user WHERE (login = 'admin') AND entity IN (0,1) AND statut = 1 ORDER BY entity DESC","duration":0.00015091896057128906,"duration_str":0.15,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT transkey, transvalue FROM llx_overwrite_trans where (lang='en_US' OR lang IS NULL) AND entity IN (0, 0,1) ORDER BY lang DESC","duration":0.00012612342834472656,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.prefix, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position, m.showtopmenuinframe FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.type DESC, m.position, m.rowid","duration":0.0001690387725830078,"duration_str":0.17,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT b.rowid, b.position, b.box_order, b.fk_user, d.rowid as box_id, d.file, d.note, d.tms FROM llx_boxes as b, llx_boxes_def as d WHERE b.box_id = d.rowid AND b.entity IN (0,1) AND b.position = 0 AND b.fk_user = 0 ORDER BY b.box_order","duration":0.0002410411834716797,"duration_str":0.24,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT t.rowid, t.ref, t.label, t.share, t.entity, t.filename, t.filepath, t.fullpath_orig, t.description, t.keywords, t.cover, t.position, t.gen_or_uploaded, t.extraparams, t.date_c, t.tms as date_m, t.fk_user_c, t.fk_user_m, t.note_private, t.note_public, t.acl, t.src_object_type, t.src_object_id, t.agenda_id FROM llx_ecm_files as t WHERE 1 = 1 AND t.filepath = '.' AND t.filename = 'users' AND t.entity = 1","duration":0.0001571178436279297,"duration_str":0.16,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1) ORDER BY s.tms DESC  LIMIT 3 ","duration":0.00012612342834472656,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, f.rowid as facid, f.ref, f.ref_supplier, f.date_lim_reglement as datelimite, f.datef as df, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut as status, f.type, f.tms, SUM(pf.amount) as am FROM llx_societe as s,llx_facture_fourn as f LEFT JOIN llx_paiementfourn_facturefourn as pf ON f.rowid = pf.fk_facturefourn WHERE f.fk_soc = s.rowid AND f.entity IN (1) AND f.paye = 0 AND fk_statut = 1 GROUP BY s.rowid, s.nom, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, f.rowid, f.ref, f.ref_supplier, f.date_lim_reglement, f.type, f.datef, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut, f.tms ORDER BY datelimite ASC, f.ref_supplier ASC LIMIT 4 ","duration":0.00028705596923828125,"duration_str":0.29,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, f.rowid as facid, f.ref, f.ref_supplier, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut as status, f.datef as date, f.datec as datec, f.date_lim_reglement as datelimite, f.tms, f.type FROM llx_societe as s, llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.ref DESC  LIMIT 3 ","duration":0.00017213821411132812,"duration_str":0.17,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, c.rowid, c.ref, c.tms, c.date_commande, c.total_ht, c.total_tva, c.total_ttc, c.fk_statut as status FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity IN (1) ORDER BY c.tms DESC, c.ref DESC  LIMIT 3 ","duration":0.00014281272888183594,"duration_str":0.14,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, c.rowid, c.ref, c.tms, c.date_commande, c.date_livraison as delivery_date, c.total_ht, c.total_tva, c.total_ttc, c.fk_statut as status FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity IN (1) AND c.date_livraison IS NOT NULL AND c.fk_statut IN (3, 4) ORDER BY c.date_livraison ASC, c.fk_statut ASC LIMIT 3 ","duration":0.0001659393310546875,"duration_str":0.17,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.client, s.code_compta as code_compta_client, s.logo, s.email, s.entity, s.tva_intra, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, f.ref, f.date_lim_reglement as datelimit, f.type, f.datef as date, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut as status, f.rowid as facid, SUM(pf.amount) as am FROM llx_societe as s, llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid = pf.fk_facture WHERE f.fk_soc = s.rowid AND f.entity IN (1) AND f.paye = 0 AND fk_statut = 1 GROUP BY s.rowid, s.nom, s.name_alias, s.code_client, s.client, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, s.code_compta, f.rowid, f.ref, f.date_lim_reglement, f.type, f.datef, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut ORDER BY date_lim_reglement ASC, f.ref ASC LIMIT 4 ","duration":0.0002269744873046875,"duration_str":0.23,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT f.rowid as facid, f.ref, f.type, f.total_ht, f.total_tva, f.total_ttc, f.datef as date, f.paye, f.fk_statut as status, f.datec, f.tms, f.date_lim_reglement as datelimite, s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.tva_intra, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, SUM(pf.amount) as am FROM llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid = pf.fk_facture, llx_societe as s WHERE f.fk_soc = s.rowid AND f.fk_statut > 0 AND f.entity IN (1) GROUP BY s.rowid, s.nom, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, f.rowid, f.ref, f.type, f.total_ht, f.total_tva, f.total_ttc, f.datef, f.paye, f.fk_statut, f.datec, f.tms, f.date_lim_reglement ORDER BY f.tms DESC, f.ref DESC  LIMIT 3 ","duration":0.0001971721649169922,"duration_str":0.2,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.outstanding_limit, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) AND s.outstanding_limit > 0 AND s.rowid IN (SELECT fk_soc from llx_facture as f WHERE f.fk_statut = 1 and f.fk_soc = s.rowid) ORDER BY s.tms DESC","duration":0.00016808509826660156,"duration_str":0.17,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT p.rowid, p.label, p.ref, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.fk_price_expression, p.entity, p.accountancy_code_sell, p.accountancy_code_sell_intra, p.accountancy_code_sell_export, p.accountancy_code_buy, p.accountancy_code_buy_intra, p.accountancy_code_buy_export, p.barcode FROM llx_product as p WHERE p.entity IN (1) ORDER BY p.tms DESC LIMIT 3 ","duration":0.00015091896057128906,"duration_str":0.15,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT u.rowid, u.firstname, u.lastname, u.birth as datea, date_format(u.birth, '%d') as daya, 'birth' as typea, u.email, u.statut as status FROM llx_user as u WHERE u.entity IN (0,1) AND u.statut = 1 AND  date_format( u.birth, '%c') = '3' AND u.birth < '2026-01-01 00:00:00' UNION SELECT u.rowid, u.firstname, u.lastname, u.dateemployment as datea, date_format(u.dateemployment, '%d') as daya, 'employment' as typea, u.email, u.statut as status FROM llx_user as u WHERE u.entity IN (0,1) AND u.statut = 1 AND  date_format( u.dateemployment, '%c') = '3' AND u.dateemployment < '2026-01-01 00:00:00' ORDER BY daya ASC LIMIT 3 ","duration":0.00036406517028808594,"duration_str":0.36,"memory":2097152,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT COUNT(DISTINCT u.rowid) as nb FROM llx_user as u WHERE u.entity IN (0,1) AND u.statut > 0","duration":0.0001277923583984375,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(a.rowid) as nb FROM llx_adherent as a WHERE a.statut > 0 AND a.entity IN (1)","duration":0.00012087821960449219,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(h.rowid) as nb FROM llx_holiday as h WHERE h.statut > 1 AND h.entity IN (1)","duration":0.00012111663818359375,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(s.rowid) as nb, s.client FROM llx_societe as s WHERE s.client IN (1,2,3) AND s.entity IN (1) GROUP BY s.client","duration":0.000125885009765625,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(s.rowid) as nb FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1)","duration":0.000102996826171875,"duration_str":0.1,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(sp.rowid) as nb FROM llx_socpeople as sp WHERE sp.entity IN (1) AND (sp.priv='0' OR (sp.priv='1' AND sp.fk_user_creat = 1))","duration":9.989738464355469e-5,"duration_str":0.1,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(p.rowid) as nb, fk_product_type FROM llx_product as p WHERE p.entity IN (1) GROUP BY fk_product_type","duration":9.894371032714844e-5,"duration_str":0.1,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(p.rowid) as nb FROM llx_propal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)","duration":0.00011110305786132812,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(c.rowid) as nb FROM llx_commande as c LEFT JOIN llx_societe as s ON c.fk_soc = s.rowid WHERE c.entity IN (1)","duration":0.00011110305786132812,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(f.rowid) as nb FROM llx_facture as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity IN (1)","duration":0.00010609626770019531,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(p.rowid) as nb FROM llx_supplier_proposal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)","duration":0.00011491775512695312,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(co.rowid) as nb FROM llx_commande_fournisseur as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity IN (1)","duration":0.00010395050048828125,"duration_str":0.1,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT count(f.rowid) as nb FROM llx_facture_fourn as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1","duration":9.202957153320312e-5,"duration_str":0.09,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT u.rowid, u.firstname, u.lastname, u.societe, u.birth, date_format(u.birth, '%d') as daya, u.email, u.statut as status, u.datefin FROM llx_adherent as u WHERE u.entity IN (1) AND u.statut = 1 AND  date_format( u.birth, '%c') = '3' ORDER BY daya ASC LIMIT 3 ","duration":0.00011897087097167969,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta as code_compta_client, s.client, s.logo, s.email, s.entity, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 3 ","duration":0.00012803077697753906,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.fk_stcomm, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (2, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 3 ","duration":0.0001220703125,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT sp.rowid as id, sp.lastname, sp.firstname, sp.civility as civility_id, sp.datec, sp.tms, sp.fk_soc, sp.statut as status, sp.address, sp.zip, sp.town, sp.phone, sp.phone_perso, sp.phone_mobile, sp.email as spemail, s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.client, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.code_compta as code_compta_client, s.code_compta_fournisseur, s.logo, s.email, s.entity, co.label as country, co.code as country_code FROM llx_socpeople as sp LEFT JOIN llx_c_country as co ON sp.fk_pays = co.rowid LEFT JOIN llx_societe as s ON sp.fk_soc = s.rowid WHERE sp.entity IN (1) AND ((sp.fk_user_creat = 1 AND sp.priv = 1) OR sp.priv = 0) ORDER BY sp.tms DESC LIMIT 3 ","duration":0.00016999244689941406,"duration_str":0.17,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, p.rowid, p.ref, p.fk_statut as status, p.datep as dp, p.datec, p.fin_validite, p.date_cloture, p.total_ht, p.total_tva, p.total_ttc, p.tms FROM llx_propal as p, llx_societe as s WHERE p.fk_soc = s.rowid AND p.entity IN (1) ORDER BY p.tms DESC, p.ref DESC  LIMIT 3 ","duration":0.00014019012451171875,"duration_str":0.14,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta as code_compta_client, s.client, s.logo, s.email, s.entity, c.ref, c.tms, c.rowid, c.date_commande, c.ref_client, c.fk_statut, c.fk_user_valid, c.facture, c.total_ht, c.total_tva, c.total_ttc FROM llx_commande as c, llx_societe as s WHERE c.fk_soc = s.rowid AND c.entity IN (1) ORDER BY c.tms DESC, c.ref DESC  LIMIT 3 ","duration":0.0001239776611328125,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 1","duration":0.00011682510375976562,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 2","duration":9.107589721679688e-5,"duration_str":0.09,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT p.rowid, p.ref, p.datec as datec, p.date_cloture as datefin FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 1","duration":9.107589721679688e-5,"duration_str":0.09,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT p.rowid, p.ref, p.datec as datec, p.date_cloture as datefin FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 2","duration":8.606910705566406e-5,"duration_str":0.09,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND c.fk_statut IN (1,2)","duration":0.00010895729064941406,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND c.fk_statut IN (3) AND c.facture = 0","duration":0.00010800361633300781,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date, c.total_ht FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (1, 2)","duration":0.00011587142944335938,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date, c.total_ht FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (3, 4)","duration":9.894371032714844e-5,"duration_str":0.1,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT f.rowid, f.date_lim_reglement as datefin, f.fk_statut as status, f.total_ht FROM llx_facture as f WHERE f.paye=0 AND f.entity IN (1) AND f.fk_statut = 1","duration":0.0001220703125,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT ff.rowid, ff.date_lim_reglement as datefin, ff.fk_statut as status, ff.total_ht, ff.total_ttc FROM llx_facture_fourn as ff WHERE ff.paye = 0 AND ff.fk_statut IN (1) AND ff.entity = 1","duration":0.0001049041748046875,"duration_str":0.1,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT a.rowid, a.datefin, a.statut as status FROM llx_adherent as a, llx_adherent_type as t WHERE a.fk_adherent_type = t.rowid AND a.statut = -1 AND a.entity IN (1)","duration":0.00012612342834472656,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT a.rowid, a.datefin, a.statut as status FROM llx_adherent as a, llx_adherent_type as t WHERE a.fk_adherent_type = t.rowid AND a.statut = 1 AND a.entity IN (1) AND ((a.datefin IS NULL or a.datefin < '2026-03-25 09:40:39') AND t.subscription = '1')","duration":0.00011205673217773438,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT h.rowid, h.date_debut FROM llx_holiday as h WHERE h.statut = 2 AND h.entity IN (1) AND (h.fk_user IN (1) OR h.fk_validator IN (1))","duration":0.00011205673217773438,"duration_str":0.11,"memory":0,"is_success":true,"error_code":null,"error_message":null}]},"dolibarr":[],"hooks":{"hooks":{"[1] beforeLoginAuthentication":{"name":"beforeLoginAuthentication","contexts":"login","file":"\/var\/www\/html\/main.inc.php","line":568,"count":1},"[2] afterLogin":{"name":"afterLogin","contexts":"login","file":"\/var\/www\/html\/main.inc.php","line":1074,"count":1},"[3] hookGetEntity":{"name":"hookGetEntity","contexts":"login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":1},"[4] llxHeader":{"name":"llxHeader","contexts":"index, login","file":"\/var\/www\/html\/main.inc.php","line":1424,"count":1},"[5] setContentSecurityPolicy":{"name":"setContentSecurityPolicy","contexts":"main, index, login","file":"\/var\/www\/html\/main.inc.php","line":1534,"count":1},"[6] setContentSecurityPolicy":{"name":"setContentSecurityPolicy","contexts":"main, index, login","file":"\/var\/www\/html\/main.inc.php","line":1571,"count":1},"[7] hookSetManifest":{"name":"hookSetManifest","contexts":"main, index, login","file":"\/var\/www\/html\/main.inc.php","line":1699,"count":1},"[8] setHtmlTitle":{"name":"setHtmlTitle","contexts":"main, index, login","file":"\/var\/www\/html\/main.inc.php","line":1736,"count":1},"[9] addHtmlHeader":{"name":"addHtmlHeader","contexts":"main, index, login","file":"\/var\/www\/html\/main.inc.php","line":2055,"count":1},"[10] printPhone":{"name":"printPhone","contexts":"toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":5007,"count":1},"[11] formatAddress":{"name":"formatAddress","contexts":"toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":3820,"count":1},"[12] buildurl":{"name":"buildurl","contexts":"toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":14},"[13] printTopRightMenu":{"name":"printTopRightMenu","contexts":"toprightmenu, main, index, login","file":"\/var\/www\/html\/main.inc.php","line":2187,"count":1},"[14] printTopRightMenuLoginDropdownBody":{"name":"printTopRightMenuLoginDropdownBody","contexts":"toprightmenu, main, index, login","file":"\/var\/www\/html\/main.inc.php","line":2472,"count":1},"[15] addSearchEntry":{"name":"addSearchEntry","contexts":"searchform, leftblock, toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/ajax\/selectsearchbox.php","line":200,"count":1},"[16] printSearchForm":{"name":"printSearchForm","contexts":"searchform, leftblock, toprightmenu, main, index, login","file":"\/var\/www\/html\/main.inc.php","line":3199,"count":1},"[17] printPhone":{"name":"printPhone","contexts":"searchform, leftblock, toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":5007,"count":1},"[18] formatAddress":{"name":"formatAddress","contexts":"searchform, leftblock, toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":3820,"count":1},"[19] buildurl":{"name":"buildurl","contexts":"searchform, leftblock, toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":4},"[20] menuLeftMenuItems":{"name":"menuLeftMenuItems","contexts":"searchform, leftblock, toprightmenu, main, index, login","file":"\/var\/www\/html\/core\/menus\/standard\/eldy.lib.php","line":930,"count":1},"[21] printLeftBlock":{"name":"printLeftBlock","contexts":"searchform, leftblock, toprightmenu, main, index, login","file":"\/var\/www\/html\/main.inc.php","line":3383,"count":1},"[22] printMainArea":{"name":"printMainArea","contexts":"main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/main.inc.php","line":3418,"count":1},"[23] buildurl":{"name":"buildurl","contexts":"main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":1},"[24] getNomUrl":{"name":"getNomUrl","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/user\/class\/user.class.php","line":3253,"count":1},"[25] hookGetEntity":{"name":"hookGetEntity","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":33},"[26] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/boxes\/box_fournisseurs.php","line":94,"count":1},"[27] buildurl":{"name":"buildurl","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":5},"[28] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/boxes\/box_produits.php","line":101,"count":1},"[29] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/comm\/propal\/class\/propalestats.class.php","line":135,"count":1},"[30] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/commande\/class\/commandestats.class.php","line":149,"count":3},"[31] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/societe\/class\/client.class.php","line":108,"count":1},"[32] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/fourn\/class\/fournisseur.class.php","line":146,"count":1},"[33] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/contact\/class\/contact.class.php","line":460,"count":1},"[34] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/product\/class\/product.class.php","line":6840,"count":1},"[35] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/comm\/propal\/class\/propal.class.php","line":3713,"count":1},"[36] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/commande\/class\/commande.class.php","line":4177,"count":1},"[37] printFieldListWhere":{"name":"printFieldListWhere","contexts":"userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/boxes\/box_clients.php","line":102,"count":1},"[38] getNomUrl":{"name":"getNomUrl","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/societe\/class\/societe.class.php","line":3365,"count":1},"[39] hookGetEntity":{"name":"hookGetEntity","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":15},"[40] printFieldListWhere":{"name":"printFieldListWhere","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/boxes\/box_prospect.php","line":103,"count":1},"[41] printFieldListWhere":{"name":"printFieldListWhere","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/boxes\/box_contacts.php","line":116,"count":1},"[42] printFieldListWhere":{"name":"printFieldListWhere","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/comm\/propal\/class\/propalestats.class.php","line":135,"count":1},"[43] buildurl":{"name":"buildurl","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":3},"[44] printFieldListWhere":{"name":"printFieldListWhere","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/boxes\/box_propales.php","line":98,"count":1},"[45] printFieldListWhere":{"name":"printFieldListWhere","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/boxes\/box_commandes.php","line":113,"count":1},"[46] infoadmin":{"name":"infoadmin","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/index.php","line":157,"count":1},"[47] printFieldListWhere":{"name":"printFieldListWhere","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/comm\/propal\/class\/propal.class.php","line":3527,"count":2},"[48] printFieldListWhere":{"name":"printFieldListWhere","contexts":"thirdpartydao, userdao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/commande\/class\/commande.class.php","line":3666,"count":2},"[49] hookGetEntity":{"name":"hookGetEntity","contexts":"userdao, thirdpartydao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":2},"[50] printUserListWhere":{"name":"printUserListWhere","contexts":"userdao, thirdpartydao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/user\/class\/user.class.php","line":3911,"count":1},"[51] addOpenElementsDashboardLine":{"name":"addOpenElementsDashboardLine","contexts":"userdao, thirdpartydao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/index.php","line":351,"count":1},"[52] addOpenElementsDashboardGroup":{"name":"addOpenElementsDashboardGroup","contexts":"userdao, thirdpartydao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/index.php","line":469,"count":1},"[53] llxFooter":{"name":"llxFooter","contexts":"userdao, thirdpartydao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/main.inc.php","line":3580,"count":1},"[54] printCommonFooter":{"name":"printCommonFooter","contexts":"userdao, thirdpartydao, main, searchform, leftblock, toprightmenu, index, login","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":12806,"count":1}},"nb_of_hooks":54},"logs":{"count":117,"messages":[{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT DISTINCT r.module, r.perms, r.subperms, r.entity FROM llx_usergroup_rights as gr, llx_usergroup_user as gu, llx_rights_def as r WHERE r.id = gr.fk_id AND gr.entity = 1 AND gu.entity IN (0,1) AND r.entity = 1 AND gr.fk_usergroup = gu.fk_usergroup AND gu.fk_user = 1 AND r.perms IS NOT NULL AND r.perms NOT LIKE '%_advance'","message_html":null,"is_string":false,"label":"debug","time":1774428039.215247},{"message":"2026-03-25 09:40:39 NOTICE       84      33 --- Access to POST \/index.php - action=, massaction=","message_html":null,"is_string":false,"label":"notice","time":1774428039.215248},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT transkey, transvalue FROM llx_overwrite_trans where (lang='en_US' OR lang IS NULL) AND entity IN (0, 0,1) ORDER BY lang DESC","message_html":null,"is_string":false,"label":"debug","time":1774428039.21525},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.prefix, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position, m.showtopmenuinframe FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.type DESC, m.position, m.rowid","message_html":null,"is_string":false,"label":"debug","time":1774428039.215252},{"message":"2026-03-25 09:40:39 DEBUG        84      33 InfoBox::listBoxes get default box list for mode=activated userid=","message_html":null,"is_string":false,"label":"debug","time":1774428039.215253},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT b.rowid, b.position, b.box_order, b.fk_user, d.rowid as box_id, d.file, d.note, d.tms FROM llx_boxes as b, llx_boxes_def as d WHERE b.box_id = d.rowid AND b.entity IN (0,1) AND b.position = 0 AND b.fk_user = 0 ORDER BY b.box_order","message_html":null,"is_string":false,"label":"debug","time":1774428039.215255},{"message":"2026-03-25 09:40:39 WARN         84      33 functions::dol_include_once Tried to load unexisting file: \/core\/boxes\/box_members.php","message_html":null,"is_string":false,"label":"warning","time":1774428039.215256},{"message":"2026-03-25 09:40:39 WARN         84      33 Failed to load box 'box_members' into file '\/core\/boxes\/box_members.php'","message_html":null,"is_string":false,"label":"warning","time":1774428039.215257},{"message":"2026-03-25 09:40:39 DEBUG        84      33 EcmFiles::fetch","message_html":null,"is_string":false,"label":"debug","time":1774428039.215258},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT t.rowid, t.ref, t.label, t.share, t.entity, t.filename, t.filepath, t.fullpath_orig, t.description, t.keywords, t.cover, t.position, t.gen_or_uploaded, t.extraparams, t.date_c, t.tms as date_m, t.fk_user_c, t.fk_user_m, t.note_private, t.note_public, t.acl, t.src_object_type, t.src_object_id, t.agenda_id FROM llx_ecm_files as t WHERE 1 = 1 AND t.filepath = '.' AND t.filename = 'users' AND t.entity = 1","message_html":null,"is_string":false,"label":"debug","time":1774428039.215261},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT rowid, name, label, type, size, elementtype, fieldunique, fieldrequired, param, pos, alwayseditable, emptyonclone, perms, langs, list, printable, totalizable, fielddefault, fieldcomputed, entity, enabled, help, aiprompt, css, cssview, csslist FROM llx_extrafields WHERE elementtype = 'ecm_files' ORDER BY pos","message_html":null,"is_string":false,"label":"debug","time":1774428039.215263},{"message":"2026-03-25 09:40:39 INFO         84      33 box_lastlogin::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215264},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1) ORDER BY s.tms DESC  LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215266},{"message":"2026-03-25 09:40:39 INFO         84      33 box_fournisseurs::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215267},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, f.rowid as facid, f.ref, f.ref_supplier, f.date_lim_reglement as datelimite, f.datef as df, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut as status, f.type, f.tms, SUM(pf.amount) as am FROM llx_societe as s,llx_facture_fourn as f LEFT JOIN llx_paiementfourn_facturefourn as pf ON f.rowid = pf.fk_facturefourn WHERE f.fk_soc = s.rowid AND f.entity IN (1) AND f.paye = 0 AND fk_statut = 1 GROUP BY s.rowid, s.nom, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, f.rowid, f.ref, f.ref_supplier, f.date_lim_reglement, f.type, f.datef, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut, f.tms ORDER BY datelimite ASC, f.ref_supplier ASC LIMIT 4","message_html":null,"is_string":false,"label":"debug","time":1774428039.21527},{"message":"2026-03-25 09:40:39 INFO         84      33 box_factures_fourn_imp::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215272},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, f.rowid as facid, f.ref, f.ref_supplier, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut as status, f.datef as date, f.datec as datec, f.date_lim_reglement as datelimite, f.tms, f.type FROM llx_societe as s, llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.ref DESC  LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215274},{"message":"2026-03-25 09:40:39 INFO         84      33 box_factures_fourn::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215275},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, c.rowid, c.ref, c.tms, c.date_commande, c.total_ht, c.total_tva, c.total_ttc, c.fk_statut as status FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity IN (1) ORDER BY c.tms DESC, c.ref DESC  LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215277},{"message":"2026-03-25 09:40:39 INFO         84      33 box_supplier_orders::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215278},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.logo, s.email, s.entity, c.rowid, c.ref, c.tms, c.date_commande, c.date_livraison as delivery_date, c.total_ht, c.total_tva, c.total_ttc, c.fk_statut as status FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity IN (1) AND c.date_livraison IS NOT NULL AND c.fk_statut IN (3, 4) ORDER BY c.date_livraison ASC, c.fk_statut ASC LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215281},{"message":"2026-03-25 09:40:39 INFO         84      33 box_supplier_orders_awaiting_reception::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215282},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.client, s.code_compta as code_compta_client, s.logo, s.email, s.entity, s.tva_intra, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, f.ref, f.date_lim_reglement as datelimit, f.type, f.datef as date, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut as status, f.rowid as facid, SUM(pf.amount) as am FROM llx_societe as s, llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid = pf.fk_facture WHERE f.fk_soc = s.rowid AND f.entity IN (1) AND f.paye = 0 AND fk_statut = 1 GROUP BY s.rowid, s.nom, s.name_alias, s.code_client, s.client, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, s.code_compta, f.rowid, f.ref, f.date_lim_reglement, f.type, f.datef, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut ORDER BY date_lim_reglement ASC, f.ref ASC LIMIT 4","message_html":null,"is_string":false,"label":"debug","time":1774428039.215285},{"message":"2026-03-25 09:40:39 INFO         84      33 box_factures_imp::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215287},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT f.rowid as facid, f.ref, f.type, f.total_ht, f.total_tva, f.total_ttc, f.datef as date, f.paye, f.fk_statut as status, f.datec, f.tms, f.date_lim_reglement as datelimite, s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.tva_intra, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, SUM(pf.amount) as am FROM llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid = pf.fk_facture, llx_societe as s WHERE f.fk_soc = s.rowid AND f.fk_statut > 0 AND f.entity IN (1) GROUP BY s.rowid, s.nom, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.tva_intra, s.siren, s.siret, s.ape, s.idprof4, s.idprof5, s.idprof6, f.rowid, f.ref, f.type, f.total_ht, f.total_tva, f.total_ttc, f.datef, f.paye, f.fk_statut, f.datec, f.tms, f.date_lim_reglement ORDER BY f.tms DESC, f.ref DESC  LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.21529},{"message":"2026-03-25 09:40:39 INFO         84      33 box_factures::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215292},{"message":"2026-03-25 09:40:39 INFO         84      33 FactureStats::getNbByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/FactureStats_getNbByMonthWithPrevYear_customer_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215294},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215295},{"message":"2026-03-25 09:40:39 INFO         84      33 FactureStats::getAmountByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/FactureStats_getAmountByMonthWithPrevYear_customer_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215296},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215298},{"message":"2026-03-25 09:40:39 INFO         84      33 box_graph_invoices_permonth::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215299},{"message":"2026-03-25 09:40:39 DEBUG        84      33 box_customers_outstanding_bill_reached::loadBox","message_html":null,"is_string":false,"label":"debug","time":1774428039.2153},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.outstanding_limit, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) AND s.outstanding_limit > 0 AND s.rowid IN (SELECT fk_soc from llx_facture as f WHERE f.fk_statut = 1 and f.fk_soc = s.rowid) ORDER BY s.tms DESC","message_html":null,"is_string":false,"label":"debug","time":1774428039.215302},{"message":"2026-03-25 09:40:39 INFO         84      33 box_customers_outstanding_bill_reached::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215303},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT p.rowid, p.label, p.ref, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.fk_price_expression, p.entity, p.accountancy_code_sell, p.accountancy_code_sell_intra, p.accountancy_code_sell_export, p.accountancy_code_buy, p.accountancy_code_buy_intra, p.accountancy_code_buy_export, p.barcode FROM llx_product as p WHERE p.entity IN (1) ORDER BY p.tms DESC LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215305},{"message":"2026-03-25 09:40:39 INFO         84      33 box_produits::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215306},{"message":"2026-03-25 09:40:39 INFO         84      33 PropaleStats::getAllByProductEntry read data from cache file \/var\/www\/documents\/users\/temp\/PropaleStats_getAllByProductEntry_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215308},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type=pie this->MaxValue=2","message_html":null,"is_string":false,"label":"info","time":1774428039.215309},{"message":"2026-03-25 09:40:39 INFO         84      33 CommandeStats::getAllByProductEntry read data from cache file \/var\/www\/documents\/users\/temp\/CommandeStats_getAllByProductEntry_customer_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.21531},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type=pie this->MaxValue=2","message_html":null,"is_string":false,"label":"info","time":1774428039.215311},{"message":"2026-03-25 09:40:39 INFO         84      33 FactureStats::getAllByProductEntry read data from cache file \/var\/www\/documents\/users\/temp\/FactureStats_getAllByProductEntry_customer_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215312},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type=pie this->MaxValue=2","message_html":null,"is_string":false,"label":"info","time":1774428039.215313},{"message":"2026-03-25 09:40:39 INFO         84      33 box_graph_product_distribution::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215314},{"message":"2026-03-25 09:40:39 INFO         84      33 ModeleBoxes::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215315},{"message":"2026-03-25 09:40:39 INFO         84      33 CommandeStats::getNbByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/CommandeStats_getNbByMonthWithPrevYear_supplier_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215316},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215318},{"message":"2026-03-25 09:40:39 INFO         84      33 CommandeStats::getAmountByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/CommandeStats_getAmountByMonthWithPrevYear_supplier_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215319},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.21532},{"message":"2026-03-25 09:40:39 INFO         84      33 box_graph_orders_supplier_permonth::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215321},{"message":"2026-03-25 09:40:39 INFO         84      33 FactureStats::getNbByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/FactureStats_getNbByMonthWithPrevYear_supplier_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215322},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215323},{"message":"2026-03-25 09:40:39 INFO         84      33 FactureStats::getAmountByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/FactureStats_getAmountByMonthWithPrevYear_supplier_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215324},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215325},{"message":"2026-03-25 09:40:39 INFO         84      33 box_graph_invoices_supplier_permonth::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215326},{"message":"2026-03-25 09:40:39 INFO         84      33 CommandeStats::getNbByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/CommandeStats_getNbByMonthWithPrevYear_customer_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215327},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215328},{"message":"2026-03-25 09:40:39 INFO         84      33 CommandeStats::getAmountByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/CommandeStats_getAmountByMonthWithPrevYear_customer_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215329},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type= this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.21533},{"message":"2026-03-25 09:40:39 INFO         84      33 box_graph_orders_permonth::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215331},{"message":"2026-03-25 09:40:39 DEBUG        84      33 box_birthdays::loadBox","message_html":null,"is_string":false,"label":"debug","time":1774428039.215332},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT u.rowid, u.firstname, u.lastname, u.birth as datea, date_format(u.birth, '%d') as daya, 'birth' as typea, u.email, u.statut as status FROM llx_user as u WHERE u.entity IN (0,1) AND u.statut = 1 AND  date_format( u.birth, '%c') = '3' AND u.birth < '2026-01-01 00:00:00' UNION SELECT u.rowid, u.firstname, u.lastname, u.dateemployment as datea, date_format(u.dateemployment, '%d') as daya, 'employment' as typea, u.email, u.statut as status FROM llx_user as u WHERE u.entity IN (0,1) AND u.statut = 1 AND  date_format( u.dateemployment, '%c') = '3' AND u.dateemployment < '2026-01-01 00:00:00' ORDER BY daya ASC LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215335},{"message":"2026-03-25 09:40:39 INFO         84      33 box_birthdays::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215336},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT COUNT(DISTINCT u.rowid) as nb FROM llx_user as u WHERE u.entity IN (0,1) AND u.statut > 0","message_html":null,"is_string":false,"label":"debug","time":1774428039.215338},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(a.rowid) as nb FROM llx_adherent as a WHERE a.statut > 0 AND a.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215339},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(h.rowid) as nb FROM llx_holiday as h WHERE h.statut > 1 AND h.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.21534},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(s.rowid) as nb, s.client FROM llx_societe as s WHERE s.client IN (1,2,3) AND s.entity IN (1) GROUP BY s.client","message_html":null,"is_string":false,"label":"debug","time":1774428039.215341},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(s.rowid) as nb FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215343},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(sp.rowid) as nb FROM llx_socpeople as sp WHERE sp.entity IN (1) AND (sp.priv='0' OR (sp.priv='1' AND sp.fk_user_creat = 1))","message_html":null,"is_string":false,"label":"debug","time":1774428039.215344},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(p.rowid) as nb, fk_product_type FROM llx_product as p WHERE p.entity IN (1) GROUP BY fk_product_type","message_html":null,"is_string":false,"label":"debug","time":1774428039.215345},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(p.rowid) as nb FROM llx_propal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215346},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(c.rowid) as nb FROM llx_commande as c LEFT JOIN llx_societe as s ON c.fk_soc = s.rowid WHERE c.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215348},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(f.rowid) as nb FROM llx_facture as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215349},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(p.rowid) as nb FROM llx_supplier_proposal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.21535},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(co.rowid) as nb FROM llx_commande_fournisseur as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215351},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT count(f.rowid) as nb FROM llx_facture_fourn as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1","message_html":null,"is_string":false,"label":"debug","time":1774428039.215352},{"message":"2026-03-25 09:40:39 INFO         84      33 box_dolibarr_state_board::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215353},{"message":"2026-03-25 09:40:39 DEBUG        84      33 box_birthdays_members::loadBox","message_html":null,"is_string":false,"label":"debug","time":1774428039.215354},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT u.rowid, u.firstname, u.lastname, u.societe, u.birth, date_format(u.birth, '%d') as daya, u.email, u.statut as status, u.datefin FROM llx_adherent as u WHERE u.entity IN (1) AND u.statut = 1 AND  date_format( u.birth, '%c') = '3' ORDER BY daya ASC LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215356},{"message":"2026-03-25 09:40:39 INFO         84      33 box_birthdays_members::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215357},{"message":"2026-03-25 09:40:39 DEBUG        84      33 box_clients::loadBox","message_html":null,"is_string":false,"label":"debug","time":1774428039.215358},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta as code_compta_client, s.client, s.logo, s.email, s.entity, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.21536},{"message":"2026-03-25 09:40:39 INFO         84      33 box_clients::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215361},{"message":"2026-03-25 09:40:39 DEBUG        84      33 box_prospect::loadBox","message_html":null,"is_string":false,"label":"debug","time":1774428039.215362},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, s.fk_stcomm, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (2, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215363},{"message":"2026-03-25 09:40:39 INFO         84      33 box_prospect::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215364},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT sp.rowid as id, sp.lastname, sp.firstname, sp.civility as civility_id, sp.datec, sp.tms, sp.fk_soc, sp.statut as status, sp.address, sp.zip, sp.town, sp.phone, sp.phone_perso, sp.phone_mobile, sp.email as spemail, s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.client, s.code_fournisseur, s.code_compta_fournisseur, s.fournisseur, s.code_compta as code_compta_client, s.code_compta_fournisseur, s.logo, s.email, s.entity, co.label as country, co.code as country_code FROM llx_socpeople as sp LEFT JOIN llx_c_country as co ON sp.fk_pays = co.rowid LEFT JOIN llx_societe as s ON sp.fk_soc = s.rowid WHERE sp.entity IN (1) AND ((sp.fk_user_creat = 1 AND sp.priv = 1) OR sp.priv = 0) ORDER BY sp.tms DESC LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215367},{"message":"2026-03-25 09:40:39 INFO         84      33 box_contacts::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215368},{"message":"2026-03-25 09:40:39 INFO         84      33 PropaleStats::getNbByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/PropaleStats_getNbByMonthWithPrevYear_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215369},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type=bars,bars,bars this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215371},{"message":"2026-03-25 09:40:39 INFO         84      33 PropaleStats::getAmountByMonthWithPrevYear read data from cache file \/var\/www\/documents\/users\/temp\/PropaleStats_getAmountByMonthWithPrevYear_en_US_entity.1_user1.cache 1774380174.","message_html":null,"is_string":false,"label":"info","time":1774428039.215372},{"message":"2026-03-25 09:40:39 INFO         84      33 DolGraph::draw_chart this->type=bars,bars,bars this->MaxValue=0","message_html":null,"is_string":false,"label":"info","time":1774428039.215374},{"message":"2026-03-25 09:40:39 INFO         84      33 box_graph_propales_permonth::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215375},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta, s.client, s.logo, s.email, s.entity, p.rowid, p.ref, p.fk_statut as status, p.datep as dp, p.datec, p.fin_validite, p.date_cloture, p.total_ht, p.total_tva, p.total_ttc, p.tms FROM llx_propal as p, llx_societe as s WHERE p.fk_soc = s.rowid AND p.entity IN (1) ORDER BY p.tms DESC, p.ref DESC  LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.215377},{"message":"2026-03-25 09:40:39 INFO         84      33 box_propales::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215378},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT s.rowid as socid, s.nom as name, s.name_alias, s.code_client, s.code_compta as code_compta_client, s.client, s.logo, s.email, s.entity, c.ref, c.tms, c.rowid, c.date_commande, c.ref_client, c.fk_statut, c.fk_user_valid, c.facture, c.total_ht, c.total_tva, c.total_ttc FROM llx_commande as c, llx_societe as s WHERE c.fk_soc = s.rowid AND c.entity IN (1) ORDER BY c.tms DESC, c.ref DESC  LIMIT 3","message_html":null,"is_string":false,"label":"debug","time":1774428039.21538},{"message":"2026-03-25 09:40:39 INFO         84      33 box_commandes::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215381},{"message":"2026-03-25 09:40:39 INFO         84      33 ModeleBoxes::showBox","message_html":null,"is_string":false,"label":"info","time":1774428039.215382},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 1","message_html":null,"is_string":false,"label":"debug","time":1774428039.215384},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 2","message_html":null,"is_string":false,"label":"debug","time":1774428039.215385},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT p.rowid, p.ref, p.datec as datec, p.date_cloture as datefin FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 1","message_html":null,"is_string":false,"label":"debug","time":1774428039.215386},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT p.rowid, p.ref, p.datec as datec, p.date_cloture as datefin FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 2","message_html":null,"is_string":false,"label":"debug","time":1774428039.215387},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND c.fk_statut IN (1,2)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215388},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND c.fk_statut IN (3) AND c.facture = 0","message_html":null,"is_string":false,"label":"debug","time":1774428039.21539},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date, c.total_ht FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (1, 2)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215392},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date, c.total_ht FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (3, 4)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215393},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT f.rowid, f.date_lim_reglement as datefin, f.fk_statut as status, f.total_ht FROM llx_facture as f WHERE f.paye=0 AND f.entity IN (1) AND f.fk_statut = 1","message_html":null,"is_string":false,"label":"debug","time":1774428039.215394},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT ff.rowid, ff.date_lim_reglement as datefin, ff.fk_statut as status, ff.total_ht, ff.total_ttc FROM llx_facture_fourn as ff WHERE ff.paye = 0 AND ff.fk_statut IN (1) AND ff.entity = 1","message_html":null,"is_string":false,"label":"debug","time":1774428039.215396},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT a.rowid, a.datefin, a.statut as status FROM llx_adherent as a, llx_adherent_type as t WHERE a.fk_adherent_type = t.rowid AND a.statut = -1 AND a.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215397},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT a.rowid, a.datefin, a.statut as status FROM llx_adherent as a, llx_adherent_type as t WHERE a.fk_adherent_type = t.rowid AND a.statut = 1 AND a.entity IN (1) AND ((a.datefin IS NULL or a.datefin < '2026-03-25 09:40:39') AND t.subscription = '1')","message_html":null,"is_string":false,"label":"debug","time":1774428039.215399},{"message":"2026-03-25 09:40:39 DEBUG        84      33 User::loadParentOf","message_html":null,"is_string":false,"label":"debug","time":1774428039.2154},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT fk_user as id_parent, rowid as id_son FROM llx_user WHERE fk_user <> 0 AND entity IN (0,1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215401},{"message":"2026-03-25 09:40:39 DEBUG        84      33 User::get_full_tree get user list","message_html":null,"is_string":false,"label":"debug","time":1774428039.215402},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT DISTINCT u.rowid, u.firstname, u.lastname, u.fk_user, u.fk_soc, u.login, u.email, u.gender, u.admin, u.statut, u.photo, u.entity FROM llx_user as u WHERE u.entity IN (0,1)","message_html":null,"is_string":false,"label":"debug","time":1774428039.215404},{"message":"2026-03-25 09:40:39 DEBUG        84      33 User::get_full_tree call to build_path_from_id_user","message_html":null,"is_string":false,"label":"debug","time":1774428039.215405},{"message":"2026-03-25 09:40:39 DEBUG        84      33 User::get_full_tree dol_sort_array","message_html":null,"is_string":false,"label":"debug","time":1774428039.215406},{"message":"2026-03-25 09:40:39 INFO         84      33 Build childid for id = 1","message_html":null,"is_string":false,"label":"info","time":1774428039.215407},{"message":"2026-03-25 09:40:39 DEBUG        84      33 sql=SELECT h.rowid, h.date_debut FROM llx_holiday as h WHERE h.statut = 2 AND h.entity IN (1) AND (h.fk_user IN (1) OR h.fk_validator IN (1))","message_html":null,"is_string":false,"label":"debug","time":1774428039.215408}]}}, "X0d524dd6a29f027bcd03839228d04e8f");
+
+</script>
+
+<!-- JS CODE TO ENABLE select2 for id searchselectcombo -->
+				<script nonce="6bfbdfa5">
+				$(document).ready(function () {
+					var data = [{"id":"searchintomember","text":"<span class=\"fas fa-user-alt  em092 infobox-adherent pictofixedwidth\" style=\"\"><\/span> Members","url":"\/adherents\/list.php"},{"id":"searchintothirdparty","text":"<span class=\"fas fa-building pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Third parties","url":"\/societe\/list.php"},{"id":"searchintocontact","text":"<span class=\"fas fa-address-book pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Contacts","url":"\/contact\/list.php"},{"id":"searchintoproduct","text":"<span class=\"fas fa-cube pictofixedwidth\" style=\" color: #a69944;\"><\/span> Products or services","url":"\/product\/list.php"},{"id":"searchintopropal","text":"<span class=\"fas fa-file-signature infobox-propal pictofixedwidth\" style=\"\"><\/span> Commercial proposals","url":"\/comm\/propal\/list.php"},{"id":"searchintoorder","text":"<span class=\"fas fa-file-invoice infobox-commande pictofixedwidth\" style=\"\"><\/span> Sales orders","url":"\/commande\/list.php"},{"id":"searchintoinvoice","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Customer invoices","url":"\/compta\/facture\/list.php"},{"id":"searchintoinvoicerec","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Template invoices","url":"\/compta\/facture\/invoicetemplate_list.php"},{"id":"searchintosupplierpropal","text":"<span class=\"fas fa-file-signature infobox-supplier_proposal pictofixedwidth\" style=\"\"><\/span> Vendor proposals","url":"\/supplier_proposal\/list.php"},{"id":"searchintosupplierorder","text":"<span class=\"fas fa-dol-order_supplier infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Purchase orders","url":"\/fourn\/commande\/list.php"},{"id":"searchintosupplierinvoice","text":"<span class=\"fas fa-file-invoice-dollar infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Vendor invoices","url":"\/fourn\/facture\/list.php"},{"id":"searchintocustomerpayments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Customer payments","url":"\/compta\/paiement\/list.php?leftmenu=customers_bills_payment"},{"id":"searchintovendorpayments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Vendor payments","url":"\/fourn\/paiement\/list.php?leftmenu=suppliers_bills_payment"},{"id":"searchintouser","text":"<span class=\"fas fa-user infobox-adherent pictofixedwidth\" style=\"\"><\/span> Users","url":"\/user\/list.php"},{"id":"searchintoleaves","text":"<span class=\"fas fa-umbrella-beach  em088 infobox-holiday pictofixedwidth\" style=\"\"><\/span> Leave","url":"\/holiday\/list.php?mainmenu=hrm"}];
+
+					var saveRemoteData = {"searchintomember":{"position":8,"shortcut":"M","img":"object_member","label":"Members","text":"<span class=\"fas fa-user-alt  em092 infobox-adherent pictofixedwidth\" style=\"\"><\/span> Members","url":"\/adherents\/list.php"},"searchintothirdparty":{"position":10,"shortcut":"T","img":"object_company","label":"Third parties","text":"<span class=\"fas fa-building pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Third parties","url":"\/societe\/list.php"},"searchintocontact":{"position":15,"shortcut":"A","img":"object_contact","label":"Contacts","text":"<span class=\"fas fa-address-book pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Contacts","url":"\/contact\/list.php"},"searchintoproduct":{"position":30,"shortcut":"P","img":"object_product","label":"Products or services","text":"<span class=\"fas fa-cube pictofixedwidth\" style=\" color: #a69944;\"><\/span> Products or services","url":"\/product\/list.php"},"searchintopropal":{"position":60,"img":"object_propal","label":"Commercial proposals","text":"<span class=\"fas fa-file-signature infobox-propal pictofixedwidth\" style=\"\"><\/span> Commercial proposals","url":"\/comm\/propal\/list.php"},"searchintoorder":{"position":70,"img":"object_order","label":"Sales orders","text":"<span class=\"fas fa-file-invoice infobox-commande pictofixedwidth\" style=\"\"><\/span> Sales orders","url":"\/commande\/list.php"},"searchintoinvoice":{"position":90,"img":"object_bill","label":"Customer invoices","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Customer invoices","url":"\/compta\/facture\/list.php"},"searchintoinvoicerec":{"position":90,"img":"object_bill","label":"Template invoices","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Template invoices","url":"\/compta\/facture\/invoicetemplate_list.php"},"searchintosupplierpropal":{"position":100,"img":"object_supplier_proposal","label":"Vendor proposals","text":"<span class=\"fas fa-file-signature infobox-supplier_proposal pictofixedwidth\" style=\"\"><\/span> Vendor proposals","url":"\/supplier_proposal\/list.php"},"searchintosupplierorder":{"position":110,"img":"object_supplier_order","label":"Purchase orders","text":"<span class=\"fas fa-dol-order_supplier infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Purchase orders","url":"\/fourn\/commande\/list.php"},"searchintosupplierinvoice":{"position":120,"img":"object_supplier_invoice","label":"Vendor invoices","text":"<span class=\"fas fa-file-invoice-dollar infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Vendor invoices","url":"\/fourn\/facture\/list.php"},"searchintocustomerpayments":{"position":170,"img":"object_payment","label":"Customer payments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Customer payments","url":"\/compta\/paiement\/list.php?leftmenu=customers_bills_payment"},"searchintovendorpayments":{"position":175,"img":"object_payment","label":"Vendor payments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Vendor payments","url":"\/fourn\/paiement\/list.php?leftmenu=suppliers_bills_payment"},"searchintouser":{"position":200,"shortcut":"U","img":"object_user","label":"Users","text":"<span class=\"fas fa-user infobox-adherent pictofixedwidth\" style=\"\"><\/span> Users","url":"\/user\/list.php"},"searchintoleaves":{"position":220,"img":"object_holiday","label":"Leave","text":"<span class=\"fas fa-umbrella-beach  em088 infobox-holiday pictofixedwidth\" style=\"\"><\/span> Leave","url":"\/holiday\/list.php?mainmenu=hrm"}};
+
+					$('.searchselectcombo').select2({
+						data: data,
+						language: (typeof select2arrayoflanguage === 'undefined') ? 'en' : select2arrayoflanguage,
+						containerCssClass: ':all:',					/* Line to add class from the original SELECT propagated to the new <span class="select2-selection...> tag */
+						placeholder: '<span class=\'fa fa-search paddingright pictofixedwidth\'></span>Search',
+						escapeMarkup: function (markup) { return markup; }, 	// let our custom formatter work
+						minimumInputLength: 1,
+						formatResult: function (result, container, query, escapeMarkup) {
+							return escapeMarkup(result.text);
+						},
+						matcher: function (params, data) {
+
+							if(! data.id) return null;
+
+							var urlBase = data.url;
+							var separ = urlBase.indexOf("?") >= 0 ? "&" : "?";
+							/* console.log("params.term="+params.term); */
+							/* console.log("params.term encoded="+encodeURIComponent(params.term)); */
+							saveRemoteData[data.id].url = urlBase + separ + "search_all=" + encodeURIComponent(params.term.replace(/\"/g, ""));
+
+							return data;
+						}
+					});
+
+					
+					/* Code to execute a GET when we select a value */
+					$('.searchselectcombo').change(function() {
+						var selected = $('.searchselectcombo').val();
+						console.log("We select "+selected)
+
+						$('.searchselectcombo').val("");  /* reset visible combo value */
+						$.each( saveRemoteData, function( key, value ) {
+							if (key == selected)
+							{
+								console.log("selectArrayFilter - Do a redirect to "+value.url)
+								location.assign(value.url);
+							}
+						});
+					});
+
+				});
+				</script>
+<!-- Includes JS Footer of Dolibarr -->
+<script src="/core/js/lib_foot.js.php?lang=en_US&layout=classic&version=23.0.0"></script>
+
+<!-- A div to allow dialog popup by jQuery('#dialogforpopup').dialog() -->
+<div id="dialogforpopup" style="display: none;"></div>
+
+<!-- A div to allow uiblock by dolBlockUI(message) -->
+<div id="dol-block-ui" style="display: none;"><div class="message">Loading...</div></div>
+
+<!-- NO JS CODE TO call the ping. It was already done for this couple uniqueid and version -->
+</body>
+</html>

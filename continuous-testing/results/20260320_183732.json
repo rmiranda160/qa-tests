@@ -1,0 +1,1356 @@
+{
+  "cycle_id": "20260320_183732",
+  "start_time": "2026-03-20T18:37:32.332980",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dev1.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774031853327.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774031853766.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774031854262.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774031853327.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774031853766.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774031854262.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "stdout": "Accessibility test failed for https://dev1.cenarbe.com/. Violations: 2",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": false,
+              "violations": [
+                {
+                  "id": "heading-order",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.semantics",
+                    "best-practice"
+                  ],
+                  "description": "Ensure the order of headings is semantically correct",
+                  "help": "Heading levels should only increase by one",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/heading-order?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "heading-order",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Heading order invalid"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h5 class=\"card-title text-success mb-3\">\n                            <i class=\"bi bi-lightning-charge-fill me-2\"></i>\n                            Reserva R\u00e1pida\n                        </h5>",
+                      "target": [
+                        ".card-title"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Heading order invalid"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "heading-order",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Heading order invalid"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h4>Mar\u00eda Gonz\u00e1lez</h4>",
+                      "target": [
+                        ".col-lg-4.col-md-6:nth-child(1) > .testimonial-card-bajabikes > .testimonial-author > .author-info > h4"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Heading order invalid"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "heading-order",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Heading order invalid"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h5 class=\"mb-4\">\n                        <span class=\"text-success\">CENARBE</span>\n                        <span class=\"text-warning\">BIKE</span>\n                    </h5>",
+                      "target": [
+                        ".mb-lg-0 > h5"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Heading order invalid"
+                    }
+                  ]
+                },
+                {
+                  "id": "region",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.keyboard",
+                    "best-practice",
+                    "RGAAv4",
+                    "RGAA-9.2.1"
+                  ],
+                  "description": "Ensure all page content is contained by landmarks",
+                  "help": "All page content should be contained by landmarks",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<a href=\"https://wa.me/34974123456\" class=\"position-fixed bottom-3 end-3 bg-success text-white rounded-circle p-3 shadow-lg text-decoration-none\" style=\"z-index: 1000;\" target=\"_blank\" aria-label=\"Chatear por WhatsApp\">\n        <i class=\"bi bi-whatsapp fs-4\"></i>\n    </a>",
+                      "target": [
+                        ".end-3"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "medium",
+            "message": "Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://cntai.cenarbe.com/. Title: 403 Forbidden",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "403 Forbidden"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://cntai.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774031856475.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774031856525.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774031856562.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774031856475.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774031856525.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774031856562.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "stdout": "Accessibility test failed for https://cntai.cenarbe.com/. Violations: 3",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": false,
+              "violations": [
+                {
+                  "id": "color-contrast",
+                  "impact": "serious",
+                  "tags": [
+                    "cat.color",
+                    "wcag2aa",
+                    "wcag143",
+                    "TTv5",
+                    "TT13.c",
+                    "EN-301-549",
+                    "EN-9.1.4.3",
+                    "ACT",
+                    "RGAAv4",
+                    "RGAA-3.2.1"
+                  ],
+                  "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+                  "help": "Elements must meet minimum color contrast ratio thresholds",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#f47755",
+                            "bgColor": "#ffffff",
+                            "contrastRatio": 2.75,
+                            "fontSize": "60.0pt (80px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "3:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body>",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.75 (foreground color: #f47755, background color: #ffffff, font size: 60.0pt (80px), font weight: normal). Expected contrast ratio of 3:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<div class=\"error-code\">403</div>",
+                      "target": [
+                        ".error-code"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.75 (foreground color: #f47755, background color: #ffffff, font size: 60.0pt (80px), font weight: normal). Expected contrast ratio of 3:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#2498e3",
+                            "bgColor": "#ffffff",
+                            "contrastRatio": 3.14,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body>",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 3.14 (foreground color: #2498e3, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<a href=\"javascript:location.reload();\">Reload Page</a>",
+                      "target": [
+                        "a[href=\"javascript:location.reload();\"]"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #2498e3, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#2498e3",
+                            "bgColor": "#ffffff",
+                            "contrastRatio": 3.14,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body>",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 3.14 (foreground color: #2498e3, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<a href=\"javascript:history.back();\">Back to Previous Page</a>",
+                      "target": [
+                        "a[href=\"javascript:history.back();\"]"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #2498e3, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#2498e3",
+                            "bgColor": "#ffffff",
+                            "contrastRatio": 3.14,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body>",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 3.14 (foreground color: #2498e3, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<a href=\"/\">Home Page</a>",
+                      "target": [
+                        "a[href=\"/\"]"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #2498e3, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    }
+                  ]
+                },
+                {
+                  "id": "landmark-one-main",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.semantics",
+                    "best-practice"
+                  ],
+                  "description": "Ensure the document has a main landmark",
+                  "help": "Document should have one main landmark",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [],
+                      "all": [
+                        {
+                          "id": "page-has-main",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Document does not have a main landmark"
+                        }
+                      ],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<html lang=\"en\">",
+                      "target": [
+                        "html"
+                      ],
+                      "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+                    }
+                  ]
+                },
+                {
+                  "id": "region",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.keyboard",
+                    "best-practice",
+                    "RGAAv4",
+                    "RGAA-9.2.1"
+                  ],
+                  "description": "Ensure all page content is contained by landmarks",
+                  "help": "All page content should be contained by landmarks",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"page\">",
+                      "target": [
+                        ".page"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "medium",
+            "message": "Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dashboard.cenarbe.com/. Title: Proactive Monitoring Dashboard",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Proactive Monitoring Dashboard"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dashboard.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774031857877.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774031858245.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774031858533.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774031857877.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774031858245.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774031858533.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "stdout": "Accessibility test failed for https://dashboard.cenarbe.com/. Violations: 4",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": false,
+              "violations": [
+                {
+                  "id": "color-contrast",
+                  "impact": "serious",
+                  "tags": [
+                    "cat.color",
+                    "wcag2aa",
+                    "wcag143",
+                    "TTv5",
+                    "TT13.c",
+                    "EN-301-549",
+                    "EN-9.1.4.3",
+                    "ACT",
+                    "RGAAv4",
+                    "RGAA-3.2.1"
+                  ],
+                  "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+                  "help": "Elements must meet minimum color contrast ratio thresholds",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#3498db",
+                            "contrastRatio": 3.15,
+                            "fontSize": "10.0pt (13.3333px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<button class=\"refresh-btn\" onclick=\"loadData()\">\ud83d\udd04 Refresh Now</button>",
+                              "target": [
+                                "button"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 3.15 (foreground color: #ffffff, background color: #3498db, font size: 10.0pt (13.3333px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<button class=\"refresh-btn\" onclick=\"loadData()\">\ud83d\udd04 Refresh Now</button>",
+                      "target": [
+                        "button"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.15 (foreground color: #ffffff, background color: #3498db, font size: 10.0pt (13.3333px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#27ae60",
+                            "bgColor": "#ffffff",
+                            "contrastRatio": 2.87,
+                            "fontSize": "30.0pt (40px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "3:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"card\">\n                    <h3>Current Status</h3>\n                    <div class=\"card-value healthy\" id=\"current-status\">Healthy</div>\n                    <div class=\"card-label\">All systems operational</div>\n                </div>",
+                              "target": [
+                                ".card:nth-child(2)"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #27ae60, background color: #ffffff, font size: 30.0pt (40px), font weight: bold). Expected contrast ratio of 3:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<div class=\"card-value healthy\" id=\"current-status\">Healthy</div>",
+                      "target": [
+                        "#current-status"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #27ae60, background color: #ffffff, font size: 30.0pt (40px), font weight: bold). Expected contrast ratio of 3:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(1) > h3 > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(1) > h3 > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(1) > .modes > .mode:nth-child(1) > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(1) > .modes > .mode:nth-child(1) > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(1) > .modes > .mode:nth-child(2) > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(1) > .modes > .mode:nth-child(2) > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(2) > h3 > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(2) > h3 > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(2) > .modes > .mode:nth-child(1) > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(2) > .modes > .mode:nth-child(1) > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(2) > .modes > .mode:nth-child(2) > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(2) > .modes > .mode:nth-child(2) > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(3) > h3 > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(3) > h3 > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(3) > .modes > .mode:nth-child(1) > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(3) > .modes > .mode:nth-child(1) > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#27ae60",
+                            "contrastRatio": 2.87,
+                            "fontSize": "9.6pt (12.8px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<span class=\"status-badge pass\">pass</span>",
+                              "target": [
+                                ".app-card:nth-child(3) > .modes > .mode:nth-child(2) > .status-badge"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span class=\"status-badge pass\">pass</span>",
+                      "target": [
+                        ".app-card:nth-child(3) > .modes > .mode:nth-child(2) > .status-badge"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.87 (foreground color: #ffffff, background color: #27ae60, font size: 9.6pt (12.8px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#777777",
+                            "bgColor": "#f8f9fa",
+                            "contrastRatio": 4.24,
+                            "fontSize": "10.8pt (14.4px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body>",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 4.24 (foreground color: #777777, background color: #f8f9fa, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<footer>\n                Dashboard generated by OpenClaw Monitoring System. Auto-refresh every 30 seconds.\n            </footer>",
+                      "target": [
+                        "footer"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #777777, background color: #f8f9fa, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    }
+                  ]
+                },
+                {
+                  "id": "heading-order",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.semantics",
+                    "best-practice"
+                  ],
+                  "description": "Ensure the order of headings is semantically correct",
+                  "help": "Heading levels should only increase by one",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/heading-order?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "heading-order",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Heading order invalid"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h3>Total Cycles</h3>",
+                      "target": [
+                        ".card:nth-child(1) > h3"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Heading order invalid"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "heading-order",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Heading order invalid"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h4>\n                        \ud83d\udfe1 WARNING\n                        <span class=\"alert-app\">Cenarbe Bike Rental</span>\n                    </h4>",
+                      "target": [
+                        ".alert-card.warning:nth-child(1) > h4"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Heading order invalid"
+                    }
+                  ]
+                },
+                {
+                  "id": "landmark-one-main",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.semantics",
+                    "best-practice"
+                  ],
+                  "description": "Ensure the document has a main landmark",
+                  "help": "Document should have one main landmark",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [],
+                      "all": [
+                        {
+                          "id": "page-has-main",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Document does not have a main landmark"
+                        }
+                      ],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<html lang=\"en\">",
+                      "target": [
+                        "html"
+                      ],
+                      "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+                    }
+                  ]
+                },
+                {
+                  "id": "region",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.keyboard",
+                    "best-practice",
+                    "RGAAv4",
+                    "RGAA-9.2.1"
+                  ],
+                  "description": "Ensure all page content is contained by landmarks",
+                  "help": "All page content should be contained by landmarks",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h1>Proactive Monitoring Dashboard</h1>",
+                      "target": [
+                        "h1"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<p>Real-time monitoring with early anomaly detection for 3 applications</p>",
+                      "target": [
+                        ".header > p"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div>\n                    <strong>Last update:</strong> <span id=\"last-update\">3/20/2026, 4:40:41 PM</span>\n                    \u2022 <strong>Cycle:</strong> <span id=\"cycle-id\">20260320_143814</span>\n                </div>",
+                      "target": [
+                        ".meta > div"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"summary-cards\">",
+                      "target": [
+                        ".summary-cards"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"alerts-section\" id=\"alerts-section\">",
+                      "target": [
+                        "#alerts-section"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h2>Applications Status</h2>",
+                      "target": [
+                        "h2:nth-child(3)"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"apps-grid\" id=\"apps-grid\">",
+                      "target": [
+                        "#apps-grid"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h2>Recent Screenshots</h2>",
+                      "target": [
+                        "h2:nth-child(5)"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"screenshots\" id=\"screenshots\">",
+                      "target": [
+                        "#screenshots"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h2>Test Cycle History (Last 10)</h2>",
+                      "target": [
+                        "h2:nth-child(7)"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<table class=\"history-table\">",
+                      "target": [
+                        "table"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "medium",
+            "message": "Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    }
+  ]
+}

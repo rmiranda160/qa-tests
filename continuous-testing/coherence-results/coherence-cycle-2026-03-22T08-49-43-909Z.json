@@ -1,0 +1,53 @@
+{
+  "cycleId": "2026-03-22T08-49-43-909Z",
+  "results": [
+    {
+      "app": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "timestamp": "2026-03-22T08:49:36.539Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Cenarbe-Bike-Rental-2026-03-22T08-49-36-483Z.png"
+      ]
+    },
+    {
+      "app": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "timestamp": "2026-03-22T08:49:37.835Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Calendario-Cenarbe-2026-03-22T08-49-37-782Z.png"
+      ]
+    },
+    {
+      "app": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "timestamp": "2026-03-22T08:49:42.380Z",
+      "passed": false,
+      "errors": [
+        "Selector not found: a[href=\"/\"]",
+        "Selector not found: a[href*=\"demo\"]",
+        "Selector not found: a[href*=\"waitlist\"]",
+        "Selector not found: form",
+        "Selector not found: button",
+        "Selector not found: input[type=\"text\"]",
+        "Selector not found: input[type=\"email\"]"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-22T08-49-42-331Z.png"
+      ]
+    },
+    {
+      "app": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "timestamp": "2026-03-22T08:49:43.149Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Dashboard-2026-03-22T08-49-43-099Z.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-03-20T23:40:37.867Z",
+  "application": "Cenarbe Bike Rental",
+  "summary": {
+    "total": 5,
+    "passed": 1,
+    "failed": 1,
+    "incoherences": []
+  },
+  "incoherences": []
+}

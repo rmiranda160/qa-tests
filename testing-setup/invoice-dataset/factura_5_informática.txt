@@ -1,0 +1,18 @@
+FACTURA FACT-2026-005
+
+Cliente: Empresa X
+Proveedor: Mantenimiento Informático Theta
+División: informática
+Fecha: 2026-09-06
+
+Descripción:
+  - Servicios de informática
+  - Materiales varios
+
+Subtotal: 1357 €
+IVA (21%): 360 €
+Total: 1717 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-09-06
+

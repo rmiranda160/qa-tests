@@ -1,0 +1,64 @@
+=== REPORTE DE CICLO DE TESTING CONTINUO ===
+Fecha: 2026-03-20 18:26 UTC
+Ciclo ID: 20260320_182641
+
+--- RESULTADOS WEB-TESTER ---
+Aplicaciones probadas: 3
+
+1. Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   - Smoke: PASS
+   - Responsive: PASS
+   - Accessibility: FAIL (2 violaciones)
+     * heading-order: moderate
+     * region: moderate
+
+2. ContentoAI (https://cntai.cenarbe.com/)
+   - Smoke: PASS (título: 403 Forbidden)
+   - Responsive: PASS
+   - Accessibility: FAIL (3 violaciones)
+     * color-contrast: serious
+     * landmark-one-main: moderate
+     * region: moderate
+
+3. Dashboard (https://dashboard.cenarbe.com/)
+   - Smoke: PASS
+   - Responsive: PASS
+   - Accessibility: FAIL (4 violaciones)
+     * color-contrast: serious
+     * heading-order: moderate
+     * landmark-one-main: moderate
+     * region: moderate
+
+Resumen: 6/9 modos pasaron, 3 fallaron (todos accessibility). Severidad máxima: medium.
+
+--- RESULTADOS COHERENCIA (NAVEGADOR) ---
+Fecha: 2026-03-20 18:27 UTC
+Aplicación: Cenarbe Bike Rental
+Pruebas ejecutadas: 5
+Coherentes: 0
+Incoherentes: 2
+
+Incoherencias:
+1. Botón "Mis Reservas" → Página de reservas
+   - Contenido faltante: No se encontró "booking" en la página
+   - Contenido faltante: No se encontró "fecha" en la página
+
+Screenshot de evidencia: /home/node/.openclaw/workspace-coordinator/incoherence-2026-03-20T18-27-04-253Z.png
+
+--- ALERTAS GENERADAS ---
+- Alertas de incoherencia creadas en /home/node/.openclaw/workspace-tester/alerts/
+- Alertas de Telegram no enviadas (severidad insuficiente)
+- Notificación enviada al agente coordinator (sessionKey: agent:coordinator:main)
+
+--- RECOMENDACIONES ---
+1. Priorizar corrección de incoherencia en botón "Mis Reservas" de Cenarbe Bike Rental.
+2. Revisar problemas de accesibilidad (contraste de color, landmarks, heading order).
+3. Verificar que ContentoAI devuelva contenido apropiado (actualmente 403 Forbidden).
+4. Re-ejecutar pruebas después de correcciones.
+
+--- ARCHIVOS DE RESULTADOS ---
+- Continuous testing: /home/node/.openclaw/workspace-tester/continuous-testing/results/20260320_182641.json
+- Coherencia: /home/node/.openclaw/workspace-tester/coherence-reports/coherence-report-2026-03-20T18-27-48-351Z.json
+- Este resumen: /home/node/.openclaw/workspace-tester/continuous-testing/results/summary_20260320_1826.txt
+
+=== FIN DEL REPORTE ===

@@ -1,0 +1,261 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-01T04:15:00Z",
+  "agent_id": "tester",
+  "focus_area": "responsive",
+  "url_base": "https://new.zonacnc.com",
+  "scenario": "responsive-listing-product-search-pages",
+  "mode": "responsive",
+  "tooling": "curl + web_fetch",
+  "anti_duplicate": "new_scenario - category/product/404 vs previous auth/cms",
+  "results": {
+    "pages_tested": 16,
+    "responsive_pass": true,
+    "issues": {
+      "critical": [
+        {
+          "id": "category-pages-404",
+          "severity": "CRITICAL",
+          "title": "Main category and subcategory pages return HTTP 404",
+          "details": {
+            "tornos": "/es/3-tornos → HTTP 404",
+            "fresadoras": "/es/4-fresadoras → HTTP 404",
+            "cortadoras": "/es/cortadoras/ → HTTP 404",
+            "brocas": "/es/brocas-de-plaquitas/ → HTTP 404"
+          },
+          "impact": "Users cannot navigate directly to individual category pages. Only /es/2-inicio (root category) works. This breaks browsing flow, SEO, and subcategory discovery."
+        },
+        {
+          "id": "i18n-en-cms-content-wrong-language",
+          "severity": "CRITICAL",
+          "title": "EN CMS pages serve Spanish content or wrong page (CONFIRMED - same as 04:00 report)",
+          "details": {
+            "en_terms": "/en/content/3-terminos-y-condiciones-de-uso → Spanish 'Términos y condiciones' served as EN",
+            "en_how_it_works": "/en/content/4-como-funciona → Shows 'About us' with Lorem ipsum placeholder",
+            "en_faq": "/en/content/10-preguntas-frecuentes → Spanish FAQ served as EN"
+          },
+          "impact": "International English-speaking users see Spanish content or placeholder text"
+        }
+      ],
+      "high": [
+        {
+          "id": "category-page-oversized",
+          "severity": "HIGH",
+          "title": "Root category page (/es/2-inicio) is 1.68 MB - excessively large for mobile",
+          "details": {
+            "size_bytes": 1685558,
+            "recommended_max": "~500KB for mobile",
+            "impact": "Slow load times on 3G/4G mobile connections, higher data costs for users, lower PageSpeed score"
+          },
+          "mitigation": "Compress images, enable pagination, use lazy loading (currently 24/26 images use lazy loading - good but total payload still too high)"
+        },
+        {
+          "id": "broken-cms-pages-missing",
+          "severity": "HIGH",
+          "title": "Required CMS pages redirect to 404",
+          "details": {
+            "aviso_legal": "/es/content/2-aviso-legal → 302 → 404 (Legal notice)",
+            "pago_seguro": "/es/content/5-pago-seguro → 302 → 404 (Secure payment info)",
+            "content_id_11": "/es/content/11- → 302 → 404"
+          },
+          "impact": "Legal compliance risk - 'Legal Notice' and 'Secure Payment' pages are required for legal/trust purposes"
+        }
+      ],
+      "medium": [
+        {
+          "id": "product-page-partial-lazy-loading",
+          "severity": "MEDIUM",
+          "title": "Product detail page has 11 images but only 5 use lazy loading",
+          "url": "/es/cortadoras/12880-mazak-optiplex-3015-4kw.html",
+          "details": "Only 5/11 images have loading='lazy'. Remaining 6 load eagerly, impacting mobile performance",
+          "total_images": 11,
+          "lazy_loaded": 5
+        },
+        {
+          "id": "en-pw-recovery-spanish-footer",
+          "severity": "MEDIUM",
+          "title": "EN password recovery page has Spanish footer text (CONFIRMED - same as 04:00)",
+          "url": "/en/password-recovery",
+          "details": "Footer says 'consulte nuestra información de contacto en el aviso legal' instead of English equivalent"
+        }
+      ],
+      "low": [
+        {
+          "id": "empty-img-src",
+          "severity": "LOW",
+          "title": "Empty img src attribute found on category page",
+          "details": "Found <img src=\"\" on /es/2-inicio which could cause broken image indicators"
+        },
+        {
+          "id": "search-url-redirect",
+          "severity": "LOW",
+          "title": "Old search URL format redirects",
+          "details": "/es/buscar?controller=search&s=torno → 301 → /es/buscar?q=torno (normal PS9 behavior, not a bug)"
+        }
+      ]
+    },
+    "responsive_structure": {
+      "status": "PASS",
+      "all_pages_have_viewport_meta": true,
+      "all_pages_have_bootstrap_grid": true,
+      "all_pages_have_mobile_nav": true,
+      "hreflang_entries": 12,
+      "mobile_nav_present": true
+    },
+    "performance": {
+      "homepage_ttfb": {"avg_ms": 268, "min_ms": 194, "max_ms": 324},
+      "largest_pages": {
+        "category_listing": "1.68 MB",
+        "search_results": "244 KB",
+        "product_detail": "198 KB",
+        "login": "127 KB",
+        "cms_pages": "~120 KB each",
+        "homepage": "156 KB"
+      }
+    },
+    "details_by_page": {
+      "homepage_es": {
+        "url": "/es/",
+        "http": 200,
+        "size": "156KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": 12,
+        "title": "Maquinaria Industrial Segunda Mano y Nueva | ZonaCNC España",
+        "status": "PASS"
+      },
+      "homepage_en": {
+        "url": "/en/",
+        "http": 200,
+        "size": "152KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": true,
+        "title": "Purchase and sale of new and used industrial machinery...",
+        "status": "PASS"
+      },
+      "homepage_fr": {
+        "url": "/fr/",
+        "http": 200,
+        "size": "154KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": true,
+        "title": "Achat et vente de machines industrielles...",
+        "status": "PASS"
+      },
+      "homepage_de": {
+        "url": "/de/",
+        "http": 200,
+        "size": "153KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": true,
+        "title": "Kauf und Verkauf von Industriemaschinen...",
+        "status": "PASS"
+      },
+      "category_listing": {
+        "url": "/es/2-inicio",
+        "http": 200,
+        "size": "1.68 MB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "images": 26,
+        "lazy_loaded": 24,
+        "title": "Maquinaria industrial segunda mano | ZonaCNC",
+        "status": "PASS_WITH_NOTES",
+        "note": "Excessively large (1.68 MB). Images mostly lazy-loaded but total payload problematic for mobile."
+      },
+      "product_detail": {
+        "url": "/es/cortadoras/12880-mazak-optiplex-3015-4kw.html",
+        "http": 200,
+        "size": "198KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "images": 11,
+        "lazy_loaded": 5,
+        "hreflang": 12,
+        "status": "PASS",
+        "note": "Only 5/11 images lazy loaded"
+      },
+      "search_results": {
+        "url": "/es/buscar?q=torno",
+        "http": 200,
+        "size": "244KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "status": "PASS"
+      },
+      "login": {
+        "url": "/es/iniciar-sesion",
+        "http": 200,
+        "size": "127KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "form_elements": 15,
+        "status": "PASS"
+      },
+      "cms_como_funciona": {
+        "url": "/es/content/4-como-funciona",
+        "http": 200,
+        "size": "120KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "status": "PASS"
+      },
+      "cms_contact": {
+        "url": "/es/contactenos",
+        "http": 200,
+        "size": "121KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "status": "PASS"
+      },
+      "404_page": {
+        "url": "/es/404",
+        "http": 200,
+        "size": "118KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "has_404_text": true,
+        "status": "PASS"
+      },
+      "category_404": {
+        "url": "/es/3-tornos",
+        "http": 404,
+        "status": "FAIL",
+        "severity": "CRITICAL"
+      },
+      "category_404_2": {
+        "url": "/es/4-fresadoras",
+        "http": 404,
+        "status": "FAIL",
+        "severity": "CRITICAL"
+      },
+      "cms_aviso_legal_404": {
+        "url": "/es/content/2-aviso-legal",
+        "http": "302→404",
+        "status": "FAIL",
+        "severity": "HIGH"
+      }
+    },
+    "hreflang": {
+      "languages": 12,
+      "entries": ["ca-es", "de-de", "en", "es-es", "eu-es", "fr-fr", "gl-es", "it-it", "pt-pt", "ru-ru", "tr-tr", "x-default"],
+      "status": "PASS"
+    },
+    "verdict": "PASS_WITH_NOTES",
+    "summary": "Responsive structure ✅ stable across all pages. 12 hreflang languages configured. Key issue: CRITICAL - main categories (tornos, fresadoras, etc.) return 404, breaking navigation. HIGH - Category listing page at 1.68 MB is too large for mobile. HIGH - Legal notice and secure payment CMS pages redirect to 404. i18n EN CMS content issues confirmed from previous run. Product pages look good but subcategory pages broken."
+  }
+}

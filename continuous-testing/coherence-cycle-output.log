@@ -1,0 +1,42 @@
+🚀 Starting coherence cycle for all applications
+🔍 Testing coherence for Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   ✅ Found 3 element(s) for "a[href*="reservas"]"
+   ✅ Found 4 element(s) for "button, input[type="submit"]"
+   ✅ Found 1 element(s) for ".card"
+   ✅ Found 1 element(s) for "nav"
+   ✅ All coherence checks passed for Cenarbe Bike Rental
+🔍 Testing coherence for Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+   🔐 Attempting login...
+   ✅ Login successful
+   ✅ Found 1 element(s) for "#calendar"
+   ✅ Found 3 element(s) for "table"
+   ✅ Found 4 element(s) for "a[href*="bicicletas"]"
+   ✅ All coherence checks passed for Calendario Cenarbe
+🔍 Testing coherence for ContentoAI (https://cntai.cenarbe.com/)
+   ✅ Found 1 element(s) for "body"
+   ✅ Found 1 element(s) for "h1"
+   ❌ Coherence failures for ContentoAI: [
+  'Selector not found: h2',
+  'Selector not found: h3',
+  'Selector not found: header',
+  'Selector not found: main',
+  'Selector not found: footer',
+  'Selector not found: a[href="/login"]',
+  'Selector not found: a[href="/register"]',
+  'Selector not found: a[href="/dashboard"]'
+]
+🔍 Testing coherence for Dashboard (https://dashboard.cenarbe.com/)
+   ✅ Found 4 element(s) for ".card"
+   ✅ Found 1 element(s) for "table"
+   ✅ Found 1 element(s) for "h1"
+   ✅ All coherence checks passed for Dashboard
+🔍 Testing coherence for Villa Zocotin (https://villazocotin.cenarbe.com)
+   ✅ Found 1 element(s) for "body"
+   ✅ Found 1 element(s) for "h1"
+   ✅ Found 1 element(s) for "nav"
+   ✅ Found 1 element(s) for "footer"
+   ❌ Coherence failures for Villa Zocotin: [ 'Selector not found: a[href*="reservas"]' ]
+
+📊 Coherence results saved to /home/node/.openclaw/workspace-tester/continuous-testing/coherence-results/coherence-cycle-2026-03-23T08-14-35-018Z.json
+
+📈 SUMMARY: 3/5 applications passed coherence, 2 failed.

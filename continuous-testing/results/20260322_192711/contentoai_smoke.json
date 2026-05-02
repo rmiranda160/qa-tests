@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "stdout": "Smoke test passed for https://contentoai.cenarbe.com/. Title: ContentoAI - Generador de Contenido IA en Español",
+  "stderr": "",
+  "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+  "rawResult": {
+    "ok": true,
+    "title": "ContentoAI - Generador de Contenido IA en Español"
+  }
+}

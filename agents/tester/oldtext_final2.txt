@@ -1,0 +1,38 @@
+      // Probar funcionalidad (para botones clickeables)
+      if (result.clickable && result.type === 'button') {
+        const initialUrl = page.url();
+        
+        try {
+          await element.click({ timeout: 5000 });
+          await page.waitForTimeout(2000); // Esperar efectos
+          
+          const newUrl = page.url();
+          
+          // Verificar cambios
+          if (newUrl !== initialUrl) {
+            result.functional = true;
+            result.issues.push(`Redirige a: ${newUrl}`);
+          } else {
+            // Verificar cambios en contenido (simplificado)
+            result.issues.push('Click sin cambio detectable en URL');
+          }
+
+          // Volver si cambió URL
+          if (newUrl !== initialUrl) {
+            await page.goto(initialUrl, { waitUntil: 'networkidle' });
+          }
+
+        } catch (clickError) {
+          result.issues.push(`Error al hacer click: ${clickError.message}`);
+        }
+      }
+
+      // Determinar estado final
+      if (result.functional) {
+        result.status = 'pass';
+      } else if (result.exists && result.clickable) {
+        result.status = 'warning';
+      } else {
+        result.status = 'fail';
+      }
+

@@ -1,0 +1,189 @@
+{
+  "cycle_id": "20260320_143814",
+  "start_time": "2026-03-20T14:38:14.878478",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dev1.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774017495870.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774017496250.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774017496735.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://contentoai.cenarbe.com/. Title: ContentoAI - Generador de Contenido IA en Espa\u00f1ol",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "ContentoAI - Generador de Contenido IA en Espa\u00f1ol"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://contentoai.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774017498186.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774017498434.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774017498831.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://villazocotin.cenarbe.com/. Title: Villa Zocotin - Reservas Online",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Villa Zocotin - Reservas Online"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://villazocotin.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774017500204.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774017500344.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774017500491.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    }
+  ]
+}

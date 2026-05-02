@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+URL="${1:-}"
+MODE="${2:-smoke}"
+
+if [ -z "$URL" ]; then
+  echo '{"ok": false, "error": "Missing URL"}'
+  exit 1
+fi
+
+# Run playwright tester
+cd "$(dirname "$0")"
+RESULTS_DIR="$(pwd)/playwright-tester/results"
+export RESULTS_DIR
+
+# Run Node script and capture output
+OUTPUT=$(node playwright-tester/index.js "$URL" "$MODE" 2>&1)
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -eq 0 ]; then
+  # Success: parse JSON output and add metadata
+  echo "$OUTPUT" | jq -c '. + {
+    ok: true,
+    stdout: . | tostring,
+    stderr: "",
+    resultsDir: "'"$RESULTS_DIR"'"
+  }'
+else
+  # Error
+  echo '{
+    "ok": false,
+    "stdout": "",
+    "stderr": "'"${OUTPUT//\"/\\\"}"'",
+    "resultsDir": ""
+  }'
+fi

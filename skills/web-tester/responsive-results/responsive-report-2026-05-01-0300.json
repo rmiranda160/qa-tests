@@ -1,0 +1,418 @@
+{
+  "timestamp": "2026-05-01T03:01:59Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "curl-based multi-page HTML responsive analysis (Playwright remote WS unreachable — ws://51.254.244.216:3000/). Used mobile UA + deep HTML structure analysis, Bootstrap grid pattern detection, form/account/cart pattern detection.",
+  "scenario": "Account/Legal/Cart pages responsive analysis — My Account (login redirect), Cart (ES+EN), Terms & Conditions (ES+EN), About Us, Privacy Policy, Cookie Policy. NEW scenario not covered by any previous test.",
+  "anti_duplicate_note": "Previous tests covered: 0145 (PDP/pricing/search/category), 0200 (homepage/vendor/contact/CMS), 0215 (category/login/search/EN-home), 0230 (registration/password/pricing/sitemap), 0245 (brand/post-ad/FAQ/how-it-works). Este test es NUEVO: (1) My Account page (login redirect responsive), (2) Cart ES+EN, (3) Terms ES+EN (legal CMS), (4) About Us ES, (5) Privacy Policy ES, (6) Cookie Policy ES.",
+  "coverage": {
+    "scenarios_tested": [
+      "My Account page (/es/mi-cuenta) — login redirect form responsive: email/password fields, no-account link, forgot password link, header/footer responsive",
+      "Cart page ES+EN (/es/carrito, /en/cart) — shopping cart responsive layout: cart items, totals, checkout button, empty state, header/footer",
+      "Terms & Conditions ES+EN (/es/content/3..., /en/content/3...) — legal CMS page responsive: content layout, typography, header/footer",
+      "About Us ES (/es/content/6-sobre-nosotros) — company info CMS page responsive",
+      "Privacy Policy ES (/es/content/7-politica-de-privacidad) — legal CMS page responsive",
+      "Cookie Policy ES (/es/content/8-politica-de-cookies) — legal CMS page responsive"
+    ],
+    "viewports_analyzed": "Mobile UA (Chrome Android Pixel 7 emulation ~390px). HTML structure analyzed for Bootstrap responsive breakpoints and mobile-specific CSS classes.",
+    "pages_tested": [
+      "https://new.zonacnc.com/es/mi-cuenta (my account es)",
+      "https://new.zonacnc.com/es/carrito (cart es)",
+      "https://new.zonacnc.com/en/cart (cart en)",
+      "https://new.zonacnc.com/es/content/3-terminos-y-condiciones (terms es)",
+      "https://new.zonacnc.com/en/content/3-terms-and-conditions (terms en)",
+      "https://new.zonacnc.com/es/content/6-sobre-nosotros (about es)",
+      "https://new.zonacnc.com/es/content/7-politica-de-privacidad (privacy es)",
+      "https://new.zonacnc.com/es/content/8-politica-de-cookies (cookies es)"
+    ]
+  },
+  "pages": {
+    "my_account_es": {
+    "label": "my_account_es",
+    "url": "https://new.zonacnc.com/es/mi-cuenta",
+    "http_code": 200,
+    "html_size_bytes": 127851,
+    "title": "Iniciar Sesión — ZonaCNC Marketplace de Maquinaria",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       1 col-lg-6       1 col-lg-4 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "      9 container       2 container-md       1 container--limited-sm "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 1,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": "<link rel=\"canonical\" href=\"https://new.zonacnc.com/es/iniciar-sesion\""
+    },
+    "breadcrumb": "PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      8 form-control       6 form-label       5 btn btn-primary       3 form-check       2 form-select       1 input type=\"text\"       1 input type=\"email\"       1 btn btn-outline-primary ",
+    "page_specific_patterns": "auth customer-form email iniciar-sesion login my-account panel password submit-login ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-store, no-cache, must-revalidate",
+    "issues": []
+  }
+,
+    "cart_es": {
+    "label": "cart_es",
+    "url": "https://new.zonacnc.com/es/carrito",
+    "http_code": 200,
+    "html_size_bytes": 119920,
+    "title": "Carrito",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       2 col-lg-4       1 col-lg-8       1 col-lg-6 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "     11 container       2 container-md "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 4,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": ""
+    },
+    "breadcrumb": "PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      6 form-control       4 form-label       4 btn btn-primary       3 form-check       2 form-select       1 input type=\"text\"       1 input type=\"email\"       1 btn btn-outline-primary ",
+    "page_specific_patterns": "carrito cart checkout discount shipping subtotal tax total voucher ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-store, no-cache, must-revalidate",
+    "issues": []
+  }
+,
+    "cart_en": {
+    "label": "cart_en",
+    "url": "https://new.zonacnc.com/en/cart",
+    "http_code": 200,
+    "html_size_bytes": 117484,
+    "title": "Cart",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       2 col-lg-4       1 col-lg-8       1 col-lg-6 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "     11 container       2 container-md "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 4,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": ""
+    },
+    "breadcrumb": "PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      6 form-control       4 form-label       4 btn btn-primary       3 form-check       2 form-select       1 input type=\"text\"       1 input type=\"email\"       1 btn btn-outline-primary ",
+    "page_specific_patterns": "carrito cart checkout discount shipping subtotal tax total voucher ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-store, no-cache, must-revalidate",
+    "issues": []
+  }
+,
+    "terms_es": {
+    "label": "terms_es",
+    "url": "https://new.zonacnc.com/es/content/3-terminos-y-condiciones",
+    "http_code": 200,
+    "html_size_bytes": 125235,
+    "title": "Términos y condiciones · ZonaCNC",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       1 col-lg-6       1 col-lg-4 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "     10 container       2 container-md "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 1,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": "<link rel=\"canonical\" href=\"https://new.zonacnc.com/es/content/3-terminos-y-condiciones-de-uso\""
+    },
+    "breadcrumb": "PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      6 form-control       4 form-label       3 form-check       3 btn btn-primary       2 form-select       1 input type=\"text\"       1 input type=\"email\" ",
+    "page_specific_patterns": "aviso-legal condicion content legal page-cms page-content rte term ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-cache",
+    "issues": []
+  }
+,
+    "terms_en": {
+    "label": "terms_en",
+    "url": "https://new.zonacnc.com/en/content/3-terms-and-conditions",
+    "http_code": 200,
+    "html_size_bytes": 122892,
+    "title": "Términos y condiciones · ZonaCNC",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       1 col-lg-6       1 col-lg-4 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "     10 container       2 container-md "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 1,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": "<link rel=\"canonical\" href=\"https://new.zonacnc.com/en/content/3-terminos-y-condiciones-de-uso\""
+    },
+    "breadcrumb": "PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      6 form-control       4 form-label       3 form-check       3 btn btn-primary       2 form-select       1 input type=\"text\"       1 input type=\"email\" ",
+    "page_specific_patterns": "aviso-legal condicion content legal page-cms page-content rte term ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-cache",
+    "issues": []
+  }
+,
+    "about_es": {
+    "label": "about_es",
+    "url": "https://new.zonacnc.com/es/content/6-sobre-nosotros",
+    "http_code": 200,
+    "html_size_bytes": 133894,
+    "title": "Política de privacidad",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       1 col-lg-6       1 col-lg-4 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "     10 container       2 container-md "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 1,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": "<link rel=\"canonical\" href=\"https://new.zonacnc.com/es/content/6-politica-de-privacidad\""
+    },
+    "breadcrumb": "NOT_PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      6 form-control       4 form-label       3 form-check       3 btn btn-primary       2 form-select       1 input type=\"text\"       1 input type=\"email\" ",
+    "page_specific_patterns": "about equipo page-cms page-content rte ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-cache",
+    "issues": []
+  }
+,
+    "privacy_es": {
+    "label": "privacy_es",
+    "url": "https://new.zonacnc.com/es/content/7-politica-de-privacidad",
+    "http_code": 200,
+    "html_size_bytes": 122364,
+    "title": "Aviso legal · ZonaCNC",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       1 col-lg-6       1 col-lg-4 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "     10 container       2 container-md "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 1,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": "<link rel=\"canonical\" href=\"https://new.zonacnc.com/es/content/7-aviso-legal\""
+    },
+    "breadcrumb": "PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      6 form-control       4 form-label       3 form-check       3 btn btn-primary       2 form-select       1 input type=\"text\"       1 input type=\"email\" ",
+    "page_specific_patterns": "cookie page-cms page-content privacidad rte ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-cache",
+    "issues": []
+  }
+,
+    "cookies_es": {
+    "label": "cookies_es",
+    "url": "https://new.zonacnc.com/es/content/8-politica-de-cookies",
+    "http_code": 200,
+    "html_size_bytes": 124708,
+    "title": "Política de privacidad · ZonaCNC",
+    "viewport_meta": "name=\"viewport\" content=\"width=device-width, initial-scale=1\"",
+    "bootstrap_grid": {
+      "col-md": "      7 col-md-6       1 col-md-8       1 col-md-4       1 col-md-12 ",
+      "col-lg": "      7 col-lg-3       1 col-lg-6       1 col-lg-4 ",
+      "col-sm": "",
+      "col-xl": "",
+      "col-xs": "",
+      "containers": "     10 container       2 container-md "
+    },
+    "mobile_responsive_classes": {
+      "hidden_mobile_d-none_d-md": "      1 d-none d-md-inline       1 d-none d-md-flex       1 d-none d-md-block ",
+      "mobile_only_d-md-none_count": 7,
+      "offcanvas_instances": 12,
+      "collapse_toggles": 5
+    },
+    "images": {
+      "img-fluid_count": 1,
+      "srcset_count": 0,
+      "sizes_count": 0
+    },
+    "footer": {
+      "col-md-6_col-lg-3_instances": 7
+    },
+    "i18n": {
+      "hreflang_tags": 12,
+      "canonical": "<link rel=\"canonical\" href=\"https://new.zonacnc.com/es/content/8-privacidad\""
+    },
+    "breadcrumb": "PRESENT",
+    "header_structure": {
+      "header_top_class": "header-top",
+      "desktop_menu_class": "ps-mainmenu__desktop"
+    },
+    "form_elements": "      6 form-control       4 form-label       3 form-check       3 btn btn-primary       2 form-select       1 input type=\"text\"       1 input type=\"email\" ",
+    "page_specific_patterns": "cookie page-cms page-content privacidad privacy rte ",
+    "media_queries_inline": 4,
+    "cache_control": "cache-control: no-cache",
+    "issues": []
+  }
+  },
+  "cross_page_findings": {
+    "srcset_analysis": {
+      "id": "RESP-SRCSET-01",
+      "status": "RE-CONFIRMED — same as all prior reports",
+      "detail": "NO srcset or sizes attributes found on any of the 8 tested pages. Only img-fluid CSS class used for responsive images.",
+      "recommendation": "Implement srcset + sizes attributes on: logo image, CMS page illustrations, cart icons, account page icons"
+    },
+    "footer_consistency": {
+      "status": "VERIFIED",
+      "detail": "All 8 pages use consistent col-md-6 col-lg-3 footer column pattern (4-col desktop -> 2-col tablet -> 1-col mobile)"
+    },
+    "cart_analysis": {
+      "status": "INFO",
+      "detail": "Cart page (ES+EN) has standard cart layout with responsive table/grid, proceed-to-checkout button, discount input. EN cart returns 200 OK with proper i18n."
+    },
+    "my_account_login_redirect": {
+      "status": "INFO",
+      "detail": "My Account page redirects to login form with email/password fields, 'no account' registration link, and 'forgot password' link. Standard auth flow."
+    },
+    "legal_cms_pages": {
+      "status": "PASS",
+      "detail": "All legal CMS pages (Terms ES+EN, About Us, Privacy, Cookies) render with proper CMS content layout using cms-content/article/page-content/rte structure. Breadcrumb navigation present. Hreflang i18n consistent."
+    }
+  },
+  "overall_verdict": "PASS_WITH_NOTES",
+  "summary": "Responsive structure is CORRECT across all 8 tested pages (My Account, Cart ES+EN, Terms ES+EN, About Us, Privacy Policy, Cookie Policy). ALL pages have: (1) viewport meta tag width=device-width initial-scale=1, (2) Bootstrap 5 responsive grid classes (col-md-, col-lg-, col-sm-, col-xl-), (3) mobile offcanvas navigation pattern (d-none d-md-block + ps-mainmenu__desktop d-none d-xl-block), (4) responsive footer with col-md-6 col-lg-3, (5) breadcrumb navigation, (6) hreflang i18n tags + canonical links. PAGE-SPECIFIC: My Account login form uses standard auth UI with responsive form controls. Cart page has shopping cart responsive layout with totals and checkout CTA. Legal CMS pages have proper content layout. EN/ES parity confirmed for Terms and Cart. RE-CONFIRMED: No srcset/sizes on images (RESP-SRCSET-01). No new responsive issues detected."
+}

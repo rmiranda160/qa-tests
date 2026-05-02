@@ -1,0 +1,632 @@
+{
+  "url": "https://dev1.cenarbe.com/",
+  "timestamp": "2026-03-20T16:48:13.764Z",
+  "totalButtons": 22,
+  "totalActions": 45,
+  "passed": 2,
+  "failed": 1,
+  "skipped": 0,
+  "details": [
+    {
+      "type": "button",
+      "selector": "button",
+      "text": "Buscar Disponibilidad",
+      "id": "",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "type": "button",
+      "selector": "button",
+      "text": "",
+      "id": "",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "Cambio de URL detectado: https://dev1.cenarbe.com/carrito.php"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Login",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Registro",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Ver Bicicletas",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Explorar Rutas",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Detalles",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Reservar",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Detalles",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Reservar",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Detalles",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Reservar",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Detalles",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Reservar",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Detalles",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Reservar",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Detalles",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Reservar",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Ver todas las bicicletas",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Reservar Ahora",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "button",
+      "selector": "a.btn",
+      "text": "Contactar",
+      "id": "",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "form",
+      "selector": "form",
+      "description": "Formulario (/bicicletas.php)",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "form",
+      "selector": "form",
+      "description": "Formulario ",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                    CENARBE\n \" → /",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /rutas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /reservas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /contacto.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /sobre-nosotros.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                            \n\" → /carrito.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /login.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /register.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                        \n    \" → /bicicletas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                        \n    \" → /rutas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?id=4",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /carrito.php?action=add&id=4&type=bike",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?id=8",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /carrito.php?action=add&id=8&type=bike",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?id=3",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /carrito.php?action=add&id=3&type=bike",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?id=5",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /carrito.php?action=add&id=5&type=bike",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?id=1",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /carrito.php?action=add&id=1&type=bike",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?id=2",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /carrito.php?action=add&id=2&type=bike",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                \n            \" → /bicicletas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                        \n    \" → /bicicletas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                        \n    \" → /contacto.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → tel:974123456",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → mailto:info@cenarbe.com",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /rutas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /reservas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /contacto.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?tipo=MTB",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /bicicletas.php?tipo=E-MTB",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /rutas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /reservas.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                             \" → /faq.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                        Polít\" → /politica-privacidad.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                        Térmi\" → /terminos-condiciones.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n                        Aviso\" → /aviso-legal.php",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    },
+    {
+      "type": "link",
+      "selector": "a[href]",
+      "description": "Enlace: \"\n        \n    \" → https://wa.me/34974123456",
+      "status": "FAIL",
+      "issues": [
+        "No visible en DOM"
+      ]
+    }
+  ]
+}

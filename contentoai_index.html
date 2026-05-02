@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContentoAI - Generador de Contenido IA en Español</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <span class="logo-icon"><i class="fas fa-robot"></i></span>
+                    <span class="logo-text">Contento<span class="logo-highlight">AI</span></span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#features">Producto</a></li>
+                    <li><a href="#pricing">Precios</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#cta" class="btn btn-outline">Lista de espera</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Genera contenido en español <span class="highlight">impulsado por IA</span> en minutos</h1>
+                <p class="hero-subtitle">ContentoAI es la herramienta definitiva para creadores, marketers y empresas que necesitan contenido original, persuasivo y listo para publicar.</p>
+                <div class="hero-cta">
+                    <a href="#cta" class="btn btn-primary btn-large">Únete a la lista de espera</a>
+                    <a href="#features" class="btn btn-secondary btn-large">Ver demo <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">+5,000</span>
+                        <span class="stat-label">usuarios en lista de espera</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">+50,000</span>
+                        <span class="stat-label">artículos generados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">satisfacción</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dashboard de ContentoAI mostrando generación de contenido">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Product Explanation -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Potencia tu creatividad con IA</h2>
+                <p class="section-subtitle">ContentoAI entiende el contexto, el tono y el público objetivo para entregarte contenido que convierte.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Blogs y artículos</h3>
+                    <p class="feature-description">Genera posts completos, desde el titular hasta las conclusiones, optimizados para SEO.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="feature-title">Copia publicitaria</h3>
+                    <p class="feature-description">Crea anuncios, emails y landing pages que captan la atención y aumentan las conversiones.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-social-media"></i>
+                    </div>
+                    <h3 class="feature-title">Redes sociales</h3>
+                    <p class="feature-description">Posts, hilos, descripciones y hashtags para Instagram, Twitter, LinkedIn y más.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="feature-title">100% en español</h3>
+                    <p class="feature-description">Entendemos matices, localismos y la riqueza del idioma español. Sin traducciones robóticas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="feature-title">Personalización total</h3>
+                    <p class="feature-description">Ajusta el tono, longitud, estilo y keywords para alinearse con tu marca.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Analítica integrada</h3>
+                    <p class="feature-description">Mide el rendimiento de tu contenido y obtén sugerencias de mejora.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Planes a medida</h2>
+                <p class="section-subtitle">Elige el plan que se adapte a tus necesidades. Sin contratos largos, cancela cuando quieras.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Básico</h3>
+                        <div class="pricing-price">
+                            <span class="currency">€</span>
+                            <span class="amount">29</span>
+                            <span class="period">/mes</span>
+                        </div>
+                        <p class="pricing-description">Ideal para freelancers y pequeños proyectos.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 50 artículos/mes</li>
+                        <li><i class="fas fa-check"></i> 3 tonos de voz</li>
+                        <li><i class="fas fa-check"></i> Soporte por email</li>
+                        <li><i class="fas fa-check"></i> 1 usuario</li>
+                        <li><i class="fas fa-times"></i> Sin analítica avanzada</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-outline btn-block">Elegir Básico</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Más popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Profesional</h3>
+                        <div class="pricing-price">
+                            <span class="currency">€</span>
+                            <span class="amount">79</span>
+                            <span class="period">/mes</span>
+                        </div>
+                        <p class="pricing-description">Para equipos de marketing y agencias.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 200 artículos/mes</li>
+                        <li><i class="fas fa-check"></i> 10 tonos de voz</li>
+                        <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                        <li><i class="fas fa-check"></i> 5 usuarios</li>
+                        <li><i class="fas fa-check"></i> Analítica básica</li>
+                        <li><i class="fas fa-check"></i> Integraciones (WordPress, Shopify)</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-primary btn-block">Elegir Profesional</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Empresa</h3>
+                        <div class="pricing-price">
+                            <span class="currency">€</span>
+                            <span class="amount">199</span>
+                            <span class="period">/mes</span>
+                        </div>
+                        <p class="pricing-description">Para grandes organizaciones con necesidades específicas.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Artículos ilimitados</li>
+                        <li><i class="fas fa-check"></i> Tonos de voz ilimitados</li>
+                        <li><i class="fas fa-check"></i> Soporte 24/7 y gestor dedicado</li>
+                        <li><i class="fas fa-check"></i> Usuarios ilimitados</li>
+                        <li><i class="fas fa-check"></i> Analítica avanzada y reporting</li>
+                        <li><i class="fas fa-check"></i> API completa y white-label</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-outline btn-block">Elegir Empresa</a>
+                </div>
+            </div>
+            <p class="pricing-note">Todos los planes incluyen garantía de satisfacción de 30 días. Precios en EUR + IVA aplicable.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Lo que dicen nuestros primeros usuarios</h2>
+                <p class="section-subtitle">Miles de creadores ya confían en ContentoAI para su contenido diario.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">“ContentoAI ha reducido el tiempo que dedico a escribir posts en un 80%. La calidad es excelente y el soporte es rapidísimo.”</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Foto de María López" class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">María López</h4>
+                            <p class="author-role">Content Manager, Startup Tech</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">“Como freelance, necesito entregar contenido a varios clientes cada semana. ContentoAI me permite escalar sin perder calidad.”</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Foto de Carlos Ruiz" class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">Carlos Ruiz</h4>
+                            <p class="author-role">Freelance Copywriter</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">“Implementamos ContentoAI en nuestra agencia y ahora podemos ofrecer contenido de alta calidad a un coste mucho menor. Un game-changer.”</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Foto de Ana García" class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">Ana García</h4>
+                            <p class="author-role">CEO, Agencia Digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Waitlist -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Únete a la lista de espera y accede antes que nadie</h2>
+                <p class="cta-subtitle">Sé de los primeros en probar ContentoAI. Obtén un <strong>descuento del 20%</strong> en tu primer mes y acceso beta exclusivo.</p>
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Tu nombre completo" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Tu email profesional" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="planInterest">
+                            <option value="" disabled selected>¿Qué plan te interesa?</option>
+                            <option value="basic">Básico (€29/mes)</option>
+                            <option value="professional">Profesional (€79/mes)</option>
+                            <option value="enterprise">Empresa (€199/mes)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">Reservar mi acceso <i class="fas fa-arrow-right"></i></button>
+                    <p class="form-note">Al unirte aceptas recibir emails sobre el lanzamiento. No spam, puedes darte de baja cuando quieras.</p>
+                </form>
+                <div class="cta-success" id="successMessage" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>¡Gracias por unirte a la lista de espera!</h3>
+                    <p>Te hemos enviado un email de confirmación. Pronto recibirás más información sobre el acceso beta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Preguntas frecuentes</h2>
+                <p class="section-subtitle">Resolvemos tus dudas sobre ContentoAI.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿En qué se diferencia ContentoAI de otras herramientas de IA?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>ContentoAI está especializado en español, con modelos entrenados en contenidos de Latinoamérica y España. Entiende matices culturales, modismos y tonos específicos, ofreciendo resultados más naturales y efectivos que herramientas genéricas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Puedo probar el producto antes de pagar?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos una prueba gratuita de 7 días con límites generosos para que experimentes todas las funciones. No requiere tarjeta de crédito.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué tipo de contenido puedo generar?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Blogs, artículos, copia publicitaria, emails, posts para redes sociales, descripciones de productos, guiones de video, y mucho más. Constantemente añadimos nuevos formatos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Los contenidos son únicos y libres de plagio?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, nuestra IA genera contenido original desde cero. Además, incluimos una herramienta de detección de plagio para mayor tranquilidad.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Ofrecen soporte en español?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutamente. Todo nuestro equipo de soporte es hispanohablante y está disponible por email, chat y videollamada según tu plan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Puedo cancelar mi suscripción en cualquier momento?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, no hay contratos de permanencia. Puedes cancelar online en cualquier momento y conservar el acceso hasta el final del periodo pagado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo footer-logo">
+                        <span class="logo-icon"><i class="fas fa-robot"></i></span>
+                        <span class="logo-text">Contento<span class="logo-highlight">AI</span></span>
+                    </a>
+                    <p class="footer-description">Generador de contenido IA en español para profesionales y empresas.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Producto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Funcionalidades</a></li>
+                        <li><a href="#pricing">Precios</a></li>
+                        <li><a href="#testimonials">Testimonios</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos de servicio</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Aviso legal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hola@contentoai.com">hola@contentoai.com</a></li>
+                        <li><a href="tel:+34900123456">+34 900 123 456</a></li>
+                        <li><a href="#">Soporte</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 ContentoAI. Todos los derechos reservados.</p>
+                <p class="footer-note">Hecho con <i class="fas fa-heart"></i> para la comunidad de creadores en español.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

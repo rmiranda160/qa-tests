@@ -1,0 +1,99 @@
+{
+  "timestamp": "2026-05-01T01:15:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "MCP remote browser (Playwright via pwmcp-zonacnc) — actual browser rendering",
+  "scenario": "Visual viewport verification at mobile (390×844), tablet (768×1024) — first real browser test",
+  "anti_duplicate_note": "Previous tests used curl + CSS analysis + PageSpeed. This is the FIRST real-browser rendering check. Verifies visual overflow that CSS-only analysis could only infer.",
+  "coverage": {
+    "pages_verified_with_browser": [
+      "Search (390px): /es/buscar?q=torno",
+      "Category (390px + 768px): /es/15-tornos",
+      "Home (390px): /es/",
+      "Pricing (390px): /module/zonacncplans/pricing",
+      "Login (390px): /es/iniciar-sesion"
+    ],
+    "viewports_tested": ["390×844 (mobile)", "768×1024 (tablet)", "1440×900 (desktop - pre-verified)"]
+  },
+  "findings": {
+    "horizontal_overflow": {
+      "search_390": {"has_overflow": false, "doc_width": 390, "viewport": 390},
+      "category_390": {"has_overflow": false, "doc_width": 390, "viewport": 390},
+      "category_768": {"has_overflow": false, "doc_width": 768, "viewport": 768},
+      "home_390": {"has_overflow": false, "doc_width": 390, "viewport": 390},
+      "pricing_390": {"has_overflow": false, "doc_width": 390, "viewport": 390},
+      "login_390": {"has_overflow": false, "doc_width": 390, "viewport": 390}
+    },
+    "zcnc_listings_layout_390": {
+      "status": "NO_OVERFLOW",
+      "display": "flex",
+      "flex_direction": "row",
+      "flex_wrap": "nowrap",
+      "overflow_x": "visible",
+      "scroll_width": 334,
+      "client_width": 334,
+      "child_count": 1,
+      "first_child_flex": "1 1 100%",
+      "verdict": "HIGH ISSUE DOWNGRADED ✅ — single child with flex:1 1 100% prevents overflow at mobile"
+    },
+    "zcnc_row_desc_clipping": {
+      "status": "INTENTIONAL",
+      "css": "-webkit-line-clamp: 2",
+      "line_height_px": 18.2,
+      "visible_lines": 2,
+      "visible_height_px": 36,
+      "clipped_elements": 12,
+      "short_descriptions_ok": 1,
+      "verdict": "Design choice for consistent card heights"
+    },
+    "console_errors": [
+      {
+        "severity": "INFO",
+        "message": "Not signed in with identity provider (Google Sign-In)",
+        "pages": ["search", "category", "home", "pricing", "login"],
+        "impact": "Expected — users are not logged into Google in this browser"
+      },
+      {
+        "severity": "INFO",
+        "message": "FedCM get() rejects with NetworkError",
+        "pages": ["search", "category"],
+        "impact": "Expected in non-Google-authenticated browser"
+      },
+      {
+        "severity": "MINOR",
+        "message": "Invalid regular expression: /^[\\p{L}\\p{Mn} \\-\\']+$/u: Invalid escape",
+        "pages": ["search", "category", "home", "pricing", "login"],
+        "impact": "Minor — could cause form validation failure on registration/profile if used there. The \\- escape is invalid inside JS character class.",
+        "recommendation": "Fix regex: remove backslash before hyphen inside [...]"
+      }
+    ],
+    "key_layout_elements_seen": {
+      "search_page": {"zcnc_listings_layout": "PRESENT, 1 child, flex:1 1 100%", "listing_cards": 18, "js_product_list": "NOT USED"},
+      "category_page": {"zcnc_listings_layout": "NOT USED", "js_product_list": "PRESENT, 12 product cards", "product_grid": "display:block (stacked)"},
+      "home_page": {"hero": true, "mobile_menu": true, "pricing_link": true},
+      "pricing_page": {"plan_cards": 5, "has_horizontal_scroll": false},
+      "login_page": {"form": true, "email_input": true, "password_input": true, "submit_button": true}
+    }
+  },
+  "downgraded_issues": [
+    {
+      "id": "HIGH-zcnc-listings-layout-scroll",
+      "previous_severity": "HIGH",
+      "new_severity": "INFO",
+      "reason": "Visual browser verification at 390px shows 0 overflow — single child with flex:1 1 100% handles mobile correctly",
+      "risks": "None — CSS-only analysis overestimated issue"
+    }
+  ],
+  "summary": {
+    "overall": "PASS",
+    "total_pages_verified": 5,
+    "viewports_tested": 3,
+    "horizontal_overflows_found": 0,
+    "high_issues_downgraded": 1,
+    "new_minor_findings": 1,
+    "regressions_from_0100": false,
+    "note": "First real-browser rendering test. Confirms no actual horizontal overflow on any page at mobile viewport. Previous CSS-only HIGH flag is not reproducible."
+  }
+}

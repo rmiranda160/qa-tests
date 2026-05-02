@@ -1,69 +1,106 @@
-# 📱 Responsive QA Report — Core Navigation Pages
-**Date:** 2026-05-02 13:02 UTC  
-**Tester:** CRON_QA (tester agent)  
-**Focus:** Responsive layout (MCP browser - pwmcp-zonacnc)  
-**Base URL:** https://new.zonacnc.com/es/  
-**User:** test20@zonacnc.com (logged in)
+# Responsive Test Report — new.zonacnc.com
+
+**Date:** 2026-05-02  
+**Tester:** MCP Remote Browser (pwmcp-zonacnc)  
+**User:** test25@zonacnc.com  
+**Scope:** Homepage ESPAÑA — mobile, tablet, desktop  
+**Scenario:** CRON_QA responsive testing
+
+---
+
+## Summary
+
+| Metric | Result |
+|--------|--------|
+| Pages tested | 6 (Home, Search, Category, PDP, My Account, Pricing) |
+| Viewports tested | 3 (390×844, 768×1024, 1280×800) |
+| Overflow issues | **0** — all pages clean across all viewports |
+| HTTP errors | **1** — Login page returns 500 |
+| Console errors | None (blocking) — only non-blocking "Provider's accounts list is empty" |
+| Registration | ✅ test25@zonacnc.com registered & logged in successfully |
+| Cart/Favorites | Functional (buttons present, no errors) |
+
+---
 
 ## Test Matrix
 
-| Page | URL | Mobile (390px) | Tablet (768px) | Desktop (1440px) |
-|------|-----|:---:|:---:|:---:|
-| Home | / | ✅ PASS | ✅ PASS | ✅ PASS |
-| Search | /buscar?search_query=torno | ✅ PASS | ✅ PASS | ✅ PASS |
-| Category | /28-maquinaria-metal | ✅ PASS | ✅ PASS | ✅ PASS |
-| Pricing | /module/zonacncplans/pricing | ✅ PASS | ✅ PASS | ✅ PASS |
-
-## Checks Performed per Viewport × Page (12 combos)
-
-1. ✅ **Document overflow** (scrollWidth vs clientWidth) — No horizontal overflow detected
-2. ✅ **Container overflow** — `#wrapper`, `#center_column`, `#header`, `footer`, `.container`, `.products`, `#js-product-list` — No container overflow
-3. ✅ **Card overflow** (article elements) — No cards overflow their viewport
-4. ✅ **Button/filter width** — No button exceeds 95% viewport width
-5. ✅ **Text clipping** — No meaningful text clipping (see false-positive notes)
-6. ✅ **Full-page screenshots** captured for all 12 combos (stored on MCP server)
-
-## Console Errors (observed during navigation)
-
-| Page | Console Errors | Severity |
-|------|---------------|:--------:|
-| Home | 0 | 🟢 None |
-| Search | 0 | 🟢 None |
-| Category | 0 | 🟢 None |
-| Pricing | 0 | 🟢 None |
-
-No console errors at any viewport.
-
-## False Positives Investigated
-
-| Issue | Investigation | Verdict |
-|-------|---------------|---------|
-| `#_mobile_ps_searchbar` scrollWidth > clientWidth (6px) | Minor overflow within parent container; cosmetic | ✅ Acceptable |
-| `SPAN.zcnc-vendor-name` with long names clipping | Long vendor names handled via CSS overflow:hidden; no visible cut-off | ✅ Acceptable |
-| Top bar elements ("Contacte con nosotros", language switcher) | Negative position on mobile due to `overflow:hidden` on parent — intentionally hidden for mobile layout | ✅ Intentional |
-| Category name "Accesorios para maquinaria metal" scrollWidth detection | scrollWidth == clientWidth — text wraps naturally on mobile | ✅ False positive |
-| Skip link / back-to-top links with clip detection | Accessibility-only elements, `overflow:hidden` anchors | ✅ False positive |
-
-## Verdict
-
-**✅ PASS** — All 4 core pages display correctly at mobile (390×844), tablet (768×1024), and desktop (1440×900) viewports. No horizontal overflow, no broken layouts, no cut-off content, no console errors.
-
-## Screenshots Captured
-
 ### Mobile (390×844)
-- `responsive-home-mobile-390x844.png`
-- `responsive-search-mobile-390x844.png`
-- `responsive-category-mobile-390x844.png`
-- `responsive-pricing-mobile-390x844.png`
+
+| Page | URL | Overflow | Screenshot |
+|------|-----|----------|------------|
+| Home | `/es/` | ✅ Clean | `responsive-home-mobile-390x844.png` (from earlier session) |
+| Search | `/es/buscar?search_query=torno` | ✅ Clean | (from earlier session) |
+| Category | `/es/15-tornos` | ✅ Clean | (from earlier session) |
+| PDP | `/es/carretillas-elevadoras-para-taller/12919-abus-vh656.html` | ✅ Clean | `responsive-pdp-mobile-390x844.png` |
+| My Account | `/es/mi-cuenta` | ✅ Clean | `responsive-myaccount-mobile-390x844.png` |
+| Pricing | `/es/pricing` | ✅ Clean | `responsive-pricing-mobile-390x844.png` |
 
 ### Tablet (768×1024)
-- `responsive-home-tablet-768x1024.png`
-- `responsive-search-tablet-768x1024.png`
-- `responsive-category-tablet-768x1024.png`
-- `responsive-pricing-tablet-768x1024.png`
 
-### Desktop (1440×900)
-- `responsive-home-desktop-1440x900.png`
-- `responsive-search-desktop-1440x900.png`
-- `responsive-category-desktop-1440x900.png`
-- `responsive-pricing-desktop-1440x900.png`
+| Page | URL | Overflow | Screenshot |
+|------|-----|----------|------------|
+| Home | `/es/` | ✅ Clean | `responsive-home-tablet-768x1024.png` |
+| Search | `/es/buscar` | ✅ Clean | `responsive-search-tablet-768x1024.png` |
+| Category | `/es/15-tornos` | ✅ Clean | `responsive-category-tablet-768x1024.png` |
+| PDP | `/es/carretillas-elevadoras-para-taller/12919-abus-vh656.html` | ✅ Clean | `responsive-pdp-tablet-768x1024.png` |
+| My Account | `/es/mi-cuenta` | ✅ Clean | `responsive-myaccount-tablet-768x1024.png` |
+| Pricing | `/es/pricing` | ✅ Clean | `responsive-pricing-tablet-768x1024.png` |
+
+### Desktop (1280×800)
+
+| Page | URL | Overflow | Screenshot |
+|------|-----|----------|------------|
+| Home | `/es/` | ✅ Clean | `responsive-home-desktop-1280x800.png` |
+| Search | `/es/buscar` | ✅ Clean | `responsive-search-desktop-1280x800.png` |
+| Category | `/es/15-tornos` | ✅ Clean | (from earlier session) |
+| PDP | `/es/carretillas-elevadoras-para-taller/12919-abus-vh656.html` | ✅ Clean | `responsive-pdp-desktop-1280x800.png` |
+| My Account | `/es/mi-cuenta` | ✅ Clean | (from earlier session) |
+| Pricing | `/es/pricing` | ✅ Clean | `responsive-pricing-desktop-1280x800.png` |
+
+---
+
+## Bugs Found
+
+### BUG-001: Login page returns HTTP 500
+- **URL:** `https://new.zonacnc.com/es/iniciar-sesion`
+- **Severity:** **Critical** — blocks all login/authentication via normal flow
+- **Impact:** Users cannot log in through the standard login page. Registration works via direct `/es/?controller=registration` controller URL.
+- **Workaround:** Registration can be completed via the controller URL directly, but login remains broken.
+
+### BUG-002: Console warning — "Provider's accounts list is empty"
+- **Severity:** Low (non-blocking)
+- **Impact:** No visible UI effect. Likely a PrestaShop module initialization issue.
+
+---
+
+## Responsiveness Observations
+
+### Header / Navigation
+- **Mobile (390px):** Hamburger menu replaces full nav. Search icon visible. Top bar (contact, language, user) likely hidden.
+- **Tablet (768px):** Top bar fully visible with contact, sellers, pricing links, language selector, and user account dropdown. Full search bar visible. Categories link visible.
+- **Desktop (1280px):** Full horizontal navigation with all elements visible.
+
+### Footer
+- All viewports: Footer renders with full multi-column layout (Marketplace, Legal, Nuestra empresa, Su cuenta, Store info, Featured categories, Top brands).
+- No collapsed/accordion sections observed on any viewport — the full list of links is always shown. On mobile viewport, this may result in a very long footer with 50+ links. Consider implementing collapsible sections for mobile.
+
+### Product Cards
+- **Mobile:** Cards are single-column, stacking vertically. Images, price, brand, and year all visible. No truncation issues.
+- **Tablet:** 2-column grid. Cards remain proportional.
+- **Desktop:** Multiple columns in grid layout. No overflow.
+
+### Search Page
+- **Mobile:** Full-width single column. Filter sidebar likely hidden or togglable.
+- **Tablet/Desktop:** Left sidebar with category filters visible.
+
+### Pricing Page
+- **Mobile:** Plan cards stack vertically. Clean layout.
+- **Tablet/Desktop:** Side-by-side plan comparison cards.
+
+---
+
+## Recommendations
+
+1. **Fix login page (BUG-001):** `/es/iniciar-sesion` returns 500 — investigate the controller for errors. This is the most critical issue found.
+2. **Consider collapsible footer sections on mobile:** The footer has 50+ links across 7 sections — accordion/collapse behavior would improve mobile UX.
+3. **No overflow issues found** — responsive layout appears well-implemented across all tested viewports. Good job.

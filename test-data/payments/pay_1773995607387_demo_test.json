@@ -1,0 +1,15 @@
+{
+  "id": "pay_1773995607387_demo_test",
+  "reservationId": "res_1773995607387_demo_test",
+  "amount": 135,
+  "currency": "EUR",
+  "method": "credit_card",
+  "status": "completed",
+  "transactionId": "tx_1773995607387_d8s8glw0n",
+  "processedAt": "2026-03-20T08:33:27.387Z",
+  "testId": "demo_test",
+  "metadata": {
+    "isTestData": true,
+    "canBeDeleted": true
+  }
+}

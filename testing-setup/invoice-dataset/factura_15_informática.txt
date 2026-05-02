@@ -1,0 +1,18 @@
+FACTURA FACT-2026-015
+
+Cliente: Empresa Y
+Proveedor: Soluciones Cloud Gamma
+División: informática
+Fecha: 2026-10-24
+
+Descripción:
+  - Servicios de informática
+  - Materiales varios
+
+Subtotal: 2880 €
+IVA (21%): 765 €
+Total: 3645 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-10-24
+

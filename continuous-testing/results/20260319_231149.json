@@ -1,0 +1,136 @@
+{
+  "cycle_id": "20260319_231149",
+  "start_time": "2026-03-19T23:11:49.549091",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773961909554",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (955ms)\n\n  1 passed (1.7s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773961909554"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773961912003",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2713  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (883ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (873ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (930ms)\n\n  3 passed (3.4s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773961912003"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773961916208",
+            "mode": "accessibility",
+            "stdout": "\n> qa-tester@1.0.0 test:a11y\n> playwright test tests/accessibility.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/accessibility.spec.js:6:1 \u203a a11y: sin violaciones graves (1.8s)\n\n  1 passed (2.7s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773961916208"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773961919635",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (883ms)\n\n  1 passed (1.6s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773961919635"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773961922008",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2713  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (909ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (867ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (904ms)\n\n  3 passed (3.4s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773961922008"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773961926238",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (864ms)\n\n  1 passed (1.6s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773961926238"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773961928619",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2713  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (822ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (769ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (861ms)\n\n  3 passed (3.2s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773961928619"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    }
+  ]
+}

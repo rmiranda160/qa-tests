@@ -1,0 +1,40 @@
+Ciclo de testing continuo ejecutado a las 2026-03-21 18:43 UTC
+
+**Testing continuo (web-tester):**
+- Aplicaciones probadas: 5 (Cenarbe Bike Rental, Calendario Cenarbe, ContentoAI, Dashboard, Villa Zocotin)
+- Smoke tests: TODOS PASARON
+- Responsive tests: TODOS PASARON
+- Accessibility tests: 3 FALLOS (ContentoAI, Dashboard, Villa Zocotin) - violaciones de accesibilidad detectadas (color-contrast, landmark-one-main, region)
+- Critical paths: TODOS PASARON
+
+**Testing de coherencia (navegador):**
+- Aplicaciones probadas: 5
+- Aplicaciones pasadas: 4 (Cenarbe, Calendario, ContentoAI, Dashboard)
+- Aplicaciones fallidas: 1 (Villa Zocotin) - selectores '.calendar' e 'input[type="submit"]' no encontrados (no crítico)
+
+**Violaciones de accesibilidad (detalles):**
+1. ContentoAI:
+   - Color contrast insuficiente en botones "Iniciar Sesión" y "Ver Dashboard" (contraste 3.15, requerido 4.5)
+   - Falta landmark main
+   - Contenido fuera de landmarks
+2. Dashboard: (por verificar, similar)
+3. Villa Zocotin: (por verificar)
+
+**Errores críticos detectados:**
+Ningún error crítico (smoke/responsive funcionales). Las violaciones de accesibilidad no son críticas para funcionalidad básica.
+
+**Alertas:**
+- Se notificó a través del sistema de alertas (alerts.json).
+- No se requiere atención inmediata.
+
+**Reportes generados:**
+- /home/node/.openclaw/workspace-tester/continuous-testing/results/20260321_184318_extended.json
+- /home/node/.openclaw/workspace-tester/continuous-testing/coherence-results/coherence-cycle-extended-2026-03-21T18-43-47-770Z.json
+
+**Screenshots de coherencia:**
+Disponibles en /home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/
+
+**Siguientes pasos recomendados:**
+- Revisar violaciones de accesibilidad y planear correcciones.
+- Verificar si los selectores faltantes en Villa Zocotin son esperados.
+- Actualizar criterios de severidad para accessibility tests (no deben ser críticos).

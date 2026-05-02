@@ -1,0 +1,1 @@
+<!-- DEBUG: db.php included --><!-- DEBUG_MODE: 1 --><!-- DEBUG: MySQL conexión OK -->[]

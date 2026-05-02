@@ -1,0 +1,50 @@
+Continuous Testing Cycle executed at 2026-03-21 20:54:57 UTC
+
+Applications tested:
+- Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: PASS
+  - critical paths: PASS (2)
+- Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+  - smoke: PASS
+  - api: PASS
+  - critical paths: PASS (3)
+- ContentoAI (https://cntai.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (CRITICAL)
+  - critical paths: PASS (1)
+- Dashboard (https://dashboard.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (CRITICAL)
+  - critical paths: PASS (1)
+- Villa Zocotin (https://villazocotin.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (CRITICAL)
+  - critical paths: PASS (1)
+
+Overall: 13/16 test modes passed, 3 failed (CRITICAL).
+
+Coherence testing:
+- Cenarbe Bike Rental: PASS
+- Calendario Cenarbe: PASS
+- ContentoAI: PASS
+- Dashboard: PASS
+- Villa Zocotin: FAIL (selectors: .calendar, input[type="submit"])
+Coherence summary: 4/5 applications passed.
+
+Alert status: CRITICAL errors detected. Alert sent to coordinator agent (session: agent:coordinator:main). Notification timeout may indicate coordinator unavailable.
+
+Continuous results saved to: /home/node/.openclaw/workspace-tester/continuous-testing/results/20260321_205457_extended.json
+Coherence results saved to: /home/node/.openclaw/workspace-tester/continuous-testing/coherence-results/coherence-cycle-extended-2026-03-21T20-55-26-335Z.json
+Logs: /home/node/.openclaw/workspace-tester/continuous-testing/cycle_output.log
+Coherence logs: /home/node/.openclaw/workspace-tester/continuous-testing/coherence_output.log
+
+Screenshots available:
+- Coherence screenshots: continuous-testing/coherence-screenshots/
+- Responsive screenshots: continuous-testing/playwright-tester/results/
+
+Next cycle scheduled in 5 minutes.

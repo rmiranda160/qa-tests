@@ -1,0 +1,33 @@
+Ciclo de testing continuo ejecutado el 2026-03-22 08:49 UTC
+
+=== TESTING CONTINUO (web-tester) ===
+Aplicaciones probadas: 4
+Hallazgos totales: 2 (severidad media)
+
+Detalles:
+1. ContentoAI - Violaciones de accesibilidad (1 violación)
+2. Dashboard - Violaciones de accesibilidad (2 violaciones)
+
+No se encontraron errores críticos ni altos.
+
+=== TESTING DE COHERENCIA (navegador) ===
+Aplicaciones probadas: 4
+Aplicaciones con fallos: 1
+
+Detalles:
+- ContentoAI: Selectores no encontrados (7 selectores faltantes)
+  - a[href="/"]
+  - a[href*="demo"]
+  - a[href*="waitlist"]
+  - form
+  - button
+  - input[type="text"]
+  - input[type="email"]
+
+No se detectaron errores críticos (page load error, contenido vacío).
+
+=== CONCLUSIÓN ===
+No se requieren alertas críticas. Todos los sistemas operativos.
+Reportes guardados en continuous-testing/results/20260322_084911.json y coherence-results/coherence-cycle-2026-03-22T08-49-43-909Z.json
+
+Screenshots de evidencia adjuntas.

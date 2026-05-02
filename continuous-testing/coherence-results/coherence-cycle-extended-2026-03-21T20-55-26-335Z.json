@@ -1,0 +1,58 @@
+{
+  "cycleId": "2026-03-21T20-55-26-335Z",
+  "results": [
+    {
+      "app": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "timestamp": "2026-03-21T20:55:17.906Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Cenarbe-Bike-Rental-2026-03-21T20-55-17-844Z.png"
+      ]
+    },
+    {
+      "app": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "timestamp": "2026-03-21T20:55:19.226Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Calendario-Cenarbe-2026-03-21T20-55-19-177Z.png"
+      ]
+    },
+    {
+      "app": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "timestamp": "2026-03-21T20:55:23.789Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-21T20-55-23-732Z.png"
+      ]
+    },
+    {
+      "app": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "timestamp": "2026-03-21T20:55:24.584Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Dashboard-2026-03-21T20-55-24-532Z.png"
+      ]
+    },
+    {
+      "app": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "timestamp": "2026-03-21T20:55:25.473Z",
+      "passed": false,
+      "errors": [
+        "Selector not found: .calendar",
+        "Selector not found: input[type=\"submit\"]"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Villa-Zocotin-2026-03-21T20-55-25-420Z.png"
+      ]
+    }
+  ]
+}

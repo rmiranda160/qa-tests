@@ -1,0 +1,64 @@
+{
+  "cycleId": "2026-03-23T02-37-59-054Z",
+  "results": [
+    {
+      "app": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "timestamp": "2026-03-23T02:37:50.611Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Cenarbe-Bike-Rental-2026-03-23T02-37-50-546Z.png"
+      ]
+    },
+    {
+      "app": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "timestamp": "2026-03-23T02:37:52.048Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Calendario-Cenarbe-2026-03-23T02-37-51-985Z.png"
+      ]
+    },
+    {
+      "app": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "timestamp": "2026-03-23T02:37:56.564Z",
+      "passed": false,
+      "errors": [
+        "Selector not found: h2",
+        "Selector not found: h3",
+        "Selector not found: footer",
+        "Selector not found: a[href=\"/login\"]",
+        "Selector not found: a[href=\"/register\"]",
+        "Selector not found: a[href=\"/dashboard\"]"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-23T02-37-56-515Z.png"
+      ]
+    },
+    {
+      "app": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "timestamp": "2026-03-23T02:37:57.437Z",
+      "passed": true,
+      "errors": [],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Dashboard-2026-03-23T02-37-57-392Z.png"
+      ]
+    },
+    {
+      "app": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com",
+      "timestamp": "2026-03-23T02:37:58.250Z",
+      "passed": false,
+      "errors": [
+        "Selector not found: a[href*=\"reservas\"]"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Villa-Zocotin-2026-03-23T02-37-58-202Z.png"
+      ]
+    }
+  ]
+}

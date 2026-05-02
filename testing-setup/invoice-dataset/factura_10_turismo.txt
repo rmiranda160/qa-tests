@@ -1,0 +1,18 @@
+FACTURA FACT-2026-010
+
+Cliente: Miranda (CEO)
+Proveedor: Agencia de Viajes Delta
+División: turismo
+Fecha: 2026-04-23
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 989 €
+IVA (21%): 262 €
+Total: 1251 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-04-23
+

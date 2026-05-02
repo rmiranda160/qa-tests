@@ -1,0 +1,18 @@
+FACTURA FACT-2026-008
+
+Cliente: División Informática
+Proveedor: Consultoría Zeta
+División: turismo
+Fecha: 2026-11-08
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 2441 €
+IVA (21%): 648 €
+Total: 3089 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-11-08
+

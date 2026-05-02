@@ -1,0 +1,16 @@
+Continuous testing cycle completed at 2026-03-21 05:47 UTC.
+
+Results:
+- Testing continuo: 8/11 modes passed, 3 failures (accessibility, medium severity)
+- Coherence testing: 3/4 apps passed, ContentoAI failed (missing UI elements)
+- CRITICAL ERROR: ContentoAI HTTP 500 Internal Server Error detected via curl.
+
+Details:
+1. Cenarbe Bike Rental: Smoke PASS, Responsive PASS, Accessibility FAIL (heading-order), Coherence PASS
+2. Calendario Cenarbe: Smoke PASS, API PASS, Coherence PASS
+3. ContentoAI: Smoke PASS (note: error title), Responsive PASS, Accessibility FAIL (landmark, region), Coherence FAIL (textarea, button, pre not found), HTTP 500 CRITICAL
+4. Dashboard: Smoke PASS, Responsive PASS, Accessibility FAIL (color-contrast, heading-order, landmark, region), Coherence PASS
+
+Alert sent to coordinator via sessions_send and Telegram with screenshot.
+Full report: continuous-testing/results/summary_20260321_0547.md
+Screenshots available in coherence-screenshots/ and playwright-tester/results/

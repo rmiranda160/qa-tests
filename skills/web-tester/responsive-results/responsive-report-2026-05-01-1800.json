@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-05-01T18:00:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com/es/tornos-frontales/2212-torno-cnc-mazak-quick-turn-15-2-ejes.html",
+  "method": "MCP browser (pwmcp-zonacnc) — navigate+resize+evaluate+screenshot at 1280/768/375px for Product Detail Page",
+  "anti_duplicate_note": "Previous tests today: category (15-tornos, 1600), search-results (1200), cookies (1500), homepage (1345, 1545), vendors (1330), legal pages, 404, manufacturers, brands, EN i18n. THIS test: First dedicated PDP responsive test at 3 breakpoints.",
+  "scenario": "Product Detail Page: Torno cnc Mazak Quick Turn 15 - 2 ejes — verifying image gallery, price display, seller card, contact form, similar products, breadcrumb, responsive layout at 3 breakpoints.",
+  "breakpoints_tested": {
+    "desktop_1280px": {
+      "viewport": "1280x900",
+      "status": "PASS",
+      "title": "Torno cnc Mazak Quick Turn 15 - 2 ejes País España",
+      "layout": {
+        "overflow": false,
+        "product_container": 1116,
+        "left_column": {"width": 614, "class": "product__left"},
+        "right_column": {"width": 470, "class": "product__right"},
+        "breadcrumb": {"visible": true, "width": 1280, "items": "Inicio > Maquinaria Metal > Tornos > Tornos frontales > Torno cnc Mazak Quick Turn 15 - 2 ejes"},
+        "h1": {"text": "Torno cnc Mazak Quick Turn 15 - 2 ejes", "fontSize": "32px", "width": 470},
+        "price": {"visible": true, "text": "18.500,00 €", "class": "zcnc-price-value"},
+        "cover_image": {"visible": true, "width": 351, "height": 351, "natural": "123x123"},
+        "gallery_images": 4,
+        "image_nav": {"prev": "Anterior imagen", "next": "Siguiente imagen"},
+        "contact_btn": {"text": "Enviar solicitud", "width": 438, "height": 39},
+        "seller_card": "Proveedor profesional",
+        "similar_products": 4,
+        "vender_maquina": "visible",
+        "header_nav": {"visible": true, "items": ["Contacte con nosotros", "Vendedores", "Tarifas", "Iniciar sesión"]},
+        "footer_navs": 6
+      }
+    },
+    "tablet_768px": {
+      "viewport": "768x1024",
+      "status": "PASS",
+      "title": "Torno cnc Mazak Quick Turn 15 - 2 ejes País España",
+      "layout": {
+        "overflow": false,
+        "product_container": 696,
+        "left_column": {"width": 696, "class": "product__left", "note": "stacked full-width"},
+        "right_column": {"width": 696, "class": "product__right", "note": "stacked full-width"},
+        "breadcrumb": {"visible": true, "width": 768},
+        "h1": {"fontSize": "32px", "width": 696},
+        "price": {"visible": true, "text": "18.500,00 €"},
+        "contact_btn": {"text": "Enviar solicitud", "width": 664, "height": 39},
+        "header_nav": {"visible": true, "height": 49},
+        "search": "visible",
+        "vender_maquina": {"width": 44, "height": 44}
+      }
+    },
+    "mobile_375px": {
+      "viewport": "375x812",
+      "status": "PASS_WITH_NOTES",
+      "title": "Torno cnc Mazak Quick Turn 15 - 2 ejes País España",
+      "layout": {
+        "overflow": false,
+        "product_container": 351,
+        "left_column": {"width": 351, "class": "product__left", "note": "full-width stacked"},
+        "right_column": {"width": 351, "class": "product__right", "note": "full-width stacked"},
+        "breadcrumb": {"visible": true, "width": 375},
+        "h1": {"fontSize": "28px", "width": 351},
+        "price": {"visible": true, "text": "18.500,00 €"},
+        "contact_btn": {"text": "Enviar solicitud", "width": 319, "height": 39},
+        "header_top": {"visible": false, "display": "none"},
+        "hamburger": true,
+        "offcanvas": "ps-mainmenu ps-mainmenu--mobile offcanvas offcanvas-start",
+        "search_input": "hidden (icon toggle expected)",
+        "vender_maquina": {"width": 44, "height": 44}
+      }
+    }
+  },
+  "findings": {
+    "pass": [
+      "Zero horizontal overflow at all 3 breakpoints",
+      "2-col → stacked layout adapts properly (614+470 → 696 → 351px)",
+      "Breadcrumb present and full-width at all breakpoints",
+      "Price (18.500,00 €) visible at all viewports",
+      "Image gallery: 4 product images with prev/next nav arrows",
+      "Thumbnail strip visible with 4 thumbnails",
+      "Seller card 'Proveedor profesional' renders at all sizes",
+      "Contact form 'ENVIAR SOLICITUD' present and functional at all viewports",
+      "4 similar product cards at bottom of page",
+      "H1 responsive: 32px → 32px → 28px",
+      "Hamburger menu + offcanvas sidebar at mobile",
+      "Vender máquina 44×44px WCAG-compliant at mobile",
+      "Footer with newsletter, 4-column nav, categories, brands",
+      "Cookie notice dialog present",
+      "Chat button present ('Abrir chat de ayuda')",
+      "Test mode banner visible"
+    ],
+    "warnings": [
+      {"id": "PDP-TAP-01", "severity": "MEDIUM", "viewport": "all", "detail": "'Enviar solicitud' button height 39px at all breakpoints (5px below WCAG 2.1 2.5.5 44px minimum). Desktop: 438×39, Tablet: 664×39, Mobile: 319×39."},
+      {"id": "PDP-IMG-01", "severity": "LOW", "viewport": "all", "detail": "Cover image natural 123×123px displayed at 351×351px (2.85× upscale — potentially blurry). Some thumbnails have empty 'src' attribute (may be lazy-load/JS-init dependent)."},
+      {"id": "PDP-HIDDEN-01", "severity": "LOW", "viewport": "all", "detail": "'.product__prices.js-product-prices' container has inline 'display: none'. Price still visible via separate '.zcnc-price-value' span. Duplicate hidden container should be cleaned up."},
+      {"id": "RESP-SRCSET-01", "severity": "LOW", "viewport": "all", "detail": "Site-wide: No srcset/sizes on product images. Only 'img-fluid' CSS class used."},
+      {"id": "PDP-GMAP-01", "severity": "LOW", "viewport": "mobile", "detail": "'Ver en Google Maps' link: 318×32px (height 12px below WCAG 44px)"}
+    ],
+    "info": [
+      "Google FedCM/GSI console errors: expected in automated browser environment",
+      "product__actions (add-to-cart) hidden via inline style — expected for inquiry-based listing products",
+      "Product reference/ID not exposed via standard selectors"
+    ]
+  },
+  "verdict": "PASS_WITH_NOTES",
+  "screenshots": {
+    "desktop": "pdp-desktop-1280.png",
+    "tablet": "pdp-tablet-768.png",
+    "mobile": "pdp-mobile-375.png"
+  }
+}

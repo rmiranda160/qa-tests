@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "stdout": "Smoke test passed for https://dashboard.cenarbe.com/. Title: Proactive Monitoring Dashboard",
+  "stderr": "",
+  "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+  "rawResult": {
+    "ok": true,
+    "title": "Proactive Monitoring Dashboard"
+  }
+}

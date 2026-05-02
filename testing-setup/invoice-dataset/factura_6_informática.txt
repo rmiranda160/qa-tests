@@ -1,0 +1,18 @@
+FACTURA FACT-2026-006
+
+Cliente: División Informática
+Proveedor: Tecnologías ACME S.L.
+División: informática
+Fecha: 2026-01-04
+
+Descripción:
+  - Servicios de informática
+  - Materiales varios
+
+Subtotal: 604 €
+IVA (21%): 160 €
+Total: 764 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-01-04
+

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-03-20T18:08:07.873Z",
+  "application": "Cenarbe Bike Rental",
+  "summary": {
+    "total": 5,
+    "passed": 0,
+    "failed": 2,
+    "incoherences": [
+      {
+        "test": "Botón \"Mis Reservas\" → Página de reservas",
+        "errors": [
+          "Contenido faltante: No se encontró \"booking\" en la página",
+          "Contenido faltante: No se encontró \"fecha\" en la página"
+        ]
+      }
+    ]
+  },
+  "incoherences": [
+    {
+      "test": "Botón \"Mis Reservas\" → Página de reservas",
+      "errors": [
+        "Contenido faltante: No se encontró \"booking\" en la página",
+        "Contenido faltante: No se encontró \"fecha\" en la página"
+      ]
+    }
+  ]
+}

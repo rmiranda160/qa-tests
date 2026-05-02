@@ -1,0 +1,33 @@
+
+📱 Application: Cenarbe Bike Rental
+🚀 Running smoke test for Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   ✅ smoke test passed in 444ms
+🚀 Running responsive test for Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   ✅ responsive test passed in 1956ms
+🚀 Running accessibility test for Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   ✅ accessibility test passed in 1003ms
+
+📱 Application: Calendario Cenarbe
+🚀 Running smoke test for Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+   ✅ smoke test passed in 450ms
+🚀 Running api test for Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+   ✅ api test passed in 324ms
+
+📱 Application: ContentoAI
+🚀 Running smoke test for ContentoAI (https://cntai.cenarbe.com/)
+   ✅ smoke test passed in 381ms
+🚀 Running responsive test for ContentoAI (https://cntai.cenarbe.com/)
+   ✅ responsive test passed in 614ms
+🚀 Running accessibility test for ContentoAI (https://cntai.cenarbe.com/)
+   ❌ accessibility test failed in 636ms
+
+📱 Application: Dashboard
+🚀 Running smoke test for Dashboard (https://dashboard.cenarbe.com/)
+   ✅ smoke test passed in 411ms
+🚀 Running responsive test for Dashboard (https://dashboard.cenarbe.com/)
+   ✅ responsive test passed in 994ms
+🚀 Running accessibility test for Dashboard (https://dashboard.cenarbe.com/)
+   ❌ accessibility test failed in 833ms
+
+📊 Test cycle summary saved to /home/node/.openclaw/workspace-tester/continuous-testing/results/test-cycle-2026-03-22T04-27-54-432Z.json
+✅ All tests passed or only non-critical failures

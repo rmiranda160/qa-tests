@@ -1,0 +1,67 @@
+{
+  "cycle_id": "20260320_202634",
+  "start_time": "2026-03-20T20:26:34.522599",
+  "applications": [
+    {
+      "name": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/calendario/. Title: Cenarbe Bike Rental - Iniciar Sesi\u00f3n",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Iniciar Sesi\u00f3n"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "api",
+          "raw_result": {
+            "ok": true,
+            "stdout": "API test passed for https://dev1.cenarbe.com/calendario/. Results: [{\"endpoint\":\"/api/bicicletas.php\",\"url\":\"https://dev1.cenarbe.com/calendario/api/bicicletas.php\",\"status\":200,\"contentType\":\"application/json\",\"jsonValid\":true,\"ok\":true},{\"endpoint\":\"/api/eventos.php\",\"url\":\"https://dev1.cenarbe.com/calendario/api/eventos.php\",\"status\":200,\"contentType\":\"application/json\",\"jsonValid\":true,\"ok\":true}]",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "results": [
+                {
+                  "endpoint": "/api/bicicletas.php",
+                  "url": "https://dev1.cenarbe.com/calendario/api/bicicletas.php",
+                  "status": 200,
+                  "contentType": "application/json",
+                  "jsonValid": true,
+                  "ok": true
+                },
+                {
+                  "endpoint": "/api/eventos.php",
+                  "url": "https://dev1.cenarbe.com/calendario/api/eventos.php",
+                  "status": 200,
+                  "contentType": "application/json",
+                  "jsonValid": true,
+                  "ok": true
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    }
+  ]
+}

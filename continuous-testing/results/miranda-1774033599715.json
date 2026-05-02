@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-03-20T19:06:34.402Z",
+  "rule": "Miranda Button/Action Verification",
+  "summary": {
+    "totalApps": 1,
+    "totalButtons": 4,
+    "passedButtons": 1,
+    "failedButtons": 0,
+    "appsWithIssues": 1
+  },
+  "applications": [
+    {
+      "name": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "timestamp": "2026-03-20T19:06:34.402Z",
+      "critical_buttons": [
+        {
+          "name": "Enlace Reservar (ancla al formulario)",
+          "selector": "a:has-text('Reservar')",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Redirige a: https://villazocotin.cenarbe.com/#reservar"
+          ]
+        },
+        {
+          "name": "Botón Confirmar Reserva",
+          "selector": "button:has-text('Confirmar reserva')",
+          "type": "button",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": [
+            "Click sin cambio detectable en URL"
+          ]
+        },
+        {
+          "name": "Formulario de Reserva",
+          "selector": "form:has-text('Reservar')",
+          "type": "form",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        },
+        {
+          "name": "Sección Contacto",
+          "selector": "footer",
+          "type": "element",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 3
+    }
+  ]
+}

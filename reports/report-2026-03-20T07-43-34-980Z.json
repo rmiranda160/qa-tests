@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-03-20T07:43:35.012Z",
+  "url": "https://villazocotin.cenarbe.com/",
+  "credentials": {
+    "email": "test@villazocotin.com",
+    "password": "***"
+  },
+  "success": false,
+  "error": "Formulario de login no encontrado",
+  "screenshots": {
+    "initial": "/home/node/.openclaw/workspace-tester/screenshots/initial-2026-03-20T07-43-34-980Z.png"
+  },
+  "metrics": {
+    "pageLoadTime": 651
+  },
+  "formFound": false
+}

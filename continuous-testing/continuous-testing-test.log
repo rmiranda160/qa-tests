@@ -1,0 +1,4 @@
+2026-03-20 14:35:54,176 - INFO - Starting test cycle
+2026-03-20 14:35:54,176 - INFO - Testing Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+2026-03-20 14:35:54,176 - INFO -   Running smoke tests
+2026-03-20 14:35:54,647 - INFO - Cycle 20260320_143554 completed. Results saved to /home/node/.openclaw/workspace-tester/continuous-testing/results/20260320_143554.json

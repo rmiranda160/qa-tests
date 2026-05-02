@@ -1,0 +1,49 @@
+Estado QA: PASS_WITH_NOTES
+
+Cobertura validada:
+- Acceso a página Reservar (HTTP 200)
+- Presencia de bicicletas visibles
+- Estado "disponible" en bicicletas
+- Screenshot de evidencia
+- Auditoría Lighthouse Performance (falló por conexión Chrome)
+
+Casos probados:
+- Carga HTTP 200 exitosa
+- Bicicletas visibles: 1 (selector ".card")
+- Texto "disponible" en bicicletas: 0
+- Total menciones "disponible" en página: 0
+- Lighthouse performance: no se pudo ejecutar (error conexión Chrome)
+
+Edge cases probados:
+- Selector flexible para diferentes estructuras de página
+- Visibilidad de elementos (no solo existencia en DOM)
+
+Regresiones detectadas:
+- ninguna
+
+Hallazgos:
+- ID: H1
+  Título: No se encuentra texto "disponible" en las bicicletas
+  Severidad: media
+  Descripción: No se detectó la palabra "disponible" dentro de los elementos de bicicleta ni en toda la página.
+  Pasos para reproducir: Acceder a https://dev1.cenarbe.com/reservar.php y buscar la palabra "disponible" en la lista de bicicletas.
+  Resultado esperado: Al menos una bicicleta marcada como disponible.
+  Resultado observado: 0 apariciones de "disponible".
+  Impacto: Los usuarios no pueden distinguir qué bicicletas están disponibles para reserva.
+  Recomendación: Asegurar que el estado de disponibilidad sea visible en la interfaz.
+
+- ID: H2
+  Título: Lighthouse no pudo ejecutar auditoría de performance
+  Severidad: baja
+  Descripción: El comando lighthouse falló con "Unable to connect to Chrome". Posible falta de Chrome instalado o problema de permisos.
+  Pasos para reproducir: Ejecutar npx lighthouse https://dev1.cenarbe.com/reservar.php --output=html --only-categories=performance.
+  Resultado esperado: Reporte de performance generado.
+  Resultado observado: Error de conexión a Chrome.
+  Impacto: No se obtuvo métrica de performance.
+  Recomendación: Instalar Chrome/Chromium en el entorno o configurar correctamente lighthouse.
+
+Conclusión:
+La página Reservar muestra 1 bicicleta visible (identificada con clase ".card"), pero no se visualiza texto "disponible" en ella. La funcionalidad básica de listado está operativa, pero la indicación de disponibilidad podría faltar. La auditoría de performance no pudo realizarse por problemas de entorno.
+
+Criterio de salida:
+Puede cerrarse (con nota de mejora en visibilidad de disponibilidad y configuración de Lighthouse).

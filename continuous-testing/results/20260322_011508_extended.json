@@ -1,0 +1,38 @@
+{
+  "timestamp": "20260322_011508",
+  "summary": {
+    "total_applications": 5,
+    "total_findings": 3,
+    "critical_errors": 0,
+    "high_errors": 0,
+    "medium_errors": 3,
+    "low_errors": 0
+  },
+  "findings": [
+    {
+      "application": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "mode": "accessibility",
+      "severity": "medium",
+      "issue": "Accessibility violations for https://cntai.cenarbe.com/: Accessibility test failed for https://cntai.cenarbe.com/. Violations: 2",
+      "timestamp": "2026-03-22T01:15:02.953264"
+    },
+    {
+      "application": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "mode": "accessibility",
+      "severity": "medium",
+      "issue": "Accessibility violations for https://dashboard.cenarbe.com/: Accessibility test failed for https://dashboard.cenarbe.com/. Violations: 2",
+      "timestamp": "2026-03-22T01:15:05.450062"
+    },
+    {
+      "application": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "mode": "accessibility",
+      "severity": "medium",
+      "issue": "Accessibility violations for https://villazocotin.cenarbe.com/: Accessibility test failed for https://villazocotin.cenarbe.com/. Violations: 3",
+      "timestamp": "2026-03-22T01:15:08.038807"
+    }
+  ],
+  "alert_required": false
+}

@@ -1,0 +1,180 @@
+{
+  "timestamp": "2026-05-01T12:00:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "MCP browser (pwmcp-zonacnc) — navigate+resize+snapshot+DOM analysis at 1280/768/375px for Search Results Listing page grid/card layout + header/nav responsive behavior",
+  "anti_duplicate_note": "Previous tests covered: homepage-to-category funnel (0745), CMS tables (0715), issue #675 verification (0700), EN i18n (0630), general responsive (0600), vendor/pricing (0445), PDP + search sidebar PR#645 (0915), Contact page (0930). THIS test: Exclusively focuses on Search Results Listing page (`/es/buscar`) product card (zcnc-listing-row) layout at 3 breakpoints + header/nav responsive behavior (Categorías toggle, Vender máquina icon, search icon)",
+  "scenario": "Search Results Listing page (/es/buscar) responsive layout at 1280/768/375px — verifying listing-row card structure (image+info+price stacking), sidebar off-canvas behavior, header/nav element responsiveness, and tap target compliance",
+  "breakpoints_tested": {
+    "desktop_1280px": {
+      "viewport": "1280x900",
+      "status": "PASS",
+      "listing_layout": {
+        "page_container": {"width": 1116, "x": 82, "margin": "82px each side"},
+        "layout_container": {"width": 1084, "x": 98, "gap": "24px", "display": "flex", "flexDirection": "row"},
+        "sidebar": {"width": 280, "x": 98, "height": 1684, "visible": true, "class": "zcnc-sidebar"},
+        "results_list": {"width": 780, "x": 402, "gap_between_sidebar_and_list": "24px (402 - 280 - 98 = 24)"},
+        "layout_type": "2-column flex (sidebar left | listing right), single-column listing rows"
+      },
+      "listing_row_sample": {
+        "featured_card": {"width": 780, "height": 245, "image": "NONE (country flag only)", "note": "Abus Vh656 has no product image"},
+        "regular_card": {"width": 780, "height": 213, "image_wxh": "240x180", "natural": "250x250"},
+        "actions_bar": {"width": 167, "height": 41, "position": "bottom-right at x=600, y=196"}
+      },
+      "total_listings": 18,
+      "pagination": {"width": 780, "y": 4540}
+    },
+    "tablet_768px": {
+      "viewport": "768x1024",
+      "status": "PASS",
+      "listing_layout": {
+        "page_container": {"width": 696, "x": 36},
+        "layout_container": {"width": 664, "x": 52},
+        "sidebar": {"width": 300, "position": "fixed", "left": "-320px", "visible": false, "class": "zcnc-sidebar off-canvas"},
+        "results_list": {"width": 664, "x": 52, "full_width": true},
+        "layout_type": "SINGLE-COLUMN full-width (sidebar off-canvas)"
+      },
+      "listing_row_sample": {
+        "featured_card": {"width": 664, "height": 294},
+        "regular_card": {"width": 664, "height": 221},
+        "filter_toggle": {"text": "Filtros", "class": "zcnc-btn zcnc-btn-filter-mobile"}
+      }
+    },
+    "mobile_375px": {
+      "viewport": "375x812",
+      "status": "PASS_WITH_NOTES",
+      "listing_layout": {
+        "page_container": {"width": 351, "x": 12, "margin": "12px each side"},
+        "layout_container": {"width": 319, "x": 28},
+        "sidebar": {"width": 300, "position": "fixed", "left": "-320px", "visible": false},
+        "results_list": {"width": 319, "x": 28, "full_width": true},
+        "layout_type": "SINGLE-COLUMN full-width (sidebar off-canvas)"
+      },
+      "listing_row_sample": {
+        "featured_card": {"width": 319, "height": 485},
+        "regular_card": {"width": 319, "height": 494},
+        "card_internal_layout": {
+          "image_area": {"width": 293, "height": 200, "x": 13, "y": 13, "content": "Product image 293x200"},
+          "info_area": {"width": 293, "height": 166, "x": 13, "y": 223, "content": "Title + description + location"},
+          "price_area": {"width": 293, "height": 34, "x": 13, "y": 399, "content": "Price (no text overflow)"},
+          "actions_bar": {"width": 317, "height": 41, "x": 1, "y": 453, "content": "Contact/CTA buttons"}
+        },
+        "text_overflow": {"title": false, "price": false, "verdict": "PASS"}
+      },
+      "filter_toggle_mobile": {
+        "text": "Filtros",
+        "button_class": "zcnc-btn zcnc-btn-filter-mobile",
+        "rect": {"x": 28, "y": 282, "w": 103, "h": 42},
+        "tap_target": "42px height — 2px below WCAG 44px minimum"
+      },
+      "header_responsive": {
+        "logo": {"width": 128, "height": 28, "x": 12, "y": 38},
+        "categorias_link": {"width": 61, "height": 37, "x": 198, "y": 33, "tap_target_height": "37px — BELOW WCAG 44px (7px short)"},
+        "search_icon": {"width": 44, "height": 44, "x": 267, "y": 30, "tap_target": "44x44 — MEETS WCAG"},
+        "user_icon": {"width": 44, "height": 44, "x": 319, "y": 30, "tap_target": "44x44 — MEETS WCAG"},
+        "vender_maquina_link": {"width": 44, "height": 44, "x": 14, "y": 74, "tap_target": "44x44 — MEETS WCAG", "content": "SVG icon + 'Vender máquina' text"}
+      }
+    }
+  },
+  "findings": {
+    "listing_grid_responsive": {
+      "card_width_progression": {
+        "desktop_1280": {"featured_card": 780, "regular_card": 780},
+        "tablet_768": {"featured_card": 664, "regular_card": 664},
+        "mobile_375": {"featured_card": 319, "regular_card": 319}
+      },
+      "card_content_layout": {
+        "desktop_1280": "Image (240x180) + text side-by-side horizontally within zcnc-row-link",
+        "mobile_375": "Image (293x200) on top, info (293x166) below, price (293x34) at bottom — vertically stacked",
+        "verdict": "PASS — cards appropriately collapse from horizontal to vertical stack"
+      },
+      "featured_card_warning": {
+        "first_listing_abus_vh656": "No product image present — only country flag icon (16x11). All other 17 listings have proper product images at 240x180 (desktop) / 293x200 (mobile)",
+        "severity": "LOW",
+        "note": "May be a listing-specific issue, not a responsive bug"
+      },
+      "list_display_mode": "flex (single column row layout, NOT multi-column grid) — consistent across all breakpoints",
+      "text_overflow": "No text overflow detected on titles or prices at any breakpoint",
+      "verdict": "PASS"
+    },
+    "sidebar_responsive": {
+      "desktop_1280": {"sidebar_visible": true, "position": "static (flex child)", "width": 280, "verdict": "PASS"},
+      "tablet_768": {"sidebar_visible": false, "position": "fixed, left: -320px", "width": 300, "verdict": "PASS — matches PR #645 off-canvas behavior"},
+      "mobile_375": {"sidebar_visible": false, "position": "fixed, left: -320px", "width": 300, "verdict": "PASS — matches PR #645 off-canvas behavior"},
+      "mobile_filter_toggle": {"button_visible": true, "text": "Filtros", "position": "x=28, y=282", "breakpoint_note": "Activated at breakpoint ≤ 768px"}
+    },
+    "header_nav_responsive": {
+      "desktop_nav": "Full nav bar visible with Categorías dropdown, search, Vender máquina CTA, login",
+      "mobile_nav_375": {
+        "logo": "Visible at top-left",
+        "categorias_link": "Visible text button at (198, 33) — opens off-canvas categories panel",
+        "mobile_menu_panel": "Exists at x=-375 (off-screen off-canvas) with language selectors and contact info",
+        "search_icon": "44x44 tap target — opens inline search bar",
+        "user_icon": "44x44 tap target — login link",
+        "vender_maquina": "44x44 icon+text CTA — good mobile placement",
+        "hamburger_menu": "DOM elements found (ps-mainmenu__mobile-toggle, menu-toggle) but hidden — 'Categorías' link serves as nav trigger"
+      },
+      "verdict": "PASS — nav collapses to mobile-optimized elements; no hamburger needed as Categorías link triggers off-canvas menu"
+    },
+    "horizontal_overflow": {
+      "desktop_1280_listings": {"docWidth": 1280, "vpWidth": 1280, "overflow": 0},
+      "tablet_768_listings": {"docWidth": 768, "vpWidth": 768, "overflow": 0},
+      "mobile_375_listings": {"docWidth": 375, "vpWidth": 375, "overflow": 0},
+      "verdict": "PASS — NO horizontal overflow at any tested breakpoint"
+    },
+    "tap_target_issues_mobile": {
+      "categorias_link": {
+        "size": "61x37px",
+        "wcag_requirement": "44x44 minimum",
+        "height": "37px — 7px below 44px minimum",
+        "width": "61px — exceeds 44px",
+        "severity": "MEDIUM",
+        "recommendation": "Increase Categorías button height from 37px to ≥44px for WCAG compliance"
+      },
+      "filtros_toggle_button": {
+        "size": "103x42px",
+        "wcag_requirement": "44x44 minimum",
+        "height": "42px — 2px below 44px minimum",
+        "width": "103px — exceeds 44px",
+        "severity": "LOW",
+        "recommendation": "Increase Filtros button height from 42px to ≥44px for full WCAG compliance"
+      },
+      "wcag_compliant_elements": [
+        "Vender máquina CTA: 44x44 ✅",
+        "Search icon: 44x44 ✅",
+        "User icon: 44x44 ✅"
+      ]
+    },
+    "console_errors": [
+      {
+        "source": "Google Sign-In / FedCM",
+        "pattern": "Provider's accounts list is empty / FedCM get() rejects with NetworkError",
+        "severity": "LOW",
+        "pages_affected": ["All pages with Google auth"]
+      }
+    ]
+  },
+  "summary": {
+    "overall": "PASS",
+    "grade": "B+",
+    "total_checks": 14,
+    "passed": 12,
+    "warnings": 2,
+    "failures": 0,
+    "notes": [
+      "Search results listing cards collapse properly from horizontal (desktop) to vertical stack (mobile)",
+      "Zero horizontal overflow at all 3 breakpoints",
+      "Sidebar correctly switches to off-canvas (fixed, left:-320px) at ≤768px — PR #645 verified",
+      "Header nav elements resize appropriately for mobile: logo, Categorías text link, search/user icons (44x44), Vender máquina CTA (44x44)",
+      "No hamburger icon at mobile — Categorías link serves as primary nav trigger for off-canvas menu panel",
+      "First featured listing (Abus Vh656) missing product image at all breakpoints — may be listing-specific data issue, not responsive bug",
+      "Categorías tap target at 37px height < 44px WCAG minimum — MEDIUM severity",
+      "Filtros button tap target at 42px height < 44px WCAG minimum — LOW severity (2px gap)",
+      "Google FedCM errors persist (expected in test environment, low severity)"
+    ],
+    "anti_duplicate": true,
+    "unique_scenario": "Search results listing page card layout responsive analysis — first focused test on zcnc-listing-row card structure (image+info+price stacking), header/nav element responsive behavior, and mobile tap target compliance for nav elements"
+  }
+}

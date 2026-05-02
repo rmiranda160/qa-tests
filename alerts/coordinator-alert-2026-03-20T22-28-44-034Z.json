@@ -1,0 +1,9 @@
+{
+  "type": "ui_coherence_alert",
+  "timestamp": "2026-03-20T22:28:44.043Z",
+  "application": "Cenarbe Bike Rental",
+  "incoherenceCount": 1,
+  "incoherences": [],
+  "screenshot": "/home/node/.openclaw/workspace-coordinator/incoherence-2026-03-20T22-28-44-034Z.png",
+  "report": "coherence-reports/coherence-report-2026-03-20T22-28-44-034Z.json"
+}

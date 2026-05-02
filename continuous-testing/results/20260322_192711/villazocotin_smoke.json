@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "stdout": "Smoke test passed for https://villazocotin.cenarbe.com/. Title: Villa Zocotin - Reservas Online",
+  "stderr": "",
+  "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+  "rawResult": {
+    "ok": true,
+    "title": "Villa Zocotin - Reservas Online"
+  }
+}

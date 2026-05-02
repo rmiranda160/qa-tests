@@ -1,0 +1,18 @@
+FACTURA FACT-2026-021
+
+Cliente: Empresa X
+Proveedor: Consultoría Zeta
+División: informática
+Fecha: 2026-01-18
+
+Descripción:
+  - Servicios de informática
+  - Materiales varios
+
+Subtotal: 394 €
+IVA (21%): 104 €
+Total: 498 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-01-18
+

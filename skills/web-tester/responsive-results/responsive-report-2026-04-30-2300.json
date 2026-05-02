@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-04-30T23:00:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "curl+web_fetch (browser/playwright unavailable - missing system deps)",
+  "scenario": "Responsive readiness: multi-page HTTP status + HTML/CSS analysis (1 escenario - comprehensive)",
+  "tests": {
+    "viewport_meta": {
+      "status": "PASS",
+      "value": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+    },
+    "responsive_css_framework": {
+      "status": "PASS",
+      "value": "Hummingbird theme (PrestaShop 9), CSS 358KB",
+      "details": "14 media query breakpoints covering 360px-1400px, plus hover/pointer/print/reduced-motion"
+    },
+    "responsive_breakpoints": {
+      "status": "PASS",
+      "breakpoints": [
+        "min-width: 360px",
+        "max-width: 359.98px",
+        "min-width: 576px / max-width: 575.98px",
+        "min-width: 768px / max-width: 767.98px",
+        "min-width: 992px / max-width: 991.98px",
+        "min-width: 1200px / max-width: 1199.98px",
+        "min-width: 1400px / max-width: 1399.98px"
+      ]
+    },
+    "responsive_images": {
+      "status": "WARN",
+      "details": "Images use lazy loading (5 found) but NO srcset or sizes attributes - images not optimized for different viewports"
+    },
+    "page_http_status": {
+      "landing_es": {"status": "PASS", "httpCode": 200},
+      "landing_en": {"status": "PASS", "httpCode": 200},
+      "login": {"status": "PASS", "httpCode": 200},
+      "registration": {"status": "PASS", "httpCode": 200},
+      "contact": {"status": "PASS", "httpCode": 200},
+      "how_it_works": {"status": "PASS", "httpCode": 200},
+      "faq": {"status": "PASS", "httpCode": 200},
+      "product_detail": {"status": "PASS", "httpCode": 200},
+      "404_page": {"status": "PASS", "httpCode": 404},
+      "user_agent_variation": {
+        "status": "PASS",
+        "landing_200_for": ["Desktop UA", "Mobile UA (iPhone)", "Tablet UA (iPad)"]
+      }
+    },
+    "critical_failures": {
+      "search_page_buscar": {
+        "status": "FAIL",
+        "httpCode": 500,
+        "severity": "CRITICAL",
+        "impact": "Main search/browse navigation link broken - users cannot search products",
+        "confirmed": "Both Desktop and Mobile UAs return 500"
+      },
+      "category_pages": {
+        "status": "FAIL",
+        "severity": "CRITICAL",
+        "impact": "Every single category link on the landing page returns 500 - ALL browsing is broken",
+        "details": "Tested 10+ category URLs: tornos, fresadoras, centros de mecanizado, mandrinadoras, prensas, excavadoras, herramientas, etc. ALL return 500",
+        "confirmed": "Both Desktop and Mobile UAs return 500"
+      }
+    },
+    "known_issue_regression": {
+      "search_500_found_in_previous_test": true,
+      "search_500_still_present": true,
+      "new_issue": "All category pages also return 500 (not reported previously)"
+    },
+    "pages_not_found": {
+      "es/planes": {"status": 404, "severity": "minor"},
+      "es/registro": {"status": 404, "severity": "minor"}
+    },
+    "i18n": {
+      "status": "PASS",
+      "languages_available": 11,
+      "languages": ["ca", "de", "en", "es", "eu", "fr", "gl", "it", "pt", "ru", "tr"]
+    },
+    "favicon": {
+      "status": "PASS",
+      "favicon_present": true
+    }
+  },
+  "previous_mobile_ux_notes_not_retested": {
+    "tap_targets": "Prev report: 56 elements < 44px at 375px (still likely present)",
+    "small_fonts": "Prev report: 7 elements < 12px at 375px (still likely present)",
+    "chat_widget": "Prev report: not detected at mobile viewport"
+  },
+  "summary": {
+    "overall": "PASS_WITH_NOTES",
+    "grade": "C",
+    "total_checks": 24,
+    "passed": 16,
+    "warnings": 2,
+    "critical_fails": 2,
+    "critical_issues": [
+      "ALL category pages return 500 Internal Server Error - entire browse functionality broken",
+      "/es/buscar (search page) returns 500 Internal Server Error - search functionality broken"
+    ],
+    "minor_issues": [
+      "No srcset/sizes on images - no adaptive image delivery for mobile vs desktop",
+      "Pricing page /es/planes 404 (minor - URL may differ)",
+      "Tap targets and font sizes on mobile need improvement (from previous test)"
+    ],
+    "recommendations": [
+      "IMMEDIATE: Debug and fix the 500 error on category pages - affects ALL product browsing",
+      "IMMEDIATE: Fix the 500 error on /es/buscar - search is completely non-functional",
+      "Add srcset/sizes attributes for responsive image delivery",
+      "Improve mobile tap target sizes (minimum 44px per WCAG)",
+      "Review mobile font sizes (min 12px recommended)"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+Fatal error: Cannot declare class Database, because the name is already in use in /var/www/vhosts/cenarbe.com/dev1.cenarbe.com/includes/db.php on line 191
+
+Call Stack:
+#1 {main}() /var/www/vhosts/cenarbe.com/dev1.cenarbe.com/admin/dashboard.php:0
+#2 require_once('/var/www/vhosts/cenarbe.com/dev1.cenarbe.com/includes/db.php') /var/www/vhosts/cenarbe.com/dev1.cenarbe.com/admin/dashboard.php:17

@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-01T04:00:00Z",
+  "agent_id": "tester",
+  "focus_area": "responsive",
+  "url_base": "https://new.zonacnc.com",
+  "scenario": "i18n-responsive-parity-untested-pages",
+  "mode": "responsive",
+  "tooling": "curl + web_fetch",
+  "anti_duplicate": "new_scenario",
+  "results": {
+    "pages_tested": 7,
+    "pages_new": 5,
+    "responsive_pass": true,
+    "issues": {
+      "critical": [
+        {
+          "id": "i18n-cms-content-es-on-en-urls",
+          "severity": "CRITICAL",
+          "title": "EN CMS pages serve Spanish content or wrong page",
+          "details": {
+            "terms": "/en/content/3-terminos-y-condiciones-de-uso serves Spanish Términos",
+            "how_it_works": "/en/content/4-como-funciona serves 'About us' with Lorem ipsum placeholder",
+            "faq": "/en/content/10-preguntas-frecuentes serves Spanish FAQ",
+            "cookies": "/en/content/9-cookies serves Spanish Cookies policy"
+          },
+          "urls": [
+            "/en/content/3-terminos-y-condiciones-de-uso",
+            "/en/content/4-como-funciona",
+            "/en/content/10-preguntas-frecuentes",
+            "/en/content/9-cookies"
+          ],
+          "impact": "EN version of CMS pages shows Spanish content or wrong/default content to international users"
+        }
+      ],
+      "high": [
+        {
+          "id": "i18n-cms-content-id-4-wrong-mapping",
+          "severity": "HIGH",
+          "title": "Content ID 4 maps to 'About us' in EN instead of 'How it works'",
+          "details": {
+            "observed_title": "About us",
+            "observed_content": "Lorem ipsum placeholder (default PrestaShop about us page)",
+            "expected": "How ZonaCNC works (como-funciona content translated to EN)"
+          },
+          "url": "/en/content/4-como-funciona"
+        }
+      ],
+      "medium": [
+        {
+          "id": "i18n-en-friendly-urls-missing",
+          "severity": "MEDIUM",
+          "title": "EN friendly URL slugs not configured — redirect to ES slugs",
+          "urls": [
+            "/en/content/4-how-it-works → /en/content/4-como-funciona",
+            "/en/content/10-frequently-asked-questions → /en/content/10-preguntas-frecuentes",
+            "/en/content/3-terms-and-conditions-of-use → /en/content/3-terminos-y-condiciones-de-uso"
+          ]
+        },
+        {
+          "id": "i18n-en-pw-recovery-mixed-language",
+          "severity": "MEDIUM",
+          "title": "EN password recovery page has Spanish footer text",
+          "url": "/en/password-recovery"
+        }
+      ],
+      "responsive": []
+    },
+    "stability": {
+      "status": "stable",
+      "regressions": 0,
+      "previous_high_issues_closed": ["zcnc-listings-layout mobile scroll (confirmed resolved per 01:15 MCP browser test)"]
+    },
+    "details_by_page": {
+      "password_recovery_es": {
+        "url": "/es/recuperar-contraseña",
+        "http": 200,
+        "size": "118KB",
+        "viewport_meta": true,
+        "bootstrap_grid": true,
+        "mobile_nav": true,
+        "hreflang": 12,
+        "status": "PASS"
+      },
+      "password_recovery_en": {
+        "url": "/en/password-recovery",
+        "http": 200,
+        "size": "116KB",
+        "title": "Forgot your password - correct",
+        "status": "PASS_WITH_NOTES"
+      },
+      "registration_es": {
+        "url": "/es/?controller=registration",
+        "http": 200,
+        "size": "134KB",
+        "viewport_meta": true,
+        "bootstrap_grid": true,
+        "mobile_nav": true,
+        "form_elements": 14,
+        "status": "PASS"
+      }
+    },
+    "verdict": "PASS_WITH_NOTES",
+    "summary": "Responsive structure ✅ stable across all pages. No regressions. 4 CRITICAL i18n CMS content issues found — EN pages serve Spanish content. Sizes consistent with previous runs."
+  }
+}

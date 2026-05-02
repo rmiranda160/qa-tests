@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "result": {
+    "message_id": 1028,
+    "from": {
+      "id": 8584254382,
+      "is_bot": true,
+      "first_name": "Facture_bot",
+      "username": "Rmfac_bot"
+    },
+    "chat": {
+      "id": 7885094157,
+      "first_name": "Miranda",
+      "username": "rmiranda160",
+      "type": "private"
+    },
+    "date": 1776271002,
+    "document": {
+      "file_name": "factura_13_informática.pdf",
+      "mime_type": "application/pdf",
+      "file_id": "BQACAgQAAxkDAAIEBGnfvppWMEMymGFD_Hd6hbWLSijFAAIbGwACM8sAAVOKvGo9pOPkjDsE",
+      "file_unique_id": "AgADGxsAAjPLAAFT",
+      "file_size": 12695
+    }
+  }
+}

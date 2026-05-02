@@ -1,0 +1,24 @@
+🚨 ALERTA DE INCOHERENCIA UI
+
+Aplicación: Cenarbe Bike Rental
+Fecha: 3/20/2026, 5:47:34 PM
+
+📊 RESULTADOS:
+✅ Pruebas coherentes: 0
+❌ Pruebas incoherentes: 2
+
+🚨 INCOHERENCIAS DETECTADAS:
+1. Botón "Mis Reservas" → Página de reservas
+   - Contenido faltante: No se encontró "booking" en la página
+   - Contenido faltante: No se encontró "fecha" en la página
+
+📸 Screenshot disponible en workspace raíz:
+   /home/node/.openclaw/workspace-coordinator/incoherence-2026-03-20T17-47-34-983Z.png
+
+📁 Reporte completo: /home/node/.openclaw/workspace-tester/coherence-reports/coherence-report-2026-03-20T17-47-34-983Z.json
+
+🔧 ACCIÓN REQUERIDA:
+1. Revisar las incoherencias detectadas
+2. Verificar la UI de Cenarbe Bike Rental
+3. Corregir los elementos incoherentes
+4. Re-ejecutar pruebas de coherencia

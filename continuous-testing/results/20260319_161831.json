@@ -1,0 +1,138 @@
+{
+  "cycle_id": "20260319_161831",
+  "start_time": "2026-03-19T16:18:31.999238",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773937112004",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (932ms)\n\n  1 passed (1.7s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773937112004"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773937114464",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2713  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (826ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (843ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (978ms)\n\n  3 passed (3.4s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773937114464"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "runId": "1773937118611",
+            "mode": "accessibility",
+            "stdout": "\n> qa-tester@1.0.0 test:a11y\n> playwright test tests/accessibility.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2718  1 tests/accessibility.spec.js:6:1 \u203a a11y: sin violaciones graves (1.8s)\n\n\n  1) tests/accessibility.spec.js:6:1 \u203a a11y: sin violaciones graves \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n    \u001b[32m- Expected  -  1\u001b[39m\n    \u001b[31m+ Received  + 58\u001b[39m\n\n    \u001b[32m- Array []\u001b[39m\n    \u001b[31m+ Array [\u001b[39m\n    \u001b[31m+   Object {\u001b[39m\n    \u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n    \u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n    \u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n    \u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n    \u001b[31m+     \"impact\": \"serious\",\u001b[39m\n    \u001b[31m+     \"nodes\": Array [\u001b[39m\n    \u001b[31m+       Object {\u001b[39m\n    \u001b[31m+         \"all\": Array [],\u001b[39m\n    \u001b[31m+         \"any\": Array [\u001b[39m\n    \u001b[31m+           Object {\u001b[39m\n    \u001b[31m+             \"data\": Object {\u001b[39m\n    \u001b[31m+               \"bgColor\": \"#212529\",\u001b[39m\n    \u001b[31m+               \"contrastRatio\": 2.81,\u001b[39m\n    \u001b[31m+               \"expectedContrastRatio\": \"4.5:1\",\u001b[39m\n    \u001b[31m+               \"fgColor\": \"#b3471e\",\u001b[39m\n    \u001b[31m+               \"fontSize\": \"13.2pt (17.6px)\",\u001b[39m\n    \u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n    \u001b[31m+               \"messageKey\": null,\u001b[39m\n    \u001b[31m+             },\u001b[39m\n    \u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n    \u001b[31m+             \"impact\": \"serious\",\u001b[39m\n    \u001b[31m+             \"message\": \"Element has insufficient color contrast of 2.81 (foreground color: #b3471e, background color: #212529, font size: 13.2pt (17.6px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n    \u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n    \u001b[31m+               Object {\u001b[39m\n    \u001b[31m+                 \"html\": \"<footer class=\\\"footer-bajabikes\\\">\",\u001b[39m\n    \u001b[31m+                 \"target\": Array [\u001b[39m\n    \u001b[31m+                   \"footer\",\u001b[39m\n    \u001b[31m+                 ],\u001b[39m\n    \u001b[31m+               },\u001b[39m\n    \u001b[31m+             ],\u001b[39m\n    \u001b[31m+           },\u001b[39m\n    \u001b[31m+         ],\u001b[39m\n    \u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n    \u001b[31m+   Element has insufficient color contrast of 2.81 (foreground color: #b3471e, background color: #212529, font size: 13.2pt (17.6px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n    \u001b[31m+         \"html\": \"<span class=\\\"text-warning\\\">BIKE</span>\",\u001b[39m\n    \u001b[31m+         \"impact\": \"serious\",\u001b[39m\n    \u001b[31m+         \"none\": Array [],\u001b[39m\n    \u001b[31m+         \"target\": Array [\u001b[39m\n    \u001b[31m+           \"h5 > .text-warning\",\u001b[39m\n    \u001b[31m+         ],\u001b[39m\n    \u001b[31m+       },\u001b[39m\n    \u001b[31m+     ],\u001b[39m\n    \u001b[31m+     \"tags\": Array [\u001b[39m\n    \u001b[31m+       \"cat.color\",\u001b[39m\n    \u001b[31m+       \"wcag2aa\",\u001b[39m\n    \u001b[31m+       \"wcag143\",\u001b[39m\n    \u001b[31m+       \"TTv5\",\u001b[39m\n    \u001b[31m+       \"TT13.c\",\u001b[39m\n    \u001b[31m+       \"EN-301-549\",\u001b[39m\n    \u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n    \u001b[31m+       \"ACT\",\u001b[39m\n    \u001b[31m+       \"RGAAv4\",\u001b[39m\n    \u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n    \u001b[31m+     ],\u001b[39m\n    \u001b[31m+   },\u001b[39m\n    \u001b[31m+ ]\u001b[39m\n\n      14 |   );\n      15 |\n    > 16 |   expect(seriousOrCritical).toEqual([]);\n         |                             ^\n      17 | });\n      18 |\n        at /app/tests/accessibility.spec.js:16:29\n\n    attachment #1: screenshot (image/png) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/accessibility-a11y-sin-violaciones-graves/test-failed-1.png\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    attachment #2: video (video/webm) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/accessibility-a11y-sin-violaciones-graves/video-1.webm\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    attachment #3: video (video/webm) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/accessibility-a11y-sin-violaciones-graves/video.webm\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    Error Context: test-results/accessibility-a11y-sin-violaciones-graves/error-context.md\n\n    attachment #5: trace (application/zip) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/accessibility-a11y-sin-violaciones-graves/trace.zip\n    Usage:\n\n        npx playwright show-trace test-results/accessibility-a11y-sin-violaciones-graves/trace.zip\n\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n  1 failed\n    tests/accessibility.spec.js:6:1 \u203a a11y: sin violaciones graves \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n",
+            "stderr": "",
+            "error": "Command failed: npm run test:a11y\n",
+            "resultsDir": "/app/results/1773937118611"
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "critical",
+            "message": "Test failures detected. See results at /app/results/1773937118611"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773937122279",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (1.1s)\n\n  1 passed (1.9s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773937122279"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773937124922",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2713  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (975ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (797ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (956ms)\n\n  3 passed (3.5s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773937124922"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773937129190",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (858ms)\n\n  1 passed (1.6s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773937129190"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": false,
+            "runId": "1773937131616",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2718  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (887ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (828ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (767ms)\n\n\n  1) tests/responsive.spec.js:15:3 \u203a responsive: mobile \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeFalsy\u001b[2m()\u001b[22m\n\n    Received: \u001b[31mtrue\u001b[39m\n\n      25 |     });\n      26 |\n    > 27 |     expect(hasHorizontalOverflow).toBeFalsy();\n         |                                   ^\n      28 |   });\n      29 | }\n      30 |\n        at /app/tests/responsive.spec.js:27:35\n\n    attachment #1: screenshot (image/png) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/responsive-responsive-mobile/test-failed-1.png\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    attachment #2: video (video/webm) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/responsive-responsive-mobile/video.webm\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    Error Context: test-results/responsive-responsive-mobile/error-context.md\n\n    attachment #4: trace (application/zip) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/responsive-responsive-mobile/trace.zip\n    Usage:\n\n        npx playwright show-trace test-results/responsive-responsive-mobile/trace.zip\n\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n  1 failed\n    tests/responsive.spec.js:15:3 \u203a responsive: mobile \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  2 passed (4.1s)\n",
+            "stderr": "",
+            "error": "Command failed: npm run test:responsive\n",
+            "resultsDir": "/app/results/1773937131616"
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "high",
+            "message": "Test failures detected. See results at /app/results/1773937131616"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": ["smoke"],
+      "criticalPaths": ["/reservar.php", "/checkout.php"]
+    }
+  ],
+  "alerting": {
+    "telegramChannel": "CEO Miranda",
+    "minSeverity": "high"
+  },
+  "schedule": {
+    "testIntervalMinutes": 5,
+    "reportIntervalHours": 12
+  }
+}

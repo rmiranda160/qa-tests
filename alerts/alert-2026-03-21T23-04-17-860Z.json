@@ -1,0 +1,12 @@
+{
+  "type": "coherence_incoherence",
+  "timestamp": "2026-03-21T23:06:05.924Z",
+  "application": "Cenarbe Bike Rental",
+  "incoherences": [
+    {
+      "test": "Botón \"Mi Perfil\" → Página de perfil",
+      "errorCount": 2
+    }
+  ],
+  "screenshot": "/home/node/.openclaw/workspace-coordinator/incoherence-2026-03-21T23-04-17-860Z.png"
+}

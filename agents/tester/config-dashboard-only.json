@@ -1,0 +1,42 @@
+{
+  "applications": [
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "critical_buttons": [
+        {
+          "name": "Botón Refresh Data",
+          "selector": "button:has-text('Refresh'), button:has-text('Actualizar'), #refresh-btn, button[onclick*='refresh']",
+          "type": "button",
+          "critical": true
+        },
+        {
+          "name": "Botón Export Report",
+          "selector": "button:has-text('Export'), button:has-text('Exportar'), #export-btn, button[onclick*='export']",
+          "type": "button",
+          "critical": true
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "ws_endpoint": "ws://51.254.244.216:3000/",
+    "timeout": 10000,
+    "check_interval_hours": 1,
+    "alert_on_critical_fail": true,
+    "generate_screenshots": true,
+    "miranda_rule": {
+      "functional_criteria": [
+        "url_changed",
+        "ajax_request_detected",
+        "download_triggered",
+        "modal_opened",
+        "dom_updated",
+        "state_changed"
+      ],
+      "minimum_indicators": 1,
+      "timeout_ms": 2000,
+      "ajax_timeout_ms": 3000
+    }
+  }
+}

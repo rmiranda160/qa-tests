@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-03-20T16:53:03.704876",
+  "rule": "Miranda Button/Action Verification",
+  "summary": {
+    "total_apps": 4,
+    "total_buttons": 0,
+    "passed_buttons": 0,
+    "failed_buttons": 0,
+    "apps_with_issues": 0
+  },
+  "applications": [
+    {
+      "error": "Playwright no disponible",
+      "url": "https://dev1.cenarbe.com/",
+      "app_name": "Cenarbe Bike Rental"
+    },
+    {
+      "error": "Playwright no disponible",
+      "url": "https://cntai.cenarbe.com/",
+      "app_name": "ContentoAI"
+    },
+    {
+      "error": "Playwright no disponible",
+      "url": "https://villazocotin.cenarbe.com/",
+      "app_name": "Villa Zocotin"
+    },
+    {
+      "error": "Playwright no disponible",
+      "url": "https://dashboard.cenarbe.com/",
+      "app_name": "Dashboard"
+    }
+  ]
+}

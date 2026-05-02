@@ -1,0 +1,36 @@
+CONTINUOUS TESTING CYCLE REPORT
+Generated: 2026-03-23T07:06:56.755983Z
+
+📊 WEB TESTER RESULTS
+   Total modes: 14
+   Passed: 11
+   Failed: 3
+   Failed modes:
+      - ContentoAI (accessibility): medium - Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results
+      - Dashboard (accessibility): medium - Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results
+      - Villa Zocotin (accessibility): medium - Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results
+
+🔍 COHERENCE TEST RESULTS
+   Total applications: 5
+   Passed: 3
+   Failed: 2
+   Failed applications:
+      - ContentoAI: 6 errors
+          * Selector not found: h2
+          * Selector not found: h3
+          * Selector not found: footer
+          * ... and 3 more
+      - Villa Zocotin: 1 errors
+          * Selector not found: a[href*="reservas"]
+
+🚨 CRITICAL ERRORS: NO
+
+📸 SCREENSHOTS AVAILABLE FOR FAILURES:
+   - ContentoAI-2026-03-23T07-01-08-298Z.png
+   - Villa-Zocotin-2026-03-23T07-01-09-943Z.png
+
+📁 Results files:
+   Continuous: results/20260323_070320.json
+   Coherence: coherence-results/coherence-cycle-2026-03-23T07-01-10-800Z.json
+
+CONCLUSION: No critical errors detected.

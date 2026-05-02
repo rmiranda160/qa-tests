@@ -1,0 +1,45 @@
+✅ Configuración cargada: 4 aplicaciones
+🧪 EJECUTANDO VERIFICACIÓN REGLA MIRANDA
+============================================================
+
+🔍 Verificando: Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   🌐 Navegando a https://dev1.cenarbe.com/
+
+🔍 Verificando: ContentoAI (https://cntai.cenarbe.com/)
+   🌐 Navegando a https://cntai.cenarbe.com/
+
+🔍 Verificando: Villa Zocotin (https://villazocotin.cenarbe.com/)
+   🌐 Navegando a https://villazocotin.cenarbe.com/
+
+🔍 Verificando: Dashboard (https://dashboard.cenarbe.com/)
+   🌐 Navegando a https://dashboard.cenarbe.com/
+
+📄 Reporte detallado guardado en: /home/node/.openclaw/workspace-tester/continuous-testing/results/miranda-1774031996458.json
+
+📊 INFORME EJECUTIVO REGLA MIRANDA
+============================================================
+📅 Fecha: 2026-03-20T18:39:56.472Z
+📱 Aplicaciones verificadas: 4
+🔘 Botones totales verificados: 14
+✅ Botones funcionales: 4 (29%)
+❌ Botones con problemas: 6 (43%)
+⚠️  Aplicaciones con issues: 4
+
+🚨 BOTONES CRÍTICOS CON PROBLEMAS:
+
+   Cenarbe Bike Rental:
+     • Formulario Reserva (warning): 
+
+   ContentoAI:
+     • Botón Generar Texto (error): No encontrado en DOM
+     • Formulario Demo (error): No encontrado en DOM
+
+   Villa Zocotin:
+     • Botón Reservar (error): No encontrado en DOM
+     • Formulario Contacto (error): No encontrado en DOM
+
+💡 RECOMENDACIONES:
+   1. Corregir botones críticos con problemas (alta prioridad)
+   2. Investigar botones con estado "warning"
+   3. Actualizar selectores si no encuentran elementos
+   4. Integrar esta verificación en cada ciclo de testing

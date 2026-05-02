@@ -1,0 +1,97 @@
+{
+  "timestamp": "20260322_011547",
+  "testing_cycle": "continuous-testing",
+  "web_tester": {
+    "total_applications": 5,
+    "critical_errors": 0,
+    "high_errors": 0,
+    "medium_errors": 3,
+    "findings": [
+      {
+        "application": "ContentoAI",
+        "url": "https://cntai.cenarbe.com/",
+        "mode": "accessibility",
+        "severity": "medium",
+        "issue": "Accessibility violations for https://cntai.cenarbe.com/: Accessibility test failed for https://cntai.cenarbe.com/. Violations: 2",
+        "timestamp": "2026-03-22T01:15:02.953264"
+      },
+      {
+        "application": "Dashboard",
+        "url": "https://dashboard.cenarbe.com/",
+        "mode": "accessibility",
+        "severity": "medium",
+        "issue": "Accessibility violations for https://dashboard.cenarbe.com/: Accessibility test failed for https://dashboard.cenarbe.com/. Violations: 2",
+        "timestamp": "2026-03-22T01:15:05.450062"
+      },
+      {
+        "application": "Villa Zocotin",
+        "url": "https://villazocotin.cenarbe.com/",
+        "mode": "accessibility",
+        "severity": "medium",
+        "issue": "Accessibility violations for https://villazocotin.cenarbe.com/: Accessibility test failed for https://villazocotin.cenarbe.com/. Violations: 3",
+        "timestamp": "2026-03-22T01:15:08.038807"
+      }
+    ]
+  },
+  "coherence": {
+    "total_applications": 5,
+    "passed": 4,
+    "failed": 1,
+    "results": [
+      {
+        "app": "Cenarbe Bike Rental",
+        "url": "https://dev1.cenarbe.com/",
+        "timestamp": "2026-03-22T01:15:20.687Z",
+        "passed": true,
+        "errors": [],
+        "screenshots": [
+          "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Cenarbe-Bike-Rental-2026-03-22T01-15-20-622Z.png"
+        ]
+      },
+      {
+        "app": "Calendario Cenarbe",
+        "url": "https://dev1.cenarbe.com/calendario/",
+        "timestamp": "2026-03-22T01:15:22.030Z",
+        "passed": true,
+        "errors": [],
+        "screenshots": [
+          "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Calendario-Cenarbe-2026-03-22T01-15-21-979Z.png"
+        ]
+      },
+      {
+        "app": "ContentoAI",
+        "url": "https://cntai.cenarbe.com/",
+        "timestamp": "2026-03-22T01:15:26.566Z",
+        "passed": true,
+        "errors": [],
+        "screenshots": [
+          "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-22T01-15-26-520Z.png"
+        ]
+      },
+      {
+        "app": "Dashboard",
+        "url": "https://dashboard.cenarbe.com/",
+        "timestamp": "2026-03-22T01:15:27.315Z",
+        "passed": true,
+        "errors": [],
+        "screenshots": [
+          "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Dashboard-2026-03-22T01-15-27-266Z.png"
+        ]
+      },
+      {
+        "app": "Villa Zocotin",
+        "url": "https://villazocotin.cenarbe.com/",
+        "timestamp": "2026-03-22T01:15:28.151Z",
+        "passed": false,
+        "errors": [
+          "Selector not found: .calendar",
+          "Selector not found: input[type=\"submit\"]"
+        ],
+        "screenshots": [
+          "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Villa-Zocotin-2026-03-22T01-15-28-102Z.png"
+        ]
+      }
+    ]
+  },
+  "overall_status": "PASS"
+}

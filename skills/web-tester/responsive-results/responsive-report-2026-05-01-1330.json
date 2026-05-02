@@ -1,0 +1,151 @@
+{
+  "timestamp": "2026-05-01T13:30:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com/es/vendedores/",
+  "method": "MCP browser (pwmcp-zonacnc) — navigate+resize+snapshot+evaluate at 1280/768/375px for Vendor Directory page",
+  "anti_duplicate_note": "Previous tests today covered: category-tornos (1315), CMS (1300), login (1215), registro (1145), contact (1130), producto (1100), search (0945), pricing (0900). THIS test: Exclusively focuses on Vendor Directory page (`/es/vendedores/`) — vendor card layout, filter form responsiveness, footer accordion behavior at 3 breakpoints",
+  "scenario": "Vendor Directory page (/es/vendedores/) responsive layout at 1280/768/375px — verifying vendor card structure, filter form stacking, header/nav responsive behavior, footer accordion at mobile, and tap target compliance",
+  "breakpoints_tested": {
+    "desktop_1280px": {
+      "viewport": "1280x900",
+      "status": "PASS",
+      "layout": {
+        "top_bar": "Contacte con nosotros + Vendedores (icon+text) + Tarifas (icon+text) + language selector + Iniciar sesión",
+        "main_nav": "Logo + Categorías (text+dropdown) + search bar + Vender máquina (icon+text)",
+        "breadcrumb": "Inicio",
+        "h1": "Directorio de Vendedores",
+        "subtitle": "Encuentra vendedores profesionales de maquinaria industrial en toda España",
+        "filter_area": "Provincia select + Buscar empresa input + Buscar button",
+        "vendor_count": 7,
+        "vendor_card_width": "full page width, single column stack",
+        "vendor_images": "76x76px where present",
+        "footer": "5 columns fully expanded + Categorías destacadas + Marcas líderes",
+        "extra_elements": "Test banner, Back-to-top, Chat, Cookie consent"
+      }
+    },
+    "tablet_768px": {
+      "viewport": "768x1024",
+      "status": "PASS",
+      "layout": {
+        "top_bar": "Contacte con nosotros + Vendedores (icon ONLY) + Tarifas (icon ONLY) + language selector + Iniciar sesión",
+        "main_nav": "Logo + Categorías (icon ONLY) + search bar + Vender máquina (icon ONLY)",
+        "content": "Same as desktop — all vendors visible, filters functional",
+        "footer": "Fully expanded same as desktop"
+      },
+      "responsive_behaviors": {
+        "nav_text_hidden": "PASS — Vendedores, Tarifas, Categorías text labels hidden, icons remain",
+        "vender_maquina_text_hidden": "PASS — icon-only in navbar",
+        "no_overflow": "scrollWidth(768) === clientWidth(768)"
+      }
+    },
+    "mobile_375px": {
+      "viewport": "375x812",
+      "status": "PASS_WITH_NOTES",
+      "layout": {
+        "nav": "Logo + Categorías (icon) + language selector + 'Mostrar barra de búsqueda' button + login icon + Vender máquina icon",
+        "breadcrumb": "Inicio",
+        "h1": "Directorio de Vendedores",
+        "filter_area": "Provincia select + Buscar empresa input + 'Buscar' button stacked vertically",
+        "vendor_cards": {
+          "width": 321,
+          "width_pct": 85.6,
+          "height": 274,
+          "layout": "single column, vertically stacked",
+          "vendor_images": "76x76px",
+          "profile_links": "7 functional links to /module/zonacncvendor/profile"
+        },
+        "footer": {
+          "accordion_sections": ["Marketplace", "Legal", "Nuestra empresa", "Su cuenta", "Información tienda"],
+          "toggle_buttons_size": { "width": 24, "height": 26 },
+          "wcag_compliance": "FAIL — 24x26px well below 44x44px minimum"
+        },
+        "extra_elements": "Test banner ✓, Back-to-top ✓, Chat ✓, Cookie dialog ✓"
+      },
+      "responsive_behaviors": {
+        "viewport_meta": "width=device-width, initial-scale=1",
+        "html_lang": "es-ES",
+        "no_overflow": "scrollWidth(375) === clientWidth(375)",
+        "no_hamburger_menu": "Categorías icon link serves as nav trigger (no off-canvas menu panel found)"
+      }
+    }
+  },
+  "findings": {
+    "header_nav_responsive": {
+      "desktop_1280": "Full text labels on all nav elements",
+      "tablet_768": "Nav text labels hidden (icons only) — correct responsive behavior",
+      "mobile_375": "Minimal nav: logo, categorías icon, language, search toggle, login, vender icon",
+      "verdict": "PASS — nav appropriately collapses at each breakpoint"
+    },
+    "vendor_cards_responsive": {
+      "desktop_1280": "Full-width single column cards with 76x76px images where available",
+      "tablet_768": "Same layout, content fits well",
+      "mobile_375": "321px wide (85% viewport) — good use of space, no text overflow",
+      "fallback_icons": "4/7 vendors show 'business' icon instead of logo (test data issue, not responsive)",
+      "verdict": "PASS — cards adapt well across all breakpoints"
+    },
+    "filter_form_responsive": {
+      "desktop_1280": "Row layout: select + input + button inline",
+      "mobile_375": "Stacked vertically: select, input, button each full width",
+      "search_button_size": "123x43px — 1px below 44px WCAG minimum height",
+      "verdict": "PASS_WITH_NOTES — functional at all breakpoints, search button 1px short on height"
+    },
+    "footer_responsive": {
+      "desktop_1280": "5 columns fully expanded with all links visible",
+      "tablet_768": "Same as desktop — fully expanded",
+      "mobile_375": "5 sections collapsed to accordion with toggle buttons",
+      "verdict": "PASS — correct responsive footer pattern"
+    },
+    "tap_target_issues_mobile": {
+      "footer_accordion_toggles": {
+        "size": "24x26px",
+        "wcag_requirement": "44x44px minimum",
+        "shortfall": "20px width, 18px height below minimum",
+        "count": "5 toggles affected (all footer sections)",
+        "severity": "MEDIUM",
+        "recommendation": "Increase accordion toggle buttons from 24x26px to ≥44x44px for WCAG touch compliance",
+        "note": "This is a global footer issue — affects ALL pages, not just vendor directory"
+      },
+      "search_button": {
+        "size": "123x43px",
+        "wcag_height": "43px — 1px below 44px minimum",
+        "severity": "LOW"
+      }
+    },
+    "console_errors": [
+      {
+        "source": "Google Sign-In / FedCM",
+        "pattern": "Provider's accounts list is empty / FedCM get() rejects with NetworkError",
+        "severity": "LOW",
+        "pages_affected": ["All pages with Google auth"]
+      }
+    ],
+    "horizontal_overflow": {
+      "desktop_1280": 0,
+      "tablet_768": 0,
+      "mobile_375": 0,
+      "verdict": "PASS — NO horizontal overflow at any tested breakpoint"
+    }
+  },
+  "summary": {
+    "overall": "PASS",
+    "grade": "B",
+    "total_checks": 12,
+    "passed": 10,
+    "warnings": 2,
+    "failures": 0,
+    "notes": [
+      "Vendor directory page responsive at all 3 breakpoints",
+      "Header nav correctly collapses text labels at tablet (icons-only)",
+      "Vendor cards stack vertically at mobile with adequate 85% viewport width",
+      "Filter form switches from inline row to vertical stack at mobile",
+      "Zero horizontal overflow at all breakpoints",
+      "MEDIUM: Footer accordion toggle buttons at 24x26px — well below 44x44px WCAG minimum (5 buttons affected)",
+      "LOW: Search button height 43px (1px below 44px WCAG minimum)",
+      "Non-critical Google FedCM console errors persist across all site pages"
+    ],
+    "anti_duplicate": true,
+    "unique_scenario": "Vendor Directory page responsive test — first focused analysis on /es/vendedores/ with vendor card layout, filter form responsiveness, and footer accordion behavior at mobile"
+  }
+}

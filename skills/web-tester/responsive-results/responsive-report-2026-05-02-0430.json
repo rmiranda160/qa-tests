@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-02T04:30:00Z",
+  "agent": "tester",
+  "focus": "responsive",
+  "scenario": "Homepage — hero, latest machines, categories, how it works, email subscription, cookie notice, footer",
+  "url": "https://new.zonacnc.com/es/",
+  "antiDupe": true,
+  "verdict": "PASS_WITH_NOTES",
+  "viewports": {
+    "desktop": { "width": 1440, "height": 900, "status": "PASS", "overflow": false },
+    "tablet": { "width": 768, "height": 1024, "status": "PASS", "overflow": false },
+    "mobile": { "width": 375, "height": 812, "status": "PASS", "overflow": false }
+  },
+  "warnings": [
+    { "id": "HMP-TAP-01", "severity": "MEDIUM", "description": "Nav link 'Categorías' at 37px height on mobile (7px below 44px WCAG)" },
+    { "id": "HMP-TAP-02", "severity": "LOW", "description": "Cookie notice 'Cancelar' button at 38px on mobile" },
+    { "id": "HMP-TAP-03", "severity": "LOW", "description": "Footer accordion toggle icons at 26px (decorative, not primary)" },
+    { "id": "HMP-TAP-04", "severity": "LOW", "description": "Footer text links at 20-30px (secondary navigation)" }
+  ],
+  "reportFile": "qa/responsive-homepage-2026-05-02-0430.md",
+  "durationMinutes": 5
+}

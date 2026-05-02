@@ -1,0 +1,14 @@
+2026-03-19 20:41:57,793 - INFO - Starting continuous testing cycle
+2026-03-19 20:41:57,794 - INFO - Testing Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+2026-03-19 20:41:57,794 - INFO -   Running smoke tests
+2026-03-19 20:42:00,588 - INFO -   Running responsive tests
+2026-03-19 20:42:04,805 - INFO -   Running accessibility tests
+2026-03-19 20:42:08,618 - INFO - Testing ContentoAI (https://contentoai.cenarbe.com/)
+2026-03-19 20:42:08,618 - INFO -   Running smoke tests
+2026-03-19 20:42:11,123 - INFO -   Running responsive tests
+2026-03-19 20:42:15,415 - INFO - Testing Villa Zocotin (https://villazocotin.cenarbe.com/)
+2026-03-19 20:42:15,415 - INFO -   Running smoke tests
+2026-03-19 20:42:17,776 - INFO -   Running responsive tests
+2026-03-19 20:42:22,631 - INFO - Alert written: HIGH - Villa Zocotin responsive test failed
+2026-03-19 20:42:22,632 - INFO - Cycle 20260319_204157 completed. Results saved to /home/node/.openclaw/workspace-tester/continuous-testing/results/20260319_204157.json
+2026-03-19 20:42:22,632 - INFO - Summary: 6/7 modes passed, 1 failed.

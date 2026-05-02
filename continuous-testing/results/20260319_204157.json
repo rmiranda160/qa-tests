@@ -1,0 +1,137 @@
+{
+  "cycle_id": "20260319_204157",
+  "start_time": "2026-03-19T20:41:57.794006",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773952917798",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (1.0s)\n\n  1 passed (2.0s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773952917798"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773952920594",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2713  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (877ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (859ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (913ms)\n\n  3 passed (3.4s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773952920594"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773952924810",
+            "mode": "accessibility",
+            "stdout": "\n> qa-tester@1.0.0 test:a11y\n> playwright test tests/accessibility.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/accessibility.spec.js:6:1 \u203a a11y: sin violaciones graves (1.9s)\n\n  1 passed (3.0s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773952924810"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773952928623",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (950ms)\n\n  1 passed (1.7s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773952928623"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773952931128",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2713  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (908ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (833ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (876ms)\n\n  3 passed (3.5s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773952931128"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "runId": "1773952935420",
+            "mode": "smoke",
+            "stdout": "\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  \u2713  1 tests/smoke.spec.js:5:1 \u203a smoke: homepage carga (831ms)\n\n  1 passed (1.6s)\n",
+            "stderr": "",
+            "resultsDir": "/app/results/1773952935420"
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed"
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": false,
+            "runId": "1773952937781",
+            "mode": "responsive",
+            "stdout": "\n> qa-tester@1.0.0 test:responsive\n> playwright test tests/responsive.spec.js\n\n\nRunning 3 tests using 1 worker\n\n  \u2718  1 tests/responsive.spec.js:15:3 \u203a responsive: mobile (880ms)\n  \u2713  2 tests/responsive.spec.js:15:3 \u203a responsive: tablet (857ms)\n  \u2713  3 tests/responsive.spec.js:15:3 \u203a responsive: desktop (837ms)\n\n\n  1) tests/responsive.spec.js:15:3 \u203a responsive: mobile \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeFalsy\u001b[2m()\u001b[22m\n\n    Received: \u001b[31mtrue\u001b[39m\n\n      25 |     });\n      26 |\n    > 27 |     expect(hasHorizontalOverflow).toBeFalsy();\n         |                                   ^\n      28 |   });\n      29 | }\n      30 |\n        at /app/tests/responsive.spec.js:27:35\n\n    attachment #1: screenshot (image/png) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/responsive-responsive-mobile/test-failed-1.png\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    attachment #2: video (video/webm) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/responsive-responsive-mobile/video.webm\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n    Error Context: test-results/responsive-responsive-mobile/error-context.md\n\n    attachment #4: trace (application/zip) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    test-results/responsive-responsive-mobile/trace.zip\n    Usage:\n\n        npx playwright show-trace test-results/responsive-responsive-mobile/trace.zip\n\n    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n  1 failed\n    tests/responsive.spec.js:15:3 \u203a responsive: mobile \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  2 passed (4.1s)\n",
+            "stderr": "",
+            "error": "Command failed: npm run test:responsive\n",
+            "resultsDir": "/app/results/1773952937781"
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "high",
+            "message": "Test failures detected. See results at /app/results/1773952937781"
+          }
+        }
+      ]
+    }
+  ]
+}

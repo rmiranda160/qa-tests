@@ -1,0 +1,56 @@
+Ciclo de Testing Continuo - Resumen
+Fecha: 2026-03-22 22:48 UTC
+Ciclo ID: 20260322_224825
+
+=== RESULTADOS WEB-TESTER ===
+Aplicaciones: 4
+Modos totales: 11
+Pasados: 9
+Fallidos: 2
+
+Detalle:
+1. Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   - smoke: PASS
+   - responsive: PASS
+   - accessibility: PASS
+
+2. Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+   - smoke: PASS
+   - api: PASS
+
+3. ContentoAI (https://cntai.cenarbe.com/)
+   - smoke: PASS
+   - responsive: PASS
+   - accessibility: FAIL (violaciones: color-contrast, region)
+
+4. Dashboard (https://dashboard.cenarbe.com/)
+   - smoke: PASS
+   - responsive: PASS
+   - accessibility: FAIL (violaciones: color-contrast, region)
+
+=== RESULTADOS COHERENCIA ===
+Aplicaciones: 4
+Pasadas: 3
+Fallidas: 1
+
+Detalle:
+1. Cenarbe Bike Rental: PASS
+2. Calendario Cenarbe: PASS
+3. ContentoAI: FAIL (selectores faltantes: h2, h3, footer, a[href="/login"], a[href="/register"], a[href="/dashboard"])
+4. Dashboard: PASS
+
+=== ERRORES CRÍTICOS ===
+No se detectaron errores críticos (page load errors, body content too short).
+
+=== ALERTAS ===
+No se generaron alertas (severidad mínima configurada: 'high').
+
+=== ARCHIVOS GENERADOS ===
+- Web-tester results: /home/node/.openclaw/workspace-tester/continuous-testing/results/20260322_224825.json
+- Coherence results: /home/node/.openclaw/workspace-tester/continuous-testing/coherence-results/coherence-cycle-2026-03-22T22-48-52-417Z.json
+- Screenshots coherence: /home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/*.png
+
+=== CONCLUSIÓN ===
+Testing continuo completado. Dos fallos de accesibilidad (ContentoAI, Dashboard) y un fallo de coherencia (ContentoAI). Se requiere atención de desarrollo para mejorar accesibilidad y estructura HTML.
+
+Fin del reporte.

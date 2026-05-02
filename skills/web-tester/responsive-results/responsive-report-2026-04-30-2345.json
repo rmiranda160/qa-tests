@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-04-30T23:45:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "curl (UA-switching) + web_fetch (DOM analysis)",
+  "scenario": "Responsive: multi-page multi-viewport HTTP status + HTML responsive structure analysis + CSS breakpoint analysis",
+  "results": [
+    {
+      "viewport": "desktop",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120",
+      "pages_tested": [
+        {"path": "/es/", "http": 200, "size_bytes": 155514, "time_s": 0.48},
+        {"path": "/es/15-tornos", "http": 200, "size_bytes": 618432, "time_s": 0.81},
+        {"path": "/es/buscar", "http": 200, "size_bytes": 690801, "time_s": 0.65},
+        {"path": "/es/iniciar-sesion", "http": 200, "size_bytes": 127177, "time_s": 0.23},
+        {"path": "/en/15-lathes", "http": 200, "size_bytes": 611722, "time_s": 0.52}
+      ],
+      "performance": "all pages under 1s"
+    },
+    {
+      "viewport": "mobile",
+      "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0) Mobile/15E148 Safari/604.1",
+      "pages_tested": [
+        {"path": "/es/", "http": 200, "size_bytes": 155514, "time_s": 0.36},
+        {"path": "/es/15-tornos", "http": 200, "size_bytes": 618430, "time_s": 0.63},
+        {"path": "/es/buscar", "http": 200, "size_bytes": 690801, "time_s": 0.35},
+        {"path": "/es/iniciar-sesion", "http": 200, "size_bytes": 127177, "time_s": 0.18},
+        {"path": "/en/15-lathes", "http": 200, "size_bytes": 611734, "time_s": 0.27}
+      ],
+      "performance": "all pages under 1s (faster than desktop, as expected)"
+    }
+  ],
+  "responsive_framework": {
+    "status": "PASS",
+    "theme": "Hummingbird (PrestaShop 9) - Bootstrap 5 based",
+    "viewport_meta": "width=device-width, initial-scale=1",
+    "breakpoints_found": {
+      "360px": "13 rules (very small phones)",
+      "576px": "27 rules (phone landscape)",
+      "768px": "42 rules (tablets) - most used",
+      "992px": "26 rules (small desktop)",
+      "1200px": "30 rules (large desktop)",
+      "1400px": "13 rules (extra large)"
+    },
+    "same_html_for_all_devices": true,
+    "approach": "Server-side renders same HTML; CSS/JS handles responsive layout"
+  },
+  "responsive_dom_structure": {
+    "viewport_meta": "PASS - present and correct",
+    "mobile_navigation": {
+      "mechanism": "Bootstrap offcanvas (offcanvas-start)",
+      "offcanvas_instances": 14,
+      "breakpoints": "offcanvas-sm (576px), offcanvas-md (768px), offcanvas-lg (992px), offcanvas-xl (1200px), offcanvas-xxl (1400px)",
+      "menu_toggle_exists": true,
+      "class": "menu-toggle"
+    },
+    "responsive_grid": {
+      "col-lg": 10 instances,
+      "col-md": 11 instances,
+      "d-none": 23 (used for hide/show at breakpoints),
+      "hidden-sm": 1 instance
+    },
+    "image_responsiveness": {
+      "srcset": "NOT_USED - no srcset/sizes attributes on images",
+      "lazy_loading": "23 images use loading=lazy (category page)",
+      "img-fluid": "1 instance"
+    },
+    "faceted_search": {
+      "responsive": true,
+      "desktop": "visible sidebar columns",
+      "mobile_tablet": "hidden offcanvas / overlay; accessed via filters link"
+    },
+    "i18n": {
+      "status": "PASS",
+      "languages": 11,
+      "hreflangs": ["ca-es","de-de","en-us","es-es","eu-es","fr-fr","gl-es","it-it","pt-pt","ru-ru","tr-tr","x-default"]
+    },
+    "cookie_banner_not_detected": "INFO - no cookie banner elements found in HTML",
+    "css_responsive": {
+      "prefers-reduced-motion": "26 rules",
+      "hover:none/hover:hover": "rules for touch devices"
+    },
+    "table_responsive": {
+      "class": "table-responsive available with breakpoint variants (xs through xxl)"
+    }
+  },
+  "issues_found": {
+    "critical": [],
+    "warnings": [
+      {
+        "id": "RESP-IMG-01",
+        "severity": "WARN",
+        "description": "No srcset/sizes attributes on product images",
+        "impact": "Mobile users download desktop-sized images; no bandwidth optimization",
+        "recommendation": "Add srcset/sizes using existing image size variants (98x98 to 2000x400)"
+      },
+      {
+        "id": "RESP-FAQ-01",
+        "severity": "WARN",
+        "description": "/es/faq returns 404, /es/content/4-sobre-nosotros returns 301",
+        "impact": "FAQ page and About Us not accessible at expected URLs",
+        "recommendation": "Verify route configuration or create redirects"
+      }
+    ],
+    "minor": [
+      {
+        "id": "RESP-CONTACTO-01",
+        "severity": "MINOR",
+        "description": "/es/contacto returns 404",
+        "impact": "Contact page missing at expected URL"
+      }
+    ]
+  },
+  "summary": {
+    "status": "PASS_WITH_NOTES",
+    "total_checks": 20,
+    "passed": 18,
+    "warnings": 2,
+    "fails": 0
+  }
+}

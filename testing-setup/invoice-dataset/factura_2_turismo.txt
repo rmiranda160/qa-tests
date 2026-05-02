@@ -1,0 +1,18 @@
+FACTURA FACT-2026-002
+
+Cliente: División Turismo
+Proveedor: Hotel Paraíso S.A.
+División: turismo
+Fecha: 2026-04-22
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 1581 €
+IVA (21%): 420 €
+Total: 2001 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-04-22
+

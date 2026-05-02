@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-03-20T17:57:27.701Z",
+  "application": "Cenarbe Bike Rental",
+  "url": "https://dev1.cenarbe.com",
+  "tests": [
+    {
+      "testName": "Botón \"Mis Reservas\" → Página de reservas",
+      "timestamp": "2026-03-20T17:57:31.511Z",
+      "passed": false,
+      "incoherences": [
+        "Contenido faltante: No se encontró \"booking\" en la página",
+        "Contenido faltante: No se encontró \"fecha\" en la página"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/before-Botón-\"Mis-Reservas\"-→-Página-de-reservas-2026-03-20T17-57-27-671Z.png",
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/after-Botón-\"Mis-Reservas\"-→-Página-de-reservas-2026-03-20T17-57-27-671Z.png",
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/incoherence-Botón-\"Mis-Reservas\"-→-Página-de-reservas-2026-03-20T17-57-27-671Z.png"
+      ]
+    },
+    {
+      "testName": "Botón \"Mi Perfil\" → Página de perfil",
+      "timestamp": "2026-03-20T17:57:35.346Z",
+      "passed": false,
+      "incoherences": [
+        "Error durante la prueba: elementHandle.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/coherence-screenshots/before-Botón-\"Mi-Perfil\"-→-Página-de-perfil-2026-03-20T17-57-27-671Z.png"
+      ]
+    },
+    {
+      "testName": "Botón \"Historial\" → Historial de actividades",
+      "timestamp": "2026-03-20T17:58:07.046Z",
+      "passed": false,
+      "incoherences": [
+        "No se encontró el elemento: a[href*=\"historial\"], button:has-text(\"Historial\")"
+      ],
+      "screenshots": []
+    },
+    {
+      "testName": "Enlace \"Configuración\" → Opciones de configuración",
+      "timestamp": "2026-03-20T17:58:08.609Z",
+      "passed": false,
+      "incoherences": [
+        "No se encontró el elemento: a[href*=\"config\"], :text(\"Configuración\")"
+      ],
+      "screenshots": []
+    },
+    {
+      "testName": "Menú \"Ayuda\" → Página de ayuda/soporte",
+      "timestamp": "2026-03-20T17:58:10.179Z",
+      "passed": false,
+      "incoherences": [
+        "No se encontró el elemento: a[href*=\"ayuda\"], :text(\"Ayuda\"), :text(\"Soporte\")"
+      ],
+      "screenshots": []
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 0,
+    "failed": 2,
+    "incoherences": [
+      {
+        "test": "Botón \"Mis Reservas\" → Página de reservas",
+        "errors": [
+          "Contenido faltante: No se encontró \"booking\" en la página",
+          "Contenido faltante: No se encontró \"fecha\" en la página"
+        ]
+      }
+    ]
+  }
+}

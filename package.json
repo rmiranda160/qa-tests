@@ -1,0 +1,27 @@
+{
+  "name": "workspace-tester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:playwright": "playwright test",
+    "test:playwright:ui": "playwright test --ui",
+    "test:playwright:debug": "playwright test --debug",
+    "audit:lighthouse": "node tests/lighthouse-audit.js",
+    "audit:lighthouse:ci": "TARGET_URL=https://example.com node tests/lighthouse-audit.js",
+    "test:all": "npm run test:playwright && npm run audit:lighthouse"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@playwright/test": "^1.58.2",
+    "lighthouse": "^13.0.3",
+    "playwright": "^1.59.1"
+  }
+}

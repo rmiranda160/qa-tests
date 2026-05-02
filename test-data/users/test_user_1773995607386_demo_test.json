@@ -1,0 +1,21 @@
+{
+  "id": "test_user_1773995607386_demo_test",
+  "email": "test.user.1773995607386@cenarbe.test",
+  "password": "Test123!",
+  "firstName": "Laura",
+  "lastName": "Martínez",
+  "phone": "+34 611 34 39 17",
+  "address": {
+    "street": "Calle Princesa 77",
+    "city": "Murcia",
+    "zipCode": "5939",
+    "country": "España"
+  },
+  "createdAt": "2026-03-20T08:33:27.386Z",
+  "testId": "demo_test",
+  "metadata": {
+    "isTestData": true,
+    "canBeDeleted": true,
+    "testTimestamp": 1773995607386
+  }
+}

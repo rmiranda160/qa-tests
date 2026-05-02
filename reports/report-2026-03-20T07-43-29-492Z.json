@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-03-20T07:43:29.523Z",
+  "url": "https://dev1.cenarbe.com/login.php",
+  "credentials": {
+    "email": "test@cenarbe.com",
+    "password": "***"
+  },
+  "success": true,
+  "error": null,
+  "screenshots": {
+    "initial": "/home/node/.openclaw/workspace-tester/screenshots/initial-2026-03-20T07-43-29-492Z.png",
+    "beforeSubmit": "/home/node/.openclaw/workspace-tester/screenshots/before-submit-2026-03-20T07-43-29-492Z.png",
+    "afterLogin": "/home/node/.openclaw/workspace-tester/screenshots/after-login-2026-03-20T07-43-29-492Z.png"
+  },
+  "metrics": {
+    "pageLoadTime": 623
+  },
+  "formFound": true,
+  "loginIndicators": [
+    "reservas"
+  ]
+}

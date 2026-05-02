@@ -1,0 +1,35 @@
+Testing Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+  Mode: smoke
+    PASS
+  Mode: responsive
+    PASS
+  Mode: accessibility
+    PASS
+  Critical path: /reservar.php
+    PASS
+  Critical path: /checkout.php
+    PASS
+Testing ContentoAI (https://contentoai.cenarbe.com/)
+  Mode: smoke
+    PASS
+  Mode: responsive
+    PASS
+  Critical path: /
+    PASS
+  Critical path: /api/submit_waitlist.php
+Testing Villa Zocotin (https://villazocotin.cenarbe.com/)
+  Mode: smoke
+    PASS
+  Mode: responsive
+    PASS
+  Critical path: /
+    PASS
+Continuous testing completed at 20260319_225511
+Applications tested: 3
+Total findings: 1
+  critical: 1
+
+CRITICAL/HIGH ERRORS FOUND:
+- ContentoAI: Test execution failed for https://contentoai.cenarbe.com//api/submit_waitlist.php (smoke): 
+
+ALERT REQUIRED: Yes, send to CEO Miranda

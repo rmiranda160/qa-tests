@@ -1,0 +1,44 @@
+CYCLE SUMMARY
+=============
+Cycle ID: 20260321_132605
+Start: 2026-03-21T13:26:05
+End: 2026-03-21T13:26:37
+Status: PASS_WITH_NOTES
+
+WEB-TESTER RESULTS
+------------------
+Applications: 4
+Test modes: 11
+Passed: 9 (81.8%)
+Failed: 2 (18.2%)
+Critical failures: 0
+
+Failures:
+- ContentoAI: accessibility (medium severity) - color-contrast, region violations
+- Dashboard: accessibility (medium severity) - color-contrast, region violations
+
+COHERENCE TESTING
+-----------------
+Applications: 4
+Passed: 4 (100%)
+Failed: 0
+
+ALERTING
+--------
+No critical errors detected. No alerts sent per minSeverity: high.
+
+REPORTS
+-------
+- Full results: results/20260321_132605.json
+- Report: results/report_20260321_132605.md
+- Coherence results: coherence-results/coherence-cycle-2026-03-21T13-26-37-277Z.json
+- Summary: summary_latest.txt
+
+SCREENSHOTS
+-----------
+Responsive screenshots available in playwright-tester/results/
+No error screenshots required (no critical failures).
+
+NEXT ACTIONS
+------------
+Monitor for critical failures. Address accessibility issues (medium priority).
