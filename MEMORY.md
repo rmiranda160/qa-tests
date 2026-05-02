@@ -37,6 +37,14 @@
 4. **Contaminación de campos**: En formulario de dirección de facturación los valores se replican entre campos.
 5. **Registro como vendedor requerido**: Antes de suscribir, el sistema fuerza registro de vendedor si no está completado.
 
+## Stripe Billing — 2026-05-02 23:49 UTC (test33 — PASS)
+
+| Result | Finding | Issue | PR |
+|--------|---------|-------|----|
+| ✅ PASS | `CRONQA-2026-05-02-stripe-billing-starter-subscription-test33.md` | — | #16 |
+
+**Login 500 persists**, bypassed via registration auto-login.
+
 ## Tested Emails
 - test19@zonacnc.com — Enterprise
 - test20@zonacnc.com — Business  
@@ -44,3 +52,4 @@
 - test7-test22: ya registrados previamente
 - test24@zonacnc.com — ❌ Confirmado "email ya en uso" (2026-05-02 23:01 UTC)
 - **test7-test30: TODOS agotados** — Pool de QA emails completamente exhausto
+- **test33@zonacnc.com — Starter ✅ PASS** (nuevo fuera del pool)
