@@ -1,67 +1,104 @@
-# Responsive Test Report — ZonaCNC
-**Date**: 2026-04-30 22:00 UTC  
-**Tester**: agent=tester  
-**Mode**: Responsive scan (1 escenario)  
-**URL**: https://new.zonacnc.com
-
----
-
-## Result: PASS ✅
-
-### Pages Verified
-| Page | Viewport Meta | Status |
-|---|---|---|
-| Home (/) | ✅ `width=device-width, initial-scale=1` | PASS |
-| Pricing (/es/pricing) | ✅ Present | PASS |
-| Login (/es/iniciar-sesion) | ✅ Present | PASS |
-| Product Detail (/es/bombas/12922-...) | ✅ Present | PASS |
-| Search (/es/buscar) | ✅ Present | PASS |
-
-### Responsive Framework
-**Theme**: Hummingbird (Bootstrap 5 based)
-- Full Bootstrap 5 grid system (`col-lg`, `col-md`, `d-flex`, `d-none`, `d-md`, `d-lg`)
-- Flexbox utilities throughout
-- Offcanvas navigation for mobile (breakpoints: sm, md, lg, xl, xxl)
-- `menu-toggle` class → hamburger menu on mobile viewports
-
-### Breakpoints Detected
-| Breakpoint | Type |
-|---|---|
-| 360px | Mobile small |
-| 576px | Mobile large / Tablet small |
-| 768px | Tablet |
-| 992px | Desktop small |
-| 1200px | Desktop |
-| 1400px | Desktop wide |
-
-### Responsive Features Verified
-- ✅ **Navigation**: Bootstrap offcanvas component collapses into hamburger menu on mobile (`menu-toggle` class + offcanvas-sm/md/lg)
-- ✅ **Images**: `img-fluid` class on product images, responsive thumbnail galleries
-- ✅ **Tables**: `.table-responsive` with breakpoint-specific variants (xs through xxl)
-- ✅ **Breadcrumb**: Scrollable on mobile (`overflow-x: scroll`, `scrollbar-width: none`), wraps on desktop (`min-width: 768px`)
-- ✅ **Modals**: `modal-footer--revert-order-mobile` for mobile-friendly button layouts
-- ✅ **Forms**: Full responsive styling with proper label/input sizing
-- ✅ **Product cards**: Flexbox grid layout adapts to viewport
-- ✅ **Footer**: Column layout, collapses on mobile
-- ✅ **Language selector**: Combobox dropdown adapts to screen width
-- ✅ **Cookie consent**: Responsive dialog with proper ARIA roles
-- ✅ **UX hotfix CSS**: Dedicated responsive overrides file (`ux-hotfix-20260421.css`) with breakpoints at 768px and 575px
-- ✅ **Chat widget**: Responsive positioning
-- ✅ **Font loading**: Material Icons preloaded as WOFF2 for performance
-
-### QA Suite Coverage
-- 63 Playwright test specs in `qa/tests/`
-- Playwright config uses `Desktop Chrome` device profile (1280×720) with override to 1366×850
-- Tests use responsive selectors throughout
-- Cross-browser projects defined but not activated (Chromium only currently)
-
-### Recommendations (Not Blocking)
-1. **Activate cross-browser testing**: Firefox and WebKit projects are defined but commented out
-2. **Add explicit mobile viewport tests**: Current suite runs at 1366×850 only. Consider adding a mobile project with `devices['iPhone 13']` or similar
-3. **Visual regression tests**: Plan is documented for v0.4 of QA suite (`toHaveScreenshot()`)
-4. **Touch events**: No explicit touch interaction tests currently
-
----
+# Responsive Testing Report — new.zonacnc.com
+**Date:** 2026-05-02 | **Tester:** CRON_QA | **Focus:** Responsive Layout
 
 ## Summary
-The site demonstrates **solid responsive implementation** using Bootstrap 5 as its foundation. All critical pages serve the correct viewport meta tag. The Hamburger theme (Hummingbird) provides comprehensive responsive behavior across 6 breakpoints from 360px to 1400px. No blocking responsive issues detected.
+- **Pages tested:** Home, Search, Category (Maquinaria Metal), Pricing, Registration, My Account
+- **Viewports:** Mobile (390×844), Tablet (768×1024), Desktop (1440×900)
+- **Issues found:** 0 layout/overflow issues detected across all pages and viewports
+- **Registration:** Functional (test18@zonacnc.com registered successfully)
+- **Login:** Broken (HTTP 500)
+- **Console errors:** 1-2 benign errors per page (Google Sign-In/FedCM)
+
+## Screenshots
+
+### Home page — `/es/`
+| Viewport | Screenshot | Overflow Issues |
+|---|---|---|
+| Mobile (390×844) | home-mobile-390x844.png | 0 |
+| Tablet (768×1024) | home-tablet-768x1024.png | 0 |
+| Desktop (1440×900) | home-desktop-1440x900.png | 0 |
+
+### Search page — `/es/buscar?search_query=torno`
+| Viewport | Screenshot | Overflow Issues |
+|---|---|---|
+| Mobile (390×844) | search-mobile-390x844.png | 0 |
+| Tablet (768×1024) | search-tablet-768x1024.png | 0 |
+| Desktop (1440×900) | search-desktop-1440x900.png | 0 |
+
+### Category page — `/es/28-maquinaria-metal`
+| Viewport | Screenshot | Overflow Issues |
+|---|---|---|
+| Mobile (390×844) | category-mobile-390x844.png | 0 |
+| Tablet (768×1024) | category-tablet-768x1024.png | 0 |
+| Desktop (1440×900) | category-desktop-1440x900.png | 0 |
+
+### Pricing page — `/es/module/zonacncplans/pricing`
+| Viewport | Screenshot | Overflow Issues |
+|---|---|---|
+| Mobile (390×844) | pricing-mobile-390x844.png | 0 |
+| Tablet (768×1024) | pricing-tablet-768x1024.png | 0 |
+| Desktop (1440×900) | pricing-desktop-1440x900.png | 0 |
+
+## Detailed Checks
+
+### Mobile Menu Detection
+- Hamburger/toggle menu icon found on mobile (390×844): **PRESENT ✓**
+- Menu toggle button at position (0,0) for mobile layouts
+
+### Horizontal Overflow
+- **No overflow issues found on any page/viewport combination**
+- Scroll width = viewport width in all cases
+- All content contained within viewport boundaries
+
+### Console Errors
+| Page | Errors | Warning |
+|---|---|---|
+| Home | 1 | 0 |
+| Search | 1 | 0 |
+| Category | 1 | 0 |
+| Pricing | 1-2 | 0 |
+| Registration | 1-2 | 0 |
+| My Account | 1 | 0 |
+- All errors are Google Sign-In/FedCM related (benign in test/sandbox env)
+
+## Registration & Auth
+
+### Registration Flow (test18@zonacnc.com)
+- **Result:** ✅ SUCCESS
+- Account created with firstname "Test", lastname "Usuario QA"
+- Confirmed logged in via My Account page (`/es/mi-cuenta`)
+- Email shown on personal data page: `test18@zonacnc.com`
+
+### Known Issue: Reactive Framework on Email Field
+- The registration form uses a reactive JS framework that clears the `value` property of the email input when set via `page.fill()` or standard `el.value = '...'`
+- **Workaround:** Use `el.setAttribute('value', '...')` combined with native input value setter
+- This is a **minor testability concern** — the form still works for real users typing into the field
+
+### Known Issue: Login (HTTP 500)
+- The login page at `/es/iniciar-sesion` returns HTTP 500
+- Affected credentials: `test3@zonacnc.com` / `ZonacncTest2026!` (from .env.qa)
+- **Impact:** Cannot test authenticated flows through normal login path
+
+### Duplicate Email Detection
+- Registration correctly rejects already-registered emails with:
+  > "La dirección de correo electrónico ya está en uso, por favor, elige otra o inicia sesión"
+- Tested with test19@zonacnc.com (already registered from previous session) ✅
+
+## Key Findings
+
+### ✅ PASS — Responsive Layout
+All pages render correctly at all three viewports without horizontal overflow. Mobile menu is present and functional.
+
+### ✅ PASS — Registration
+Registration flow works end-to-end. Account created and session maintained.
+
+### ❌ FAIL — Login
+Login endpoint returns HTTP 500 error. Authentication is not possible through the normal login form.
+
+### ⚠️ MINOR — Test Automation Challenge
+The reactive JS framework on the registration form makes automated fill difficult (email field value gets cleared). Workaround available.
+
+## Recommendations
+1. **Investigate login 500 error** — critical blocking issue for authenticated testing
+2. **Consider adding Playwright to workspace** — would enable scripted automated responsive tests via `responsive-test-zonacnc.mjs`
+3. **Monitor console errors** — Google FedCM errors are benign but should be verified in production
