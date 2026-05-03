@@ -1,23 +1,25 @@
-# CRON QA: Resultados — 2026-05-03 16:57 UTC
+# CRON QA: Resultados — 2026-05-03 17:20 UTC
 
-## Stripe Billing (16:54 UTC) ❌ BLOQUEADO
+## Stripe Billing ❌ BLOQUEADO (Día 3)
 
-## Responsive (16:57 UTC) ❌ BLOQUEADO
+**Resultado:** Site Outage HTTP 500 persiste. Tercer outage en 3 días con patrón idéntico.
 
-**Estado:** Site Outage HTTP 500 persiste. Segundo outage en 48h con patrón idéntico.
-
-### Timeline Responsive
+### Timeline Outages
 | Evento | Hora UTC |
 |--------|----------|
-| ✅ Última prueba responsive exitosa (6 páginas, 3 viewports, emails) | 16:19 UTC |
-| ❌ Outage detectado (stripe-billing) | 16:54 UTC |
-| ❌ Confirmación responsive | 16:57 UTC |
+| ✅ Último estado operativo | ~15:19 UTC |
+| ❌ Outage #2 detectado | 16:54 UTC |
+| ❌ PR #67 merged, Issue #68 open | 16:57 UTC |
+| ❌ Confirmado aún caído | 17:20 UTC |
 
-### Diagnóstico
+### Stripe Billing Details
 - **Todas las rutas HTTP 500** con cuerpo vacío (content-length: 0)
 - nginx/PHP/8.3.30 activos pero app PrestaShop crashea
-- Mismo patrón que outage del 2026-05-02 14:38 UTC
-- MCP browser (pwmcp-zonacnc) y Playwright remote ambos unreachable
+- Tercer outage en 3 días con mismo patrón
+- Pool QA emails test7-test30: completamente exhausto
+- **Finding:** `findings/CRONQA-2026-05-03-stripe-billing-site-outage-v3.md`
+- **PR #70:** merged ✅
+- **Issue #68:** comentario agregado con confirmación
 
 ### Acciones Completadas (Responsive)
 | Paso | Estado | Enlace |
