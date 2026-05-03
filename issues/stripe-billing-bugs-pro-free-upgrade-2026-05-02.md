@@ -81,3 +81,29 @@ El usuario ve texto técnico en lugar de enlaces funcionales, reduciendo la efec
 
 - `findings/CRONQA-2026-05-02-stripe-billing-free-to-pro-flow-test8.md` — Reporte completo del test
 - Commit: `791606c`
+
+---
+
+## Reconfirmación — 2026-05-03 (test7@zonacnc.com, Pro vía Stripe Checkout)
+
+Los 3 bugs anteriores se **reconfirmaron** mediante ejecución real del flujo con test7@zonacnc.com:
+
+| Bug | Estado | Evidencia |
+|-----|--------|-----------|
+| Bug 1: Billing sin facturas | ✅ **Reconfirmado** | test7 pagó Pro con 4242..., suscripción activa, pero `/billing` muestra "Sin movimientos todavía" |
+| Bug 2: Anuncios incluidos: 1 | ✅ **Reconfirmado via IMAP** | Email #12: "- Anuncios incluidos: 1" — pricing page dice 10 |
+| Bug 3: Template variables sin renderizar | ✅ **Reconfirmado via IMAP** | Email #11: `{vendor_dashboard_url}`, `{max_listings}`, `{new_ad_url}`, `{messaging_url}`, `{boost_quota_monthly}`, `{boostpacks_url}` — 6 vars literales |
+
+### Adicional: Bug #4 — "Periodo: monthly" sin traducir
+
+**Severidad:** Media  
+**Evidencia:** Email #12 (Pro welcome): `- Periodo: monthly` en vez de `- Periodo: Mensual`
+
+### Adicional: Bug #5 — Subject en inglés para email de password
+
+**Severidad:** Baja  
+**Evidencia:** Email #9: Subject "Password query confirmation" con cuerpo en español
+
+### Archivo relacionado
+
+- `findings/CRONQA-2026-05-03-stripe-billing-template-bugs-confirmed.md` — Reporte completo con evidencias IMAP
