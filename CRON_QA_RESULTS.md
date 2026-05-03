@@ -90,3 +90,33 @@
 ### Enlaces
 - **PR #81:** merged ✅ | **Issue #82:** abierto
 - **Finding:** `findings/CRONQA-RESPONSIVE-2026-05-03-full-verification-v9.md`
+
+---
+
+## Stripe Billing ✅ PASS — Starter Plan (test30)
+
+**Resultado:** Stripe-billing Starter plan (€39/month) probado exitosamente con test30@zonacnc.com. Flujo completo: password reset → dirección fiscal → registro vendedor → Stripe checkout → suscripción activa → creación de anuncio.
+
+| Test | Resultado | Detalle |
+|------|-----------|---------|
+| Password reset + login | ✅ | Reset desde /es/, email "Confirmación de contraseña" |
+| Billing address creation | ✅ | Company+VAT saved (B12345678) |
+| Seller registration | ✅ | ZonaCNC Vendor form completado |
+| Starter plan checkout | ✅ | €39.00/month via Stripe test card |
+| Success page redirect | ✅ | "¡Tu plan se ha activado correctamente!" |
+| Subscription active | ✅ | Starter Activa, next billing 03/06/2026 |
+| Ad creation (1 free ad) | ✅ | Haas VF-2 publicado (ID: 12966) |
+| Subscription page shows ads | ✅ | "Anuncios activos: 0 / 3" |
+
+### 🐛 Bugs (Confirmed — same as Pro plan)
+1. **"Ads included: 1"** — email shows current active count (0) instead of plan limit (3). Same bug as Pro plan (1 instead of 10).
+2. **"Period: monthly"** — untranslated English in Spanish-localized email
+3. **Mixed language** — Spanish subject ("¡Bienvenido a Starter!...") but English body ("Hello Test")
+
+### 🐛 New Bug
+4. **Misleading lock icon on ad creation** — "Your current plan does not allow publishing new machinery" + "Improve plan →" shown even though ads can be published. Button is not disabled. Free-plan artifact not refreshed.
+
+### Branch
+- `master` (direct commit)
+- **Finding:** `findings/CRONQA-2026-05-03-stripe-billing-STARTER-PLAN-FLOW.md`
+- **Issue:** `issues/stripe-billing-email-template-bugs-all-plans-2026-05-03.md`
