@@ -1,29 +1,39 @@
 # CRON_QA Results
-**Focus Area:** stripe-billing  
-**Date:** 2026-05-03 22:32 UTC  
+**Focus Area:** responsive  
+**Date:** 2026-05-03 23:47 UTC  
 **Duration:** ~15 min (within 30 min cap)  
 **Target:** new.zonacnc.com  
-**Account:** test16@zonacnc.com  
+**Account:** N/A (all test accounts locked out)  
 
 ## Summary
-✅ **Subscription flow for Starter plan completed successfully**
-- Added billing address with company name
-- Stripe checkout completed (test card 4242 4242 4242 4242)
-- Subscription activated, redirected to `/es/module/zonacncplans/success`
+✅ **Responsive testing completed on 6 public pages × 3 viewports (375px, 768px, 1440px)**
 
-✅ **Email verification via IMAP completed**
-- Email 7: Subscription confirmation "¡Bienvenido a Starter!" — OK (correct variables)
-- Email 8: Onboarding "Empieza con buen pie en ZonaCNC" — ❌ REGRESSION (template variables literal)
+### Pages tested:
+- Homepage (`/es/`)
+- Pricing (`/es/pricing`)
+- Category: Maquinaria Metal (`/es/28-maquinaria-metal`)
+- Search (`/es/buscar`)
+- Login (`/es/iniciar-sesion`)
+- Registration (`/?controller=registration`)
 
-## Finding: Template Variable Regression CONFIRMED on Starter plan
-The onboarding email (`plans-vendor_onboarding`) shows literal template variables:
-- `{vendor_dashboard_url}` instead of actual URL
-- `{max_listings}` instead of "3"
-- `{new_ad_url}` instead of URL
-- `{messaging_url}` instead of URL
-- `{boost_quota_monthly}` instead of number
-- `{boostpacks_url}` instead of URL
+### Key Findings (5 bugs):
+1. **Category page: 47 small touch targets at mobile** (WCAG 2.5.5 FAIL) — HIGH
+2. **Hero clipping at all viewports** (75px–256px overflow hidden)
+3. **Registration page bare `<title>`** — "zonacnc.com" instead of descriptive
+4. **Persistent SSO console error** on ALL pages
+5. **QA pool lockout** — all passwords changed, IMAP unreachable
+
+### Status by Criterion:
+| Criterion | Status |
+|-----------|--------|
+| Viewport meta tag | ✅ Correct |
+| No horizontal overflow | ✅ All pages |
+| Bootstrap grid | ✅ col-md, col-lg |
+| Mobile nav (hamburger/offcanvas) | ✅ Present |
+| Touch targets ≥44px | ❌ FAIL (47 on category) |
+| Hero content overflow | ❌ Clipping all viewports |
+| Page titles | ❌ Registration generic |
+| Console errors | ❌ 1 SSO error/page |
 
 ## Files Updated
-- `issues/stripe-billing-email-template-bugs-all-plans-2026-05-03.md` — Added Bug 5
-- `findings/CRONQA-2026-05-03-stripe-billing-template-subs-regression.md` — Added Starter verification
+- `findings/CRONQA-2026-05-03-responsive-v10-login-blocked-public-pages.md` — Full finding report
