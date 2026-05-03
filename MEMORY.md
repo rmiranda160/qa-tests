@@ -74,3 +74,10 @@
 
 ## Stripe Billing Updated — 2026-05-03 03:27 UTC (Day 4)
 **State: ❌ BLOCKED** — Login 500 (Día 4), QA pool exhausted. PR #30 merged. Issue #28.
+
+## Stripe Billing — 2026-05-03 04:22 UTC (Day 5 — BLOCKED)
+| Result | Finding | Issue | PR |
+|--------|---------|-------|----|
+| ❌ BLOCKED | `findings/CRONQA-2026-05-03-stripe-billing-pool-exhausted-day5.md` | #33 (comment) | [#34](https://github.com/rmiranda160/qa-tests/pull/34) |
+
+**State:** Login 500 (Día 5), QA pool test7-test30 exhausted (Día 5). Sin cambios.
