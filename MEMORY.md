@@ -39,6 +39,15 @@
 **Finding:** `findings/CRONQA-2026-05-03-stripe-billing-pool-exhausted-login-500.md`
 **Comment:** Todos 24 emails del .env.qa.email confirmados como TAKEN. Login `/es/iniciar-sesion` sigue en 500.
 
+## Stripe Billing — 2026-05-03 03:27 UTC (Blocked Day 4)
+
+| Result | Finding | Issue | PR |
+|--------|---------|-------|----|
+| ❌ BLOCKED | QA email pool test7-test30 exhausted + login 500 persists (Day 4) | [#28](https://github.com/rmiranda160/qa-tests/issues/28) | [#30](https://github.com/rmiranda160/qa-tests/pull/30) |
+
+**Finding:** `findings/CRONQA-2026-05-03-stripe-billing-pool-exhausted-day-4.md`
+**Comment:** Login sigue en 500 (Día 4). Pool test7-test30 completamente agotado. test7@zonacnc.com reconfirmado TAKEN.
+
 ## Known Issues (Stripe Checkout)
 1. **Acordeón colapsado**: Card form en Stripe Checkout arranca en modo `--compact`, botón "Pay with card" invisible. Requiere JS click.
 2. **page.fill() no funciona**: En campos de Stripe (cardNumber, cardExpiry, cardCvc) hay que usar `page.type()` con delay.
@@ -62,3 +71,6 @@
 - test24@zonacnc.com — ❌ Confirmado "email ya en uso" (2026-05-02 23:01 UTC)
 - **test7-test30: TODOS agotados** — Pool de QA emails completamente exhausto
 - **test33@zonacnc.com — Starter ✅ PASS** (nuevo fuera del pool)
+
+## Stripe Billing Updated — 2026-05-03 03:27 UTC (Day 4)
+**State: ❌ BLOCKED** — Login 500 (Día 4), QA pool exhausted. PR #30 merged. Issue #28.
