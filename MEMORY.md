@@ -30,6 +30,15 @@
 
 **Finding:** `findings/CRONQA-2026-05-02-stripe-billing-login-500-persists-test31.md`
 
+## Stripe Billing — 2026-05-03 02:40 UTC (Blocked Day 3)
+
+| Result | Finding | Issue | PR |
+|--------|---------|-------|----|
+| ❌ BLOCKED | QA email pool test7-test30 fully exhausted + login 500 persists (Day 3) | [#26](https://github.com/rmiranda160/qa-tests/issues/26) | [#27](https://github.com/rmiranda160/qa-tests/pull/27) |
+
+**Finding:** `findings/CRONQA-2026-05-03-stripe-billing-pool-exhausted-login-500.md`
+**Comment:** Todos 24 emails del .env.qa.email confirmados como TAKEN. Login `/es/iniciar-sesion` sigue en 500.
+
 ## Known Issues (Stripe Checkout)
 1. **Acordeón colapsado**: Card form en Stripe Checkout arranca en modo `--compact`, botón "Pay with card" invisible. Requiere JS click.
 2. **page.fill() no funciona**: En campos de Stripe (cardNumber, cardExpiry, cardCvc) hay que usar `page.type()` con delay.
