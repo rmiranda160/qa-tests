@@ -39,5 +39,11 @@ Body text/plain muestra literalmente:
 {boostpacks_url}
 ```
 
+## Segunda Verificación — Plan Starter (2026-05-03 22:43 UTC)
+- **Email destino:** test16@zonacnc.com
+- **Plan:** Starter (39€/mo) — contratado exitosamente vía Stripe test card (4242 4242 4242 4242)
+- **Mailgun tags:** plans-vendor_onboarding
+- **Resultado:** REGRESIÓN CONFIRMADA — misma plantilla, mismas variables sin sustituir
+
 ## Prioridad
-**MEDIUM** — Afecta UX de onboarding. El email de suscripción Pro funciona correctamente, pero el onboarding no.
+**HIGH** — Afecta TODOS los planes (Starter, Pro). Los usuarios recién registrados en cualquier plan reciben emails con enlaces rotos. Esto bloquea el onboarding funcional.

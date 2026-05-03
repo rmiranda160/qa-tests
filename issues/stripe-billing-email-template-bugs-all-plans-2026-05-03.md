@@ -40,6 +40,41 @@ Bug found in both Spanish and English template variants.
 
 ---
 
+## Bug 5: Onboarding email template variables not substituted (REGRESIÓN EN TODOS LOS PLANES)
+
+**Severity:** HIGH  
+**Template:** `plans-vendor_onboarding` (Mailgun)  
+**Tags:** `plans-vendor_onboarding`  
+**Status:** 🔴 CONFIRMED — persists on new.zonacnc.com  
+
+### Description
+The onboarding email "Empieza con buen pie en ZonaCNC: 3 pasos en 10 minutos" is sent after subscribing to any paid plan. Template variables `{vendor_dashboard_url}`, `{max_listings}`, `{new_ad_url}`, `{messaging_url}`, `{boost_quota_monthly}`, and `{boostpacks_url}` appear literally instead of being substituted with actual values.
+
+### Verified Plans
+| Plan | Date | Result |
+|------|------|--------|
+| Pro (99€/mo) | 2026-05-03 18:25 UTC | ❌ REGRESSION |
+| Starter (39€/mo) | 2026-05-03 22:43 UTC | ❌ REGRESSION |
+
+### Impact
+- Users receive emails with broken links (literal `{vendor_dashboard_url}` instead of actual URL)
+- Onboarding experience is broken — users can't click through to complete setup
+- Affects ALL paid plans (confirmed on Starter and Pro)
+
+### Variables affected (verified via IMAP, both plain text and HTML)
+- `{vendor_dashboard_url}` → literal
+- `{max_listings}` → literal
+- `{new_ad_url}` → literal
+- `{messaging_url}` → literal
+- `{boost_quota_monthly}` → literal
+- `{boostpacks_url}` → literal
+
+### Note
+Plan name "Starter" is correctly substituted (not `{plan_name}`), suggesting only certain variables are broken.
+
+---
+
 ## Related Test Files
 - `findings/CRONQA-2026-05-03-stripe-billing-STARTER-PLAN-FLOW.md` (this run)
 - `findings/CRONQA-2026-05-03-stripe-billing-FULL-PAYMENT-FLOW.md` (Pro plan run)
+- `findings/CRONQA-2026-05-03-stripe-billing-template-subs-regression.md` (onboarding template regression)
