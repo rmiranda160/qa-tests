@@ -1,40 +1,62 @@
-# CRON QA: Resultados — 2026-05-03 17:20 UTC
+# CRON QA: Resultados — 2026-05-03 19:17 UTC
 
-## Stripe Billing ❌ BLOQUEADO (Día 3)
+## Stripe Billing ✅ PASS — Full Payment Flow
 
-**Resultado:** Site Outage HTTP 500 persiste. Tercer outage en 3 días con patrón idéntico.
+**Resultado:** Stripe-billing completo probado exitosamente con test7@zonacnc.com.
 
-### Timeline Outages
-| Evento | Hora UTC |
-|--------|----------|
-| ✅ Último estado operativo | ~15:19 UTC |
-| ❌ Outage #2 detectado | 16:54 UTC |
-| ❌ PR #67 merged, Issue #68 open | 16:57 UTC |
-| ❌ Confirmado aún caído | 17:20 UTC |
+### Tests Ejecutados (2026-05-03 ~19:10 UTC)
+| Test | Resultado | Detalle |
+|------|-----------|---------|
+| Add-on purchase (x1) via Stripe | ✅ 5,98€ | Invoice #234 |
+| Add-on quantity change (x1→x2) | ✅ 5,95€ | Invoice #235 |
+| Plan upgrade Business→Enterprise | ✅ 99,20€ | Invoice #236 |
+| Add-on migration (6€→3€/u) | ✅ 0,00€ | Invoice #237 |
+| Stripe invoice URL + PDF | ✅ | Enlace válido |
+| UI translations (ES) | ✅ | Plan change, billing, subscription |
+| Email notifications (IMAP) | ⚠️ | Sin email para cambios de add-on/plan |
 
-### Stripe Billing Details
-- **Todas las rutas HTTP 500** con cuerpo vacío (content-length: 0)
-- nginx/PHP/8.3.30 activos pero app PrestaShop crashea
-- Tercer outage en 3 días con mismo patrón
-- Pool QA emails test7-test30: completamente exhausto
-- **Finding:** `findings/CRONQA-2026-05-03-stripe-billing-site-outage-v3.md`
-- **PR #70:** merged ✅
-- **Issue #68:** comentario agregado con confirmación
+### Resultados Detallados
+- **Cuenta:** test7@zonacnc.com (Test Vendor Seven QA) — contraseña restablecida
+- **Plan inicial:** Business (199€/mes, 25 anuncios, 2 add-ons)
+- **Plan final:** Enterprise (299€/mes, 102 anuncios)
+- **Cargo total hoy:** 105,15€ (todo via Stripe Visa 4242)
+- **Facturas:** 5 completadas (IDs 233-237)
+- **PR #77:** merged ✅ | **Issue #78:** abierto
 
-### Acciones Completadas (Responsive)
-| Paso | Estado | Enlace |
-|------|--------|--------|
-| Finding responsive | ✅ | `findings/CRONQA-RESPONSIVE-2026-05-03-site-outage-blocks-testing.md` |
-| Summary responsive | ✅ | `skills/web-tester/responsive-results/CRON-2026-05-03-1657-summary.md` |
-| Commit | ✅ | `76869e0` |
-| PR #69 | ✅ | https://github.com/rmiranda160/qa-tests/pull/69 (merged) |
-| Issue #68 updated | ✅ | Comment added con impacto responsive |
+### Issues Registrados
+1. ⚠️ Missing email notifications for add-on quantity changes/plan upgrades
+2. 🔧 Descripciones Stripe mezclan EN/ES (cosmético)
 
-### Impacto Responsive
-- ❌ No se puede probar layout responsive en ninguna página
-- ❌ No se pueden verificar viewports, overflow, touch targets
-- ❌ No se pueden verificar plantillas de email
-- 🔄 Segundo outage recurrente en 48h
+### Branch
+- `cronqa/stripe-billing-full-flow-2026-05-03` → merged to `master`
+- `findings/CRONQA-2026-05-03-stripe-billing-full-flow-enterprise-test7.md`
 
-### Causa Raíz Probable
-Error fatal de PHP en PrestaShop. El patrón de 500 vacío con sesión generada sugiere un uncaught exception o error sintáctico en módulo. La recurrencia (segundo en 48h) sugiere un deploy recurrente o un problema de datos que se auto-repara.
+---
+
+## Stripe Billing ✅ PASS — Pro Plan (test9)
+
+**Resultado:** Stripe-billing Pro plan (annual, €990) probado exitosamente con test9@zonacnc.com. Flujo completo: login por reset de contraseña → dirección fiscal → Stripe checkout → suscripción activa → factura.
+
+| Test | Resultado | Detalle |
+|------|-----------|---------|
+| Password reset + login | ✅ | Token válido, password establecida |
+| Billing address creation | ✅ | Company+VAT saved (B12345678) |
+| Pro plan (annual) checkout | ✅ | €990.00 via Stripe test card |
+| Success page redirect | ✅ | "¡Tu plan se ha activado correctamente!" |
+| Subscription active | ✅ | Pro Activa, next billing 03/05/2027 |
+| Invoice generated | ✅ | 990,00 EUR — completado |
+| Invoice PDF link | ✅ | Downloadable |
+| Machineseeker unlocked | ✅ | 0/20 este mes (was locked on Free) |
+| Add-on section visible | ✅ | Anuncio extra 9€/mes |
+| Email notifications (IMAP) | ⚠️ | IMAP auth failed (credential issue, not code) |
+
+### Translation Issues (Minor)
+1. **"Mi suscripcion"** — missing tilde (sidebar link)
+2. **"at €990.00 / year"** — English text mixed in Spanish invoice concept
+3. **"completado"** — lowercase (vs "Completado" uppercase elsewhere)
+4. **"esta activa"** — missing accent (should be "está activa")
+5. **"confirmacion"** — missing accent (should be "confirmación")
+
+### Branch
+- `cronqa/stripe-billing-pro-plan-2026-05-03` → new
+- `findings/CRONQA-2026-05-03-stripe-billing-pro-plan-full-flow.md`
