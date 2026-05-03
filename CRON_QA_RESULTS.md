@@ -1,4 +1,4 @@
-# CRON QA: Resultados — 2026-05-03 19:17 UTC
+# CRON QA: Resultados — 2026-05-03 20:35 UTC
 
 ## Stripe Billing ✅ PASS — Full Payment Flow
 
@@ -60,3 +60,33 @@
 ### Branch
 - `cronqa/stripe-billing-pro-plan-2026-05-03` → new
 - `findings/CRONQA-2026-05-03-stripe-billing-pro-plan-full-flow.md`
+
+---
+
+## Responsive Full Verification v9 ⚠️ PASS CON HALLAZGOS
+
+**Resultado:** 6 páginas × 4 viewports via MCP browser. Sitio operativo, login recuperado. Sin layout breakages.
+
+### Tests Ejecutados (2026-05-03 20:30 UTC)
+| Página | Viewports | Resultado |
+|--------|-----------|-----------|
+| Homepage `/es/` | 375, 768, 1280, 1440, 1920 | ⚠️ Hero overflow clipping (75-384px) |
+| Category `/es/28-maquinaria-metal` | 375, 768, 1280 | ✅ OK (accordeon 24px minor) |
+| Pricing `/es/pricing` | 375, 768, 1440 | ✅ OK (card 4px minor) |
+| Search `/es/buscar` | 375, 768, 1280 | ✅ OK |
+| Login `/es/iniciar-sesion` | 375, 1440 | ✅ HTTP 200 form (recuperado) |
+| Product detail | 375, 1440 | ✅ OK |
+| Registration | 375 | ✅ OK |
+
+### Hallazgos
+| # | Severidad | Descripción |
+|---|-----------|-------------|
+| 1 | 🔴 HIGH | Touch targets < 44px en mobile (WCAG 2.5.5) — breadcrumbs 17px, brands 16px, checkboxes 13×13 |
+| 2 | 🟡 MEDIUM | Hero `overflow:hidden` clipping (75-384px según viewport) |
+| 3 | 🔵 LOW | Console error SSO en búsqueda |
+| 4 | 🔵 LOW | Pricing URL `/content/10-precios` redirect → FAQ |
+| 5 | 🔵 LOW | CTA inner overflow 20px desktop 1920px |
+
+### Enlaces
+- **PR #81:** merged ✅ | **Issue #82:** abierto
+- **Finding:** `findings/CRONQA-RESPONSIVE-2026-05-03-full-verification-v9.md`
