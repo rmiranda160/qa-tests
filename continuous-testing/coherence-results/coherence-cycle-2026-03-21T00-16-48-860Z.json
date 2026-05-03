@@ -1,0 +1,18 @@
+{
+  "cycleId": "2026-03-21T00-16-48-860Z",
+  "results": [
+    {
+      "app": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "timestamp": "2026-03-21T00:16:43.573Z",
+      "passed": false,
+      "errors": [
+        "Selector not found: .calendar",
+        "Selector not found: a[href*=\"eventos\"]"
+      ],
+      "screenshots": [
+        "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Calendario-Cenarbe-2026-03-21T00-16-43-369Z.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+=== Prueba de flujo completo Cenarbe Bike Rental ===
+Fecha: Wed Mar 18 17:27:17 UTC 2026
+Datos generados:
+  Email: testuser1773854837@example.com
+  DNI: TEST1773854837
+
+--- 1. Registro ---
+  ✗ Error en registro:
+  <link rel="stylesheet" href="/error_docs/styles.css">
+    <h1>Server Error</h1>
+    <div class="error-code">403</div>
+  Código HTTP: 403
+
+--- 2. Login ---
+  ✗ Posible fallo en login
+
+--- 3. Agregar al carrito ---
+  ID bicicleta seleccionada: 7
+  Fecha inicio: 2026-03-20, fin: 2026-03-21
+  ✗ Error al agregar al carrito
+  <link rel="stylesheet" href="/error_docs/styles.css">
+    <h1>Server Error</h1>
+    <div class="error-code">403</div>
+
+--- 4. Checkout ---
+  ✗ Error en checkout:
+  <link rel="stylesheet" href="/error_docs/styles.css">
+    <h1>Server Error</h1>
+    <div class="error-code">403</div>
+
+--- 5. Confirmación ---
+  ✗ No se encontró reserva en listado
+
+=== Fin de prueba ===

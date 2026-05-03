@@ -1,0 +1,18 @@
+FACTURA FACT-2026-009
+
+Cliente: Empresa Y
+Proveedor: Servicios Informáticos Beta
+División: turismo
+Fecha: 2026-03-23
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 575 €
+IVA (21%): 152 €
+Total: 727 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-03-23
+

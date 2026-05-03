@@ -1,0 +1,794 @@
+<!-- DEBUG: db.php included --><!-- DEBUG_MODE: 1 --><!-- DEBUG: MySQL conexión OK --><!-- DEBUG: functions.php included --><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenarbe Bike Rental - Bicicletas - Alquiler de Bicicletas</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- CSS Pirineo - Tema rojo/montaña Villanúa -->
+    <link rel="stylesheet" href="/css/pirineo.css">
+    
+    <!-- CSS Bajabikes Style -->
+    <link rel="stylesheet" href="/css/bajabikes-style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Preload hero image for LCP -->
+    <link rel="preload" href="/images/mountain/mountain-hero.jpg" as="image">
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Alquiler de bicicletas en Villanúa, Huesca. Descubre el Pirineo sobre dos ruedas con nuestras bicicletas de montaña y rutas guiadas.">
+    <meta name="keywords" content="alquiler bicicletas, Villanúa, Pirineo, Huesca, bicicleta montaña, rutas, excursiones">
+    <meta name="author" content="Cenarbe Bike Rental">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cenarbe Bike Rental - Bicicletas - Alquiler de Bicicletas">
+    <meta property="og:description" content="Alquiler de bicicletas en Villanúa, Huesca. Descubre el Pirineo sobre dos ruedas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dev1.cenarbe.com">
+    <meta property="og:image" content="https://dev1.cenarbe.com/images/og-image.jpg">
+</head>
+<body>
+    <!-- ===== HEADER PRINCIPAL - ESTILO BAJABIKES ===== -->
+    <header class="navbar-bajabikes fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- Logo y marca -->
+                <a class="navbar-brand" href="/">
+                    <span class="fw-bold text-success">CENARBE</span>
+                    <span class="text-warning">BIKE</span>
+                    <small class="d-block text-muted" style="font-size: 0.7rem; margin-top: -5px;">Villanúa • Pirineo Aragonés</small>
+                </a>
+                
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú principal -->
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="/">
+                                <i class="bi bi-house-door me-1"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/bicicletas.php">
+                                <i class="bi bi-bicycle me-1"></i>
+                                Bicicletas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/rutas.php">
+                                <i class="bi bi-signpost-split me-1"></i>
+                                Rutas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/reservas.php">
+                                <i class="bi bi-calendar-check me-1"></i>
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/contacto.php">
+                                <i class="bi bi-chat-dots me-1"></i>
+                                Contacto
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/sobre-nosotros.php">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Sobre Nosotros
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Acciones del usuario -->
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Carrito -->
+                        <a href="/carrito.php" class="btn btn-outline-success position-relative" aria-label="Carrito de compras">
+                            <i class="bi bi-cart3"></i>
+                                                    </a>
+                        
+                        <!-- Usuario -->
+                                                    <div class="d-flex gap-2">
+                                <a href="/login.php" class="btn btn-outline-success">
+                                    <i class="bi bi-box-arrow-in-right me-1"></i>
+                                    Login
+                                </a>
+                                <a href="/register.php" class="btn btn-success">
+                                    <i class="bi bi-person-plus me-1"></i>
+                                    Registro
+                                </a>
+                            </div>
+                                            </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main style="margin-top: 100px;">
+<!-- Hero Section -->
+<section class="hero-section-sm position-relative overflow-hidden">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="display-5 fw-bold text-white mb-3">Nuestra Flota de Bicicletas</h1>
+                <p class="lead text-white mb-0">
+                    Descubre nuestra amplia selección de bicicletas para todas las edades y niveles.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave-sm">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Filtros -->
+<section class="py-4 bg-light">
+    <div class="container">
+        <form method="GET" action="" class="row g-3">
+            <div class="col-md-3">
+                <label for="tipo" class="form-label fw-bold">Tipo de bicicleta</label>
+                <select name="tipo" id="tipo" class="form-select">
+                    <option value="">Todos los tipos</option>
+                                        <option value="eléctrica" >
+                        Eléctrica                    </option>
+                                    </select>
+            </div>
+            
+            <div class="col-md-2">
+                <label for="talla" class="form-label fw-bold">Talla</label>
+                <select name="talla" id="talla" class="form-select">
+                    <option value="">Todas las tallas</option>
+                                        <option value="S" >
+                        S                    </option>
+                                        <option value="M" >
+                        M                    </option>
+                                        <option value="L" >
+                        L                    </option>
+                                    </select>
+            </div>
+            
+            <div class="col-md-2">
+                <label for="estado" class="form-label fw-bold">Estado</label>
+                <select name="estado" id="estado" class="form-select">
+                    <option value="todos" >Todos</option>
+                    <option value="disponible" selected>Disponible</option>
+                    <option value="alquilada" >Alquilada</option>
+                    <option value="mantenimiento" >Mantenimiento</option>
+                </select>
+            </div>
+            
+            <div class="col-md-2">
+                <label for="orden" class="form-label fw-bold">Ordenar por</label>
+                <select name="orden" id="orden" class="form-select">
+                    <option value="precio_asc" selected>Precio: menor a mayor</option>
+                    <option value="precio_desc" >Precio: mayor a menor</option>
+                    <option value="nombre_asc" >Nombre: A-Z</option>
+                    <option value="nombre_desc" >Nombre: Z-A</option>
+                </select>
+            </div>
+            
+            <div class="col-md-3 d-flex align-items-end">
+                <div class="d-flex gap-2 w-100">
+                    <button type="submit" class="btn btn-primary flex-grow-1">
+                        <i class="bi bi-funnel me-2"></i>Filtrar
+                    </button>
+                    <a href="/bicicletas.php" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Resultados -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="fw-bold mb-0">
+                    5 bicicletas encontradas                </h2>
+            </div>
+        </div>
+        
+                <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow">
+                    <div class="position-relative">
+                                                <img src="/images/bicicletas/bici8.jpg" 
+                             class="card-img-top" 
+                             alt="Commuter 5"
+                             style="height: 250px; object-fit: cover;"
+                             onerror="if (this.src !== '/images/bicicletas/default.jpg') this.src='/images/bicicletas/default.jpg';">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">
+                            Disponible                        </span>
+                                                <span class="badge bg-info position-absolute top-0 start-0 m-2">
+                            <i class="bi bi-lightning-charge"></i> Eléctrica
+                        </span>
+                                            </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0">Commuter 5</h5>
+                            <span class="badge bg-light text-dark">M</span>
+                        </div>
+                        
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-tag me-1"></i>Eléctrica • 
+                            <i class="bi bi-palette me-1 ms-2"></i>Blanco                        </p>
+                        
+                        <p class="card-text mb-4">
+                            Bicicleta eléctrica urbana holandesa...
+                        </p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="fw-bold text-primary fs-5">9,00 €</span>
+                                <span class="text-muted small d-block">/hora</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-primary fs-5">72,00 €</span>
+                                <span class="text-muted small d-block">/día</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="/bicicleta-detalle.php?id=8" class="btn btn-primary">
+                                <i class="bi bi-eye me-2"></i>Ver Detalles
+                            </a>
+                                                        <form method="post" action="/carrito.php" class="add-to-cart-form">
+                                <input type="hidden" name="action" value="agregar">
+                                <input type="hidden" name="bicicleta_id" value="8">
+                                <input type="hidden" name="fecha_inicio" value="2026-03-20">
+                                <input type="hidden" name="fecha_fin" value="2026-03-21">
+                                <input type="hidden" name="horas" value="4">
+                                <input type="hidden" name="cantidad" value="1">
+                                <input type="hidden" name="csrf_token" value="98d56fa3765d93520b8fce61d21f335ce3bfe9afeea92ce96d6ad3b066f64c53">
+                                <button type="submit" class="btn btn-pirineo w-100">
+                                    <i class="bi bi-cart-plus me-2"></i>Añadir al Carrito
+                                </button>
+                            </form>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow">
+                    <div class="position-relative">
+                                                <img src="/images/bicicletas/giant_trance_x_advanced_e__elite.jpg" 
+                             class="card-img-top" 
+                             alt="Giant Trance X Advanced E+ Elite"
+                             style="height: 250px; object-fit: cover;"
+                             onerror="if (this.src !== '/images/bicicletas/default.jpg') this.src='/images/bicicletas/default.jpg';">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">
+                            Disponible                        </span>
+                                                <span class="badge bg-info position-absolute top-0 start-0 m-2">
+                            <i class="bi bi-lightning-charge"></i> Eléctrica
+                        </span>
+                                            </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0">Giant Trance X Advanced E+ Elite</h5>
+                            <span class="badge bg-light text-dark">M</span>
+                        </div>
+                        
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-tag me-1"></i>Eléctrica • 
+                            <i class="bi bi-palette me-1 ms-2"></i>Verde                        </p>
+                        
+                        <p class="card-text mb-4">
+                            Enduro eléctrico con motor SyncDrive Pro 2 de 85 Nm y batería EnergyPak 800Wh. Suspensión FOX de ...
+                        </p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="fw-bold text-primary fs-5">32,00 €</span>
+                                <span class="text-muted small d-block">/hora</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-primary fs-5">256,00 €</span>
+                                <span class="text-muted small d-block">/día</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="/bicicleta-detalle.php?id=3" class="btn btn-primary">
+                                <i class="bi bi-eye me-2"></i>Ver Detalles
+                            </a>
+                                                        <form method="post" action="/carrito.php" class="add-to-cart-form">
+                                <input type="hidden" name="action" value="agregar">
+                                <input type="hidden" name="bicicleta_id" value="3">
+                                <input type="hidden" name="fecha_inicio" value="2026-03-20">
+                                <input type="hidden" name="fecha_fin" value="2026-03-21">
+                                <input type="hidden" name="horas" value="4">
+                                <input type="hidden" name="cantidad" value="1">
+                                <input type="hidden" name="csrf_token" value="98d56fa3765d93520b8fce61d21f335ce3bfe9afeea92ce96d6ad3b066f64c53">
+                                <button type="submit" class="btn btn-pirineo w-100">
+                                    <i class="bi bi-cart-plus me-2"></i>Añadir al Carrito
+                                </button>
+                            </form>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow">
+                    <div class="position-relative">
+                                                <img src="/images/bicicletas/trek_rail_9_8_xt.jpg" 
+                             class="card-img-top" 
+                             alt="Trek Rail 9.8 XT"
+                             style="height: 250px; object-fit: cover;"
+                             onerror="if (this.src !== '/images/bicicletas/default.jpg') this.src='/images/bicicletas/default.jpg';">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">
+                            Disponible                        </span>
+                                                <span class="badge bg-info position-absolute top-0 start-0 m-2">
+                            <i class="bi bi-lightning-charge"></i> Eléctrica
+                        </span>
+                                            </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0">Trek Rail 9.8 XT</h5>
+                            <span class="badge bg-light text-dark">L</span>
+                        </div>
+                        
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-tag me-1"></i>Eléctrica • 
+                            <i class="bi bi-palette me-1 ms-2"></i>Azul/Blanco                        </p>
+                        
+                        <p class="card-text mb-4">
+                            Enduro eléctrico de alta gama con motor Bosch Performance CX de 85 Nm y batería integrada de 750Wh...
+                        </p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="fw-bold text-primary fs-5">35,00 €</span>
+                                <span class="text-muted small d-block">/hora</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-primary fs-5">280,00 €</span>
+                                <span class="text-muted small d-block">/día</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="/bicicleta-detalle.php?id=2" class="btn btn-primary">
+                                <i class="bi bi-eye me-2"></i>Ver Detalles
+                            </a>
+                                                        <form method="post" action="/carrito.php" class="add-to-cart-form">
+                                <input type="hidden" name="action" value="agregar">
+                                <input type="hidden" name="bicicleta_id" value="2">
+                                <input type="hidden" name="fecha_inicio" value="2026-03-20">
+                                <input type="hidden" name="fecha_fin" value="2026-03-21">
+                                <input type="hidden" name="horas" value="4">
+                                <input type="hidden" name="cantidad" value="1">
+                                <input type="hidden" name="csrf_token" value="98d56fa3765d93520b8fce61d21f335ce3bfe9afeea92ce96d6ad3b066f64c53">
+                                <button type="submit" class="btn btn-pirineo w-100">
+                                    <i class="bi bi-cart-plus me-2"></i>Añadir al Carrito
+                                </button>
+                            </form>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow">
+                    <div class="position-relative">
+                                                <img src="/images/bicicletas/specialized_turbo_levo_sl_expert_di2.jpg" 
+                             class="card-img-top" 
+                             alt="Specialized Turbo Levo SL Expert Di2"
+                             style="height: 250px; object-fit: cover;"
+                             onerror="if (this.src !== '/images/bicicletas/default.jpg') this.src='/images/bicicletas/default.jpg';">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">
+                            Disponible                        </span>
+                                                <span class="badge bg-info position-absolute top-0 start-0 m-2">
+                            <i class="bi bi-lightning-charge"></i> Eléctrica
+                        </span>
+                                            </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0">Specialized Turbo Levo SL Expert Di2</h5>
+                            <span class="badge bg-light text-dark">M</span>
+                        </div>
+                        
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-tag me-1"></i>Eléctrica • 
+                            <i class="bi bi-palette me-1 ms-2"></i>Negro/Rojo                        </p>
+                        
+                        <p class="card-text mb-4">
+                            Bicicleta de enduro eléctrica ultraligera con motor SL 1.2 de 50 Nm y batería integrada de 320Wh. ...
+                        </p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="fw-bold text-primary fs-5">38,00 €</span>
+                                <span class="text-muted small d-block">/hora</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-primary fs-5">304,00 €</span>
+                                <span class="text-muted small d-block">/día</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="/bicicleta-detalle.php?id=1" class="btn btn-primary">
+                                <i class="bi bi-eye me-2"></i>Ver Detalles
+                            </a>
+                                                        <form method="post" action="/carrito.php" class="add-to-cart-form">
+                                <input type="hidden" name="action" value="agregar">
+                                <input type="hidden" name="bicicleta_id" value="1">
+                                <input type="hidden" name="fecha_inicio" value="2026-03-20">
+                                <input type="hidden" name="fecha_fin" value="2026-03-21">
+                                <input type="hidden" name="horas" value="4">
+                                <input type="hidden" name="cantidad" value="1">
+                                <input type="hidden" name="csrf_token" value="98d56fa3765d93520b8fce61d21f335ce3bfe9afeea92ce96d6ad3b066f64c53">
+                                <button type="submit" class="btn btn-pirineo w-100">
+                                    <i class="bi bi-cart-plus me-2"></i>Añadir al Carrito
+                                </button>
+                            </form>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow">
+                    <div class="position-relative">
+                                                <img src="/images/bicicletas/orbea_rise_m_team.jpg" 
+                             class="card-img-top" 
+                             alt="Orbea Rise M-Team"
+                             style="height: 250px; object-fit: cover;"
+                             onerror="if (this.src !== '/images/bicicletas/default.jpg') this.src='/images/bicicletas/default.jpg';">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">
+                            Disponible                        </span>
+                                                <span class="badge bg-info position-absolute top-0 start-0 m-2">
+                            <i class="bi bi-lightning-charge"></i> Eléctrica
+                        </span>
+                                            </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0">Orbea Rise M-Team</h5>
+                            <span class="badge bg-light text-dark">S</span>
+                        </div>
+                        
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-tag me-1"></i>Eléctrica • 
+                            <i class="bi bi-palette me-1 ms-2"></i>Azul                        </p>
+                        
+                        <p class="card-text mb-4">
+                            Enduro eléctrico ligero con motor Shimano EP8 RS de 60 Nm y batería de 540Wh. Cuadro de carbono de...
+                        </p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="fw-bold text-primary fs-5">40,00 €</span>
+                                <span class="text-muted small d-block">/hora</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-primary fs-5">320,00 €</span>
+                                <span class="text-muted small d-block">/día</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="/bicicleta-detalle.php?id=5" class="btn btn-primary">
+                                <i class="bi bi-eye me-2"></i>Ver Detalles
+                            </a>
+                                                        <form method="post" action="/carrito.php" class="add-to-cart-form">
+                                <input type="hidden" name="action" value="agregar">
+                                <input type="hidden" name="bicicleta_id" value="5">
+                                <input type="hidden" name="fecha_inicio" value="2026-03-20">
+                                <input type="hidden" name="fecha_fin" value="2026-03-21">
+                                <input type="hidden" name="horas" value="4">
+                                <input type="hidden" name="cantidad" value="1">
+                                <input type="hidden" name="csrf_token" value="98d56fa3765d93520b8fce61d21f335ce3bfe9afeea92ce96d6ad3b066f64c53">
+                                <button type="submit" class="btn btn-pirineo w-100">
+                                    <i class="bi bi-cart-plus me-2"></i>Añadir al Carrito
+                                </button>
+                            </form>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                
+        <!-- Información adicional -->
+        <div class="row mt-5">
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-shield-check text-primary me-2"></i>
+                            Seguro incluido
+                        </h5>
+                        <p class="text-muted mb-0">
+                            Todas nuestras bicicletas incluyen seguro contra accidentes y daños.
+                            Tu tranquilidad es nuestra prioridad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-tools text-success me-2"></i>
+                            Mantenimiento garantizado
+                        </h5>
+                        <p class="text-muted mb-0">
+                            Revisamos cada bicicleta antes de cada alquiler. 
+                            Frenos, cambios y presión de neumáticos en perfecto estado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 bg-light shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-headset text-warning me-2"></i>
+                            Asistencia 24/7
+                        </h5>
+                        <p class="text-muted mb-0">
+                            Si tienes algún problema durante tu ruta, 
+                            nuestro equipo de asistencia está disponible las 24 horas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- ===== FOOTER ESTILO BAJABIKES ===== -->
+    <footer class="footer-bajabikes">
+        <div class="container">
+            <div class="row">
+                <!-- Información de la empresa -->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h5 class="mb-4">
+                        <span class="text-success">CENARBE</span>
+                        <span class="text-warning">BIKE</span>
+                    </h5>
+                    <p class="text-white opacity-75 mb-4">
+                        Alquiler de bicicletas de montaña en el corazón del Pirineo Aragonés. 
+                        Experiencias únicas para todos los niveles en Villanúa, Huesca.
+                    </p>
+                    <div class="contact-info mb-4">
+                        <p class="mb-2">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            Calle Bicicleta 123, 22001 Huesca                        </p>
+                        <p class="mb-2">
+                            <i class="bi bi-telephone-fill"></i>
+                            <a href="tel:974123456" class="text-white text-decoration-none">
+                                974123456                            </a>
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-envelope-fill"></i>
+                            <a href="mailto:info@cenarbe.com" class="text-white text-decoration-none">
+                                info@cenarbe.com                            </a>
+                        </p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="text-white" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enlaces rápidos -->
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/bicicletas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/rutas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Rutas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/reservas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/contacto.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Servicios -->
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="mb-4">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/bicicletas.php?tipo=MTB" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas MTB
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/bicicletas.php?tipo=E-MTB" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas Eléctricas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/rutas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Rutas Guiadas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/reservas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Reservas Online
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/faq.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Preguntas Frecuentes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Horarios y contacto -->
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="mb-4">Horarios</h5>
+                    <ul class="list-unstyled text-white opacity-75">
+                        <li class="mb-2">
+                            <strong>Lunes - Viernes:</strong> 09:00 - 20:00
+                        </li>
+                        <li class="mb-2">
+                            <strong>Sábados:</strong> 09:00 - 21:00
+                        </li>
+                        <li class="mb-2">
+                            <strong>Domingos:</strong> 09:00 - 18:00
+                        </li>
+                        <li class="mb-4">
+                            <strong>Festivos:</strong> 10:00 - 17:00
+                        </li>
+                    </ul>
+                    
+                    <h5 class="mb-3">Newsletter</h5>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                            <button class="btn btn-success" type="submit" aria-label="Suscribirse al newsletter">
+                                <i class="bi bi-envelope-arrow-up"></i>
+                            </button>
+                        </div>
+                        <small class="text-white opacity-50">
+                            Suscríbete para recibir ofertas y novedades
+                        </small>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Línea divisoria -->
+            <hr class="my-5 opacity-25">
+
+            <!-- Copyright y enlaces legales -->
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="copyright mb-0">
+                        &copy; 2026 Cenarbe Bike Rental. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/politica-privacidad.php" class="text-white opacity-75 text-decoration-none me-3">
+                        Política de Privacidad
+                    </a>
+                    <a href="/terminos-condiciones.php" class="text-white opacity-75 text-decoration-none me-3">
+                        Términos y Condiciones
+                    </a>
+                    <a href="/aviso-legal.php" class="text-white opacity-75 text-decoration-none">
+                        Aviso Legal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/34974123456" 
+       class="position-fixed bottom-3 end-3 bg-success text-white rounded-circle p-3 shadow-lg text-decoration-none"
+       style="z-index: 1000;"
+       target="_blank"
+       aria-label="Chatear por WhatsApp">
+        <i class="bi bi-whatsapp fs-4"></i>
+    </a>
+
+    <!-- Botón para volver arriba -->
+    <button onclick="scrollToTop()" 
+            class="position-fixed bottom-3 start-3 bg-dark text-white rounded-circle p-3 border-0 shadow-lg d-none"
+            style="z-index: 1000;"
+            id="backToTop"
+            aria-label="Volver arriba">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts personalizados -->
+    <script>
+        // Botón para volver arriba
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('d-none');
+            } else {
+                backToTopButton.classList.add('d-none');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Inicializar tooltips de Bootstrap
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        
+        // Inicializar popovers de Bootstrap
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+    </script>
+</body>
+</html>

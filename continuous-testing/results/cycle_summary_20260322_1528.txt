@@ -1,0 +1,47 @@
+Ciclo de Testing Continuo - Resumen
+====================================
+Fecha: 2026-03-22 15:28 UTC
+Ciclo ID: 20260322_152754 (web-tester) + 2026-03-22T15-28-30-501Z (coherence)
+
+=== WEB-TESTER (skill web-tester) ===
+Aplicaciones probadas: 5
+Total hallazgos: 3
+- Críticos: 0
+- Altos: 0
+- Medios: 3
+- Bajos: 0
+
+Hallazgos (severidad media):
+1. ContentoAI (accesibilidad) - Violaciones: 2
+2. Dashboard (accesibilidad) - Violaciones: 2
+3. Villa Zocotin (accesibilidad) - Violaciones: 3
+
+Detalles: ver archivo 20260322_152754_extended.json
+
+=== COHERENCE (navegador) ===
+Aplicaciones probadas: 4
+Aplicaciones pasadas: 3
+Aplicaciones falladas: 1
+
+Fallos de coherencia:
+- ContentoAI: selectores no encontrados:
+  * h2
+  * h3
+  * footer
+  * a[href="/login"]
+  * a[href="/register"]
+  * a[href="/dashboard"]
+
+Screenshots disponibles en coherence-screenshots/:
+- ContentoAI: /home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-22T15-28-28-924Z.png
+
+=== CONCLUSIÓN ===
+No se detectaron errores críticos (severidad high/critical).
+Errores de accesibilidad y coherencia de nivel medio presentes.
+No se requiere alerta inmediata.
+
+Reportes completos:
+- Web-tester: /home/node/.openclaw/workspace-tester/continuous-testing/results/20260322_152754_extended.json
+- Coherence: /home/node/.openclaw/workspace-tester/continuous-testing/coherence-results/coherence-cycle-2026-03-22T15-28-30-501Z.json
+
+Fin del ciclo.

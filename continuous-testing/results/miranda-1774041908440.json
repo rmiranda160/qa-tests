@@ -1,0 +1,287 @@
+{
+  "timestamp": "2026-03-20T21:24:47.615Z",
+  "rule": "Miranda Button/Action Verification",
+  "summary": {
+    "totalApps": 4,
+    "totalButtons": 18,
+    "passedButtons": 9,
+    "failedButtons": 0,
+    "appsWithIssues": 4
+  },
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "timestamp": "2026-03-20T21:24:47.615Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Login",
+          "selector": "a.btn:has-text('Login')",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: urlChanged, domChanged, networkRequest",
+            "Redirige a: https://dev1.cenarbe.com/login.php"
+          ]
+        },
+        {
+          "name": "Botón Registro",
+          "selector": "a.btn:has-text('Registro')",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: urlChanged, networkRequest",
+            "Redirige a: https://dev1.cenarbe.com/register.php"
+          ]
+        },
+        {
+          "name": "Botón Buscar Disponibilidad",
+          "selector": "button:has-text('Buscar Disponibilidad')",
+          "type": "button",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": [
+            "Click sin cambio detectable en URL, DOM, red, descarga, modal o estado"
+          ]
+        },
+        {
+          "name": "Botón Carrito",
+          "selector": "a[href='/carrito.php']",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: urlChanged, domChanged, networkRequest",
+            "Redirige a: https://dev1.cenarbe.com/carrito.php"
+          ]
+        },
+        {
+          "name": "Botón Ver Bicicletas",
+          "selector": "a:has-text('Ver Bicicletas')",
+          "type": "button",
+          "critical": false,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: urlChanged, networkRequest",
+            "Redirige a: https://dev1.cenarbe.com/bicicletas.php"
+          ]
+        },
+        {
+          "name": "Formulario Reserva",
+          "selector": "form[action='/bicicletas.php']",
+          "type": "form",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 2
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com/",
+      "timestamp": "2026-03-20T21:24:58.965Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Ver Demo",
+          "selector": "a:has-text('Ver demo'), a.btn-secondary:has-text('Ver demo')",
+          "type": "link",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        },
+        {
+          "name": "Formulario Waitlist",
+          "selector": "form#waitlistForm, form.waitlist-form, form input[type='email']",
+          "type": "form",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 2
+    },
+    {
+      "name": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "timestamp": "2026-03-20T21:24:59.718Z",
+      "critical_buttons": [
+        {
+          "name": "Enlace Reservar (ancla al formulario)",
+          "selector": "a:has-text('Reservar')",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: urlChanged, domChanged",
+            "Redirige a: https://villazocotin.cenarbe.com/#reservar"
+          ]
+        },
+        {
+          "name": "Botón Confirmar Reserva",
+          "selector": "button:has-text('Confirmar reserva')",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: domChanged"
+          ]
+        },
+        {
+          "name": "Formulario de Reserva",
+          "selector": "form:has-text('Reservar')",
+          "type": "form",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        },
+        {
+          "name": "Sección Contacto",
+          "selector": "footer",
+          "type": "element",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 2
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "timestamp": "2026-03-20T21:25:03.044Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Refresh Data",
+          "selector": "button:has-text('Refresh'), button:has-text('Actualizar'), #refresh-btn, button[onclick*='refresh']",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: domChanged, networkRequest"
+          ]
+        },
+        {
+          "name": "Botón View Alert Details",
+          "selector": ".alert-card, a:has-text('Details'), button:has-text('Ver detalles'), .alert-details-btn, [href*='details']",
+          "type": "element",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        },
+        {
+          "name": "Botón Export Report",
+          "selector": "button:has-text('Export'), button:has-text('Exportar'), #export-btn, button[onclick*='export']",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: domChanged, downloadTriggered"
+          ]
+        },
+        {
+          "name": "Botón Configure Alerts",
+          "selector": "a:has-text('Configure'), button:has-text('Configurar'), [href*='configure'], [href*='settings']",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: urlChanged, networkRequest",
+            "Redirige a: https://dashboard.cenarbe.com/configure-alerts.html"
+          ]
+        },
+        {
+          "name": "Interacción Gráficos",
+          "selector": "canvas",
+          "type": "element",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        },
+        {
+          "name": "Ver Screenshots Completos",
+          "selector": ".screenshot-card, [href*='screenshot'], [href*='image']",
+          "type": "element",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 3
+    }
+  ]
+}

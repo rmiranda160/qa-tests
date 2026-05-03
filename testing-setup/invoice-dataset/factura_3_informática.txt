@@ -1,0 +1,18 @@
+FACTURA FACT-2026-003
+
+Cliente: Empresa X
+Proveedor: Hotel Paraíso S.A.
+División: informática
+Fecha: 2026-12-14
+
+Descripción:
+  - Servicios de informática
+  - Materiales varios
+
+Subtotal: 1197 €
+IVA (21%): 317 €
+Total: 1514 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-12-14
+

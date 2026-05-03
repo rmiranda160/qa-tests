@@ -1,0 +1,18 @@
+FACTURA FACT-2026-025
+
+Cliente: Miranda (CEO)
+Proveedor: Mantenimiento Informático Theta
+División: informática
+Fecha: 2026-01-09
+
+Descripción:
+  - Servicios de informática
+  - Materiales varios
+
+Subtotal: 166 €
+IVA (21%): 43 €
+Total: 209 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-01-09
+

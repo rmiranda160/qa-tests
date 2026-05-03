@@ -1,0 +1,30 @@
+{
+  "timestamp": "20260322_063733",
+  "summary": {
+    "total_applications": 4,
+    "total_findings": 2,
+    "critical_errors": 0,
+    "high_errors": 0,
+    "medium_errors": 2,
+    "low_errors": 0
+  },
+  "findings": [
+    {
+      "application": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "mode": "accessibility",
+      "severity": "medium",
+      "issue": "Accessibility violations for https://cntai.cenarbe.com/: Accessibility test failed for https://cntai.cenarbe.com/. Violations: 1",
+      "timestamp": "2026-03-22T06:37:30.737556"
+    },
+    {
+      "application": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "mode": "accessibility",
+      "severity": "medium",
+      "issue": "Accessibility violations for https://dashboard.cenarbe.com/: Accessibility test failed for https://dashboard.cenarbe.com/. Violations: 2",
+      "timestamp": "2026-03-22T06:37:33.302461"
+    }
+  ],
+  "alert_required": false
+}

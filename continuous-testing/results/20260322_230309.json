@@ -1,0 +1,980 @@
+{
+  "cycle_id": "20260322_230309",
+  "start_time": "2026-03-22T23:03:09.273892",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dev1.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774220590145.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774220590514.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774220590970.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774220590145.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774220590514.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774220590970.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Accessibility test passed for https://dev1.cenarbe.com/. Violations: 0",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "violations": []
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/calendario/. Title: Cenarbe Bike Rental - Iniciar Sesi\u00f3n",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Iniciar Sesi\u00f3n"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "api",
+          "raw_result": {
+            "ok": true,
+            "stdout": "API test passed for https://dev1.cenarbe.com/calendario/. Results: [{\"endpoint\":\"/api/bicicletas.php\",\"url\":\"https://dev1.cenarbe.com/calendario/api/bicicletas.php\",\"status\":200,\"contentType\":\"application/json\",\"jsonValid\":true,\"ok\":true},{\"endpoint\":\"/api/eventos.php\",\"url\":\"https://dev1.cenarbe.com/calendario/api/eventos.php\",\"status\":200,\"contentType\":\"application/json\",\"jsonValid\":true,\"ok\":true}]",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "results": [
+                {
+                  "endpoint": "/api/bicicletas.php",
+                  "url": "https://dev1.cenarbe.com/calendario/api/bicicletas.php",
+                  "status": 200,
+                  "contentType": "application/json",
+                  "jsonValid": true,
+                  "ok": true
+                },
+                {
+                  "endpoint": "/api/eventos.php",
+                  "url": "https://dev1.cenarbe.com/calendario/api/eventos.php",
+                  "status": 200,
+                  "contentType": "application/json",
+                  "jsonValid": true,
+                  "ok": true
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://cntai.cenarbe.com/. Title: ContentoAI",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "ContentoAI"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://cntai.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774220594148.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774220594302.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774220594392.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774220594148.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774220594302.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774220594392.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "stdout": "Accessibility test failed for https://cntai.cenarbe.com/. Violations: 2",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": false,
+              "violations": [
+                {
+                  "id": "color-contrast",
+                  "impact": "serious",
+                  "tags": [
+                    "cat.color",
+                    "wcag2aa",
+                    "wcag143",
+                    "TTv5",
+                    "TT13.c",
+                    "EN-301-549",
+                    "EN-9.1.4.3",
+                    "ACT",
+                    "RGAAv4",
+                    "RGAA-3.2.1"
+                  ],
+                  "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+                  "help": "Elements must meet minimum color contrast ratio thresholds",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.01,
+                            "fontSize": "12.0pt (16px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body class=\"bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col\">",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<h1 class=\"text-3xl font-bold mb-2\">\u00a1HOLA MUNDO!</h1>",
+                      "target": [
+                        ".text-3xl"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.01,
+                            "fontSize": "12.0pt (16px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body class=\"bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col\">",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<p class=\"text-xl\">ContentoAI - Deploy autom\u00e1tico funcionando \u2705</p>",
+                      "target": [
+                        ".text-xl"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.01,
+                            "fontSize": "10.5pt (14px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body class=\"bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col\">",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<p class=\"text-sm mt-2\">Fecha: 2026-03-22 23:03:14</p>",
+                      "target": [
+                        ".mt-2"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.01,
+                            "fontSize": "12.0pt (16px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<body class=\"bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col\">",
+                              "target": [
+                                "body"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<div class=\"bg-green-700 text-white p-4 rounded-md mb-4 text-center\">\u2705 ContentoAI - Deploy funcionando correctamente - 2026-03-22 23:03</div>",
+                      "target": [
+                        ".bg-green-700"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.01 (foreground color: #ffffff, background color: #fdfdfc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#e6e6e5",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.22,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.22 (foreground color: #e6e6e5, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<h1 class=\"mb-1 font-medium\">Let's get started</h1>",
+                      "target": [
+                        ".mb-1"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.22 (foreground color: #e6e6e5, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#efefee",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.13,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.13 (foreground color: #efefee, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<p class=\"mb-2 text-[#706f6c] dark:text-[#A1A09A]\">With so many options available to you,<br> we suggest you start with the following:</p>",
+                      "target": [
+                        ".mb-2.text-\\[\\#706f6c\\].dark\\:text-\\[\\#A1A09A\\]"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #efefee, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#e6e6e5",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.22,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.22 (foreground color: #e6e6e5, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span>",
+                      "target": [
+                        ".before\\:top-1\\/2 > span:nth-child(2)"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.22 (foreground color: #e6e6e5, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#fce9e3",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.15,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.15 (foreground color: #fce9e3, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span>Documentation</span>",
+                      "target": [
+                        "a[href$=\"docs\"] > span"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.15 (foreground color: #fce9e3, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#e6e6e5",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.22,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.22 (foreground color: #e6e6e5, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span>",
+                      "target": [
+                        ".before\\:bottom-1\\/2 > span:nth-child(2)"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.22 (foreground color: #e6e6e5, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#fce9e3",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.15,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.15 (foreground color: #fce9e3, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span>Laracasts</span>",
+                      "target": [
+                        "a[href$=\"laracasts.com\"] > span"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.15 (foreground color: #fce9e3, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#fdfdfc",
+                            "bgColor": "#e6e6e5",
+                            "contrastRatio": 1.22,
+                            "fontSize": "10.5pt (14px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<a href=\"https://cloud.larave...\" target=\"_blank\" class=\"inline-block dark:bg...\">",
+                              "target": [
+                                ".dark\\:bg-\\[\\#eeeeec\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.22 (foreground color: #fdfdfc, background color: #e6e6e5, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<a href=\"https://cloud.larave...\" target=\"_blank\" class=\"inline-block dark:bg...\">",
+                      "target": [
+                        ".dark\\:bg-\\[\\#eeeeec\\]"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.22 (foreground color: #fdfdfc, background color: #e6e6e5, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#efefee",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.13,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.13 (foreground color: #efefee, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<p class=\"mt-6 lg:mt-10 text-[#706f6c] dark:text-[#A1A09A]\">",
+                      "target": [
+                        ".mt-6"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #efefee, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#fce9e3",
+                            "bgColor": "#fdfdfc",
+                            "contrastRatio": 1.15,
+                            "fontSize": "9.8pt (13px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<div class=\"text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none\">",
+                              "target": [
+                                ".text-\\[13px\\]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 1.15 (foreground color: #fce9e3, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<span>View changelog</span>",
+                      "target": [
+                        ".mt-6 > .inline-flex.space-x-1.underline > span"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.15 (foreground color: #fce9e3, background color: #fdfdfc, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    }
+                  ]
+                },
+                {
+                  "id": "region",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.keyboard",
+                    "best-practice",
+                    "RGAAv4",
+                    "RGAA-9.2.1"
+                  ],
+                  "description": "Ensure all page content is contained by landmarks",
+                  "help": "All page content should be contained by landmarks",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"bg-blue-800 text-white p-6 rounded-lg shadow-lg text-center my-8\">",
+                      "target": [
+                        ".bg-blue-800"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"bg-green-700 text-white p-4 rounded-md mb-4 text-center\">\u2705 ContentoAI - Deploy funcionando correctamente - 2026-03-22 23:03</div>",
+                      "target": [
+                        ".bg-green-700"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "medium",
+            "message": "Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dashboard.cenarbe.com/. Title: Proactive Monitoring Dashboard",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Proactive Monitoring Dashboard"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dashboard.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774220595883.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774220596126.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774220596313.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774220595883.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774220596126.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774220596313.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "stdout": "Accessibility test failed for https://dashboard.cenarbe.com/. Violations: 2",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": false,
+              "violations": [
+                {
+                  "id": "color-contrast",
+                  "impact": "serious",
+                  "tags": [
+                    "cat.color",
+                    "wcag2aa",
+                    "wcag143",
+                    "TTv5",
+                    "TT13.c",
+                    "EN-301-549",
+                    "EN-9.1.4.3",
+                    "ACT",
+                    "RGAAv4",
+                    "RGAA-3.2.1"
+                  ],
+                  "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+                  "help": "Elements must meet minimum color contrast ratio thresholds",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#2980b9",
+                            "contrastRatio": 4.3,
+                            "fontSize": "10.0pt (13.3333px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<button class=\"refresh-btn\" onclick=\"loadData()\">\ud83d\udd04 Refresh Now</button>",
+                              "target": [
+                                "button"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 4.3 (foreground color: #ffffff, background color: #2980b9, font size: 10.0pt (13.3333px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<button class=\"refresh-btn\" onclick=\"loadData()\">\ud83d\udd04 Refresh Now</button>",
+                      "target": [
+                        "button"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.3 (foreground color: #ffffff, background color: #2980b9, font size: 10.0pt (13.3333px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    }
+                  ]
+                },
+                {
+                  "id": "region",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.keyboard",
+                    "best-practice",
+                    "RGAAv4",
+                    "RGAA-9.2.1"
+                  ],
+                  "description": "Ensure all page content is contained by landmarks",
+                  "help": "All page content should be contained by landmarks",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h1>Proactive Monitoring Dashboard</h1>",
+                      "target": [
+                        "h1"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<p>Real-time monitoring with early anomaly detection for 3 applications</p>",
+                      "target": [
+                        ".header > p"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div>\n                    <strong>Last update:</strong> <span id=\"last-update\">3/20/2026, 4:40:41 PM</span>\n                    \u2022 <strong>Cycle:</strong> <span id=\"cycle-id\">20260320_143814</span>\n                </div>",
+                      "target": [
+                        ".meta > div"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "medium",
+            "message": "Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    }
+  ]
+}

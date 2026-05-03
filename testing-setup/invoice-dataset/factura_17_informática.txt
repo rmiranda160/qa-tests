@@ -1,0 +1,18 @@
+FACTURA FACT-2026-017
+
+Cliente: División Turismo
+Proveedor: Software Libre Epsilon
+División: informática
+Fecha: 2026-03-09
+
+Descripción:
+  - Servicios de informática
+  - Materiales varios
+
+Subtotal: 1108 €
+IVA (21%): 294 €
+Total: 1402 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-03-09
+

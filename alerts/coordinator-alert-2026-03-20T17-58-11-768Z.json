@@ -1,0 +1,17 @@
+{
+  "type": "ui_coherence_alert",
+  "timestamp": "2026-03-20T17:58:11.777Z",
+  "application": "Cenarbe Bike Rental",
+  "incoherenceCount": 2,
+  "incoherences": [
+    {
+      "test": "Botón \"Mis Reservas\" → Página de reservas",
+      "errors": [
+        "Contenido faltante: No se encontró \"booking\" en la página",
+        "Contenido faltante: No se encontró \"fecha\" en la página"
+      ]
+    }
+  ],
+  "screenshot": "/home/node/.openclaw/workspace-coordinator/incoherence-2026-03-20T17-58-11-768Z.png",
+  "report": "coherence-reports/coherence-report-2026-03-20T17-58-11-768Z.json"
+}

@@ -1,0 +1,617 @@
+{
+  "cycle_id": "20260321_153511",
+  "start_time": "2026-03-21T15:35:11.949339",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dev1.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774107312908.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774107313260.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774107313812.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774107312908.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774107313260.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774107313812.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Accessibility test passed for https://dev1.cenarbe.com/. Violations: 0",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "violations": []
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/calendario/. Title: Cenarbe Bike Rental - Iniciar Sesi\u00f3n",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Iniciar Sesi\u00f3n"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "api",
+          "raw_result": {
+            "ok": true,
+            "stdout": "API test passed for https://dev1.cenarbe.com/calendario/. Results: [{\"endpoint\":\"/api/bicicletas.php\",\"url\":\"https://dev1.cenarbe.com/calendario/api/bicicletas.php\",\"status\":200,\"contentType\":\"application/json\",\"jsonValid\":true,\"ok\":true},{\"endpoint\":\"/api/eventos.php\",\"url\":\"https://dev1.cenarbe.com/calendario/api/eventos.php\",\"status\":200,\"contentType\":\"application/json\",\"jsonValid\":true,\"ok\":true}]",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "results": [
+                {
+                  "endpoint": "/api/bicicletas.php",
+                  "url": "https://dev1.cenarbe.com/calendario/api/bicicletas.php",
+                  "status": 200,
+                  "contentType": "application/json",
+                  "jsonValid": true,
+                  "ok": true
+                },
+                {
+                  "endpoint": "/api/eventos.php",
+                  "url": "https://dev1.cenarbe.com/calendario/api/eventos.php",
+                  "status": 200,
+                  "contentType": "application/json",
+                  "jsonValid": true,
+                  "ok": true
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://cntai.cenarbe.com/. Title: ContentoAI - Sistema de Generaci\u00f3n de Contenido",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "ContentoAI - Sistema de Generaci\u00f3n de Contenido"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://cntai.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774107316827.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774107316929.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774107317016.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774107316827.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774107316929.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774107317016.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "stdout": "Accessibility test failed for https://cntai.cenarbe.com/. Violations: 3",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": false,
+              "violations": [
+                {
+                  "id": "color-contrast",
+                  "impact": "serious",
+                  "tags": [
+                    "cat.color",
+                    "wcag2aa",
+                    "wcag143",
+                    "TTv5",
+                    "TT13.c",
+                    "EN-301-549",
+                    "EN-9.1.4.3",
+                    "ACT",
+                    "RGAAv4",
+                    "RGAA-3.2.1"
+                  ],
+                  "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+                  "help": "Elements must meet minimum color contrast ratio thresholds",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#3498db",
+                            "contrastRatio": 3.15,
+                            "fontSize": "12.0pt (16px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<a href=\"/login\" class=\"btn\">Iniciar Sesi\u00f3n</a>",
+                              "target": [
+                                ".btn[href$=\"login\"]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 3.15 (foreground color: #ffffff, background color: #3498db, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<a href=\"/login\" class=\"btn\">Iniciar Sesi\u00f3n</a>",
+                      "target": [
+                        ".btn[href$=\"login\"]"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.15 (foreground color: #ffffff, background color: #3498db, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#3498db",
+                            "contrastRatio": 3.15,
+                            "fontSize": "12.0pt (16px)",
+                            "fontWeight": "normal",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<a href=\"/dashboard\" class=\"btn\">Ver Dashboard</a>",
+                              "target": [
+                                ".btn[href$=\"dashboard\"]"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 3.15 (foreground color: #ffffff, background color: #3498db, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<a href=\"/dashboard\" class=\"btn\">Ver Dashboard</a>",
+                      "target": [
+                        ".btn[href$=\"dashboard\"]"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.15 (foreground color: #ffffff, background color: #3498db, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                    }
+                  ]
+                },
+                {
+                  "id": "landmark-one-main",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.semantics",
+                    "best-practice"
+                  ],
+                  "description": "Ensure the document has a main landmark",
+                  "help": "Document should have one main landmark",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [],
+                      "all": [
+                        {
+                          "id": "page-has-main",
+                          "data": null,
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Document does not have a main landmark"
+                        }
+                      ],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<html lang=\"es\">",
+                      "target": [
+                        "html"
+                      ],
+                      "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+                    }
+                  ]
+                },
+                {
+                  "id": "region",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.keyboard",
+                    "best-practice",
+                    "RGAAv4",
+                    "RGAA-9.2.1"
+                  ],
+                  "description": "Ensure all page content is contained by landmarks",
+                  "help": "All page content should be contained by landmarks",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div class=\"content\">",
+                      "target": [
+                        ".content"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "medium",
+            "message": "Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dashboard.cenarbe.com/. Title: Proactive Monitoring Dashboard",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Proactive Monitoring Dashboard"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dashboard.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774107318488.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774107318720.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774107318880.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774107318488.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774107318720.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774107318880.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": {
+            "ok": false,
+            "stdout": "Accessibility test failed for https://dashboard.cenarbe.com/. Violations: 2",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": false,
+              "violations": [
+                {
+                  "id": "color-contrast",
+                  "impact": "serious",
+                  "tags": [
+                    "cat.color",
+                    "wcag2aa",
+                    "wcag143",
+                    "TTv5",
+                    "TT13.c",
+                    "EN-301-549",
+                    "EN-9.1.4.3",
+                    "ACT",
+                    "RGAAv4",
+                    "RGAA-3.2.1"
+                  ],
+                  "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+                  "help": "Elements must meet minimum color contrast ratio thresholds",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "color-contrast",
+                          "data": {
+                            "fgColor": "#ffffff",
+                            "bgColor": "#2980b9",
+                            "contrastRatio": 4.3,
+                            "fontSize": "10.0pt (13.3333px)",
+                            "fontWeight": "bold",
+                            "messageKey": null,
+                            "expectedContrastRatio": "4.5:1"
+                          },
+                          "relatedNodes": [
+                            {
+                              "html": "<button class=\"refresh-btn\" onclick=\"loadData()\">\ud83d\udd04 Refresh Now</button>",
+                              "target": [
+                                "button"
+                              ]
+                            }
+                          ],
+                          "impact": "serious",
+                          "message": "Element has insufficient color contrast of 4.3 (foreground color: #ffffff, background color: #2980b9, font size: 10.0pt (13.3333px), font weight: bold). Expected contrast ratio of 4.5:1"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "serious",
+                      "html": "<button class=\"refresh-btn\" onclick=\"loadData()\">\ud83d\udd04 Refresh Now</button>",
+                      "target": [
+                        "button"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.3 (foreground color: #ffffff, background color: #2980b9, font size: 10.0pt (13.3333px), font weight: bold). Expected contrast ratio of 4.5:1"
+                    }
+                  ]
+                },
+                {
+                  "id": "region",
+                  "impact": "moderate",
+                  "tags": [
+                    "cat.keyboard",
+                    "best-practice",
+                    "RGAAv4",
+                    "RGAA-9.2.1"
+                  ],
+                  "description": "Ensure all page content is contained by landmarks",
+                  "help": "All page content should be contained by landmarks",
+                  "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=axeAPI",
+                  "nodes": [
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<h1>Proactive Monitoring Dashboard</h1>",
+                      "target": [
+                        "h1"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<p>Real-time monitoring with early anomaly detection for 3 applications</p>",
+                      "target": [
+                        ".header > p"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    },
+                    {
+                      "any": [
+                        {
+                          "id": "region",
+                          "data": {
+                            "isIframe": false
+                          },
+                          "relatedNodes": [],
+                          "impact": "moderate",
+                          "message": "Some page content is not contained by landmarks"
+                        }
+                      ],
+                      "all": [],
+                      "none": [],
+                      "impact": "moderate",
+                      "html": "<div>\n                    <strong>Last update:</strong> <span id=\"last-update\">3/20/2026, 4:40:41 PM</span>\n                    \u2022 <strong>Cycle:</strong> <span id=\"cycle-id\">20260320_143814</span>\n                </div>",
+                      "target": [
+                        ".meta > div"
+                      ],
+                      "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "fail",
+            "severity": "medium",
+            "message": "Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    }
+  ]
+}

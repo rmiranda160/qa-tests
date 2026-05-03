@@ -1,0 +1,66 @@
+{
+  "cycle_id": "20260321_143157",
+  "start_time": "2026-03-21T14:31:57Z",
+  "tests": [
+    {
+      "app": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "passed": true,
+          "details": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villanúa, Pirineo"
+        },
+        {
+          "mode": "responsive",
+          "passed": true,
+          "details": "Responsive test passed for https://dev1.cenarbe.com/. Screenshots: mobile, tablet, desktop"
+        },
+        {
+          "mode": "accessibility",
+          "passed": true,
+          "details": "Accessibility test passed for https://dev1.cenarbe.com/. Violations: 0"
+        }
+      ]
+    },
+    {
+      "app": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "passed": true,
+          "details": "Smoke test passed for https://contentoai.cenarbe.com/. Title: ContentoAI - Generador de Contenido IA en Español"
+        },
+        {
+          "mode": "responsive",
+          "passed": true,
+          "details": "Responsive test passed for https://contentoai.cenarbe.com/. Screenshots: mobile, tablet, desktop"
+        }
+      ]
+    },
+    {
+      "app": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "passed": true,
+          "details": "Smoke test passed for https://villazocotin.cenarbe.com/. Title: Villa Zocotin - Reservas Online"
+        },
+        {
+          "mode": "responsive",
+          "passed": true,
+          "details": "Responsive test passed for https://villazocotin.cenarbe.com/. Screenshots: mobile, tablet, desktop"
+        }
+      ]
+    }
+  ],
+  "coherence_test": {
+    "status": "skipped",
+    "reason": "Browser unavailable: timed out. Restart the OpenClaw gateway."
+  },
+  "critical_errors": [],
+  "alerts_sent": false,
+  "summary": "All tests passed. No critical errors."
+}

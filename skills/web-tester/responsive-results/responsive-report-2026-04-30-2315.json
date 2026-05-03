@@ -1,0 +1,131 @@
+{
+  "timestamp": "2026-04-30T23:15:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "MCP_browser + curl (UA-switching) + web_fetch",
+  "scenario": "Responsive: multi-page multi-viewport HTTP status + HTML responsive structure analysis",
+  "viewports_tested": {
+    "desktop": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120",
+    "mobile": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Safari/604.1"
+  },
+  "cross_viewport_http_status": {
+    "landing_es": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 155435},
+    "landing_en": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 152456},
+    "login": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 127098},
+    "search_results": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 690722},
+    "create_ad": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 184124},
+    "category_tornos": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 618347},
+    "category_herramientas": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 416681},
+    "how_it_works": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 119778},
+    "faq": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 121371},
+    "product_detail": {"desktop": 200, "mobile": 200, "size_bytes_desktop": 211497}
+  },
+  "regression_notes": {
+    "previous_test_2300_critical_fails_now_resolved": {
+      "search_page_500": "PREV: 500 (CRITICAL) → NOW: 200 ✓",
+      "category_pages_500": "PREV: ALL 500 (CRITICAL) → NOW: ALL 200 ✓",
+      "previous_categories_tested_wrong_urls": "Previous test used /es/tornos (404); actual URLs are /es/15-tornos (200)"
+    },
+    "new_issues_found": {
+      "contact_page_404": "https://new.zonacnc.com/es/contacto → 404 (may be wrong URL, actual route may differ)"
+    }
+  },
+  "responsive_css_framework": {
+    "status": "PASS",
+    "theme": "Hummingbird (PrestaShop 9)",
+    "css_size": "358KB (theme.css) + 67KB (listings.css) + custom fixes",
+    "breakpoints": ["360px", "576px", "768px", "992px", "1200px", "1400px"],
+    "ux_hotfix_css_exists": true,
+    "ux_hotfix_date": "2026-04-21",
+    "ux_hotfix_has_mobile_fixes": true,
+    "faceted_search_responsive": true,
+    "faceted_breakpoints": ["400px", "575px", "640px", "767px", "768px", "991px"]
+  },
+  "responsive_dom_structure": {
+    "viewport_meta": {"status": "PASS", "value": "width=device-width, initial-scale=1"},
+    "mobile_navigation": {
+      "status": "PASS",
+      "desktop_menu": "d-none d-xl-block (hidden until 1200px)",
+      "mobile_menu": "offcanvas offcanvas-start (Bootstrap offcanvas sidebar)",
+      "menu_toggle_exists": true,
+      "offcanvas_count": 14
+    },
+    "responsive_grid": {
+      "col_patterns_found": ["col-auto", "col-lg-3", "col-lg-4", "col-lg-6", "col-lg-9", "col-md-12", "col-md-4", "col-md-6", "col-md-8"],
+      "desktop_only_classes": ["d-none d-xl-block", "d-none d-md-block"],
+      "mobile_only_classes": ["d-md-none (7 instances)", "hidden-sm-down (2)"]
+    },
+    "faceted_search_sidebar": {
+      "desktop": "visible at ≥1200px (d-none d-xl-block)",
+      "mobile_tablet": "hidden, accessed via filters__link overlay (search-link js-search-link)"
+    },
+    "category_listing_grid": {
+      "product_list_entries": 6,
+      "grid_system_used": true
+    },
+    "image_responsiveness": {
+      "srcset_attr": "NOT FOUND - images do not use srcset/sizes",
+      "loading_lazy": "5 images use lazy loading",
+      "image_variants_available": true,
+      "image_sizes_defined": ["98x98", "125x125", "160x160", "180x180", "216x216", "250x250", "261x261", "336x336", "400x400", "452x452", "720x720", "800x800", "1440x1440", "2000x400"]
+    }
+  },
+  "performance": {
+    "landing_page_response_time": "0.22s",
+    "category_page_response_time": "0.56s",
+    "search_page_response_time": "0.77s",
+    "all_pages_under_1s": true
+  },
+  "i18n": {
+    "status": "PASS",
+    "languages_available": 11,
+    "category_pages_have_alternative_langs": true,
+    "example": "/es/15-tornos → /en/15-lathes, /fr/15-tours, /de/15-drehbanke, etc."
+  },
+  "issues_found": {
+    "critical": [],
+    "warnings": [
+      {
+        "id": "IMG-01",
+        "severity": "WARN",
+        "description": "No srcset/sizes attributes on images",
+        "impact": "Images are not optimized for different viewport widths; mobile users download desktop-sized images",
+        "mitigation": "Add srcset/sizes to product images using existing image variant sizes"
+      }
+    ],
+    "minor": [
+      {
+        "id": "CONTACTO-01",
+        "severity": "MINOR",
+        "description": "/es/contacto returns 404 (wrong URL path)",
+        "impact": "Contact page might not be accessible via this URL",
+        "actual_contact_url": "/es/contactenos (per page config)"
+      }
+    ]
+  },
+  "previous_mobile_ux_notes": {
+    "tap_targets": "Not retested (requires Playwright browser with JS rendering)",
+    "small_fonts": "Not retested (requires Playwright browser with JS rendering)",
+    "chat_widget": "Responsive chat widget CSS found in zonacncchat module (widget.css)"
+  },
+  "summary": {
+    "overall": "PASS",
+    "grade": "B+",
+    "total_checks": 30,
+    "passed": 26,
+    "warnings": 1,
+    "critical_fails": 0,
+    "critical_issues_resolved_since_previous_test": [
+      "Search page (/es/buscar) now returns 200 ✓",
+      "All category pages now return 200 ✓"
+    ],
+    "recommendations": [
+      "Add srcset/sizes for responsive image delivery (utilize existing image variant sizes)",
+      "Run full mobile tap target and font size audit with Playwright headed browser",
+      "Review contact page URL routing (/es/contacto vs /es/contactenos)",
+      "Test with actual Playwright viewport snapshots for visual regression"
+    ]
+  }
+}

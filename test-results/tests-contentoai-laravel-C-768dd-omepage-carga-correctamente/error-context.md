@@ -1,0 +1,44 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "¡HOLA MUNDO!" [level=1] [ref=e3]
+    - paragraph [ref=e4]: ContentoAI - Deploy automático funcionando ✅
+    - paragraph [ref=e5]: "Fecha: 2026-03-20 17:59:04"
+  - generic [ref=e6]: ✅ ContentoAI - Deploy funcionando correctamente - 2026-03-20 17:59
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - heading "Let's get started" [level=1] [ref=e10]
+      - paragraph [ref=e11]:
+        - text: With so many options available to you,
+        - text: "we suggest you start with the following:"
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - generic [ref=e17]:
+            - text: Read the
+            - link "Documentation" [ref=e18] [cursor=pointer]:
+              - /url: https://laravel.com/docs
+              - generic [ref=e19]: Documentation
+              - img [ref=e20]
+        - listitem [ref=e22]:
+          - generic [ref=e26]:
+            - text: Watch video tutorials at
+            - link "Laracasts" [ref=e27] [cursor=pointer]:
+              - /url: https://laracasts.com
+              - generic [ref=e28]: Laracasts
+              - img [ref=e29]
+      - list [ref=e31]:
+        - listitem [ref=e32]:
+          - link "Deploy now" [ref=e33] [cursor=pointer]:
+            - /url: https://cloud.laravel.com
+      - paragraph [ref=e34]:
+        - text: v12.55.1
+        - link "View changelog" [ref=e35] [cursor=pointer]:
+          - /url: https://github.com/laravel/laravel/blob/13.x/CHANGELOG.md
+          - generic [ref=e36]: View changelog
+          - img [ref=e37]
+    - generic [ref=e39]:
+      - img [ref=e40]
+      - img [ref=e48]
+```

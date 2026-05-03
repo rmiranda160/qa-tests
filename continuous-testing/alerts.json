@@ -1,0 +1,449 @@
+[
+  {
+    "timestamp": "2026-03-19T08:33:29.883755",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773909206125",
+    "cycle_id": "20260319_083319"
+  },
+  {
+    "timestamp": "2026-03-19T08:33:44.329599",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773909219378",
+    "cycle_id": "20260319_083319"
+  },
+  {
+    "timestamp": "2026-03-19T08:48:12.260055",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773910088505",
+    "cycle_id": "20260319_084801"
+  },
+  {
+    "timestamp": "2026-03-19T08:48:26.260404",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773910101387",
+    "cycle_id": "20260319_084801"
+  },
+  {
+    "timestamp": "2026-03-19T08:58:48.626629",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773910724663",
+    "cycle_id": "20260319_085837"
+  },
+  {
+    "timestamp": "2026-03-19T08:59:02.665438",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773910737601",
+    "cycle_id": "20260319_085837"
+  },
+  {
+    "timestamp": "2026-03-19T09:28:19.324636",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773912494710",
+    "cycle_id": "20260319_092807"
+  },
+  {
+    "timestamp": "2026-03-19T09:28:33.962731",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773912509090",
+    "cycle_id": "20260319_092807"
+  },
+  {
+    "timestamp": "2026-03-19T09:33:34.512331",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773912810723",
+    "cycle_id": "20260319_093323"
+  },
+  {
+    "timestamp": "2026-03-19T09:33:48.656784",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773912823845",
+    "cycle_id": "20260319_093323"
+  },
+  {
+    "timestamp": "2026-03-19T09:39:18.971290",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773913154999",
+    "cycle_id": "20260319_093908"
+  },
+  {
+    "timestamp": "2026-03-19T09:39:33.006999",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773913168064",
+    "cycle_id": "20260319_093908"
+  },
+  {
+    "timestamp": "2026-03-19T09:48:23.789491",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773913699921",
+    "cycle_id": "20260319_094812"
+  },
+  {
+    "timestamp": "2026-03-19T09:48:37.905582",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773913712941",
+    "cycle_id": "20260319_094812"
+  },
+  {
+    "timestamp": "2026-03-19T10:03:21.463940",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773914597552",
+    "cycle_id": "20260319_100310"
+  },
+  {
+    "timestamp": "2026-03-19T10:03:35.378313",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773914610516",
+    "cycle_id": "20260319_100310"
+  },
+  {
+    "timestamp": "2026-03-19T10:12:14.728798",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773915130924",
+    "cycle_id": "20260319_101203"
+  },
+  {
+    "timestamp": "2026-03-19T10:12:28.983867",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773915144128",
+    "cycle_id": "20260319_101203"
+  },
+  {
+    "timestamp": "2026-03-19T10:25:27.995570",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773915924242",
+    "cycle_id": "20260319_102517"
+  },
+  {
+    "timestamp": "2026-03-19T10:25:41.763224",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773915936996",
+    "cycle_id": "20260319_102517"
+  },
+  {
+    "timestamp": "2026-03-19T10:31:41.770015",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773916297555",
+    "cycle_id": "20260319_103130"
+  },
+  {
+    "timestamp": "2026-03-19T10:31:56.569732",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773916311363",
+    "cycle_id": "20260319_103130"
+  },
+  {
+    "timestamp": "2026-03-19T10:36:44.600259",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773916600878",
+    "cycle_id": "20260319_103634"
+  },
+  {
+    "timestamp": "2026-03-19T10:36:58.614447",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773916613724",
+    "cycle_id": "20260319_103634"
+  },
+  {
+    "timestamp": "2026-03-19T10:47:33.309807",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773917249251",
+    "cycle_id": "20260319_104722"
+  },
+  {
+    "timestamp": "2026-03-19T10:47:47.381573",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773917262405",
+    "cycle_id": "20260319_104722"
+  },
+  {
+    "timestamp": "2026-03-19T11:06:48.349651",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773918404533",
+    "cycle_id": "20260319_110637"
+  },
+  {
+    "timestamp": "2026-03-19T11:07:02.443131",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773918417490",
+    "cycle_id": "20260319_110637"
+  },
+  {
+    "timestamp": "2026-03-19T14:08:49.825881",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773929325483",
+    "cycle_id": "20260319_140838"
+  },
+  {
+    "timestamp": "2026-03-19T14:09:04.170570",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773929338956",
+    "cycle_id": "20260319_140838"
+  },
+  {
+    "timestamp": "2026-03-19T15:13:24.417488",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773933200343",
+    "cycle_id": "20260319_151313"
+  },
+  {
+    "timestamp": "2026-03-19T15:14:10.771145",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773933246922",
+    "cycle_id": "20260319_151400"
+  },
+  {
+    "timestamp": "2026-03-19T15:14:24.473175",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773933259520",
+    "cycle_id": "20260319_151400"
+  },
+  {
+    "timestamp": "2026-03-19T16:18:42.274271",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "critical",
+    "title": "CRITICAL - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test failures detected. See results at /app/results/1773937118611",
+    "cycle_id": "20260319_161831"
+  },
+  {
+    "timestamp": "2026-03-19T16:18:56.537450",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773937131616",
+    "cycle_id": "20260319_161831"
+  },
+  {
+    "timestamp": "2026-03-19T17:23:44.428705",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773941019661",
+    "cycle_id": "20260319_172320"
+  },
+  {
+    "timestamp": "2026-03-19T18:28:48.081841",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773944923144",
+    "cycle_id": "20260319_182823"
+  },
+  {
+    "timestamp": "2026-03-19T20:42:22.625486",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773952937781",
+    "cycle_id": "20260319_204157"
+  },
+  {
+    "timestamp": "2026-03-19T21:46:35.831453",
+    "application": "Villa Zocotin",
+    "url": "https://villazocotin.cenarbe.com/",
+    "mode": "responsive",
+    "severity": "high",
+    "title": "HIGH - Villa Zocotin responsive test failed",
+    "message": "Test failures detected. See results at /app/results/1773956790915",
+    "cycle_id": "20260319_214611"
+  },
+  {
+    "timestamp": "2026-03-20T16:26:18.130979",
+    "application": "Cenarbe Bike Rental",
+    "url": "https://dev1.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "high",
+    "title": "HIGH - Cenarbe Bike Rental accessibility test failed",
+    "message": "Test execution failed",
+    "cycle_id": "20260320_162614",
+    "screenshot_paths": []
+  },
+  {
+    "timestamp": "2026-03-20T16:26:24.139927",
+    "application": "ContentoAI",
+    "url": "https://cntai.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "high",
+    "title": "HIGH - ContentoAI accessibility test failed",
+    "message": "Test execution failed",
+    "cycle_id": "20260320_162614",
+    "screenshot_paths": []
+  },
+  {
+    "timestamp": "2026-03-20T16:26:29.747462",
+    "application": "Dashboard",
+    "url": "https://dashboard.cenarbe.com/",
+    "mode": "accessibility",
+    "severity": "high",
+    "title": "HIGH - Dashboard accessibility test failed",
+    "message": "Test execution failed",
+    "cycle_id": "20260320_162614",
+    "screenshot_paths": []
+  },
+  {
+    "timestamp": "2026-03-20T20:19:24.386075",
+    "application": "Calendario Cenarbe",
+    "url": "https://dev1.cenarbe.com/calendario/",
+    "mode": "api",
+    "severity": "high",
+    "title": "HIGH - Calendario Cenarbe api test failed",
+    "message": "Test execution failed",
+    "cycle_id": "20260320_201920",
+    "screenshot_paths": []
+  },
+  {
+    "timestamp": "2026-03-22T07:44:00.000Z",
+    "application": "ContentoAI",
+    "url": "https://cntai.cenarbe.com/",
+    "mode": "coherence",
+    "severity": "critical",
+    "title": "CRITICAL - ContentoAI HTTP 500 Internal Server Error",
+    "message": "ContentoAI returns HTTP 500 Internal Server Error. Possible syntax error in routes/web.php line 42. Page shows \"Internal Server Error\" with ParseError.",
+    "cycle_id": "20260322_074310",
+    "screenshot_paths": [
+      "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-22T07-43-53-452Z.png"
+    ]
+  }
+]

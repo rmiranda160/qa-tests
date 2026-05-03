@@ -1,0 +1,22 @@
+{
+  "timestamp": "20260319_230303",
+  "summary": {
+    "total_applications": 3,
+    "total_findings": 1,
+    "critical_errors": 1,
+    "high_errors": 0,
+    "medium_errors": 0,
+    "low_errors": 0
+  },
+  "findings": [
+    {
+      "application": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com//api/submit_waitlist.php",
+      "mode": "critical_path",
+      "severity": "critical",
+      "issue": "Test execution failed for https://contentoai.cenarbe.com//api/submit_waitlist.php (smoke): ",
+      "timestamp": "2026-03-19T23:02:54.771936"
+    }
+  ],
+  "alert_required": true
+}

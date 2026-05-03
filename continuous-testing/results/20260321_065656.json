@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-03-21T06:56:56Z",
+  "summary": {
+    "total_applications": 4,
+    "total_findings": 2,
+    "critical_errors": 1,
+    "high_errors": 0,
+    "medium_errors": 1,
+    "low_errors": 0
+  },
+  "findings": [
+    {
+      "application": "Continuous Testing System",
+      "url": "N/A",
+      "mode": "infrastructure",
+      "severity": "critical",
+      "issue": "El servicio qa-tester no está disponible (host qa-tester no resuelve). El skill web-tester no puede ejecutar pruebas. El cron job ha fallado 10 veces consecutivas.",
+      "timestamp": "2026-03-21T06:56:56Z"
+    },
+    {
+      "application": "Browser Testing",
+      "url": "N/A",
+      "mode": "infrastructure",
+      "severity": "medium",
+      "issue": "El navegador controlado por OpenClaw no está disponible (timeout al iniciar). No se pueden ejecutar pruebas de coherencia usando navegador.",
+      "timestamp": "2026-03-21T06:56:56Z"
+    }
+  ],
+  "connectivity_check": {
+    "applications": [
+      {
+        "name": "Cenarbe Bike Rental",
+        "url": "https://dev1.cenarbe.com/",
+        "http_status": 200,
+        "accessible": true,
+        "notes": "Responde OK"
+      },
+      {
+        "name": "Calendario Cenarbe",
+        "url": "https://dev1.cenarbe.com/calendario/",
+        "http_status": 302,
+        "accessible": false,
+        "notes": "Redirección (posiblemente requiere login)"
+      },
+      {
+        "name": "ContentoAI",
+        "url": "https://cntai.cenarbe.com/",
+        "http_status": 200,
+        "accessible": true,
+        "notes": "Responde OK"
+      },
+      {
+        "name": "Dashboard",
+        "url": "https://dashboard.cenarbe.com/",
+        "http_status": 200,
+        "accessible": true,
+        "notes": "Responde OK"
+      }
+    ]
+  },
+  "alert_required": true,
+  "alert_reason": "Error crítico en infraestructura de testing: qa-tester no disponible. Las pruebas continuas no se pueden ejecutar."
+}

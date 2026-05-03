@@ -1,0 +1,38 @@
+{
+  "timestamp": "20260319_084107",
+  "summary": {
+    "total_applications": 3,
+    "total_findings": 3,
+    "critical_errors": 3,
+    "high_errors": 0,
+    "medium_errors": 0,
+    "low_errors": 0
+  },
+  "findings": [
+    {
+      "application": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "mode": "accessibility",
+      "severity": "critical",
+      "issue": "Test execution failed for https://dev1.cenarbe.com/ (accessibility): ",
+      "timestamp": "2026-03-19T08:40:30.830599"
+    },
+    {
+      "application": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com//api/submit_waitlist.php",
+      "mode": "critical_path",
+      "severity": "critical",
+      "issue": "Test execution failed for https://contentoai.cenarbe.com//api/submit_waitlist.php (smoke): ",
+      "timestamp": "2026-03-19T08:40:57.735854"
+    },
+    {
+      "application": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "mode": "responsive",
+      "severity": "critical",
+      "issue": "Test execution failed for https://villazocotin.cenarbe.com/ (responsive): ",
+      "timestamp": "2026-03-19T08:41:04.886152"
+    }
+  ],
+  "alert_required": true
+}

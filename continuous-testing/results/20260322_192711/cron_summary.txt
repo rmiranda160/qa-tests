@@ -1,0 +1,31 @@
+Ciclo de testing continuo completado (2026-03-22 19:27:11 UTC)
+
+APLICACIONES EVALUADAS:
+1. Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+   - Smoke test: PASS
+   - Accessibility: PASS (0 violaciones)
+
+2. ContentoAI (https://contentoai.cenarbe.com/)
+   - Smoke test: PASS
+   - Accessibility: FAIL (4 violaciones)
+     * CRÍTICO: select-name (select sin nombre accesible) - impacto critical
+     * Serious: color-contrast (22 instancias)
+     * Serious: link-name (4 instancias)
+     * Moderate: heading-order (2 instancias)
+
+3. Villazocotin (https://villazocotin.cenarbe.com/)
+   - Smoke test: PASS
+   - Accessibility: FAIL (3 violaciones)
+     * Serious: color-contrast (58 instancias)
+     * Moderate: landmark-one-main
+     * Moderate: region (6 instancias)
+
+ERRORES CRÍTICOS: SÍ (ContentoAI - select-name critical)
+
+ALERTA ENVIADA al agente coordinator.
+
+REPORTE COMPLETO: /home/node/.openclaw/workspace-tester/continuous-testing/results/20260322_192711/summary.md
+
+Testing de coherencia (navegador): No ejecutado (browser tool no disponible).
+
+CONCLUSIÓN: ContentoAI requiere corrección urgente de accesibilidad crítica.

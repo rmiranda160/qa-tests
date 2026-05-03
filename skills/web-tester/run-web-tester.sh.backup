@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+URL="${1:-}"
+MODE="${2:-smoke}"
+
+if [ -z "$URL" ]; then
+  echo "Falta URL"
+  exit 1
+fi
+
+curl -sS -X POST http://qa-tester:8080/run \
+  -H 'Content-Type: application/json' \
+  -d "{
+    \"url\": \"${URL}\",
+    \"mode\": \"${MODE}\",
+    \"data\": \"dummy=test\",
+    \"viewports\": [
+      {\"name\":\"mobile\",\"width\":390,\"height\":844},
+      {\"name\":\"tablet\",\"width\":768,\"height\":1024},
+      {\"name\":\"desktop\",\"width\":1440,\"height\":900}
+    ]
+  }"

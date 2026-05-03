@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-02T07:15:00Z",
+  "agent": "tester",
+  "focus": "responsive",
+  "scenario": "Search Results page — 3,436 product listings grid, filter sidebar drawer, pagination, breadcrumb, facet filters, header/footer",
+  "url": "https://new.zonacnc.com/es/buscar?s=CNC",
+  "antiDupe": true,
+  "verdict": "PASS_WITH_NOTES",
+  "viewports": {
+    "desktop": { "width": 1440, "height": 900, "status": "PASS", "overflow": false, "products": 14, "filterVisible": true },
+    "tablet": { "width": 768, "height": 1024, "status": "PASS", "overflow": false, "products": 14, "filterToggle": true },
+    "mobile": { "width": 375, "height": 812, "status": "PASS", "overflow": false, "products": 14, "filterDrawer": true }
+  },
+  "warnings": [
+    { "id": "SRC-TAP-01", "severity": "MEDIUM", "description": "Nav link 'Categorías' at 37px height on mobile (7px below 44px WCAG)" },
+    { "id": "SRC-TAP-02", "severity": "MEDIUM", "description": "'★ Guardar búsqueda' button at 29px height on mobile (15px below 44px WCAG)" },
+    { "id": "SRC-TAP-03", "severity": "MEDIUM", "description": "Filter sidebar close button '×' at 19x28px on mobile (far below 44px minimum)" },
+    { "id": "SRC-TAP-04", "severity": "MEDIUM", "description": "'Mostrar N más' facet buttons at 34px height on mobile (10px below 44px)" },
+    { "id": "SRC-TAP-05", "severity": "LOW", "description": "'Filtros' button at 42px height on mobile (borderline, 2px below 44px)" },
+    { "id": "SRC-TAP-06", "severity": "LOW", "description": "Cookie notice 'Cancelar' at 38px, 'Aceptar y cerrar' at 38px on mobile" },
+    { "id": "SRC-TAP-07", "severity": "LOW", "description": "Footer accordion toggle buttons at 24-26px height" },
+    { "id": "SRC-TAP-08", "severity": "LOW", "description": "Footer nav text links at 20-24px (secondary navigation, breadcrumb)" }
+  ],
+  "positives": [
+    "Filter sidebar drawer slides in/out correctly on mobile (zcnc-sidebar open/close)",
+    "No horizontal overflow at any breakpoint",
+    "All 14 products render correctly at all viewport sizes",
+    "Pagination fully visible and navigable at all sizes",
+    "Breadcrumb truncates naturally on mobile",
+    "Chat button meets WCAG tap target (60x60px)",
+    "Main action buttons 'Buscar' filter (40px) and 'Enviar solicitud' (44px) are adequate"
+  ],
+  "reportFile": "qa/responsive-search-results-2026-05-02-0715.md",
+  "durationMinutes": 5
+}

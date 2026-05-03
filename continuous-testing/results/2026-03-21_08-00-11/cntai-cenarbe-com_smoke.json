@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "stdout": "Smoke test passed for https://cntai.cenarbe.com/. Title: Laravel",
+  "stderr": "",
+  "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+  "rawResult": {
+    "ok": true,
+    "title": "Laravel"
+  }
+}

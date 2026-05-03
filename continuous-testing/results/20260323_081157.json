@@ -1,0 +1,30 @@
+{
+  "timestamp": "20260323_081157",
+  "summary": {
+    "total_applications": 5,
+    "total_findings": 2,
+    "critical_errors": 0,
+    "high_errors": 0,
+    "medium_errors": 2,
+    "low_errors": 0
+  },
+  "findings": [
+    {
+      "application": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "mode": "accessibility",
+      "severity": "medium",
+      "issue": "Accessibility violations for https://dashboard.cenarbe.com/: Accessibility test failed for https://dashboard.cenarbe.com/. Violations: 2",
+      "timestamp": "2026-03-23T08:11:54.791955"
+    },
+    {
+      "application": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com",
+      "mode": "accessibility",
+      "severity": "medium",
+      "issue": "Accessibility violations for https://villazocotin.cenarbe.com: Accessibility test failed for https://villazocotin.cenarbe.com. Violations: 3",
+      "timestamp": "2026-03-23T08:11:57.364775"
+    }
+  ],
+  "alert_required": false
+}

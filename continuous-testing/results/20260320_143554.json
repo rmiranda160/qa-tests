@@ -1,0 +1,25 @@
+{
+  "cycle_id": "20260320_143554",
+  "start_time": "2026-03-20T14:35:54.176659",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

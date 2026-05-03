@@ -1,0 +1,18 @@
+{
+  "id": "res_1773995607387_demo_test",
+  "userId": "test_user_1773995607386_demo_test",
+  "bikeType": "Híbrida",
+  "location": "Canfranc",
+  "startDate": "2026-03-21",
+  "endDate": "2026-03-24",
+  "durationDays": 3,
+  "pricePerDay": 45,
+  "totalPrice": 135,
+  "status": "pending",
+  "createdAt": "2026-03-20T08:33:27.387Z",
+  "testId": "demo_test",
+  "metadata": {
+    "isTestData": true,
+    "canBeDeleted": true
+  }
+}

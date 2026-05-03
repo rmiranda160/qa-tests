@@ -1,0 +1,18 @@
+FACTURA FACT-2026-011
+
+Cliente: División Informática
+Proveedor: Agencia de Viajes Delta
+División: turismo
+Fecha: 2026-02-17
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 1714 €
+IVA (21%): 455 €
+Total: 2169 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-02-17
+

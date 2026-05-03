@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-05-01T00:45:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "curl + dual-User-Agent switching + HTML analysis",
+  "scenario": "Responsive: 10 pages × 2 viewports (desktop + mobile) HTTP status, size, response time + responsive structure + i18n/hreflang + correct URL discovery for 404 pages",
+  "anti_duplicate_note": "Focus on aspects NOT covered by Apr-30 23:15 test: English site verification, CSS-driven vs server-side rendering detection, correct CMS/route URL discovery for 404 pages, hreflang audit, EN category mapping",
+  "cross_viewport_http_status": {
+    "landing_es":         {"desktop": 200, "mobile": 200, "size_bytes": 155514, "time_desktop_s": 1.386, "time_mobile_s": 1.624},
+    "landing_en":         {"desktop": 200, "mobile": 200, "size_bytes": 152535, "time_desktop_s": 2.149, "time_mobile_s": 1.493},
+    "login":              {"desktop": 200, "mobile": 200, "size_bytes": 127177, "time_desktop_s": 0.886, "time_mobile_s": 0.949},
+    "search_results":     {"desktop": 200, "mobile": 200, "size_bytes": 690929, "time_desktop_s": 2.321, "time_mobile_s": 1.742},
+    "category_tornos":    {"desktop": 200, "mobile": 200, "size_bytes": 618426, "time_desktop_s": 1.380, "time_mobile_s": 0.973},
+    "category_herramientas": {"desktop": 200, "mobile": 200, "size_bytes": 586827, "time_desktop_s": 1.409, "time_mobile_s": 1.876},
+    "category_fresadoras":   {"desktop": 200, "mobile": 200, "size_bytes": 431287, "time_desktop_s": 1.875, "time_mobile_s": 1.171},
+    "faq_route":          {"desktop": 404, "mobile": 404, "size_bytes": 118233, "note": "URL /es/faq → 404. Correct: /es/content/4-como-funciona (redirects 301)"},
+    "como_funciona_route":{"desktop": 404, "mobile": 404, "size_bytes": 118303, "note": "URL /es/como-funciona → 404. Correct: /es/content/1-como-funciona redirects 301"},
+    "create_ad_route":    {"desktop": 404, "mobile": 404, "size_bytes": 118303, "note": "URL /es/crear-anuncio → 404. Vendor add module routes not publicly accessible"}
+  },
+  "server_side_vs_css_responsive": {
+    "detection_method": "Same HTML served to desktop and mobile User-Agents (identical byte sizes per page)",
+    "conclusion": "CSS-driven responsive design (no server-side rendering per UA)",
+    "status": "PASS - CSS-driven responsive is standard for SPA/PrestaShop themes"
+  },
+  "responsive_structure_analysis": {
+    "viewport_meta": {"status": "PASS", "value": "width=device-width, initial-scale=1"},
+    "css_framework": "Bootstrap 5 grid (col-sm/md/lg/xl) + Hummingbird theme",
+    "bootstrap_grid_classes_found": ["col-lg-3", "col-lg-4", "col-lg-6", "col-md-12", "col-md-4", "col-md-6", "col-md-8"],
+    "offcanvas_mobile_nav": {"status": "PASS", "count": 9, "component": "Bootstrap offcanvas-start"},
+    "srcset_images": {"status": "WARN", "count": 0, "note": "No srcset/sizes attributes on img tags - mobile users download full-size images"},
+    "lazy_loaded_images": {"status": "PASS", "count": 5},
+    "total_css_files": 23,
+    "total_js_files": 4
+  },
+  "i18n_and_hreflang": {
+    "status": "PASS",
+    "languages_discovered": 12,
+    "hreflang_tags": ["ca-es", "de-de", "en-us", "es-es", "eu-es", "fr-fr", "gl-es", "it-it", "pt-pt", "ru-ru", "tr-tr", "x-default"],
+    "english_site_verified": {
+      "landing_en": "200 OK ✓",
+      "en_contact_us": "200 OK ✓",
+      "en_login": "200 OK ✓",
+      "en_15_lathes": "200 OK ✓",
+      "en_16_tools_redirects_to": "16-milling-machines (200 OK ✓)",
+      "en_17_milling_machines_redirects_to": "17-drills (200 OK ✓)"
+    }
+  },
+  "issues_found": {
+    "critical": [],
+    "warnings": [
+      {
+        "id": "ROUTES-404",
+        "severity": "WARN",
+        "description": "3 friendly URLs return 404 instead of 200 or 301 redirect",
+        "urls": [
+          "/es/faq → 404 (correct route: /es/content/4-como-funciona → 200)",
+          "/es/como-funciona → 404 (correct route: /es/content/1-como-funciona → 301→200)",
+          "/es/crear-anuncio → 404 (vendor add route may need correct path)"
+        ],
+        "impact": "Users following expected friendly URLs will hit error pages",
+        "recommendation": "Register friendly URL rewrites in PrestaShop SEO & URLs tab for these routes, or ensure proper 301 redirects from friendly URLs to CMS pages"
+      },
+      {
+        "id": "IMG-01",
+        "severity": "WARN",
+        "description": "Responsive images: no srcset/sizes attributes",
+        "impact": "Mobile users download full desktop-size images (wasted bandwidth)",
+        "recommendation": "Add srcset to product images using existing image variant sizes (98x98 through 1440x1440)"
+      }
+    ],
+    "minor": [
+      {
+        "id": "EN-TOOLS-REDIRECT",
+        "severity": "MINOR",
+        "description": "/en/16-tools redirects to /en/16-milling-machines (category name mismatch ES→EN)",
+        "note": "Functional but confusing; user expecting 'tools' gets 'milling machines'"
+      }
+    ]
+  },
+  "performance": {
+    "desktop_avg_response_s": 1.30,
+    "desktop_max_response_s": 2.32,
+    "mobile_avg_response_s": 1.20,
+    "mobile_max_response_s": 1.88,
+    "all_pages_under_1s": false,
+    "note": "Search and category pages exceed 1s (heavy listing content). Still within acceptable range for PHP/PrestaShop sites",
+    "mobile_vs_desktop": "Mobile responses are generally faster (less JS processing, simpler rendering path in curl test)"
+  },
+  "summary": {
+    "overall": "PASS_WITH_NOTES",
+    "grade": "B+",
+    "total_checks_completed": 12,
+    "pages_all_200": "7/10 core pages return 200 for both viewports",
+    "pages_404": "3/10 (friendly URL routes not registered)",
+    "warnings": 2,
+    "critical_fails": 0,
+    "new_findings": [
+      "All 3 previously flagged 404 routes (faq, como-funciona, crear-anuncio) still unresolved",
+      "English site fully operational: en/15-lathes, en/contact-us, en/login verified 200",
+      "CSS-driven responsive design confirmed (identical HTML for desktop/mobile)",
+      "Sprite hreflang coverage: 12 languages + x-default"
+    ],
+    "recommendations": [
+      "Register friendly URL rewrites in PrestaShop SEO for: /faq, /como-funciona, /crear-anuncio",
+      "Add srcset/sizes for responsive image delivery using existing image variants",
+      "Verify /en/16-tools redirect maps correctly (currently → milling-machines, should match ES 'herramientas' → 'tools')",
+      "Next step: Run actual Playwright visual screenshot test with browser re-enabled for tap-target audit",
+      "Monitor mobile response times on search category pages (>1.5s on heavy listings)"
+    ]
+  }
+}

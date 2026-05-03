@@ -1,0 +1,35 @@
+🔍 INICIANDO PRUEBAS DIARIAS DE COHERENCIA
+============================================================
+🔐 Iniciando sesión en Cenarbe...
+
+🧪 Probando: Botón "Mis Reservas" → Página de reservas
+   ❌ INCOHERENTE: Botón "Mis Reservas" → Página de reservas
+      Errores: Contenido faltante: No se encontró "booking" en la página, Contenido faltante: No se encontró "fecha" en la página
+
+🧪 Probando: Botón "Mi Perfil" → Página de perfil
+
+🧪 Probando: Botón "Historial" → Historial de actividades
+
+🧪 Probando: Enlace "Configuración" → Opciones de configuración
+
+🧪 Probando: Menú "Ayuda" → Página de ayuda/soporte
+
+📊 Reporte de coherencia guardado: /home/node/.openclaw/workspace-tester/coherence-reports/coherence-report-2026-03-20T18-17-24-956Z.json
+📋 Resumen: 0 pasados, 2 fallados
+🚨 Screenshot de incoherencia preparado para alerta: /home/node/.openclaw/workspace-coordinator/incoherence-2026-03-20T18-17-24-956Z.png
+
+============================================================
+📈 RESUMEN PRUEBAS DE COHERENCIA
+============================================================
+Aplicación: Cenarbe Bike Rental
+Total pruebas: 5
+✅ Coherentes: 0
+❌ Incoherentes: 2
+
+🚨 INCOHERENCIAS DETECTADAS:
+   1. Botón "Mis Reservas" → Página de reservas
+      - Contenido faltante: No se encontró "booking" en la página
+      - Contenido faltante: No se encontró "fecha" en la página
+
+📤 Screenshot preparado en workspace raíz para alerta
+============================================================

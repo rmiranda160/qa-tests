@@ -1,0 +1,17 @@
+{
+  "name": "temp_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "lighthouse": "^13.0.3",
+    "playwright": "^1.58.2"
+  }
+}

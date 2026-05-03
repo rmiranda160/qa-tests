@@ -1,0 +1,18 @@
+FACTURA FACT-2026-019
+
+Cliente: Miranda (CEO)
+Proveedor: Consultoría Zeta
+División: turismo
+Fecha: 2026-01-12
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 2612 €
+IVA (21%): 694 €
+Total: 3306 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-01-12
+

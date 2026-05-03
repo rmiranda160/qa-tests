@@ -1,0 +1,1 @@
+{"ok":true,"runId":"1773912087472","mode":"smoke","stdout":"\n> qa-tester@1.0.0 test:smoke\n> playwright test tests/smoke.spec.js\n\n\nRunning 1 test using 1 worker\n\n  ✓  1 tests/smoke.spec.js:5:1 › smoke: homepage carga (968ms)\n\n  1 passed (1.7s)\n","stderr":"","resultsDir":"/app/results/1773912087472"}

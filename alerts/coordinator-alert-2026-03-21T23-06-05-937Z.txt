@@ -1,0 +1,24 @@
+🚨 ALERTA DE INCOHERENCIA UI
+
+Aplicación: Cenarbe Bike Rental
+Fecha: 3/21/2026, 11:06:05 PM
+
+📊 RESULTADOS:
+✅ Pruebas coherentes: 1
+❌ Pruebas incoherentes: 4
+
+🚨 INCOHERENCIAS DETECTADAS:
+1. Botón "Mi Perfil" → Página de perfil
+   - Título incoherente: Esperaba "perfil" en título, pero es "cenarbe bike rental - inicio - alquiler de bicicletas en villanúa, pirineo"
+   - Contenido faltante: No se encontró "datos" en la página
+
+📸 Screenshot disponible en workspace raíz:
+   /home/node/.openclaw/workspace-coordinator/incoherence-2026-03-21T23-06-05-937Z.png
+
+📁 Reporte completo: /home/node/.openclaw/workspace-tester/coherence-reports/coherence-report-2026-03-21T23-06-05-937Z.json
+
+🔧 ACCIÓN REQUERIDA:
+1. Revisar las incoherencias detectadas
+2. Verificar la UI de Cenarbe Bike Rental
+3. Corregir los elementos incoherentes
+4. Re-ejecutar pruebas de coherencia

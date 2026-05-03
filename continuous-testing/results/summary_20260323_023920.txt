@@ -1,0 +1,42 @@
+CONTINUOUS TESTING CYCLE REPORT
+===============================
+Cycle ID: 20260323_023657
+Start Time: 2026-03-23T02:36:57.254986
+
+Web Testing Modes: 11/14 passed, 3 failed.
+
+FAILURES (Web Testing):
+  - ContentoAI (accessibility): severity medium
+    Message: Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results
+    Violation: color-contrast - Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds
+    Violation: region - Ensure all page content is contained by landmarks
+  - Dashboard (accessibility): severity medium
+    Message: Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results
+    Violation: color-contrast - Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds
+    Violation: region - Ensure all page content is contained by landmarks
+  - Villa Zocotin (accessibility): severity medium
+    Message: Test failures detected. See results at /home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results
+    Violation: color-contrast - Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds
+    Violation: landmark-one-main - Ensure the document has a main landmark
+    Violation: region - Ensure all page content is contained by landmarks
+
+COHERENCE TESTING RESULTS
+=========================
+Applications: 3/5 passed, 2 failed.
+  - ContentoAI: 6 errors
+    Selector not found: h2
+    Selector not found: h3
+    Selector not found: footer
+    Selector not found: a[href="/login"]
+    Selector not found: a[href="/register"]
+    Screenshot: /home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-23T02-37-56-515Z.png
+  - Villa Zocotin: 1 errors
+    Selector not found: a[href*="reservas"]
+    Screenshot: /home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/Villa-Zocotin-2026-03-23T02-37-58-202Z.png
+
+RECOMMENDATIONS
+===============
+Review accessibility violations and missing UI elements.
+Consider fixing contrast issues and adding missing landmarks.
+
+Report generated at: 2026-03-23T02:39:20.207574

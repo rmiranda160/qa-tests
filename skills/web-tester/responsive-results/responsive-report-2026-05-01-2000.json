@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-01T20:00:00Z",
+  "agent": "tester",
+  "focus": "responsive",
+  "scenario": "Búsqueda de maquinaria — Search results for 'torno' (285 anuncios)",
+  "url": "https://new.zonacnc.com/es/buscar?q=torno",
+  "antiDupe": true,
+  "verdict": "PASS_WITH_NOTES",
+  "viewports": {
+    "desktop": { "width": 1440, "height": 900, "status": "PASS", "overflow": false },
+    "tablet": { "width": 768, "height": 1024, "status": "PASS", "overflow": false },
+    "mobile": { "width": 375, "height": 812, "status": "PASS", "overflow": false }
+  },
+  "warnings": [
+    { "id": "SRH-BTN-01", "severity": "LOW", "description": "47/48 buttons below 44px WCAG tap target height on mobile (Enviar solicitud cards 36-41px, pagination 34px)" },
+    { "id": "SRH-CHP-01", "severity": "LOW", "description": "Category filter chips 34px height on mobile (below 44px WCAG)" },
+    { "id": "SRH-H1-01", "severity": "LOW", "description": "H1 reduced to 16px on mobile (desktop/tablet 22px)" }
+  ],
+  "reportFile": "qa/responsive-search-2026-05-01-2000.md",
+  "durationMinutes": 8,
+  "issue": "https://github.com/Veleta-Com-y-Serv/new.zonacnc.com/issues/1039"
+}

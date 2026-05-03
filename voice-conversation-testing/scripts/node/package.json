@@ -1,0 +1,16 @@
+{
+  "name": "voice-conversation-tests",
+  "version": "1.0.0",
+  "description": "Tests para sistema de conversación voz↔voz",
+  "main": "test-conversation-flow.js",
+  "scripts": {
+    "test": "node test-conversation-flow.js",
+    "test:infra": "../bash/test-tts-infrastructure.sh"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+Continuous Testing Cycle executed at 2026-03-21 17:50:10 UTC
+
+Applications tested:
+- Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: PASS
+- Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+  - smoke: PASS
+  - api: PASS
+- ContentoAI (https://cntai.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (medium)
+- Dashboard (https://dashboard.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (medium)
+
+Overall: 9/11 test modes passed, 2 failed.
+
+Coherence testing:
+  - Cenarbe Bike Rental: PASS
+  - Calendario Cenarbe: PASS
+  - ContentoAI: PASS
+  - Dashboard: PASS
+Coherence summary: 4/4 applications passed.
+
+Alert status: No critical/high alerts generated. No notification sent to coordinator.
+
+Results saved to:
+- /home/node/.openclaw/workspace-tester/continuous-testing/results/20260321_175010.json
+- /home/node/.openclaw/workspace-tester/continuous-testing/coherence-results/coherence-cycle-2026-03-21T17-50-42-130Z.json
+Logs: continuous-testing/continuous-testing.log
+Coherence logs: continuous-testing/coherence_output.log

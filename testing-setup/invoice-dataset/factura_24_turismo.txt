@@ -1,0 +1,18 @@
+FACTURA FACT-2026-024
+
+Cliente: División Turismo
+Proveedor: Agencia de Viajes Delta
+División: turismo
+Fecha: 2026-12-02
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 659 €
+IVA (21%): 174 €
+Total: 833 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-12-02
+

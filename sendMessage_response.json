@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "result": {
+    "message_id": 1027,
+    "from": {
+      "id": 8584254382,
+      "is_bot": true,
+      "first_name": "Facture_bot",
+      "username": "Rmfac_bot"
+    },
+    "chat": {
+      "id": 7885094157,
+      "first_name": "Miranda",
+      "username": "rmiranda160",
+      "type": "private"
+    },
+    "date": 1776270992,
+    "text": "🔧 Testing del flujo completo por Tester. Ignorar este mensaje."
+  }
+}

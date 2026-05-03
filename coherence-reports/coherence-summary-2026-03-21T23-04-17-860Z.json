@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-03-21T23:04:17.892Z",
+  "application": "Cenarbe Bike Rental",
+  "summary": {
+    "total": 5,
+    "passed": 1,
+    "failed": 4,
+    "incoherences": [
+      {
+        "test": "Botón \"Mi Perfil\" → Página de perfil",
+        "errors": [
+          "Título incoherente: Esperaba \"perfil\" en título, pero es \"cenarbe bike rental - inicio - alquiler de bicicletas en villanúa, pirineo\"",
+          "Contenido faltante: No se encontró \"datos\" en la página"
+        ]
+      }
+    ]
+  },
+  "incoherences": [
+    {
+      "test": "Botón \"Mi Perfil\" → Página de perfil",
+      "errors": [
+        "Título incoherente: Esperaba \"perfil\" en título, pero es \"cenarbe bike rental - inicio - alquiler de bicicletas en villanúa, pirineo\"",
+        "Contenido faltante: No se encontró \"datos\" en la página"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+Estado QA: FAIL
+
+Cobertura validada:
+- Cenarbe Bike Rental: smoke (pass), responsive (pass), accessibility (fail), critical paths /reservar.php (pass), /checkout.php (pass)
+- ContentoAI: smoke (pass), responsive (pass), critical paths / (pass), /api/submit_waitlist.php (fail)
+- Villa Zocotin: smoke (pass), responsive (fail), critical path / (pass)
+
+Casos probados:
+- Cenarbe Bike Rental smoke: carga de homepage
+- Cenarbe Bike Rental responsive: vista móvil, tablet, desktop
+- Cenarbe Bike Rental accessibility: análisis de violaciones WCAG
+- Cenarbe Bike Rental critical path /reservar.php: carga de página
+- Cenarbe Bike Rental critical path /checkout.php: carga de página
+- ContentoAI smoke: carga de homepage
+- ContentoAI responsive: vista móvil, tablet, desktop
+- ContentoAI critical path /: carga de homepage
+- ContentoAI critical path /api/submit_waitlist.php: carga de página
+- Villa Zocotin smoke: carga de homepage
+- Villa Zocotin responsive: vista móvil, tablet, desktop
+- Villa Zocotin critical path /: carga de homepage
+
+Edge cases probados: ninguno
+
+Regresiones detectadas: ninguna
+
+Hallazgos:
+- ID: 1
+  Título: Violaciones de accesibilidad en Cenarbe Bike Rental
+  Severidad: alta
+  Descripción: La prueba de accesibilidad detectó múltiples violaciones WCAG 2 AA, incluyendo contraste de color insuficiente, falta de etiquetas en botones, inputs sin label y enlaces sin texto accesible.
+  Pasos para reproducir: Ejecutar prueba de accesibilidad en https://dev1.cenarbe.com/ usando el servicio qa-tester.
+  Resultado esperado: Zero violaciones críticas o serias.
+  Resultado observado: Se encontraron 1575 violaciones (críticas y serias).
+  Impacto: Usuarios con discapacidades pueden tener dificultades para usar la aplicación.
+  Recomendación: Revisar y corregir problemas de accesibilidad identificados.
+
+- ID: 2
+  Título: Página crítica no carga en ContentoAI
+  Severidad: crítica
+  Descripción: La ruta crítica /api/submit_waitlist.php no carga correctamente (falta título de página). Posiblemente error 500 o página en blanco.
+  Pasos para reproducir: Navegar a https://contentoai.cenarbe.com/api/submit_waitlist.php
+  Resultado esperado: La página carga con un título válido.
+  Resultado observado: La página no tiene título (string vacío), timeout.
+  Impacto: Funcionalidad crítica de waitlist no disponible.
+  Recomendación: Investigar el endpoint y corregir el error.
+
+- ID: 3
+  Título: Problemas de responsive design en Villa Zocotin
+  Severidad: media
+  Descripción: La prueba responsive falló, indicando posibles problemas de visualización en algunos viewports.
+  Pasos para reproducir: Ejecutar prueba responsive en https://villazocotin.cenarbe.com/ usando el servicio qa-tester.
+  Resultado esperado: La página se visualiza correctamente en móvil, tablet y desktop.
+  Resultado observado: La prueba falló (detalles no disponibles en reporte).
+  Impacto: Experiencia de usuario degradada en dispositivos específicos.
+  Recomendación: Revisar el diseño responsive y corregir los problemas.
+
+Conclusión:
+El ciclo de testing continuo ha detectado 3 hallazgos, uno de ellos crítico (ContentoAI). Los demás son problemas de accesibilidad (alta) y responsive (media). Se requiere intervención de desarrollo.
+
+Criterio de salida:
+Debe volver a desarrollo debido a errores críticos.
+
+ALERTA REQUERIDA: Sí, enviar alerta a CEO Miranda (canal Telegram) sobre errores críticos detectados.
+
+Reporte detallado guardado en continuous-testing/results/20260319_084107.json

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villanúa, Pirineo</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- CSS Pirineo - Tema rojo/montaña Villanúa -->
+    <link rel="stylesheet" href="/css/pirineo.css">
+    
+    <!-- CSS Bajabikes Style -->
+    <link rel="stylesheet" href="/css/bajabikes-style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Preload hero image for LCP -->
+    <link rel="preload" href="/images/mountain/mountain-hero.jpg" as="image">
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Alquiler de bicicletas en Villanúa, Huesca. Descubre el Pirineo sobre dos ruedas con nuestras bicicletas de montaña y rutas guiadas.">
+    <meta name="keywords" content="alquiler bicicletas, Villanúa, Pirineo, Huesca, bicicleta montaña, rutas, excursiones">
+    <meta name="author" content="Cenarbe Bike Rental">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villanúa, Pirineo">
+    <meta property="og:description" content="Alquiler de bicicletas en Villanúa, Huesca. Descubre el Pirineo sobre dos ruedas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dev1.cenarbe.com">
+    <meta property="og:image" content="https://dev1.cenarbe.com/images/og-image.jpg">
+</head>
+<body>
+    <!-- ===== HEADER PRINCIPAL - ESTILO BAJABIKES ===== -->
+    <header class="navbar-bajabikes fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- Logo y marca -->
+                <a class="navbar-brand" href="/">
+                    <span class="fw-bold text-success">CENARBE</span>
+                    <span class="text-warning">BIKE</span>
+                    <small class="d-block text-muted" style="font-size: 0.7rem; margin-top: -5px;">Villanúa • Pirineo Aragonés</small>
+                </a>
+                
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú principal -->
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">
+                                <i class="bi bi-house-door me-1"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/bicicletas.php">
+                                <i class="bi bi-bicycle me-1"></i>
+                                Bicicletas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/rutas.php">
+                                <i class="bi bi-signpost-split me-1"></i>
+                                Rutas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/reservas.php">
+                                <i class="bi bi-calendar-check me-1"></i>
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/contacto.php">
+                                <i class="bi bi-chat-dots me-1"></i>
+                                Contacto
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/sobre-nosotros.php">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Sobre Nosotros
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Acciones del usuario -->
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Carrito -->
+                        <a href="/carrito.php" class="btn btn-outline-success position-relative" aria-label="Carrito de compras">
+                            <i class="bi bi-cart3"></i>
+                                                    </a>
+                        
+                        <!-- Usuario -->
+                                                    <div class="d-flex gap-2">
+                                <a href="/login.php" class="btn btn-outline-success">
+                                    <i class="bi bi-box-arrow-in-right me-1"></i>
+                                    Login
+                                </a>
+                                <a href="/register.php" class="btn btn-success">
+                                    <i class="bi bi-person-plus me-1"></i>
+                                    Registro
+                                </a>
+                            </div>
+                                            </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main style="margin-top: 100px;">
+<!-- Hero Section estilo Bajabikes -->
+<section class="hero-bajabikes">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <span class="badge-bajabikes mb-3">#1 en el Pirineo Aragonés</span>
+                <h1 class="display-4 fw-bold mb-4">
+                    Alquiler de Bicicletas<br>
+                    <span class="text-warning">en Villanúa, Huesca</span>
+                </h1>
+                <p class="lead mb-4">
+                    Descubre la belleza del Pirineo sobre dos ruedas. 
+                    <strong>Bicicletas de montaña de alta calidad</strong>, 
+                    rutas guiadas para todos los niveles y experiencias inolvidables 
+                    en el corazón de los Pirineos.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/bicicletas.php" class="btn btn-bajabikes">
+                        <i class="bi bi-bicycle me-2"></i>
+                        Ver Bicicletas
+                    </a>
+                    <a href="/rutas.php" class="btn btn-outline-bajabikes">
+                        <i class="bi bi-signpost-split me-2"></i>
+                        Explorar Rutas
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 mt-5 mt-lg-0">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-success mb-3">
+                            <i class="bi bi-lightning-charge-fill me-2"></i>
+                            Reserva Rápida
+                        </h3>
+                        <form action="/bicicletas.php" method="GET">
+                            <div class="mb-3">
+                                <label class="form-label" for="tipo_bicicleta">Tipo de Bicicleta</label>
+                                <select class="form-select" name="tipo" id="tipo_bicicleta">
+                                    <option value="">Seleccionar tipo</option>
+                                    <option value="MTB">MTB - Montaña</option>
+                                    <option value="E-MTB">E-MTB - Eléctrica</option>
+                                    <option value="GRAVEL">Gravel</option>
+                                    <option value="CARRETERA">Carretera</option>
+                                </select>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="fecha_inicio">Fecha Inicio</label>
+                                    <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="fecha_fin">Fecha Fin</label>
+                                    <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="cantidad_bicicletas">Número de Bicicletas</label>
+                                <select class="form-select" name="cantidad" id="cantidad_bicicletas">
+                                    <option value="1">1 bicicleta</option>
+                                    <option value="2">2 bicicletas</option>
+                                    <option value="3">3 bicicletas</option>
+                                    <option value="4">4 bicicletas</option>
+                                    <option value="5+">5+ bicicletas</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-bajabikes-green w-100">
+                                <i class="bi bi-search me-2"></i>
+                                Buscar Disponibilidad
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de características -->
+<section class="features-bajabikes">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <span class="badge-bajabikes mb-3">¿Por qué elegirnos?</span>
+                <h2 class="display-5 fw-bold mb-3">La mejor experiencia en bicicleta</h2>
+                <p class="lead text-muted">
+                    Ofrecemos todo lo que necesitas para disfrutar del Pirineo sobre dos ruedas
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon">
+                        <i class="bi bi-bicycle"></i>
+                    </div>
+                    <h3>Bicicletas de Calidad</h3>
+                    <p class="text-muted">
+                        Flota de bicicletas de montaña, eléctricas y gravel de marcas líderes como Trek, Specialized y Cannondale.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h3>Rutas Guiadas</h3>
+                    <p class="text-muted">
+                        Excursiones guiadas por expertos locales que conocen los mejores senderos del Pirineo.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3>Seguro Incluido</h3>
+                    <p class="text-muted">
+                        Todas nuestras bicicletas incluyen seguro contra accidentes y daños. Sin preocupaciones.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h3>Entrega y Recogida</h3>
+                    <p class="text-muted">
+                        Servicio de entrega y recogida en tu alojamiento o punto de inicio de ruta.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h3>Para Grupos</h3>
+                    <p class="text-muted">
+                        Descuentos especiales para grupos, empresas y eventos. Organizamos salidas personalizadas.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <h3>Mejor Valoración</h3>
+                    <p class="text-muted">
+                        4.9/5 en Google Reviews. Miles de clientes satisfechos nos avalan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de bicicletas destacadas -->
+<section class="bikes-section-bajabikes">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <span class="badge-bajabikes mb-3">Nuestra flota</span>
+                <h2 class="display-5 fw-bold mb-3">Bicicletas Destacadas</h2>
+                <p class="lead text-muted">
+                    Descubre nuestras bicicletas mejor valoradas por nuestros clientes
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+                                                <div class="col-lg-4 col-md-6">
+                        <div class="bike-card-bajabikes">
+                            <div class="bike-image">
+                                <img src="bici8.jpg" 
+                                     alt="Commuter 5"
+                                     loading="lazy"
+                                     onerror="if (this.src !== 'images/bicicletas/default.jpg') this.src='images/bicicletas/default.jpg';">
+                            </div>
+                            <div class="bike-info">
+                                <div class="bike-category">
+                                    eléctrica                                </div>
+                                <h3 class="bike-name">Commuter 5</h3>
+                                <div class="bike-price">
+                                    9.00 €/hora
+                                </div>
+                                <ul class="bike-features">
+                                    <li>
+                                        <i class="bi bi-gear-fill"></i>
+                                        Gazelle                                    </li>
+                                    <li>
+                                        <i class="bi bi-speedometer2"></i>
+                                        Talla: M                                    </li>
+                                    <li>
+                                        <i class="bi bi-lightning-charge-fill"></i>
+                                        Suspensión: Delantera                                    </li>
+                                </ul>
+                                <div class="d-flex gap-2">
+                                    <a href="/bicicletas.php?id=8" 
+                                       class="btn btn-bajabikes-green flex-grow-1">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        Detalles
+                                    </a>
+                                    <a href="/carrito.php?action=add&id=8&type=bike" 
+                                       class="btn btn-bajabikes-orange">
+                                        <i class="bi bi-cart-plus me-1"></i>
+                                        Reservar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                        <div class="bike-card-bajabikes">
+                            <div class="bike-image">
+                                <img src="giant_trance_x_advanced_e__elite.jpg" 
+                                     alt="Giant Trance X Advanced E+ Elite"
+                                     loading="lazy"
+                                     onerror="if (this.src !== 'images/bicicletas/default.jpg') this.src='images/bicicletas/default.jpg';">
+                            </div>
+                            <div class="bike-info">
+                                <div class="bike-category">
+                                    eléctrica                                </div>
+                                <h3 class="bike-name">Giant Trance X Advanced E+ Elite</h3>
+                                <div class="bike-price">
+                                    32.00 €/hora
+                                </div>
+                                <ul class="bike-features">
+                                    <li>
+                                        <i class="bi bi-gear-fill"></i>
+                                        Giant                                    </li>
+                                    <li>
+                                        <i class="bi bi-speedometer2"></i>
+                                        Talla: M                                    </li>
+                                    <li>
+                                        <i class="bi bi-lightning-charge-fill"></i>
+                                        Suspensión: Delantera                                    </li>
+                                </ul>
+                                <div class="d-flex gap-2">
+                                    <a href="/bicicletas.php?id=3" 
+                                       class="btn btn-bajabikes-green flex-grow-1">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        Detalles
+                                    </a>
+                                    <a href="/carrito.php?action=add&id=3&type=bike" 
+                                       class="btn btn-bajabikes-orange">
+                                        <i class="bi bi-cart-plus me-1"></i>
+                                        Reservar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                        <div class="bike-card-bajabikes">
+                            <div class="bike-image">
+                                <img src="orbea_rise_m_team.jpg" 
+                                     alt="Orbea Rise M-Team"
+                                     loading="lazy"
+                                     onerror="if (this.src !== 'images/bicicletas/default.jpg') this.src='images/bicicletas/default.jpg';">
+                            </div>
+                            <div class="bike-info">
+                                <div class="bike-category">
+                                    eléctrica                                </div>
+                                <h3 class="bike-name">Orbea Rise M-Team</h3>
+                                <div class="bike-price">
+                                    40.00 €/hora
+                                </div>
+                                <ul class="bike-features">
+                                    <li>
+                                        <i class="bi bi-gear-fill"></i>
+                                        Orbea                                    </li>
+                                    <li>
+                                        <i class="bi bi-speedometer2"></i>
+                                        Talla: S                                    </li>
+                                    <li>
+                                        <i class="bi bi-lightning-charge-fill"></i>
+                                        Suspensión: Delantera                                    </li>
+                                </ul>
+                                <div class="d-flex gap-2">
+                                    <a href="/bicicletas.php?id=5" 
+                                       class="btn btn-bajabikes-green flex-grow-1">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        Detalles
+                                    </a>
+                                    <a href="/carrito.php?action=add&id=5&type=bike" 
+                                       class="btn btn-bajabikes-orange">
+                                        <i class="bi bi-cart-plus me-1"></i>
+                                        Reservar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                        <div class="bike-card-bajabikes">
+                            <div class="bike-image">
+                                <img src="specialized_turbo_levo_sl_expert_di2.jpg" 
+                                     alt="Specialized Turbo Levo SL Expert Di2"
+                                     loading="lazy"
+                                     onerror="if (this.src !== 'images/bicicletas/default.jpg') this.src='images/bicicletas/default.jpg';">
+                            </div>
+                            <div class="bike-info">
+                                <div class="bike-category">
+                                    eléctrica                                </div>
+                                <h3 class="bike-name">Specialized Turbo Levo SL Expert Di2</h3>
+                                <div class="bike-price">
+                                    38.00 €/hora
+                                </div>
+                                <ul class="bike-features">
+                                    <li>
+                                        <i class="bi bi-gear-fill"></i>
+                                        Specialized                                    </li>
+                                    <li>
+                                        <i class="bi bi-speedometer2"></i>
+                                        Talla: M                                    </li>
+                                    <li>
+                                        <i class="bi bi-lightning-charge-fill"></i>
+                                        Suspensión: Delantera                                    </li>
+                                </ul>
+                                <div class="d-flex gap-2">
+                                    <a href="/bicicletas.php?id=1" 
+                                       class="btn btn-bajabikes-green flex-grow-1">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        Detalles
+                                    </a>
+                                    <a href="/carrito.php?action=add&id=1&type=bike" 
+                                       class="btn btn-bajabikes-orange">
+                                        <i class="bi bi-cart-plus me-1"></i>
+                                        Reservar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                        <div class="bike-card-bajabikes">
+                            <div class="bike-image">
+                                <img src="trek_rail_9_8_xt.jpg" 
+                                     alt="Trek Rail 9.8 XT"
+                                     loading="lazy"
+                                     onerror="if (this.src !== 'images/bicicletas/default.jpg') this.src='images/bicicletas/default.jpg';">
+                            </div>
+                            <div class="bike-info">
+                                <div class="bike-category">
+                                    eléctrica                                </div>
+                                <h3 class="bike-name">Trek Rail 9.8 XT</h3>
+                                <div class="bike-price">
+                                    35.00 €/hora
+                                </div>
+                                <ul class="bike-features">
+                                    <li>
+                                        <i class="bi bi-gear-fill"></i>
+                                        Trek                                    </li>
+                                    <li>
+                                        <i class="bi bi-speedometer2"></i>
+                                        Talla: L                                    </li>
+                                    <li>
+                                        <i class="bi bi-lightning-charge-fill"></i>
+                                        Suspensión: Delantera                                    </li>
+                                </ul>
+                                <div class="d-flex gap-2">
+                                    <a href="/bicicletas.php?id=2" 
+                                       class="btn btn-bajabikes-green flex-grow-1">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        Detalles
+                                    </a>
+                                    <a href="/carrito.php?action=add&id=2&type=bike" 
+                                       class="btn btn-bajabikes-orange">
+                                        <i class="bi bi-cart-plus me-1"></i>
+                                        Reservar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    </div>
+        
+        <div class="text-center mt-5">
+            <a href="/bicicletas.php" class="btn btn-bajabikes btn-lg">
+                <i class="bi bi-arrow-right-circle me-2"></i>
+                Ver todas las bicicletas
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de estadísticas -->
+<section class="features-bajabikes" style="background: linear-gradient(rgba(0, 166, 81, 0.05), white);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <span class="badge-bajabikes mb-3">En números</span>
+                <h2 class="display-5 fw-bold mb-3">Nuestro impacto</h2>
+                <p class="lead text-muted">
+                    Miles de aventureros han confiado en nosotros para explorar el Pirineo
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-3 col-6 text-center">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon" style="background-color: rgba(0, 166, 81, 0.1);">
+                        <i class="bi bi-bicycle" style="color: var(--bajabikes-green);"></i>
+                    </div>
+                    <h3 class="display-4 fw-bold text-success">
+                        8                    </h3>
+                    <p class="text-muted mb-0">Bicicletas</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon" style="background-color: rgba(255, 107, 53, 0.1);">
+                        <i class="bi bi-signpost-split" style="color: var(--bajabikes-orange);"></i>
+                    </div>
+                    <h3 class="display-4 fw-bold text-warning">
+                        15+                    </h3>
+                    <p class="text-muted mb-0">Rutas</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon" style="background-color: rgba(0, 119, 204, 0.1);">
+                        <i class="bi bi-people-fill" style="color: var(--bajabikes-blue);"></i>
+                    </div>
+                    <h3 class="display-4 fw-bold text-primary">
+                        500+                    </h3>
+                    <p class="text-muted mb-0">Clientes</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+                <div class="feature-card-bajabikes">
+                    <div class="feature-icon" style="background-color: rgba(108, 117, 125, 0.1);">
+                        <i class="bi bi-star-fill" style="color: var(--bajabikes-gray-dark);"></i>
+                    </div>
+                    <h3 class="display-4 fw-bold text-secondary">
+                        4.9/5
+                    </h3>
+                    <p class="text-muted mb-0">Valoración</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de testimonios -->
+<section class="testimonials-bajabikes">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <span class="badge-bajabikes mb-3">Testimonios</span>
+                <h2 class="display-5 fw-bold mb-3">Lo que dicen nuestros clientes</h2>
+                <p class="lead text-muted">
+                    Experiencias reales de aventureros como tú
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card-bajabikes">
+                    <div class="testimonial-text">
+                        "Increíble experiencia en el Pirineo. Las bicicletas estaban en perfecto estado y las rutas guiadas fueron espectaculares. ¡Volveremos seguro!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="images/testimonials/user1.jpg" alt="María G." loading="lazy" width="80" height="80">
+                        </div>
+                        <div class="author-info">
+                            <h3>María González</h3>
+                            <p>Barcelona • Agosto 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card-bajabikes">
+                    <div class="testimonial-text">
+                        "Perfecto para nuestro viaje en familia. Nos adaptaron las rutas a nuestro nivel y los niños disfrutaron muchísimo. El servicio de entrega fue un plus."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="images/testimonials/user2.jpg" alt="Carlos R." loading="lazy" width="80" height="80">
+                        </div>
+                        <div class="author-info">
+                            <h3>Carlos Rodríguez</h3>
+                            <p>Madrid • Julio 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card-bajabikes">
+                    <div class="testimonial-text">
+                        "Las bicicletas eléctricas nos permitieron disfrutar de rutas más largas sin cansarnos. Los guías conocían cada rincón del Pirineo. ¡Experiencia 10/10!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="images/testimonials/user3.jpg" alt="Laura M." loading="lazy" width="80" height="80">
+                        </div>
+                        <div class="author-info">
+                            <h3>Laura Martínez</h3>
+                            <p>Zaragoza • Junio 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de CTA final -->
+<section class="hero-bajabikes" style="background: linear-gradient(rgba(0, 166, 81, 0.9), rgba(0, 140, 70, 0.9)), url('images/mountain/mountain-hero.jpg') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold text-white mb-4">
+                    ¿Listo para tu aventura en el Pirineo?
+                </h2>
+                <p class="lead text-white mb-5 opacity-90">
+                    Reserva ahora y disfruta de un 10% de descuento en tu primera reserva.
+                    ¡No esperes más para vivir la experiencia!
+                </p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="/bicicletas.php" class="btn btn-light btn-lg px-5 py-3">
+                        <i class="bi bi-bicycle me-2"></i>
+                        Reservar Ahora
+                    </a>
+                    <a href="/contacto.php" class="btn btn-outline-light btn-lg px-5 py-3">
+                        <i class="bi bi-chat-dots me-2"></i>
+                        Contactar
+                    </a>
+                </div>
+                <p class="text-white mt-4 opacity-75">
+                    <small><i class="bi bi-shield-check me-1"></i> Reserva segura • Cancelación gratuita hasta 24h antes</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- ===== FOOTER ESTILO BAJABIKES ===== -->
+    <footer class="footer-bajabikes">
+        <div class="container">
+            <div class="row">
+                <!-- Información de la empresa -->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="mb-4">
+                        <span class="text-success">CENARBE</span>
+                        <span class="text-warning">BIKE</span>
+                    </h3>
+                    <p class="text-white opacity-75 mb-4">
+                        Alquiler de bicicletas de montaña en el corazón del Pirineo Aragonés. 
+                        Experiencias únicas para todos los niveles en Villanúa, Huesca.
+                    </p>
+                    <div class="contact-info mb-4">
+                        <p class="mb-2">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            Calle Bicicleta 123, 22001 Huesca                        </p>
+                        <p class="mb-2">
+                            <i class="bi bi-telephone-fill"></i>
+                            <a href="tel:974123456" class="text-white text-decoration-none">
+                                974123456                            </a>
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-envelope-fill"></i>
+                            <a href="mailto:info@cenarbe.com" class="text-white text-decoration-none">
+                                info@cenarbe.com                            </a>
+                        </p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="text-white" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enlaces rápidos -->
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h4 class="mb-4">Enlaces Rápidos</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/bicicletas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/rutas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Rutas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/reservas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/contacto.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Servicios -->
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h4 class="mb-4">Servicios</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/bicicletas.php?tipo=MTB" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas MTB
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/bicicletas.php?tipo=E-MTB" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas Eléctricas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/rutas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Rutas Guiadas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/reservas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Reservas Online
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/faq.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Preguntas Frecuentes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Horarios y contacto -->
+                <div class="col-lg-4 col-md-4">
+                    <h4 class="mb-4">Horarios</h4>
+                    <ul class="list-unstyled text-white opacity-75">
+                        <li class="mb-2">
+                            <strong>Lunes - Viernes:</strong> 09:00 - 20:00
+                        </li>
+                        <li class="mb-2">
+                            <strong>Sábados:</strong> 09:00 - 21:00
+                        </li>
+                        <li class="mb-2">
+                            <strong>Domingos:</strong> 09:00 - 18:00
+                        </li>
+                        <li class="mb-4">
+                            <strong>Festivos:</strong> 10:00 - 17:00
+                        </li>
+                    </ul>
+                    
+                    <h4 class="mb-3">Newsletter</h4>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                            <button class="btn btn-success" type="submit" aria-label="Suscribirse al newsletter">
+                                <i class="bi bi-envelope-arrow-up"></i>
+                            </button>
+                        </div>
+                        <small class="text-white opacity-50">
+                            Suscríbete para recibir ofertas y novedades
+                        </small>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Línea divisoria -->
+            <hr class="my-5 opacity-25">
+
+            <!-- Copyright y enlaces legales -->
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="copyright mb-0">
+                        &copy; 2026 Cenarbe Bike Rental. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/politica-privacidad.php" class="text-white opacity-75 text-decoration-none me-3">
+                        Política de Privacidad
+                    </a>
+                    <a href="/terminos-condiciones.php" class="text-white opacity-75 text-decoration-none me-3">
+                        Términos y Condiciones
+                    </a>
+                    <a href="/aviso-legal.php" class="text-white opacity-75 text-decoration-none">
+                        Aviso Legal
+                    </a>
+                </div>
+            </div>
+        </div>
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/34974123456" 
+       class="position-fixed bottom-3 end-3 bg-success text-white rounded-circle p-3 shadow-lg text-decoration-none"
+       style="z-index: 1000;"
+       target="_blank"
+       aria-label="Chatear por WhatsApp">
+        <i class="bi bi-whatsapp fs-4"></i>
+    </a>
+    </footer>
+
+    <!-- Botón para volver arriba -->
+    <button onclick="scrollToTop()" 
+            class="position-fixed bottom-3 start-3 bg-dark text-white rounded-circle p-3 border-0 shadow-lg d-none"
+            style="z-index: 1000;"
+            id="backToTop"
+            aria-label="Volver arriba">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts personalizados -->
+    <script>
+        // Botón para volver arriba
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('d-none');
+            } else {
+                backToTopButton.classList.add('d-none');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Inicializar tooltips de Bootstrap
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        
+        // Inicializar popovers de Bootstrap
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+    </script>
+</body>
+</html>

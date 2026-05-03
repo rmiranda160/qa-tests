@@ -1,0 +1,229 @@
+{
+  "timestamp": "2026-03-20T19:05:16.842Z",
+  "rule": "Miranda Button/Action Verification",
+  "summary": {
+    "totalApps": 4,
+    "totalButtons": 14,
+    "passedButtons": 4,
+    "failedButtons": 1,
+    "appsWithIssues": 4
+  },
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "timestamp": "2026-03-20T19:05:16.843Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Login",
+          "selector": "a.btn:has-text('Login')",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Redirige a: https://dev1.cenarbe.com/login.php"
+          ]
+        },
+        {
+          "name": "Botón Registro",
+          "selector": "a.btn:has-text('Registro')",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Redirige a: https://dev1.cenarbe.com/register.php"
+          ]
+        },
+        {
+          "name": "Botón Buscar Disponibilidad",
+          "selector": "button:has-text('Buscar Disponibilidad')",
+          "type": "button",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": [
+            "Click sin cambio detectable en URL"
+          ]
+        },
+        {
+          "name": "Botón Carrito",
+          "selector": "a[href='/carrito.php']",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Redirige a: https://dev1.cenarbe.com/carrito.php"
+          ]
+        },
+        {
+          "name": "Botón Ver Bicicletas",
+          "selector": "a:has-text('Ver Bicicletas')",
+          "type": "button",
+          "critical": false,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Redirige a: https://dev1.cenarbe.com/bicicletas.php"
+          ]
+        },
+        {
+          "name": "Formulario Reserva",
+          "selector": "form[action='/bicicletas.php']",
+          "type": "form",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 2
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://contentoai.cenarbe.com/",
+      "timestamp": "2026-03-20T19:05:29.978Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Ver Demo",
+          "selector": "a:has-text('Ver demo'), a.btn-secondary:has-text('Ver demo')",
+          "type": "link",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        },
+        {
+          "name": "Formulario Waitlist",
+          "selector": "form#waitlistForm, form.waitlist-form, form input[type='email']",
+          "type": "form",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 2
+    },
+    {
+      "name": "Villa Zocotin",
+      "url": "https://villazocotin.cenarbe.com/",
+      "timestamp": "2026-03-20T19:05:30.711Z",
+      "critical_buttons": [
+        {
+          "name": "Enlace Reservar (ancla al formulario)",
+          "selector": "a:has-text('Reservar'):nth(0)",
+          "type": "button",
+          "critical": true,
+          "status": "error",
+          "exists": false,
+          "visible": false,
+          "clickable": false,
+          "functional": false,
+          "issues": [
+            "Error general: page.$: SyntaxError: Failed to execute 'querySelectorAll' on 'Document': 'a:nth(0)' is not a valid selector.\n    at query (<anonymous>:5288:41)\n    at <anonymous>:5298:7\n    at SelectorEvaluatorImpl._cached (<anonymous>:5075:20)\n    at SelectorEvaluatorImpl._queryCSS (<anonymous>:5285:17)\n    at <anonymous>:5174:25\n    at SelectorEvaluatorImpl._cached (<anonymous>:5075:20)\n    at SelectorEvaluatorImpl._querySimple (<anonymous>:5166:17)\n    at <anonymous>:5113:29\n    at SelectorEvaluatorImpl._cached (<anonymous>:5075:20)\n    at SelectorEvaluatorImpl.query (<anonymous>:5106:19)"
+          ]
+        },
+        {
+          "name": "Botón Confirmar Reserva",
+          "selector": "button:has-text('Confirmar reserva')",
+          "type": "button",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": [
+            "Click sin cambio detectable en URL"
+          ]
+        },
+        {
+          "name": "Formulario de Reserva",
+          "selector": "form#formReserva",
+          "type": "form",
+          "critical": true,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        },
+        {
+          "name": "Sección Contacto",
+          "selector": "footer#contacto",
+          "type": "element",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 4
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "timestamp": "2026-03-20T19:05:33.458Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Refresh",
+          "selector": "button:has-text('Refresh')",
+          "type": "button",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": [
+            "Click sin cambio detectable en URL"
+          ]
+        },
+        {
+          "name": "Interacción Gráficos",
+          "selector": "canvas",
+          "type": "element",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": []
+        }
+      ],
+      "issues_found": 2
+    }
+  ]
+}

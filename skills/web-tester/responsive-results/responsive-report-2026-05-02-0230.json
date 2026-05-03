@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-02T02:30:00Z",
+  "agent": "tester",
+  "focus": "responsive",
+  "scenario": "Pricing/Plans page — Free, Starter, Pro, Business, Enterprise + Boost packs",
+  "url": "https://new.zonacnc.com/es/module/zonacncplans/pricing",
+  "antiDupe": true,
+  "verdict": "PASS_WITH_NOTES",
+  "viewports": {
+    "desktop": { "width": 1440, "height": 900, "status": "PASS", "overflow": false },
+    "tablet": { "width": 768, "height": 1024, "status": "PASS", "overflow": false },
+    "mobile": { "width": 375, "height": 812, "status": "PASS", "overflow": false }
+  },
+  "warnings": [
+    { "id": "PRC-TAP-01", "severity": "MEDIUM", "description": "Boost pack link '⚡ Comprar pack de Boosts 24h' at 32px height on mobile (12px below 44px WCAG)" },
+    { "id": "PRC-TAP-02", "severity": "LOW", "description": "Cookie notice 'Cancelar' at 38px on mobile" },
+    { "id": "PRC-TAP-03", "severity": "LOW", "description": "'Categorías' nav icon at 37px on mobile" },
+    { "id": "PRC-TAP-04", "severity": "LOW", "description": "'packs sin permanencia' text links at 15px height (below readable threshold)" }
+  ],
+  "reportFile": "qa/responsive-pricing-2026-05-02-0230.md",
+  "issue": "https://github.com/Veleta-Com-y-Serv/new.zonacnc.com/issues/1095",
+  "durationMinutes": 6
+}

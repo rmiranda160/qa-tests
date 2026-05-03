@@ -1,0 +1,29 @@
+Continuous Testing Cycle executed at 2026-03-21 11:17:13 UTC
+Cycle ID: 20260321_111713
+
+Applications tested:
+- Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (MEDIUM)
+- Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+  - smoke: PASS
+  - api: PASS
+- ContentoAI (https://cntai.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (MEDIUM)
+- Dashboard (https://dashboard.cenarbe.com/)
+  - smoke: PASS
+  - responsive: PASS
+  - accessibility: FAIL (MEDIUM)
+
+Overall: 8/11 test modes passed, 3 failed.
+
+Coherence testing results:
+- Cenarbe Bike Rental: PASS
+- Calendario Cenarbe: PASS
+- ContentoAI: PASS
+- Dashboard: PASS
+All applications passed coherence checks.
+No critical/high alerts generated.

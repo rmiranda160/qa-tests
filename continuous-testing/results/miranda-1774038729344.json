@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-03-20T20:32:06.503Z",
+  "rule": "Miranda Button/Action Verification",
+  "summary": {
+    "totalApps": 1,
+    "totalButtons": 2,
+    "passedButtons": 2,
+    "failedButtons": 0,
+    "appsWithIssues": 0
+  },
+  "applications": [
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "timestamp": "2026-03-20T20:32:06.504Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Refresh Data",
+          "selector": "button:has-text('Refresh'), button:has-text('Actualizar'), #refresh-btn, button[onclick*='refresh']",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: domChanged, networkRequest"
+          ]
+        },
+        {
+          "name": "Botón Export Report",
+          "selector": "button:has-text('Export'), button:has-text('Exportar'), #export-btn, button[onclick*='export']",
+          "type": "button",
+          "critical": true,
+          "status": "pass",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": true,
+          "issues": [
+            "Funcionalidad detectada: domChanged, downloadTriggered"
+          ]
+        }
+      ],
+      "issues_found": 0
+    }
+  ]
+}

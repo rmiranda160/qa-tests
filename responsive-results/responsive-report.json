@@ -1,0 +1,304 @@
+{
+  "ok": true,
+  "timestamp": "2026-04-30T18:33:37.299Z",
+  "site": "https://new.zonacnc.com",
+  "summary": {
+    "pagesTested": 5,
+    "critical": 2,
+    "high": 3,
+    "medium": 4,
+    "low": 3,
+    "total": 12
+  },
+  "pages": [
+    {
+      "label": "Homepage",
+      "path": "/es/",
+      "ok": true,
+      "issues": 1,
+      "details": {
+        "contentLength": 155475,
+        "status": 200,
+        "finalUrl": "https://new.zonacnc.com/es/",
+        "hasDoctype": true,
+        "viewport": "width=device-width, initial-scale=1",
+        "title": "Maquinaria Industrial Segunda Mano y Nueva | ZonaCNC España",
+        "description": "Marketplace de maquinaria industrial nueva y usada en España. +3.400 anuncios de tornos CNC, fresadoras, centros de mecanizado y plegadoras. Publica gratis. Sin comisiones.",
+        "gridClasses": {
+          "containers": 8,
+          "rows": 18,
+          "cols": 19
+        },
+        "cssCount": 24,
+        "responsiveCssCount": 0,
+        "mediaQueryStylesheets": 19,
+        "images": {
+          "total": 6,
+          "withSrcset": 0,
+          "withSizes": 0
+        },
+        "mobileNav": {
+          "hamburger": 0,
+          "mobileMenu": 0,
+          "navbarExpand": 0
+        },
+        "hamburgerIcon": 0,
+        "tables": {
+          "total": 0,
+          "responsive": 0
+        },
+        "wordCount": 3640,
+        "htmlLang": "es-ES"
+      }
+    },
+    {
+      "label": "Category-metal",
+      "path": "/es/28-maquinaria-metal",
+      "ok": true,
+      "issues": 1,
+      "details": {
+        "contentLength": 1504647,
+        "status": 200,
+        "finalUrl": "https://new.zonacnc.com/es/28-maquinaria-metal",
+        "hasDoctype": true,
+        "viewport": "width=device-width, initial-scale=1",
+        "title": "Maquinaria Metal Segunda Mano — Tornos | ZonaCNC",
+        "description": "+2.300 anuncios de maquinaria metal nueva y usada. Tornos CNC, fresadoras, centros de mecanizado, plegadoras, rectificadoras. Compra y vende en ZonaCNC.",
+        "gridClasses": {
+          "containers": 13,
+          "rows": 175,
+          "cols": 21
+        },
+        "cssCount": 24,
+        "responsiveCssCount": 0,
+        "mediaQueryStylesheets": 19,
+        "images": {
+          "total": 13,
+          "withSrcset": 0,
+          "withSizes": 0
+        },
+        "mobileNav": {
+          "hamburger": 0,
+          "mobileMenu": 0,
+          "navbarExpand": 0
+        },
+        "hamburgerIcon": 1,
+        "tables": {
+          "total": 0,
+          "responsive": 0
+        },
+        "wordCount": 8212,
+        "htmlLang": "es-ES"
+      }
+    },
+    {
+      "label": "Create-ad",
+      "path": "/es/module/zonacncproductadd/ads",
+      "ok": true,
+      "issues": 2,
+      "details": {
+        "contentLength": 183434,
+        "status": 200,
+        "finalUrl": "https://new.zonacnc.com/es/module/zonacncproductadd/ads",
+        "hasDoctype": true,
+        "viewport": "width=device-width, initial-scale=1",
+        "title": "zonacnc.com",
+        "description": "(none)",
+        "gridClasses": {
+          "containers": 11,
+          "rows": 21,
+          "cols": 52
+        },
+        "cssCount": 23,
+        "responsiveCssCount": 0,
+        "mediaQueryStylesheets": 18,
+        "images": {
+          "total": 1,
+          "withSrcset": 0,
+          "withSizes": 0
+        },
+        "mobileNav": {
+          "hamburger": 0,
+          "mobileMenu": 0,
+          "navbarExpand": 0
+        },
+        "hamburgerIcon": 0,
+        "tables": {
+          "total": 0,
+          "responsive": 0
+        },
+        "wordCount": 5317,
+        "htmlLang": "es-ES"
+      }
+    },
+    {
+      "label": "Pricing",
+      "path": "/es/pricing",
+      "ok": true,
+      "issues": 1,
+      "details": {
+        "contentLength": 146333,
+        "status": 200,
+        "finalUrl": "https://new.zonacnc.com/es/pricing",
+        "hasDoctype": true,
+        "viewport": "width=device-width, initial-scale=1",
+        "title": "Planes para Vendedores de Maquinaria Industrial | ZonaCNC",
+        "description": "Publica tu maquinaria industrial en ZonaCNC. Planes desde gratis hasta Premium. Sin comisiones sobre ventas. Importación CSV en Premium. +3.400 anuncios activos.",
+        "gridClasses": {
+          "containers": 10,
+          "rows": 10,
+          "cols": 19
+        },
+        "cssCount": 23,
+        "responsiveCssCount": 0,
+        "mediaQueryStylesheets": 17,
+        "images": {
+          "total": 1,
+          "withSrcset": 0,
+          "withSizes": 0
+        },
+        "mobileNav": {
+          "hamburger": 0,
+          "mobileMenu": 0,
+          "navbarExpand": 0
+        },
+        "hamburgerIcon": 0,
+        "tables": {
+          "total": 0,
+          "responsive": 0
+        },
+        "wordCount": 4040,
+        "htmlLang": "es-ES"
+      }
+    },
+    {
+      "label": "Category-tornos",
+      "path": "/es/36-tornos",
+      "ok": false,
+      "issues": 7,
+      "details": {
+        "contentLength": 0,
+        "status": 301,
+        "finalUrl": "https://new.zonacnc.com/es/36-tornos",
+        "hasDoctype": false,
+        "title": "(no title)",
+        "description": "(none)",
+        "gridClasses": {
+          "containers": 0,
+          "rows": 0,
+          "cols": 0
+        },
+        "cssCount": 0,
+        "responsiveCssCount": 0,
+        "mediaQueryStylesheets": 0,
+        "images": {
+          "total": 0,
+          "withSrcset": 0,
+          "withSizes": 0
+        },
+        "mobileNav": {
+          "hamburger": 0,
+          "mobileMenu": 0,
+          "navbarExpand": 0
+        },
+        "hamburgerIcon": 0,
+        "tables": {
+          "total": 0,
+          "responsive": 0
+        },
+        "wordCount": 1,
+        "htmlLang": "(none)"
+      }
+    },
+    {
+      "label": "Theme CSS Analysis",
+      "path": "/themes/hummingbird/assets/css/theme.css",
+      "ok": true,
+      "issues": 0,
+      "details": {}
+    }
+  ],
+  "issues": {
+    "critical": [
+      {
+        "page": "Category-tornos",
+        "type": "empty-body",
+        "severity": "critical",
+        "detail": "Body length: 0 chars"
+      },
+      {
+        "page": "Category-tornos",
+        "type": "missing-viewport",
+        "severity": "critical",
+        "detail": "No viewport meta tag found"
+      }
+    ],
+    "high": [
+      {
+        "page": "Category-tornos",
+        "type": "http-status",
+        "severity": "high",
+        "detail": "HTTP 301 instead of 200",
+        "detailTip": "Redirected to https://new.zonacnc.com/es/36-tornos"
+      },
+      {
+        "page": "Category-tornos",
+        "type": "missing-title",
+        "severity": "high",
+        "detail": "No <title> tag"
+      },
+      {
+        "page": "Category-tornos",
+        "type": "no-responsive-grid",
+        "severity": "high",
+        "detail": "No Bootstrap grid classes (container/row/col) found"
+      }
+    ],
+    "medium": [
+      {
+        "page": "Homepage",
+        "type": "no-srcset",
+        "severity": "medium",
+        "detail": "6 images, 0 with srcset (consider responsive images)"
+      },
+      {
+        "page": "Category-metal",
+        "type": "no-srcset",
+        "severity": "medium",
+        "detail": "13 images, 0 with srcset (consider responsive images)"
+      },
+      {
+        "page": "Create-ad",
+        "type": "no-srcset",
+        "severity": "medium",
+        "detail": "1 images, 0 with srcset (consider responsive images)"
+      },
+      {
+        "page": "Pricing",
+        "type": "no-srcset",
+        "severity": "medium",
+        "detail": "1 images, 0 with srcset (consider responsive images)"
+      }
+    ],
+    "low": [
+      {
+        "page": "Create-ad",
+        "type": "missing-description",
+        "severity": "low",
+        "detail": "No meta description"
+      },
+      {
+        "page": "Category-tornos",
+        "type": "missing-doctype",
+        "severity": "low",
+        "detail": "No <!doctype html>"
+      },
+      {
+        "page": "Category-tornos",
+        "type": "missing-description",
+        "severity": "low",
+        "detail": "No meta description"
+      }
+    ]
+  }
+}

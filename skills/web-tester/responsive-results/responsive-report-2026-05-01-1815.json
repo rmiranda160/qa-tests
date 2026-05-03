@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-01T18:15:00Z",
+  "agent": "tester",
+  "focus": "responsive",
+  "scenario": "Vender máquina — Crear anuncio de maquinaria",
+  "url": "https://new.zonacnc.com/es/module/zonacncproductadd/ads",
+  "antiDupe": true,
+  "verdict": "PASS_WITH_NOTES",
+  "viewports": {
+    "desktop": { "width": 1366, "height": 850, "status": "PASS", "overflow": false },
+    "tablet": { "width": 768, "height": 1024, "status": "PASS", "overflow": false },
+    "mobile": { "width": 375, "height": 812, "status": "PASS", "overflow": false }
+  },
+  "warnings": [
+    { "id": "VEN-NAV-01", "severity": "LOW", "description": "Categories link height 37px on mobile (below 44px WCAG)" },
+    { "id": "VEN-FRM-01", "severity": "LOW", "description": "Checkbox tap targets 15-18px on mobile" },
+    { "id": "VEN-TTL-01", "severity": "LOW", "description": "Page title only 'zonacnc.com', not descriptive" }
+  ],
+  "reportFile": "qa/responsive-vender-maquina-2026-05-01-1815.md",
+  "durationMinutes": 8
+}

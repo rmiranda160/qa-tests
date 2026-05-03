@@ -1,0 +1,24 @@
+{
+  "id": "bike_1773995607387_demo_test",
+  "name": "Bicicleta Deportiva Fibra de vidrio",
+  "type": "Infantil",
+  "brand": "Pinarello",
+  "model": "City-952",
+  "size": "XL",
+  "pricePerHour": 8,
+  "pricePerDay": 35,
+  "available": true,
+  "location": "Villanúa",
+  "description": "Producto de alta calidad diseñado para ofrecer el máximo rendimiento. Ideal para usuarios que buscan fiabilidad y durabilidad. Fabricado con los mejores materiales disponibles en el mercado.",
+  "features": [
+    "Suspensión delantera",
+    "Frenos de disco",
+    "21 velocidades",
+    "Cuadro de aluminio"
+  ],
+  "testId": "demo_test",
+  "metadata": {
+    "isTestData": true,
+    "canBeDeleted": true
+  }
+}

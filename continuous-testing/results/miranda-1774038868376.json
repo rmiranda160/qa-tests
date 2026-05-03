@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-03-20T20:34:25.631Z",
+  "rule": "Miranda Button/Action Verification",
+  "summary": {
+    "totalApps": 1,
+    "totalButtons": 1,
+    "passedButtons": 0,
+    "failedButtons": 0,
+    "appsWithIssues": 1
+  },
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "timestamp": "2026-03-20T20:34:25.632Z",
+      "critical_buttons": [
+        {
+          "name": "Botón Buscar Disponibilidad",
+          "selector": "button:has-text('Buscar Disponibilidad')",
+          "type": "button",
+          "critical": false,
+          "status": "warning",
+          "exists": true,
+          "visible": true,
+          "clickable": true,
+          "functional": false,
+          "issues": [
+            "Click sin cambio detectable en URL, DOM, red, descarga, modal o estado"
+          ]
+        }
+      ],
+      "issues_found": 1
+    }
+  ]
+}

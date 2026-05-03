@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "stdout": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villanúa, Pirineo",
+  "stderr": "",
+  "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+  "rawResult": {
+    "ok": true,
+    "title": "Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villanúa, Pirineo"
+  }
+}

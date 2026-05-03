@@ -1,0 +1,274 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-01T04:45:00Z",
+  "agent_id": "tester",
+  "focus_area": "responsive",
+  "url_base": "https://new.zonacnc.com",
+  "scenario": "responsive-vendor-facing-pages-and-auth-pages",
+  "mode": "responsive",
+  "tooling": "curl + web_fetch",
+  "anti_duplicate": "new_scenario - vendor/auth/pricing pages vs previous category/cms/search",
+  "results": {
+    "pages_tested": 16,
+    "responsive_pass": true,
+    "structure_pass": true,
+    "issues": {
+      "critical": [],
+      "high": [
+        {
+          "id": "en-pricing-mixed-language",
+          "severity": "HIGH",
+          "title": "EN pricing page shows Spanish text in Free plan description",
+          "details": {
+            "page": "/en/pricing",
+            "spanish_text_found": [
+              "\"Para siempre\" instead of \"Forever\" in Free plan header",
+              "\"comprar en packs\" instead of \"Buy in packs\" for boost descriptions"
+            ],
+            "impact": "English-speaking users see mixed Spanish/English content on a critical conversion page"
+          },
+          "url": "https://new.zonacnc.com/en/pricing"
+        },
+        {
+          "id": "en-vender-spanish-title",
+          "severity": "HIGH",
+          "title": "EN /vender page has Spanish title and content",
+          "details": {
+            "page": "/en/vender",
+            "observed_title": "Vende tu maquinaria CNC sin esperar | ZonaCNC",
+            "expected_title": "Sell your CNC machinery...",
+            "impact": "EN navigation link to /vender shows Spanish sell page - breaks EN user experience"
+          },
+          "url": "https://new.zonacnc.com/en/vender"
+        },
+        {
+          "id": "en-auth-pages-spanish-footer",
+          "severity": "HIGH",
+          "title": "EN auth pages (login, password-recovery) have Spanish newsletter footer text (CONFIRMED - same as 04:00/04:15 reports)",
+          "details": {
+            "observed_footer_text": "\"Puede darse de baja en cualquier momento. Para ello, consulte nuestra información de contacto en el aviso legal.\"",
+            "expected": "English equivalent newsletter opt-out text",
+            "pages_affected": ["/en/login", "/en/password-recovery"],
+            "impact": "International users see Spanish legal text instead of English - trust/compliance concern"
+          }
+        },
+        {
+          "id": "pricing-content-12-redirects-404",
+          "severity": "HIGH",
+          "title": "Legacy pricing CMS page (/es/content/12-precios) redirects to 404 (CONFIRMED)",
+          "details": {
+            "url": "/es/content/12-precios",
+            "chain": "302 → 404",
+            "impact": "Any internal/external link to the old pricing CMS page results in a 404. /es/pricing works correctly."
+          }
+        }
+      ],
+      "medium": [
+        {
+          "id": "no-og-locale",
+          "severity": "MEDIUM",
+          "title": "Open Graph locale meta tag not set on any tested page",
+          "details": {
+            "pages_tested": "/es/, /es/pricing, /es/vender",
+            "impact": "Social sharing previews may not show correct language/locale. Minor for SEO/social."
+          }
+        },
+        {
+          "id": "en-pricing-starter-plan-description-spanish",
+          "severity": "MEDIUM",
+          "title": "EN pricing page uses Spanish description labels",
+          "details": {
+            "examples": [
+              "Starter plan shows 'Perfil público de vendedor' instead of 'Public seller profile'",
+              "Plan descriptions are identical to ES version across all plans"
+            ],
+            "impact": "EN users see Spanish feature labels in pricing table"
+          }
+        },
+        {
+          "id": "no-x-ua-compatible-meta",
+          "severity": "LOW",
+          "title": "X-UA-Compatible meta tag not present (minor - legacy IE support only)",
+          "impact": "Only affects legacy Internet Explorer rendering modes"
+        }
+      ],
+      "low": [
+        {
+          "id": "homepage-title-hreflang-variance",
+          "severity": "LOW",
+          "title": "Homepage title uses 'Segunda Mano y Nueva' but hreflang has 12 languages",
+          "details": {
+            "es_title": "Maquinaria Industrial Segunda Mano y Nueva | ZonaCNC España",
+            "en_title": "Purchase and sale of new and used industrial machinery and tool",
+            "hreflang_count": 12,
+            "note": "Title variation across languages is good but EN title truncates at 'tool' (likely character limit)"
+          }
+        }
+      ]
+    },
+    "responsive_structure": {
+      "status": "PASS",
+      "all_pages_have_viewport_meta": true,
+      "viewport_config": "width=device-width, initial-scale=1",
+      "all_pages_have_grid_system": true,
+      "grid_class_distribution": "col-md-6, col-lg-3, col-md-8, col-md-4, col-md-12",
+      "all_pages_have_mobile_nav_toggle": true,
+      "mobile_nav_method": "navbar-toggler / hamburger menu icon",
+      "all_pages_have_hreflang": true,
+      "hreflang_languages": 12,
+      "hreflang_codes": ["ca-es", "de-de", "en", "es-es", "eu-es", "gl-es", "fr-fr", "it-it", "pt-pt", "ru-ru", "tr-tr", "x-default"],
+      "canonical_urls_present": true,
+      "performance_optimizations": {
+        "preconnect_links": true,
+        "preload_links": true,
+        "dns-prefetch": true,
+        "charset": "utf-8"
+      }
+    },
+    "page_sizes": {
+      "homepage_es": {"url": "/es/", "bytes": 155502, "brand": "156 KB"},
+      "homepage_en": {"url": "/en/", "bytes": 152473, "brand": "152 KB"},
+      "homepage_fr": {"url": "/fr/", "bytes": 154132, "brand": "154 KB"},
+      "homepage_de": {"url": "/de/", "bytes": 153159, "brand": "153 KB"},
+      "pricing_es": {"url": "/es/pricing", "bytes": 146928, "brand": "147 KB"},
+      "pricing_en": {"url": "/en/pricing", "bytes": 144441, "brand": "144 KB"},
+      "login_es": {"url": "/es/iniciar-sesion", "bytes": 127212, "brand": "127 KB"},
+      "login_en": {"url": "/en/login", "bytes": 124020, "brand": "124 KB"},
+      "registration": {"url": "/es/?controller=registration", "bytes": 134094, "brand": "134 KB"},
+      "vender_es": {"url": "/es/vender", "bytes": 135628, "brand": "136 KB"},
+      "search": {"url": "/es/buscar?q=torno", "bytes": 243732, "brand": "244 KB"},
+      "category_root": {"url": "/es/2-inicio", "bytes": 1685648, "brand": "1.68 MB"},
+      "password_recovery_en": {"url": "/en/password-recovery", "bytes": 116114, "brand": "116 KB"},
+      "password_recovery_es": {"url": "/es/recuperar-contrasena", "redirect": "302", "note": "redirect to login"},
+      "mi_cuenta": {"url": "/es/mi-cuenta", "redirect": "302", "note": "redirects to login (requires auth)"},
+      "contact": {"url": "/es/contactenos", "bytes": 120556, "brand": "121 KB"},
+      "como_funciona": {"url": "/es/content/4-como-funciona", "bytes": 119892, "brand": "120 KB"},
+      "faq": {"url": "/es/content/10-preguntas-frecuentes", "bytes": 121485, "brand": "121 KB"}
+    },
+    "performance": {
+      "desktop_ttfb_avg_ms": 190,
+      "mobile_ttfb_avg_ms": 535,
+      "note": "Mobile TTFB ~2.8x slower than desktop (expected with throttled UA)",
+      "largest_pages": {
+        "category_listing": "1.68 MB (CONFIRMED from 04:15 report)",
+        "search_results": "244 KB",
+        "homepage_es": "156 KB",
+        "pricing_es": "147 KB",
+        "vender": "136 KB",
+        "registration": "134 KB",
+        "login": "127 KB"
+      }
+    },
+    "i18n_responsive_details": {
+      "es_pricing": {
+        "url": "/es/pricing",
+        "http": 200,
+        "size": "147 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": 12,
+        "title": "Planes para Vendedores de Maquinaria Industrial | ZonaCNC",
+        "status": "PASS"
+      },
+      "en_pricing": {
+        "url": "/en/pricing",
+        "http": 200,
+        "size": "144 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": true,
+        "title": "Seller Plans for Industrial Machinery",
+        "status": "PASS_WITH_NOTES",
+        "issues": ["Spanish text 'Para siempre' in Free plan card", "Spanish feature descriptions", "Spanish boost descriptions"]
+      },
+      "es_vender": {
+        "url": "/es/vender",
+        "http": 200,
+        "size": "136 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": 14,
+        "title": "Vende tu maquinaria CNC sin esperar | ZonaCNC",
+        "status": "PASS"
+      },
+      "en_vender": {
+        "url": "/en/vender",
+        "http": 200,
+        "size": "~136 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "title": "Vende tu maquinaria CNC sin esperar | ZonaCNC",
+        "status": "FAIL",
+        "issues": ["Spanish title and content on EN URL - page needs English translation"]
+      },
+      "es_login": {
+        "url": "/es/iniciar-sesion",
+        "http": 200,
+        "size": "127 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "hreflang": 12,
+        "title": "Iniciar Sesión — ZonaCNC Marketplace de Maquinaria",
+        "form_elements": 4,
+        "status": "PASS"
+      },
+      "en_login": {
+        "url": "/en/login",
+        "http": 200,
+        "size": "124 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "title": "Login",
+        "status": "PASS_WITH_NOTES",
+        "issues": ["Spanish footer newsletter text"]
+      },
+      "es_registration": {
+        "url": "/es/?controller=registration",
+        "http": 200,
+        "size": "134 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "form_elements": true,
+        "status": "PASS"
+      }
+    },
+    "404_pages": {
+      "es_404": {
+        "url": "/es/404",
+        "http": 404,
+        "size": "118 KB",
+        "viewport_meta": true,
+        "grid_classes": true,
+        "mobile_nav": true,
+        "status": "PASS",
+        "note": "Custom 404 page renders correctly with responsive structure"
+      },
+      "legacy_pricing_404": {
+        "url": "/es/content/12-precios",
+        "http": "302→404",
+        "status": "FAIL",
+        "severity": "HIGH",
+        "note": "Old pricing CMS URL redirects to 404"
+      }
+    },
+    "stability": {
+      "status": "stable",
+      "regressions_vs_0415": 0,
+      "confirmed_previous_issues": [
+        "i18n EN CMS content wrong language (04:00 report)",
+        "Legacy pricing /content/12-precios → 404 (04:15 report)",
+        "EN footer newsletter Spanish text (04:00/04:15 reports)",
+        "Category listing 1.68 MB (04:15 report)"
+      ]
+    },
+    "verdict": "PASS_WITH_NOTES",
+    "summary": "Responsive structure ✅ solid across all 16 tested pages including vendor-facing (pricing, vender) and auth (login, registration) pages. All pages have proper viewport meta, responsive grid system (col-md-*/col-lg-*), mobile nav toggle, and 12-language hreflang. Key issues: HIGH - EN pricing page has Spanish text 'Para siempre' in Free plan card. HIGH - EN /vender serves Spanish page (no English translation). HIGH - EN auth pages have Spanish footer newsletter text. Category listing still at 1.68 MB (previously reported). Responsive markup and structure are consistent across all tested pages."
+  }
+}

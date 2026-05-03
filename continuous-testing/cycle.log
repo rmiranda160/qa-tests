@@ -1,0 +1,18 @@
+2026-03-20 22:27:31,277 - INFO - Starting continuous testing cycle
+2026-03-20 22:27:31,277 - INFO - Testing Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+2026-03-20 22:27:31,277 - INFO -   Running smoke tests
+2026-03-20 22:27:31,854 - INFO -   Running responsive tests
+2026-03-20 22:27:33,673 - INFO -   Running accessibility tests
+2026-03-20 22:27:34,621 - INFO - Testing Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+2026-03-20 22:27:34,621 - INFO -   Running smoke tests
+2026-03-20 22:27:35,051 - INFO -   Running api tests
+2026-03-20 22:27:35,382 - INFO - Testing ContentoAI (https://cntai.cenarbe.com/)
+2026-03-20 22:27:35,382 - INFO -   Running smoke tests
+2026-03-20 22:27:35,716 - INFO -   Running responsive tests
+2026-03-20 22:27:36,283 - INFO -   Running accessibility tests
+2026-03-20 22:27:36,829 - INFO - Testing Dashboard (https://dashboard.cenarbe.com/)
+2026-03-20 22:27:36,829 - INFO -   Running smoke tests
+2026-03-20 22:27:37,281 - INFO -   Running responsive tests
+2026-03-20 22:27:38,506 - INFO -   Running accessibility tests
+2026-03-20 22:27:39,310 - INFO - Cycle 20260320_222731 completed. Results saved to /home/node/.openclaw/workspace-tester/continuous-testing/results/20260320_222731.json
+2026-03-20 22:27:39,310 - INFO - Summary: 8/11 modes passed, 3 failed.

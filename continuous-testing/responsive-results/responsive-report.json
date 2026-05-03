@@ -1,0 +1,106 @@
+{
+  "site": "https://new.zonacnc.com",
+  "date": "2026-04-30T19:30:00Z",
+  "mode": "responsive",
+  "tester": "CRON_QA subagent",
+  "viewports_tested": [
+    "mobile (390×844 - iPhone 14)",
+    "tablet (768×1024 - iPad)",
+    "desktop (1440×900)"
+  ],
+  "pages_tested": [
+    "home (/)",
+    "search (?search_query=torno)",
+    "category (/28-maquinaria-metal)",
+    "pricing (/module/zonacncplans/pricing)",
+    "PDP (/brocas-de-plaquitas/12881-*)",
+    "login (/iniciar-sesion)"
+  ],
+  "summary": {
+    "result": "PASS_WITH_NOTES",
+    "critical_issues": 0,
+    "warnings": 2,
+    "notes": 3,
+    "total_checks": 18,
+    "message": "Responsive layout is generally solid. Two non-critical issues found: vendor name overflow in search results on mobile, and missing search filters on mobile. Breadcrumb uses proper overflow-x:scroll for long paths."
+  },
+  "findings": [
+    {
+      "severity": "warning",
+      "type": "VENDOR_NAME_OVERFLOW",
+      "page": "search",
+      "viewport": "mobile (390px)",
+      "description": "Long vendor names (.zcnc-row-vendor) overflow the viewport on mobile. Element 'VELETA COMERCIALIZACION Y SERVICIOS SLU' extends 72.5px beyond the 390px viewport (right edge at 462.5px).",
+      "element": "SPAN.zcnc-row-vendor",
+      "impact": "Users cannot see the full vendor name on mobile for listings with long business names. Content is clipped.",
+      "suggestion": "Apply text-overflow: ellipsis + overflow: hidden + white-space: nowrap with a max-width on .zcnc-row-vendor, or wrap the text to multiple lines on mobile viewports.",
+      "reproducible": true
+    },
+    {
+      "severity": "warning",
+      "type": "MISSING_SEARCH_FILTERS_MOBILE",
+      "page": "search",
+      "viewport": "mobile (390px)",
+      "description": "No search filters (.facet, .filter, #search_filters) found on mobile. Desktop filters are hidden (display:none) but no mobile filter toggle is displayed.",
+      "element": "N/A - filters not rendered",
+      "impact": "Mobile users searching for products cannot filter by category, price, condition, or other facets. They must scroll through all results.",
+      "suggestion": "Add a 'Filter' button on mobile that opens a slide-out or modal with facets, or include collapsible filter sections above results.",
+      "reproducible": true
+    },
+    {
+      "severity": "note",
+      "type": "BREADCRUMB_SCROLLABLE",
+      "page": "PDP",
+      "viewport": "mobile (390px)",
+      "description": "Breadcrumb on PDP extends far beyond viewport (5 items, rightmost at 710px) but parent container correctly uses overflow-x:scroll, making it horizontally scrollable. This is proper responsive behavior.",
+      "element": "nav.breadcrumb (overflow-x: scroll)",
+      "impact": "Minor UX friction - users need to horizontal-scroll to see full breadcrumb path on mobile.",
+      "suggestion": "Consider truncating middle breadcrumb items on very small screens to reduce scroll distance on PDPs with deep category paths.",
+      "reproducible": true
+    },
+    {
+      "severity": "info",
+      "type": "META_VIEWPORT_CONFIGURED",
+      "page": "all",
+      "viewport": "all",
+      "description": "Meta viewport tag is correctly set to 'width=device-width, initial-scale=1' on all pages, ensuring proper mobile scaling.",
+      "impact": "No issue - correct configuration.",
+      "suggestion": "None needed.",
+      "reproducible": false
+    },
+    {
+      "severity": "info",
+      "type": "MOBILE_NAV_ELEMENTS_PRESENT",
+      "page": "home",
+      "viewport": "mobile (390px)",
+      "description": "Mobile-specific UI elements are present: search bar (.ps-searchbar--mobile), login button, and collapsible footer sections. Desktop menu properly hidden via d-none d-xl-block.",
+      "impact": "No issue - mobile navigation works with direct links.",
+      "suggestion": "None needed.",
+      "reproducible": false
+    }
+  ],
+  "per_page_results": {
+    "home": {
+      "desktop": { "overflowX": false, "issues": 0, "status": "PASS" },
+      "tablet": { "overflowX": false, "issues": 0, "status": "PASS" },
+      "mobile": { "overflowX": false, "issues": 0, "status": "PASS" }
+    },
+    "search": {
+      "desktop": { "overflowX": false, "issues": 0, "status": "PASS" },
+      "tablet": { "overflowX": false, "issues": 0, "status": "PASS" },
+      "mobile": { "overflowX": true, "issues": 2, "status": "PASS_WITH_NOTES", "note": "Vendor name overflow (73px) + missing mobile filters" }
+    },
+    "category": {
+      "mobile": { "overflowX": false, "issues": 0, "products": 12, "status": "PASS" }
+    },
+    "pricing": {
+      "mobile": { "overflowX": false, "issues": 0, "status": "PASS" }
+    },
+    "PDP": {
+      "mobile": { "overflowX": false, "issues": 0, "status": "PASS", "note": "Breadcrumb scrollable (overflow-x:scroll) - acceptable behavior" }
+    },
+    "login": {
+      "mobile": { "overflowX": false, "issues": 0, "status": "PASS" }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+🔍 INICIANDO PRUEBAS DIARIAS DE COHERENCIA
+============================================================
+🔐 Iniciando sesión en Cenarbe...
+
+🧪 Probando: Botón "Mis Reservas" → Página de reservas
+   ✅ COHERENTE: Botón "Mis Reservas" → Página de reservas
+
+🧪 Probando: Botón "Mi Perfil" → Página de perfil
+
+🧪 Probando: Botón "Historial" → Historial de actividades
+
+🧪 Probando: Enlace "Configuración" → Opciones de configuración
+
+🧪 Probando: Menú "Ayuda" → Página de ayuda/soporte
+
+📊 Reporte de coherencia guardado: /home/node/.openclaw/workspace-tester/coherence-reports/coherence-report-2026-03-20T23-33-50-877Z.json
+📋 Resumen: 1 pasados, 1 fallados
+🚨 Screenshot de incoherencia preparado para alerta: /home/node/.openclaw/workspace-coordinator/incoherence-2026-03-20T23-33-50-877Z.png
+
+============================================================
+📈 RESUMEN PRUEBAS DE COHERENCIA
+============================================================
+Aplicación: Cenarbe Bike Rental
+Total pruebas: 5
+✅ Coherentes: 1
+❌ Incoherentes: 1
+
+🚨 INCOHERENCIAS DETECTADAS:
+
+📤 Screenshot preparado en workspace raíz para alerta
+============================================================
+🔍 INICIANDO PRUEBAS DIARIAS DE COHERENCIA
+============================================================
+🔐 Iniciando sesión en Cenarbe...
+
+🧪 Probando: Botón "Mis Reservas" → Página de reservas
+   ✅ COHERENTE: Botón "Mis Reservas" → Página de reservas
+
+🧪 Probando: Botón "Mi Perfil" → Página de perfil
+
+🧪 Probando: Botón "Historial" → Historial de actividades
+
+🧪 Probando: Enlace "Configuración" → Opciones de configuración
+
+🧪 Probando: Menú "Ayuda" → Página de ayuda/soporte
+
+📊 Reporte de coherencia guardado: /home/node/.openclaw/workspace-tester/coherence-reports/coherence-report-2026-03-20T23-40-37-832Z.json
+📋 Resumen: 1 pasados, 1 fallados
+🚨 Screenshot de incoherencia preparado para alerta: /home/node/.openclaw/workspace-coordinator/incoherence-2026-03-20T23-40-37-832Z.png
+
+============================================================
+📈 RESUMEN PRUEBAS DE COHERENCIA
+============================================================
+Aplicación: Cenarbe Bike Rental
+Total pruebas: 5
+✅ Coherentes: 1
+❌ Incoherentes: 1
+
+🚨 INCOHERENCIAS DETECTADAS:
+
+📤 Screenshot preparado en workspace raíz para alerta
+============================================================

@@ -1,0 +1,92 @@
+{
+  "applications": {
+    "Dashboard": {
+      "buttons": {
+        "Refresh Data": {
+          "type": "ajax",
+          "expectedBehavior": "Updates metrics via AJAX without page reload",
+          "validation": "Check for updated timestamp or data changes",
+          "indicators": ["networkRequest", "domChanged", "stateChanged"]
+        },
+        "Export Report": {
+          "type": "download",
+          "expectedBehavior": "Triggers file download",
+          "validation": "Check for download event or blob URL",
+          "indicators": ["downloadTriggered"]
+        },
+        "View Alert Details": {
+          "type": "modal",
+          "expectedBehavior": "Opens modal with alert details",
+          "validation": "Check for modal visibility",
+          "indicators": ["modalOpened", "domChanged"]
+        },
+        "Interacción Gráficos": {
+          "type": "javascript",
+          "expectedBehavior": "Interactive chart updates",
+          "validation": "Check for canvas changes or event listeners",
+          "indicators": ["stateChanged", "domChanged"]
+        },
+        "Ver Screenshots Completos": {
+          "type": "lightbox",
+          "expectedBehavior": "Opens image viewer overlay",
+          "validation": "Check for overlay or modal",
+          "indicators": ["modalOpened", "domChanged"]
+        }
+      }
+    },
+    "Cenarbe Bike Rental": {
+      "buttons": {
+        "Buscar Disponibilidad": {
+          "type": "ajax_filter",
+          "expectedBehavior": "Filters results via AJAX",
+          "validation": "Check for updated results section",
+          "indicators": ["networkRequest", "domChanged"]
+        },
+        "Formulario Reserva": {
+          "type": "form_submit",
+          "expectedBehavior": "Submits form via POST",
+          "validation": "Check for network request or redirect",
+          "indicators": ["networkRequest", "urlChanged"]
+        }
+      }
+    },
+    "Villa Zocotin": {
+      "buttons": {
+        "Botón Confirmar Reserva": {
+          "type": "ajax",
+          "expectedBehavior": "Submits reservation via AJAX",
+          "validation": "Check for success message or network request",
+          "indicators": ["networkRequest", "domChanged"]
+        },
+        "Formulario de Reserva": {
+          "type": "form_submit",
+          "expectedBehavior": "Submits form via POST",
+          "validation": "Check for network request or redirect",
+          "indicators": ["networkRequest", "urlChanged"]
+        }
+      }
+    },
+    "ContentoAI": {
+      "buttons": {
+        "Botón Ver Demo": {
+          "type": "javascript",
+          "expectedBehavior": "Triggers demo modal or video player",
+          "validation": "Check for modal or iframe",
+          "indicators": ["modalOpened", "domChanged"]
+        },
+        "Formulario Waitlist": {
+          "type": "ajax_submit",
+          "expectedBehavior": "Submits email via AJAX",
+          "validation": "Check for network request and success message",
+          "indicators": ["networkRequest", "domChanged"]
+        }
+      }
+    }
+  },
+  "settings": {
+    "defaultIndicators": ["urlChanged", "domChanged", "networkRequest", "downloadTriggered", "modalOpened", "stateChanged"],
+    "minimumIndicators": 1,
+    "timeout_ms": 2000,
+    "ajax_timeout_ms": 3000
+  }
+}

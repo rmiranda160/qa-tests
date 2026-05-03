@@ -1,0 +1,291 @@
+{
+  "timestamp": "2026-05-01T01:00:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "curl + PageSpeed Insights API + HTML analysis + web_fetch",
+  "anti_duplicate_note": "Focus on aspects NOT covered by Apr-30 23:45 or May-01 00:45 tests: PageSpeed mobile performance metrics, product detail page responsive images (srcset/picture), mobile form analysis, tap-target/accessibility via PSI, English/ES category page comparison, mobile page weight breakdown, catalog mode (is_catalog=true) implications",
+  "scenario": "Mobile Performance & Product Page Responsive Analysis",
+  "coverage": {
+    "pages_analysed": [
+      "Landing ES (mobile)",
+      "Landing EN (mobile)",
+      "Product page ES (tornos/238-quantum)",
+      "Product page EN (lathes/238-quantum)",
+      "Category EN (15-lathes)",
+      "Search results ES (buscar?s=torno+cnc)",
+      "Cart ES (carrito)",
+      "Registration ES (iniciar-sesion?create_account=1)",
+      "Cart ES (carrito)"
+    ],
+    "tools_used": [
+      "PageSpeed Insights API × 3 (home ES, home EN, product ES)",
+      "curl with mobile UA (Pixel 8 + Chrome 120)",
+      "Python HTML analysis (srcset, picture, form, layout analysis)",
+      "Response time benchmarking (multi-page)"
+    ]
+  },
+  "pagespeed_mobile_performance": {
+    "landing_es": {
+      "performance_score": 74,
+      "accessibility_score": 94,
+      "cwv": {
+        "lcp_seconds": 5.7,
+        "cls": 0.066,
+        "tbt_ms": 30,
+        "tt_seconds": 5.7,
+        "fcp_seconds": 1.4,
+        "speed_index_seconds": 5.0
+      },
+      "verdict": "LCP is critical (5.7s). Needs image optimization and JS reduction."
+    },
+    "landing_en": {
+      "performance_score": 83,
+      "accessibility_score": 0,
+      "cwv": {
+        "lcp_seconds": 3.7,
+        "cls": 0.139,
+        "tbt_ms": 0,
+        "tt_seconds": 4.4,
+        "fcp_seconds": 1.4,
+        "speed_index_seconds": 3.4
+      },
+      "verdict": "Better performance than ES. CLS borderline (0.139). Accessibility audit had parse issues."
+    },
+    "product_es": {
+      "performance_score": 80,
+      "accessibility_score": 0,
+      "cwv": {
+        "lcp_seconds": 4.1,
+        "cls": 0.028,
+        "tbt_ms": 190,
+        "tt_seconds": 8.7,
+        "fcp_seconds": 1.7,
+        "speed_index_seconds": 4.8
+      },
+      "verdict": "TTI very high (8.7s) due to JS execution. 93 requests, 1398KB total. Good CLS."
+    }
+  },
+  "resource_breakdown_product_page": {
+    "total_requests": 93,
+    "total_transfer_kb": 1398,
+    "by_type": {
+      "script": {"requests": 39, "kb": 621, "pct": 44.4},
+      "image": {"requests": 14, "kb": 413, "pct": 29.5},
+      "font": {"requests": 5, "kb": 202, "pct": 14.5},
+      "stylesheet": {"requests": 25, "kb": 86, "pct": 6.2},
+      "document": {"requests": 2, "kb": 47, "pct": 3.4},
+      "other": {"requests": 8, "kb": 30, "pct": 2.1},
+      "third_party": {"requests": 22, "kb": 495, "pct": 35.4}
+    }
+  },
+  "responsive_images_audit": {
+    "product_detail_page": {
+      "has_srcset": true,
+      "srcset_instances": 8,
+      "has_picture_elements": true,
+      "picture_count": 4,
+      "has_sizes_attributes": true,
+      "sizes_breakpoints": ["360px", "768px", "992px", "1200px"],
+      "webp_support": true,
+      "jpeg_fallback": true,
+      "lazy_loading": true,
+      "lazy_images": 12,
+      "verdict": "PASS - Product pages have excellent responsive images (WebP + JPG, srcset, sizes, picture elements)"
+    },
+    "homepage_es": {
+      "srcset_instances": 0,
+      "lazy_loading": "partial",
+      "verdict": "WARN - Homepage listing images lack srcset"
+    },
+    "category_page_en": {
+      "srcset_instances": 0,
+      "total_images": 25,
+      "all_have_lazy_loading": true,
+      "verdict": "WARN - Category listing images (25) lack srcset despite lazy loading"
+    },
+    "search_results": {
+      "srcset_instances": 0,
+      "verdict": "WARN - Search results images lack srcset"
+    }
+  },
+  "mobile_responsive_structure": {
+    "viewport_meta": {
+      "status": "PASS",
+      "value": "width=device-width, initial-scale=1"
+    },
+    "theme": "Hummingbird (PrestaShop 9, Bootstrap 5)",
+    "responsive_classes_found": {
+      "d-md-none": 7,
+      "d-none d-md-block": 1,
+      "offcanvas_count": 2
+    },
+    "mobile_menu": {
+      "type": "Bootstrap 5 offcanvas-start",
+      "trigger": "button.menu-toggle.btn.btn-link",
+      "search_offcanvas": true,
+      "navigation_classes": "ps-mainmenu ps-mainmenu--mobile offcanvas offcanvas-start js-menu-canvas"
+    },
+    "language_selector": {
+      "status": "PASS",
+      "aria_label": "Cambiar idioma",
+      "languages_available": 12
+    },
+    "add_to_cart_button": {
+      "status": "PASS",
+      "elements_found": true,
+      "note": "CTA 'btn btn-primary' present in product page"
+    },
+    "catalog_mode": {
+      "is_catalog": true,
+      "show_prices": true,
+      "implication": "Marketplace model: prices shown as 'A consultar' (ask seller), contact seller via module"
+    },
+    "contact_seller_modules": {
+      "found": true,
+      "modules_detected": ["zonacnclistings/contact", "zonacncmessaging/contact"]
+    }
+  },
+  "a11y_findings_from_psi": {
+    "color_contrast_issues": {
+      "total_on_homepage_es": 49,
+      "worst_offenders": [
+        {"element": "div.zonacnc-cta-inner > div.zonacnc-cta-grid > div.zonacnc-cta-text > span.zonacnc-cta-badge", "ratio": 2.79, "foreground": "#ffffff", "note": "White text on light background"},
+        {"element": "article.zcnc-listing-card > a.zcnc-card-link > div.zcnc-card-body > div.zcnc-card-price", "ratio": 3.82, "foreground": "#e94560", "note": "Red price text - insufficient contrast against background"},
+        {"element": "a.zcnc-card-link > div.zcnc-card-image > div.zcnc-placeholder-image > span", "ratio": 1.96, "foreground": "#adb5bd", "note": "Placeholder text extremely low contrast"},
+        {"element": "article.zcnc-listing-card > a.zcnc-card-link > div.zcnc-card-image > span.zcnc-badge", "ratio": 3.13, "foreground": "#ffffff", "note": "Badge white text on light tint"},
+        {"element": "div.zcnc-categories-grid > a.zcnc-category-card > div.zcnc-category-info > span.zcnc-category-count", "ratio": 2.07, "foreground": "#adb5bd", "note": "Category count text extremely low contrast"}
+      ]
+    },
+    "missing_link_names": {
+      "total": 2,
+      "elements": [
+        "div.header-bottom > div.header-bottom__container > div.header-bottom__row > a.zcnc-mainrow-sell",
+        "div.header-bottom__container > div.header-bottom__row > div#zcnc-mainrow-cats > a.zcnc-cat-btn"
+      ],
+      "note": "Probably icon-only buttons (browse categories, sell product) without accessible labels"
+    },
+    "unused_javascript": {
+      "potential_savings_kb": 135,
+      "note": "Unused JS indicates bundle optimization opportunity"
+    }
+  },
+  "mobile_responsive_http_performance": {
+    "product_page_es_mobile": {"http": 200, "size_bytes": 212210, "time_s": 0.70, "final_url": "/es/tornos/238-quantum-d318x910sge.html"},
+    "product_page_en_mobile": {"http": 200, "size_bytes": 206502, "time_s": 0.79, "final_url": "/en/lathes/238-quantum-d318x910sge.html"},
+    "cart_es_mobile": {"http": 200, "size_bytes": 119920, "time_s": 1.60},
+    "cart_es_desktop": {"http": 200, "size_bytes": 119920, "time_s": 0.54, "note": "Same HTML as mobile, CSS handles layout"},
+    "registration_es_mobile": {"http": 200, "size_bytes": 134059, "time_s": "~1.5", "form_fields": 25, "required_fields": true},
+    "search_es_mobile": {"http": 200, "size_bytes": 691293, "time_s": "~1.7", "note": "Heaviest page - large listing"},
+    "category_en_mobile": {"http": 200, "size_bytes": 611692, "time_s": "~1.5"},
+    "product_original_url_es": {"http": 301, "redirect_to": "/es/tornos/238-quantum-d318x910sge.html"},
+    "product_original_url_en": {"http": 301, "redirect_to": "/en/lathes/238-quantum-d318x910sge.html"}
+  },
+  "issues_found": {
+    "critical": [],
+    "warnings": [
+      {
+        "id": "PERF-MOB-01",
+        "severity": "WARN",
+        "description": "ES Home LCP is 5.7s on mobile (red: <2.5s needed)",
+        "impact": "Users on 3G/4G see blank screen for ~6 seconds before main content renders",
+        "recommendation": "Optimize hero images, implement critical CSS, defer non-critical JS, use image CDN"
+      },
+      {
+        "id": "PERF-MOB-02",
+        "severity": "WARN",
+        "description": "Product page TTI is 8.7s on mobile (heavy JS: 39 scripts = 621KB + 22 third-party = 495KB)",
+        "impact": "Unusable for ~9 seconds on slow connections",
+        "recommendation": "Code-split JS bundles, lazy-load non-critical third-party scripts, implement resource hints (preload/preconnect)"
+      },
+      {
+        "id": "PERF-MOB-03",
+        "severity": "WARN",
+        "description": "EN Home CLS is 0.139 (threshold: 0.1 for PASS)",
+        "impact": "Layout shift causes accidental taps on mobile",
+        "recommendation": "Set explicit dimensions on dynamically loaded content and images"
+      },
+      {
+        "id": "A11Y-CONTRAST-01",
+        "severity": "WARN",
+        "description": "49 color contrast issues on homepage (price text #e94560 has 3.82:1 ratio, placeholder #adb5bd has 1.96:1)",
+        "impact": "WCAG AA failure for normal text (<4.5:1). Users with low vision cannot read prices, categories, or badge text",
+        "recommendation": "Increase price contrast (min 4.5:1), increase placeholder/badge contrast. Darken #e94560 to ~#c33 or add dark background"
+      },
+      {
+        "id": "A11Y-LINKS-01",
+        "severity": "WARN",
+        "description": "2 navigation links lack discernible name ('Sell' and category browse buttons)",
+        "impact": "Screen reader users cannot identify these navigation actions",
+        "recommendation": "Add aria-label or visually hidden span to icon-only buttons"
+      },
+      {
+        "id": "RESP-IMG-CAT",
+        "severity": "WARN",
+        "description": "Category and search listing pages (25+ images) have NO srcset/sizes despite loading='lazy'",
+        "impact": "Mobile users download 400-720px images on 390px screens - wasted bandwidth on listing-heavy pages",
+        "recommendation": "Add srcset with existing image variants (98x98 through 400x400) to category/product listing thumbnails"
+      },
+      {
+        "id": "PERF-JS-BLOAT",
+        "severity": "WARN",
+        "description": "Product page loads 39 scripts (621KB JS) + 22 third-party requests (495KB)",
+        "impact": "35.4% of total payload is third-party. 44.4% is JS. Mobile suffers severe CPU/network contention",
+        "recommendation": "Audit third-party services, defer analytics/tracking/CDN scripts, implement resource prioritization"
+      }
+    ],
+    "minor": [
+      {
+        "id": "MOB-ALT-01",
+        "severity": "MINOR",
+        "description": "1 blank alt attribute on product page (out of 15 total images)",
+        "note": "Acceptable for decorative images but verify this is intentional"
+      },
+      {
+        "id": "MOB-REDIRECTS",
+        "severity": "MINOR",
+        "description": "Product URLs /es/product/NNN-name redirect (301) to friendly /es/tornos/NNN-name (0.24s redirect overhead)",
+        "note": "Redirect adds latency; consider fixing links to point directly to friendly URL"
+      }
+    ]
+  },
+  "new_positive_findings": {
+    "product_page_responsive_images": "Product detail pages have EXCELLENT responsive image implementation: WebP + JPG fallback with 4 picture elements, srcset with width descriptors (400w, 720w), sizes at 360/768/992/1200px breakpoints. This was NOT covered by previous tests which only checked homepage/category pages.",
+    "alt_text": "Product page has 14/15 images with meaningful alt text using product name",
+    "registration_form": "Well-structured mobile form with 25 input fields, proper labels, required field markers, and password strength indicator",
+    "catalog_mode": "Marketplace model works - prices shown as 'A consultar' with contact-seller modules present",
+    "lazy_loading": "All category page images (25/25) use loading=lazy - good for mobile initial load"
+  },
+  "summary": {
+    "overall": "PASS_WITH_NOTES",
+    "grade": "B-",
+    "total_checks_completed": 15,
+    "warnings": 7,
+    "critical_fails": 0,
+    "new_positive_findings_this_run": [
+      "Product detail pages have proper responsive images (WebP + srcset + picture elements) - previous tests missed this",
+      "Registration form is well-structured for mobile (labels, required fields, password strength)",
+      "All category images use loading=lazy"
+    ],
+    "new_negative_findings_this_run": [
+      "ES Home LCP is 5.7s on mobile - worst performance issue found",
+      "Product page TTI is 8.7s (39 scripts, 622KB JS, 495KB third-party)",
+      "49 color contrast accessibility issues on homepage",
+      "EN Home CLS at 0.139 exceeds threshold",
+      "Category/search listing pages (not product pages) lack srcset",
+      "2 navigation links missing accessible names"
+    ],
+    "recommendations": [
+      "CRITICAL: Reduce LCP on mobile home page (5.7s) - optimize hero images, defer CSS/JS",
+      "HIGH: Fix 49 color contrast violations - price text, badges, placeholder text all below WCAG AA",
+      "HIGH: Add srcset to category/search listing thumbnails using PrestaShop's existing image variants",
+      "MEDIUM: Add aria-label to icon-only nav buttons (Sell, Browse Categories)",
+      "MEDIUM: Audit and defer 22 third-party requests (495KB on product page)",
+      "LOW: Fix stable CLS on EN homepage (0.139→<0.1)",
+      "LOW: Ensure product links point to friendly URLs instead of /product/NNN redirects",
+      "NEXT: Run Playwright visual comparison test (requires remote browser WS reconnect)",
+      "NEXT: Test actual mobile user flow buy/contact flow with real browser interaction"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": ["smoke", "responsive", "accessibility"],
+      "criticalPaths": ["/reservar.php", "/checkout.php"]
+    },
+    {
+      "name": "Calendario Cenarbe",
+      "url": "https://dev1.cenarbe.com/calendario/",
+      "modes": ["smoke", "api"],
+      "criticalPaths": ["/calendario/", "/calendario/api/eventos.php", "/calendario/api/bicicletas.php"],
+      "apiEndpoints": [
+        {
+          "url": "/calendario/api/eventos.php",
+          "method": "GET",
+          "expectedStatus": 200,
+          "validation": "jsonArray"
+        },
+        {
+          "url": "/calendario/api/bicicletas.php",
+          "method": "GET",
+          "expectedStatus": 200,
+          "validation": "jsonArray"
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "modes": ["smoke", "responsive", "accessibility"],
+      "criticalPaths": ["/"]
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "modes": ["smoke", "responsive", "accessibility"],
+      "criticalPaths": ["/"]
+    }
+  ],
+  "alerting": {
+    "telegramChannel": "CEO Miranda",
+    "minSeverity": "high"
+  },
+  "schedule": {
+    "testIntervalMinutes": 5,
+    "reportIntervalHours": 12
+  }
+}

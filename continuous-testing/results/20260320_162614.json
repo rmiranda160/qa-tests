@@ -1,0 +1,237 @@
+{
+  "cycle_id": "20260320_162614",
+  "start_time": "2026-03-20T16:26:14.770510",
+  "applications": [
+    {
+      "name": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dev1.cenarbe.com/. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villan\u00faa, Pirineo"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dev1.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774023975696.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774023976074.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774023976573.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774023975696.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774023976074.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774023976573.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": null,
+          "analysis": {
+            "status": "error",
+            "severity": "high",
+            "message": "Test execution failed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://cntai.cenarbe.com/. Title: ContentoAI - Generador de Contenido IA en Espa\u00f1ol",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "ContentoAI - Generador de Contenido IA en Espa\u00f1ol"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://cntai.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774023981994.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774023982255.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774023982680.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774023981994.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774023982255.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774023982680.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": null,
+          "analysis": {
+            "status": "error",
+            "severity": "high",
+            "message": "Test execution failed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "modes": [
+        {
+          "mode": "smoke",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Smoke test passed for https://dashboard.cenarbe.com/. Title: Proactive Monitoring Dashboard",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "title": "Proactive Monitoring Dashboard"
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": []
+          }
+        },
+        {
+          "mode": "responsive",
+          "raw_result": {
+            "ok": true,
+            "stdout": "Responsive test passed for https://dashboard.cenarbe.com/. Screenshots: mobile, tablet, desktop",
+            "stderr": "",
+            "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results",
+            "rawResult": {
+              "ok": true,
+              "screenshots": [
+                {
+                  "name": "mobile",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774023988381.png",
+                  "width": 390,
+                  "height": 844
+                },
+                {
+                  "name": "tablet",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774023988639.png",
+                  "width": 768,
+                  "height": 1024
+                },
+                {
+                  "name": "desktop",
+                  "path": "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774023988802.png",
+                  "width": 1440,
+                  "height": 900
+                }
+              ]
+            }
+          },
+          "analysis": {
+            "status": "pass",
+            "severity": "none",
+            "message": "All tests passed",
+            "screenshot_paths": [
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-mobile-1774023988381.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-tablet-1774023988639.png",
+              "/home/node/.openclaw/workspace-tester/continuous-testing/playwright-tester/results/responsive-desktop-1774023988802.png"
+            ]
+          }
+        },
+        {
+          "mode": "accessibility",
+          "raw_result": null,
+          "analysis": {
+            "status": "error",
+            "severity": "high",
+            "message": "Test execution failed",
+            "screenshot_paths": []
+          }
+        }
+      ]
+    }
+  ]
+}

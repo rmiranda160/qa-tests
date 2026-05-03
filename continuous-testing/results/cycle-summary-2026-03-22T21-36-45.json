@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-03-22T21:34:00Z",
+  "cycle_start": "2026-03-22T21:34:00Z",
+  "cycle_end": "2026-03-22T21:36:45Z",
+  "smoke_tests": [
+    {
+      "app": "Cenarbe Bike Rental",
+      "url": "https://dev1.cenarbe.com/",
+      "status": "PASS",
+      "details": "Smoke test passed. Title: Cenarbe Bike Rental - Inicio - Alquiler de Bicicletas en Villanúa, Pirineo"
+    },
+    {
+      "app": "ContentoAI",
+      "url": "https://cntai.cenarbe.com/",
+      "status": "PASS",
+      "details": "Smoke test passed. Title: ContentoAI"
+    },
+    {
+      "app": "Dashboard",
+      "url": "https://dashboard.cenarbe.com/",
+      "status": "PASS",
+      "details": "Smoke test passed. Title: Proactive Monitoring Dashboard"
+    }
+  ],
+  "coherence_tests": {
+    "basic": {
+      "file": "coherence-cycle-2026-03-22T21-35-59-832Z.json",
+      "summary": "3/4 applications passed",
+      "failures": [
+        {
+          "app": "ContentoAI",
+          "url": "https://cntai.cenarbe.com/",
+          "errors": [
+            "Selector not found: h2",
+            "Selector not found: h3",
+            "Selector not found: footer",
+            "Selector not found: a[href=\"/login\"]",
+            "Selector not found: a[href=\"/register\"]",
+            "Selector not found: a[href=\"/dashboard\"]"
+          ],
+          "screenshot": "/home/node/.openclaw/workspace-tester/continuous-testing/coherence-screenshots/ContentoAI-2026-03-22T21-35-58-241Z.png"
+        }
+      ]
+    },
+    "extended": {
+      "file": "coherence-cycle-extended-2026-03-22T21-36-29-941Z.json",
+      "summary": "3/5 applications passed",
+      "failures": [
+        {
+          "app": "ContentoAI",
+          "url": "https://cntai.cenarbe.com/",
+          "errors": [
+            "Selector not found: a[href=\"/\"]",
+            "Selector not found: a[href*=\"demo\"]",
+            "Selector not found: a[href*=\"waitlist\"]",
+            "Selector not found: form",
+            "Selector not found: button",
+            "Selector not found: input[type=\"text\"]",
+            "Selector not found: input[type=\"email\"]"
+          ]
+        },
+        {
+          "app": "Villa Zocotin",
+          "url": "https://villazocotin.cenarbe.com/",
+          "errors": [
+            "Selector not found: .calendar",
+            "Selector not found: input[type=\"submit\"]"
+          ]
+        }
+      ]
+    }
+  },
+  "critical_errors": false,
+  "alert_sent": false,
+  "notes": "Smoke tests passed for all three main applications. Coherence tests show missing selectors in ContentoAI and Villa Zocotin, but these are not considered critical (no functional break). No alert needed."
+}

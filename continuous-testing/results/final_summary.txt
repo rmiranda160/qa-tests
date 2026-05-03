@@ -1,0 +1,16 @@
+Continuous testing cycle completed at 2026-03-21 15:35 UTC.
+
+Applications tested:
+- Cenarbe Bike Rental: PASS (smoke, responsive, accessibility, coherence)
+- Calendario Cenarbe: PASS (smoke, api, coherence)
+- ContentoAI: PASS smoke, PASS responsive, FAIL accessibility (3 violations), FAIL coherence (missing Laravel link)
+- Dashboard: PASS smoke, PASS responsive, FAIL accessibility (2 violations), PASS coherence
+
+Total test modes: 11
+Passed: 9 (81.8%)
+Failed: 2 (accessibility)
+
+No critical errors detected. Accessibility issues require attention.
+
+Screenshots sent via Telegram.
+Full report: continuous-testing/results/cycle_summary_20260321_1535.md

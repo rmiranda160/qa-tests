@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenarbe Bike Rental - Registrarse</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- CSS Pirineo - Tema rojo/montaña Villanúa -->
+    <link rel="stylesheet" href="/css/pirineo.css">
+    
+    <!-- CSS Bajabikes Style -->
+    <link rel="stylesheet" href="/css/bajabikes-style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Alquiler de bicicletas en Villanúa, Huesca. Descubre el Pirineo sobre dos ruedas con nuestras bicicletas de montaña y rutas guiadas.">
+    <meta name="keywords" content="alquiler bicicletas, Villanúa, Pirineo, Huesca, bicicleta montaña, rutas, excursiones">
+    <meta name="author" content="Cenarbe Bike Rental">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cenarbe Bike Rental - Registrarse">
+    <meta property="og:description" content="Alquiler de bicicletas en Villanúa, Huesca. Descubre el Pirineo sobre dos ruedas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dev1.cenarbe.com">
+    <meta property="og:image" content="https://dev1.cenarbe.com/images/og-image.jpg">
+</head>
+<body>
+    <!-- ===== HEADER PRINCIPAL - ESTILO BAJABIKES ===== -->
+    <header class="navbar-bajabikes fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- Logo y marca -->
+                <a class="navbar-brand" href="/">
+                    <span class="fw-bold text-success">CENARBE</span>
+                    <span class="text-warning">BIKE</span>
+                    <small class="d-block text-muted" style="font-size: 0.7rem; margin-top: -5px;">Villanúa • Pirineo Aragonés</small>
+                </a>
+                
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú principal -->
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="/">
+                                <i class="bi bi-house-door me-1"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/bicicletas.php">
+                                <i class="bi bi-bicycle me-1"></i>
+                                Bicicletas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/rutas.php">
+                                <i class="bi bi-signpost-split me-1"></i>
+                                Rutas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/reservas.php">
+                                <i class="bi bi-calendar-check me-1"></i>
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/contacto.php">
+                                <i class="bi bi-chat-dots me-1"></i>
+                                Contacto
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/sobre-nosotros.php">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Sobre Nosotros
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Acciones del usuario -->
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Carrito -->
+                        <a href="/carrito.php" class="btn btn-outline-success position-relative">
+                            <i class="bi bi-cart3"></i>
+                                                    </a>
+                        
+                        <!-- Usuario -->
+                                                    <div class="d-flex gap-2">
+                                <a href="/login.php" class="btn btn-outline-success">
+                                    <i class="bi bi-box-arrow-in-right me-1"></i>
+                                    Login
+                                </a>
+                                <a href="/register.php" class="btn btn-success">
+                                    <i class="bi bi-person-plus me-1"></i>
+                                    Registro
+                                </a>
+                            </div>
+                                            </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main style="margin-top: 100px;">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="bi bi-person-plus me-2"></i>Crear Cuenta</h4>
+                </div>
+                <div class="card-body">
+                    
+                                        
+                                                    <div class="alert alert-danger">
+                                <h5>Errores:</h5>
+                                <ul class="mb-0">
+                                                                            <li>Error en el registro: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '12345678A' for key 'dni'</li>
+                                                                    </ul>
+                            </div>
+                                                
+                        <form method="POST" action="">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nombre *</label>
+                                    <input type="text" class="form-control" name="nombre" value="Test" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Apellidos *</label>
+                                    <input type="text" class="form-control" name="apellidos" value="User" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-control" name="email" value="testuser1773831450@example.com" required>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" name="telefono" value="123456789">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">DNI</label>
+                                    <input type="text" class="form-control" name="dni" value="12345678A">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Contraseña *</label>
+                                    <input type="password" class="form-control" name="password" id="password" required minlength="6">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Confirmar Contraseña *</label>
+                                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="terminos" required>
+                                <label class="form-check-label" for="terminos">
+                                    Acepto los <a href="terminos.php">términos y condiciones</a>
+                                </label>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-person-plus me-2"></i>Registrarse
+                                </button>
+                                <a href="login.php" class="btn btn-outline-secondary">
+                                    ¿Ya tienes cuenta? Inicia Sesión
+                                </a>
+                            </div>
+                        </form>
+                        
+                                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- ===== FOOTER ESTILO BAJABIKES ===== -->
+    <footer class="footer-bajabikes">
+        <div class="container">
+            <div class="row">
+                <!-- Información de la empresa -->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h5 class="mb-4">
+                        <span class="text-success">CENARBE</span>
+                        <span class="text-warning">BIKE</span>
+                    </h5>
+                    <p class="text-white opacity-75 mb-4">
+                        Alquiler de bicicletas de montaña en el corazón del Pirineo Aragonés. 
+                        Experiencias únicas para todos los niveles en Villanúa, Huesca.
+                    </p>
+                    <div class="contact-info mb-4">
+                        <p class="mb-2">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            Calle Bicicleta 123, 22001 Huesca                        </p>
+                        <p class="mb-2">
+                            <i class="bi bi-telephone-fill"></i>
+                            <a href="tel:974123456" class="text-white text-decoration-none">
+                                974123456                            </a>
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-envelope-fill"></i>
+                            <a href="mailto:info@cenarbe.com" class="text-white text-decoration-none">
+                                info@cenarbe.com                            </a>
+                        </p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="text-white" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enlaces rápidos -->
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/bicicletas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/rutas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Rutas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/reservas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/contacto.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Servicios -->
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="mb-4">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/bicicletas.php?tipo=MTB" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas MTB
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/bicicletas.php?tipo=E-MTB" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Bicicletas Eléctricas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/rutas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Rutas Guiadas
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/reservas.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Reservas Online
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/faq.php" class="text-white opacity-75 text-decoration-none">
+                                <i class="bi bi-chevron-right me-1"></i>
+                                Preguntas Frecuentes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Horarios y contacto -->
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="mb-4">Horarios</h5>
+                    <ul class="list-unstyled text-white opacity-75">
+                        <li class="mb-2">
+                            <strong>Lunes - Viernes:</strong> 09:00 - 20:00
+                        </li>
+                        <li class="mb-2">
+                            <strong>Sábados:</strong> 09:00 - 21:00
+                        </li>
+                        <li class="mb-2">
+                            <strong>Domingos:</strong> 09:00 - 18:00
+                        </li>
+                        <li class="mb-4">
+                            <strong>Festivos:</strong> 10:00 - 17:00
+                        </li>
+                    </ul>
+                    
+                    <h5 class="mb-3">Newsletter</h5>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                            <button class="btn btn-success" type="submit">
+                                <i class="bi bi-envelope-arrow-up"></i>
+                            </button>
+                        </div>
+                        <small class="text-white opacity-50">
+                            Suscríbete para recibir ofertas y novedades
+                        </small>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Línea divisoria -->
+            <hr class="my-5 opacity-25">
+
+            <!-- Copyright y enlaces legales -->
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="copyright mb-0">
+                        &copy; 2026 Cenarbe Bike Rental. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/politica-privacidad.php" class="text-white opacity-75 text-decoration-none me-3">
+                        Política de Privacidad
+                    </a>
+                    <a href="/terminos-condiciones.php" class="text-white opacity-75 text-decoration-none me-3">
+                        Términos y Condiciones
+                    </a>
+                    <a href="/aviso-legal.php" class="text-white opacity-75 text-decoration-none">
+                        Aviso Legal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/34974123456" 
+       class="position-fixed bottom-3 end-3 bg-success text-white rounded-circle p-3 shadow-lg text-decoration-none"
+       style="z-index: 1000;"
+       target="_blank">
+        <i class="bi bi-whatsapp fs-4"></i>
+    </a>
+
+    <!-- Botón para volver arriba -->
+    <button onclick="scrollToTop()" 
+            class="position-fixed bottom-3 start-3 bg-dark text-white rounded-circle p-3 border-0 shadow-lg d-none"
+            style="z-index: 1000;"
+            id="backToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts personalizados -->
+    <script>
+        // Botón para volver arriba
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('d-none');
+            } else {
+                backToTopButton.classList.add('d-none');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Inicializar tooltips de Bootstrap
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        
+        // Inicializar popovers de Bootstrap
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+    </script>
+</body>
+</html>

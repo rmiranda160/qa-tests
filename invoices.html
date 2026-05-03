@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Dolibarr Development Team">
+<meta name="anti-csrf-newtoken" content="6c1fc843d47d28a2ad5f500777f9ad50">
+<meta name="anti-csrf-currenttoken" content="6c1fc843d47d28a2ad5f500777f9ad50">
+<link rel="shortcut icon" type="image/x-icon" href="/theme/dolibarr_256x256_color.png"/>
+<link rel="apple-touch-icon" href="/theme/apple-touch-icon.png"/>
+<link rel="manifest" href="/theme/eldy/manifest.json.php" />
+<title>Customer invoices </title>
+<!-- Includes CSS for JQuery (Ajax library) -->
+<link rel="stylesheet" type="text/css" href="/includes/jquery/css/base/jquery-ui.css?layout=classic&version=23.0.0">
+<link rel="stylesheet" type="text/css" href="/includes/jquery/plugins/jnotify/jquery.jnotify-alt.min.css?layout=classic&version=23.0.0">
+<link rel="stylesheet" type="text/css" href="/includes/jquery/plugins/select2/dist/css/select2.css?layout=classic&version=23.0.0">
+<!-- Includes CSS for font awesome -->
+<link rel="stylesheet" type="text/css" href="/theme/common/fontawesome-5/css/all.min.css?layout=classic&version=23.0.0">
+<!-- Includes CSS for Dolibarr theme -->
+<link rel="stylesheet" type="text/css" href="/theme/eldy/style.css.php?lang=en_US&amp;theme=eldy&amp;userid=1&amp;entity=1&layout=classic&version=23.0.0&revision=25">
+<!-- Includes JS for JQuery -->
+<script nonce="97e86f86" src="/includes/jquery/js/jquery.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="97e86f86" src="/includes/jquery/js/jquery-ui.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="97e86f86" src="/includes/jquery/plugins/jnotify/jquery.jnotify.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="97e86f86" src="/includes/jquery/plugins/tablednd/jquery.tablednd.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="97e86f86" src="/includes/nnnick/chartjs/dist/chart.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="97e86f86" src="/includes/jquery/plugins/select2/dist/js/select2.full.min.js?layout=classic&version=23.0.0"></script>
+<script nonce="97e86f86" src="/includes/jquery/plugins/multiselect/jquery.multi-select.js?layout=classic&version=23.0.0"></script>
+<!-- Includes JS of Dolibarr -->
+<script nonce="97e86f86" src="/core/js/lib_head.js.php?lang=en_US&layout=classic&version=23.0.0"></script>
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/debugbar.css">
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets.css">
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/openhandler.css">
+<link rel="stylesheet" type="text/css" href="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets/sqlqueries/widget.css">
+<link rel="stylesheet" type="text/css" href="/debugbar/css/widgets.css">
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/debugbar.js"></script>
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets.js"></script>
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/openhandler.js"></script>
+<script type="text/javascript" src="/includes/maximebf/debugbar/src/DebugBar/Resources/widgets/sqlqueries/widget.js"></script>
+<script type="text/javascript" src="/debugbar/js/widgets.js"></script>
+
+</head>
+
+<body id="mainbody" class="sidebar-collapse bodyforlist">
+
+<!-- Start top horizontal -->
+<header id="id-top" class="side-nav-vert"><div id="tmenu_tooltip" class="tmenu">
+<div class="tmenudiv"><ul role="navigation" class="tmenu"><li class="tmenu menuhider nohover" id="mainmenutd_menu"><div class="tmenucenter"><a class="tmenuimage tmenu menuhider nohover" tabindex="-1" href="#" title=""><div class="mainmenu menu topmenuimage"><span class="fas fa-bars size12x"></span></div></a><a class="tmenulabel tmenu menuhider nohover" id="mainmenua_menu" href="#" title=""><span class="mainmenuaspan"></span></a></div></li>
+<li class="tmenusel" id="mainmenutd_home"><div class="tmenucenter"><a class="tmenuimage tmenusel" tabindex="-1" href="/index.php?mainmenu=home&leftmenu=home" title="Home"><div class="mainmenu home topmenuimage"><span class="fas fa-home fa-fw"></span></div></a><a class="tmenulabel tmenusel" id="mainmenua_home" href="/index.php?mainmenu=home&leftmenu=home" title="Home"><span class="mainmenuaspan">Home</span></a></div></li>
+<li class="tmenu" id="mainmenutd_members"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/adherents/index.php?mainmenu=members&leftmenu=" title="Members"><div class="mainmenu members topmenuimage"><span class="fas fa-user-alt  em092 infobox-adherent fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_members" href="/adherents/index.php?mainmenu=members&leftmenu=" title="Members"><span class="mainmenuaspan">Members</span></a></div></li>
+<li class="tmenu" id="mainmenutd_companies"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/societe/index.php?mainmenu=companies&leftmenu=" title="Third parties"><div class="mainmenu companies topmenuimage"><span class="fas fa-building fa-fw pictofixedwidth" style=" color: #6c6aa8;"></span></div></a><a class="tmenulabel tmenu" id="mainmenua_companies" href="/societe/index.php?mainmenu=companies&leftmenu=" title="Third parties"><span class="mainmenuaspan">Third parties</span></a></div></li>
+<li class="tmenu" id="mainmenutd_products"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/product/index.php?mainmenu=products&leftmenu=" title="Products | Services"><div class="mainmenu products topmenuimage"><span class="fas fa-cube fa-fw pictofixedwidth" style=" color: #a69944;"></span></div></a><a class="tmenulabel tmenu" id="mainmenua_products" href="/product/index.php?mainmenu=products&leftmenu=" title="Products | Services"><span class="mainmenuaspan">Products | Services</span></a></div></li>
+<li class="tmenu" id="mainmenutd_commercial"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/comm/index.php?mainmenu=commercial&leftmenu=" title="Commerce"><div class="mainmenu commercial topmenuimage"><span class="fas fa-suitcase  em092 infobox-contrat fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_commercial" href="/comm/index.php?mainmenu=commercial&leftmenu=" title="Commerce"><span class="mainmenuaspan">Commerce</span></a></div></li>
+<li class="tmenu" id="mainmenutd_billing"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/compta/index.php?mainmenu=billing&leftmenu=" title="Billing | Payment"><div class="mainmenu billing topmenuimage"><span class="fas fa-file-invoice-dollar infobox-commande fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_billing" href="/compta/index.php?mainmenu=billing&leftmenu=" title="Billing | Payment"><span class="mainmenuaspan">Billing | Payment</span></a></div></li>
+<li class="tmenu" id="mainmenutd_hrm"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/hrm/index.php?mainmenu=hrm&leftmenu=" title="HRM"><div class="mainmenu hrm topmenuimage"><span class="fas fa-user-tie infobox-adherent fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_hrm" href="/hrm/index.php?mainmenu=hrm&leftmenu=" title="HRM"><span class="mainmenuaspan">HRM</span></a></div></li>
+<li class="tmenu" id="mainmenutd_tools"><div class="tmenucenter"><a class="tmenuimage tmenu" tabindex="-1" href="/core/tools.php?mainmenu=tools&leftmenu=" title="Tools"><div class="mainmenu tools topmenuimage"><span class="fas fa-tools fa-fw pictofixedwidth" style=""></span></div></a><a class="tmenulabel tmenu" id="mainmenua_tools" href="/core/tools.php?mainmenu=tools&leftmenu=" title="Tools"><span class="mainmenuaspan">Tools</span></a></div></li>
+<li class="tmenuend" id="mainmenutd_"><div class="tmenucenter"></div></li>
+</ul></div>
+</div>
+<div class="login_block usedropdown">
+<div class="login_block_tools valignmiddle"><div class="inline-block nowrap" style="padding: 0px;"></div></div>
+<div class="login_block_other valignmiddle"><div class="inline-block"><div class="classfortooltip inline-block login_block_elem inline-block" style="padding: 0px; padding: 0px; padding-right: 2px;" title="Show page to print main content area"><a href="/compta/facture/list.php?optioncss=print" target="_blank" rel="noopener noreferrer"><span class="fa fa-print atoplogin valignmiddle"></span></a></div></div><div class="inline-block"><div class="classfortooltip inline-block login_block_elem inline-block" style="padding: 0px; padding: 0px; padding-right: 2px;" title="Read online help (Internet access needed), &lt;br&gt;<span class=&quot;fas fa-external-link-alt pictofixedwidth&quot; style=&quot;&quot;></span>Wiki page &quot;Customers Invoices&quot; <span class=&quot;opacitymedium&quot;>(Dedicated help page related to your current screen)</span>"><a class="help" target="_blank" rel="noopener noreferrer" href="http://wiki.dolibarr.org/index.php/Customers_Invoices"><span class="fa fa-question-circle atoplogin valignmiddle helppresent"></span><span class="fa fa-long-arrow-alt-up helppresentcircle"></span></a></div></div><div class="inline-block"><div class="classfortooltip inline-block login_block_elem inline-block" style="padding: 0px; padding: 0px; padding-right: 2px;" title="Dolibarr 23.0.0"><span class="aversion"><span class="hideonsmartphone small">23.0.0</span></span></div></div></div><div class="login_block_user"><div class="inline-block login_block_elem login_block_elem_name nowrap centpercent" style="padding: 0px;"><!-- div for user link -->
+	    <div id="topmenu-login-dropdown" class="userimg atoplogin dropdown user user-menu inline-block">
+	        <a href="/user/card.php?id=1" class="dropdown-toggle login-dropdown-a valignmiddle" data-toggle="dropdown">
+	            <span class="fas fa-user infobox-adherent photo photouserphoto userphoto" style=""></span><!-- no photo so show also the login --><span class="hidden-xs maxwidth200 atoploginusername hideonsmartphone paddingleft valignmiddle small">admin</span>
+	        </a>
+	        <div class="dropdown-menu">
+	            <!-- User image -->
+	            <div class="user-header">
+	                <img class="photo dropdown-user-image" alt="" src="/public/theme/common/user_anonymous.png" aria-hidden="true">
+	                <p>
+	                    <span class="fas fa-star opacitymedium" style="" title="System administrator"></span> SuperAdmin (admin)<br><small class="classfortooltip" title="Connected since : 03/25/2026 08:40 AM&lt;br&gt;Previous login : 03/25/2026 08:29 AM" ><i class="fa fa-user-clock"></i> 03/25/2026 08:40 AM</small><br><small class="classfortooltip" title="Connected since : 03/25/2026 08:40 AM&lt;br&gt;Previous login : 03/25/2026 08:29 AM" ><i class="fa fa-user-clock opacitymedium"></i> 03/25/2026 08:29 AM</small><br>
+	                </p>
+	            </div>
+
+	            <!-- Menu Body user-->
+	            <div class="user-body"><span id="topmenulogincompanyinfo-btn"><i class="fa fa-caret-right"></i> Show company infos</span><div id="topmenulogincompanyinfo" ><br><b>Company</b>: <span>Veleta test</span><br><b>Prof Id 1 (CIF/NIF)</b>: <span></span><br><b>Prof Id 2 (Social security number)</b>: <span></span><br><b>Prof Id 3 (CNAE)</b>: <span></span><br><b>Prof Id 4 (Collegiate number)</b>: <span></span><br><b>Prof Id 5 (EORI number)</b>: <span></span><br><b>Professional ID 6</b>: <span></span><br><b>VAT ID</b>: <span></span><br><b>Country</b>: <span>Spain <span class="flag-sprite us none" title="en_US"></span></span></div><br><span id="topmenuloginmoreinfo-btn"><i class="fa fa-caret-right"></i> Show More Infos</span><div id="topmenuloginmoreinfo" ><br><b>System administrator</b>: Yes <span class="fas fa-star opacitymedium" style=""></span><br><b>Type:</b> Internal<br><b>Status</b>: Enabled<br><br><u>Session</u><br><b>IP address</b>: 172.24.0.1<br><b>Authentication mode:</b> dolibarr<br><b>Connected since:</b> 03/25/2026 08:40 AM<br><b>Previous login:</b> 03/25/2026 08:29 AM<br><b>Current theme:</b> eldy<br><b>Current menu manager:</b> eldy<br><b>Current language:</b> en_US <span class="flag-sprite us none" title="en_US"></span><br><b>Client Time Zone (user):</b>  <span class="opacitymedium">()</span><br><b>Browser:</b> Unknown<span class="classfortooltiponclick valignmiddle" style="padding: 0px; padding: 0px; padding-right: 2px;" dolid="useragent"><div style="display: none;" id="idfortooltiponclick_useragent" class="classfortooltiponclicktext" title="Note">curl/7.88.1</div><span class="fas fa-info-circle  em088 opacityhigh" style=" vertical-align: middle; cursor: pointer" title="Click to show tooltip help"></span></span><br><b>Layout:</b> classic<br><b>Screen:</b>  x </div></div>
+
+	            <!-- Menu Footer-->
+	            <div class="user-footer">
+	                <div class="pull-left">
+	                    <a accesskey="u" href="/user/card.php?id=1" class="button-top-menu-dropdown" title="Your user file (Keyboard shortcut CTL + u)"><i class="fa fa-user"></i>  Card</a>
+	                </div>
+	                <div class="pull-left">
+	                    <!-- a link for button to open url into a dialog popup --><a  accesskey="v" class="cursorpointer reposition button_publicvirtualcardmenu button-top-menu-dropdown marginleftonly nohover" title="Virtual business card page URL - SuperAdmin (Keyboard shortcut CTL + v)" href="#" onclick="closeTopMenuLoginDropdown()"><span class="far fa-address-card" style="" title="Virtual business card page URL (Keyboard shortcut CTL + v)"></span></a><!-- code to open popup and variables to retrieve returned variables --><div id="idfordialogpublicvirtualcardmenu" class="hidden">div for dialog</div><!-- Add js code to open dialog popup on dialog --><script nonce="97e86f86" type="text/javascript">
+					jQuery(document).ready(function () {
+						jQuery(".button_publicvirtualcardmenu").click(function () {
+							console.log('Open popup with jQuery(...).dialog() on URL /user/virtualcard.php?id=1&dol_hide_topmenu=1&dol_hide_leftmenu=1&dol_openinpopup=publicvirtualcardmenu');
+							var $tmpdialog = $('#idfordialogpublicvirtualcardmenu');
+							$tmpdialog.html('<iframe class="iframedialog" id="iframedialogpublicvirtualcardmenu" style="border: 0px;" src="/user/virtualcard.php?id=1&dol_hide_topmenu=1&dol_hide_leftmenu=1&dol_openinpopup=publicvirtualcardmenu" width="100%" height="98%"></iframe>');
+							$tmpdialog.dialog({
+								autoOpen: false,
+							 	modal: true,
+							 	height: (window.innerHeight - 150),
+							 	width: '80%',
+							 	title: 'Virtual business card page URL - SuperAdmin (Keyboard shortcut CTL + v)',
+								open: function (event, ui) {
+									console.log("open popup name=publicvirtualcardmenu");
+		   						},
+								close: function (event, ui) {
+									console.log("Popup is closed, run jsonclose = ");
+									
+								}
+							});
+
+							$tmpdialog.dialog('open');
+							return false;
+						});
+					});
+				</script>
+	                </div>
+	                <div class="pull-right">
+	                    <a accesskey="l" href="/user/logout.php?token=6c1fc843d47d28a2ad5f500777f9ad50" class="button-top-menu-dropdown" title="Logout (Keyboard shortcut CTL + l)"><i class="fa fa-sign-out-alt pictofixedwidth"></i><span class="hideonsmartphone">Logout</span></a>
+	                </div>
+	                <div class="clearboth"></div>
+	            </div>
+
+	        </div>
+	    </div>
+        <!-- Code to show/hide the user drop-down -->
+        <script>
+		function closeTopMenuLoginDropdown() {
+			console.log("close login dropdown");	// This is called at each click on page, so we disable the log
+			// Hide the menus.
+            jQuery("#topmenu-login-dropdown").removeClass("open");
+		}
+        jQuery(document).ready(function() {
+            jQuery(document).on("click", function(event) {
+				if (jQuery("#topmenu-login-dropdown").hasClass("open")) {
+	                if (!$(event.target).closest("#topmenu-login-dropdown").length) {
+						/* console.log("click close login - we click outside"); */
+						closeTopMenuLoginDropdown();
+	                }
+				}
+            });
+		
+	            jQuery("#topmenu-login-dropdown .dropdown-toggle").on("click", function(event) {
+					console.log("Click on #topmenu-login-dropdown .dropdown-toggle");
+					event.preventDefault();
+	                jQuery("#topmenu-login-dropdown").toggleClass("open");
+	            });
+
+	            jQuery("#topmenulogincompanyinfo-btn").on("click", function() {
+					console.log("Click on #topmenulogincompanyinfo-btn");
+					if (!jQuery("#topmenuloginmoreinfo").is(':hidden')) {
+	                	jQuery("#topmenuloginmoreinfo").slideToggle();
+					}
+	                jQuery("#topmenulogincompanyinfo").slideToggle();
+	            });
+
+	            jQuery("#topmenuloginmoreinfo-btn").on("click", function() {
+					console.log("Click on #topmenuloginmoreinfo-btn");
+					if (!jQuery("#topmenulogincompanyinfo").is(':hidden')) {
+		                jQuery("#topmenulogincompanyinfo").slideToggle();
+					}
+	                jQuery("#topmenuloginmoreinfo").slideToggle();
+	            });
+        });
+        </script>
+        </div></div>
+</div>
+</header><div style="clear: both;"></div><!-- End top horizontal menu -->
+
+<!-- Begin div id-container --><div id="id-container" class="id-container">
+<!-- Begin side-nav id-left -->
+<div class="side-nav"><div id="id-left">
+
+<!-- Begin left menu -->
+<div class="vmenu">
+
+
+<!-- Begin SearchForm -->
+<div id="blockvmenusearch" class="blockvmenusearch">
+<select type="text" title="Keyboard shortcut CTL + s" id="searchselectcombo" class="searchselectcombo vmenusearchselectcombo" accesskey="s" name="searchselectcombo"><option></option></select><script>
+				jQuery(document).keydown(function(e){
+					if( e.which === 70 && e.ctrlKey && e.shiftKey ){
+						console.log('control + shift + f : trigger open global-search dropdown');
+		                openGlobalSearchDropDown();
+		            }
+		            if( (e.which === 83 || e.which === 115) && e.altKey ){
+		                console.log('alt + s : trigger open global-search dropdown');
+		                openGlobalSearchDropDown();
+		            }
+		        });
+
+		        var openGlobalSearchDropDown = function() {
+		            jQuery("#searchselectcombo").select2('open');
+		        }
+			</script></div>
+<!-- End SearchForm -->
+<div class="blockvmenu blockvmenupair blockvmenufirst">
+<!-- Process menu entry with mainmenu=home, leftmenu=home, level=0 enabled=1, position=0 positionfull=0.1 -->
+<div class="menu_titre"><a class="vmenu" title="My Dashboard" href="/index.php?mainmenu=home&leftmenu=home"><i class="fas fa-chart-bar fa-fw paddingright pictofixedwidth"></i>My Dashboard</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenu blockvmenuimpair">
+<!-- Process menu entry with mainmenu=home, leftmenu=setup, level=0 enabled=1, position=0 positionfull=0.2 -->
+<div class="menu_titre"><a class="vmenu" title="Setup" href="/admin/index.php?mainmenu=home&leftmenu=setup"><i class="fa fa-tools fa-fw paddingright pictofixedwidth"></i>Setup</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenu blockvmenupair">
+<!-- Process menu entry with mainmenu=home, leftmenu=admintools, level=0 enabled=1, position=0 positionfull=0.3 -->
+<div class="menu_titre"><a class="vmenu" title="Admin Tools" href="/admin/tools/index.php?mainmenu=home&leftmenu=admintools"><i class="fa fa-server fa-fw paddingright pictofixedwidth"></i>Admin Tools</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenu blockvmenuimpair blockvmenulast">
+<!-- Process menu entry with mainmenu=home, leftmenu=users, level=0 enabled=1, position=0 positionfull=0.4 -->
+<div class="menu_titre"><a class="vmenu" title="Users &amp; Groups" href="/user/home.php?leftmenu=users"><span class="fas fa-user infobox-adherent paddingright pictofixedwidth" style=""></span>Users &amp; Groups</a></div>
+<div class="menu_top"></div>
+<div class="menu_end"></div>
+</div>
+<div class="blockvmenuend"></div></div>
+<!-- End left menu -->
+
+</div></div> <!-- End side-nav id-left -->
+<!-- Begin right area -->
+<div id="id-right">
+<!-- Begin div class="fiche" -->
+<div class="fiche">
+<form method="POST" id="searchFormList" name="searchFormList" action="/compta/facture/list.php">
+<input type="hidden" name="token" value="6c1fc843d47d28a2ad5f500777f9ad50"><input type="hidden" name="formfilteraction" id="formfilteraction" value="list"><input type="hidden" name="action" value="list"><input type="hidden" name="sortfield" value="f.datef"><input type="hidden" name="sortorder" value="DESC"><input type="hidden" name="search_status" value=""><input type="hidden" name="contextpage" value="invoicelist"><input type="hidden" name="socid" value="0"><input type="hidden" name="mode" value="">
+<!-- Begin print_barre_liste -->
+<table class="centpercent notopnoleftnoright table-fiche-title"><tr class="toptitle"><td class="nobordernopadding widthpictotitle valignmiddle col-picto"><span class="fas fa-file-invoice-dollar infobox-commande valignmiddle pictotitle widthpictotitle" style=""></span></td><td class="nobordernopadding valignmiddle col-title"><div class="titre inline-block"><span class="inline-block valignmiddle print-barre-liste">Customer invoices </span><span class="opacitymedium colorblack marginleftonly totalnboflines valignmiddle" title="Number of qualified records">(1)</span></div></td><td class="nobordernopadding center valignmiddle col-center"><div class="centpercent center"><select class="flat hideobject massaction massactionselect valignmiddle alignstart" id="massaction" name="massaction"><option value="0">-- Select action --</option><option value="validate" data-html="&lt;span class=&quot;fas fa-check font-status4 pictofixedwidth&quot; style=&quot;&quot;&gt;&lt;/span&gt;Validate"><span class="fas fa-check font-status4 pictofixedwidth" style=""></span>Validate</option><option value="generate_doc" data-html="&lt;span class=&quot;far fa-file-pdf pictofixedwidth&quot; style=&quot;&quot;&gt;&lt;/span&gt;Re-generate PDF"><span class="far fa-file-pdf pictofixedwidth" style=""></span>Re-generate PDF</option><option value="builddoc" data-html="&lt;span class=&quot;far fa-file-pdf pictofixedwidth&quot; style=&quot;&quot;&gt;&lt;/span&gt;PDF Merge"><span class="far fa-file-pdf pictofixedwidth" style=""></span>PDF Merge</option><option value="presend" data-html="&lt;span class=&quot;fas fa-at pictofixedwidth&quot; style=&quot;&quot;&gt;&lt;/span&gt;Send by email"><span class="fas fa-at pictofixedwidth" style=""></span>Send by email</option><option value="makepayment" data-html="&lt;span class=&quot;fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth&quot; style=&quot;&quot;&gt;&lt;/span&gt;Record payment"><span class="fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth" style=""></span>Record payment</option><option value="predeletedraft" data-html="&lt;span class=&quot;fas fa-trash pictofixedwidth&quot; style=&quot;&quot;&gt;&lt;/span&gt;Delete draft"><span class="fas fa-trash pictofixedwidth" style=""></span>Delete draft</option></select>
+<!-- JS CODE TO ENABLE select2 for id = .massactionselect -->
+<script>
+$(document).ready(function () {
+		$('.massactionselect').select2({
+			dir: 'ltr',
+			width: 'resolve',		/* off or resolve */
+			minimumInputLength: 0,
+			language: (typeof select2arrayoflanguage === 'undefined') ? 'en' : select2arrayoflanguage,
+			matcher: function (params, data) {
+				if ($.trim(params.term) === "") { return data; }
+				var term = params.term.toLowerCase();
+				var text = (data.text || "").toLowerCase();
+				var keywords = term.split(" ");
+				for (var i = 0; i < keywords.length; i++) {
+					if (text.indexOf(keywords[i]) === -1) {
+						return null;
+					}
+				}
+				return data;
+			},
+			theme: 'default',		/* to add css on generated html components */
+			containerCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			selectionCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			dropdownCssClass: 'ui-dialog',
+			templateResult: function (data, container) {	/* Format visible output into combo list */
+ 				/* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+				if (data.element) { $(container).addClass($(data.element).attr("class")); }
+				/* console.log("data html is "+$(data.element).attr("data-html")); */
+				if (data.id == '-1' && $(data.element).attr("data-html") == undefined) {
+					return '&nbsp;';
+				}
+				if ($(data.element).attr("data-html") != undefined) {
+					/* If property html set, we decode html entities and use this. */
+					/* Note that HTML content must have been sanitized against js injection with dol_escape_htmltag(xxx, 0, 0, '', 0, 1) when building the select option. */
+					if (typeof htmlEntityDecodeJs === "function") {
+						return htmlEntityDecodeJs($(data.element).attr("data-html"));
+					}
+				}
+				return data.text;
+			},
+			templateSelection: function (selection) {		/* Format visible output of selected value */
+				if (selection.id == '-1') return '<span class="placeholder">'+selection.text+'</span>';
+				return selection.text;
+			},
+			escapeMarkup: function(markup) {
+				return markup;
+			}
+		});
+});
+</script>
+<input type="submit" name="confirmmassactioninvisible" style="display: none" tabindex="-1"><input type="submit" disabled name="confirmmassaction" style="display: none" class="reposition button smallpaddingimp hideobject massaction massactionconfirmed" value="Confirm"></div><!-- JS CODE TO ENABLE mass action select -->
+    		<script nonce="97e86f86">
+				function initCheckForSelect(mode, name, cssclass) {	/* mode is 0 during init of page or click all, 1 when we click on 1 checkboxi, "name" refers to the class of the massaction button, "cssclass" to the class of the check for select boxes */
+        			atleastoneselected=0;
+					jQuery("."+cssclass).each(function( index ) {
+    	  				/* console.log( index + ": " + $( this ).text() ); */
+    	  				if ($(this).is(':checked')) atleastoneselected++;
+    	  			});
+
+					console.log("initCheckForSelect mode="+mode+" name="+name+" cssclass="+cssclass+" atleastoneselected="+atleastoneselected);
+
+    	  			if (atleastoneselected || 0) {
+						jQuery("."+name).show();
+        			    
+        			    
+    	  			} else {
+						jQuery("."+name).hide();
+						jQuery("."+name+"other").hide();
+    	            }
+        		}
+
+        	jQuery(document).ready(function () {
+                    initCheckForSelect(0, "massaction", "checkforselect");
+                    jQuery(".checkforselect").change(function() {
+						console.log("A change was done on .checkforselect");
+                        initCheckForSelect(1, "massaction", "checkforselect");
+                    });
+                    jQuery(".massactionselect").change(function() {
+        				var massaction = $( this ).val();
+        				var urlform = $( this ).closest("form").attr("action").replace("#show_files","");
+        				if (massaction == "builddoc") {
+                        	urlform = urlform + "#show_files";
+    	            	}
+        				$( this ).closest("form").attr("action", urlform);
+                    	console.log("we select a mass action name=massaction massaction="+massaction+" - "+urlform);
+        	        	/* Warning: if you set submit button to disabled, post using Enter will no more work if there is no other button */
+        				if ($(this).val() != '0') {
+                                        jQuery(".massactionconfirmed").prop('disabled', false);
+										jQuery(".massactionother").hide();	/* To disable if another div was open */
+                                        jQuery(".massaction"+massaction).show();
+    	  				} else {
+                                        jQuery(".massactionconfirmed").prop('disabled', true);
+										jQuery(".massactionother").hide();	/* To disable any div open */
+    	  				}
+    	        });
+        	});
+    		</script>
+        	</td><td class="nobordernopadding valignmiddle right col-right"><input type="hidden" name="pageplusoneold" value="1"><div class="pagination"><ul><li class="paginationcombolimit valignmiddle"><select id="limit" name="limit" class="flat selectlimit nopadding maxwidth75 center" title="Max. number of records per page"><option name="10">10</option>
+<option name="15">15</option>
+<option name="20" selected="selected">20</option>
+<option name="25">25</option>
+<option name="50">50</option>
+<option name="100">100</option>
+<option name="250">250</option>
+<option name="500">500</option>
+<option name="1000">1000</option>
+<option name="5000">5000</option>
+</select>
+<!-- JS CODE TO ENABLE select2 for id = limit -->
+<script>
+$(document).ready(function () {
+		$('#limit').select2({
+			dir: 'ltr',
+			width: 'resolve',		/* off or resolve */
+			minimumInputLength: 0,
+			language: (typeof select2arrayoflanguage === 'undefined') ? 'en' : select2arrayoflanguage,
+			matcher: function (params, data) {
+				if ($.trim(params.term) === "") { return data; }
+				var term = params.term.toLowerCase();
+				var text = (data.text || "").toLowerCase();
+				var keywords = term.split(" ");
+				for (var i = 0; i < keywords.length; i++) {
+					if (text.indexOf(keywords[i]) === -1) {
+						return null;
+					}
+				}
+				return data;
+			},
+			theme: 'default limit',		/* to add css on generated html components */
+			containerCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			selectionCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			dropdownCssClass: 'ui-dialog',
+			templateResult: function (data, container) {	/* Format visible output into combo list */
+ 				/* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+				if (data.element) { $(container).addClass($(data.element).attr("class")); }
+				/* console.log("data html is "+$(data.element).attr("data-html")); */
+				if (data.id == '-1' && $(data.element).attr("data-html") == undefined) {
+					return '&nbsp;';
+				}
+				if ($(data.element).attr("data-html") != undefined) {
+					/* If property html set, we decode html entities and use this. */
+					/* Note that HTML content must have been sanitized against js injection with dol_escape_htmltag(xxx, 0, 0, '', 0, 1) when building the select option. */
+					if (typeof htmlEntityDecodeJs === "function") {
+						return htmlEntityDecodeJs($(data.element).attr("data-html"));
+					}
+				}
+				return data.text;
+			},
+			templateSelection: function (selection) {		/* Format visible output of selected value */
+				if (selection.id == '-1') return '<span class="placeholder">'+selection.text+'</span>';
+				return selection.text;
+			},
+			escapeMarkup: function(markup) {
+				return markup;
+			}
+		});
+});
+</script>
+<!-- JS CODE TO ENABLE select limit to launch submit of page -->
+						<script>
+						jQuery(document).ready(function () {
+							jQuery(".selectlimit").change(function() {
+								console.log("We change limit so we submit the form");
+								$(this).parents('form:first').submit();
+							});
+						});
+						</script>
+					</li><li class="paginationafterarrows"><a class="btnTitle reposition btnTitleSelected" href="/compta/facture/list.php?mode=common&amp;contextpage=invoicelist" title="List view"><span class="fa fa-bars imgforviewmode valignmiddle btnTitle-icon"></span></a><a class="btnTitle reposition" href="/compta/facture/list.php?mode=kanban&amp;contextpage=invoicelist" title="Kanban view"><span class=" fa fa-grip-horizontal imgforviewmode valignmiddle btnTitle-icon"></span></a><span class="button-title-separator " ></span><a class="btnTitle btnTitlePlus" href="/compta/facture/card.php?action=create" title="New invoice"><span class="fa fa-plus-circle valignmiddle btnTitle-icon"></span></a></li></ul></div>
+<script nonce="97e86f86">
+			   jQuery(document).ready(function () {
+					jQuery(".pageplusone").click(function() { jQuery(this).select(); } );
+				});
+			</script></td></tr></table>
+<!-- End title -->
+
+<div class="liste_titre liste_titre_bydiv centpercent"><div class="divsearchfield"><span class="fas fa-user infobox-adherent pictofixedwidth" style="" title="Third parties with sales representative"></span><select class="flat maxwidth200" id="search_sale" name="search_sale"><option class="optiongrey" value="-1">Third parties with sales representative</option>
+<option value="1" data-html="&lt;a href=&quot;/user/card.php?id=1&amp;save_lastsearch_values=1&quot;&gt;&lt;!-- picto photo user --&gt;&lt;span class=&quot;nopadding userimg&quot;&gt;&lt;img class=&quot;photouserphoto userphotosmall&quot; alt=&quot;&quot;  src=&quot;/public/theme/common/user_anonymous.png&quot;&gt;&lt;/span&gt;&lt;/a&gt; SuperAdmin">SuperAdmin</option></select>
+<!-- JS CODE TO ENABLE select2 for id = search_sale -->
+<script>
+$(document).ready(function () {
+		$('#search_sale').select2({
+			dir: 'ltr',
+			width: 'resolve',		/* off or resolve */
+			minimumInputLength: 0,
+			language: (typeof select2arrayoflanguage === 'undefined') ? 'en' : select2arrayoflanguage,
+			matcher: function (params, data) {
+				if ($.trim(params.term) === "") { return data; }
+				var term = params.term.toLowerCase();
+				var text = (data.text || "").toLowerCase();
+				var keywords = term.split(" ");
+				for (var i = 0; i < keywords.length; i++) {
+					if (text.indexOf(keywords[i]) === -1) {
+						return null;
+					}
+				}
+				return data;
+			},
+			theme: 'default',		/* to add css on generated html components */
+			containerCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			selectionCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			dropdownCssClass: 'ui-dialog',
+			templateResult: function (data, container) {	/* Format visible output into combo list */
+ 				/* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+				if (data.element) { $(container).addClass($(data.element).attr("class")); }
+				/* console.log("data html is "+$(data.element).attr("data-html")); */
+				if (data.id == '-1' && $(data.element).attr("data-html") == undefined) {
+					return '&nbsp;';
+				}
+				if ($(data.element).attr("data-html") != undefined) {
+					/* If property html set, we decode html entities and use this. */
+					/* Note that HTML content must have been sanitized against js injection with dol_escape_htmltag(xxx, 0, 0, '', 0, 1) when building the select option. */
+					if (typeof htmlEntityDecodeJs === "function") {
+						return htmlEntityDecodeJs($(data.element).attr("data-html"));
+					}
+				}
+				return data.text;
+			},
+			templateSelection: function (selection) {		/* Format visible output of selected value */
+				if (selection.id == '-1') return '<span class="placeholder">'+selection.text+'</span>';
+				return selection.text;
+			},
+			escapeMarkup: function(markup) {
+				return markup;
+			}
+		});
+});
+</script>
+</div><div class="divsearchfield"><span class="fas fa-user infobox-adherent pictofixedwidth" style="" title="Linked to a particular user contact"></span><select class="flat maxwidth200" id="search_user" name="search_user"  ><option class="optiongrey" value="-1" selected>Linked to a particular user contact</option>
+<option value="1" data-html="&lt;a href=&quot;/user/card.php?id=1&amp;save_lastsearch_values=1&quot;&gt;&lt;!-- picto photo user --&gt;&lt;span class=&quot;nopadding userimg&quot;&gt;&lt;img class=&quot;photouserphoto userphotosmall&quot; alt=&quot;&quot;  src=&quot;/public/theme/common/user_anonymous.png&quot;&gt;&lt;/span&gt;&lt;/a&gt; SuperAdmin">SuperAdmin</option></select>
+<!-- JS CODE TO ENABLE select2 for id = search_user -->
+<script>
+$(document).ready(function () {
+		$('#search_user').select2({
+			dir: 'ltr',
+			width: 'resolve',		/* off or resolve */
+			minimumInputLength: 0,
+			language: (typeof select2arrayoflanguage === 'undefined') ? 'en' : select2arrayoflanguage,
+			matcher: function (params, data) {
+				if ($.trim(params.term) === "") { return data; }
+				var term = params.term.toLowerCase();
+				var text = (data.text || "").toLowerCase();
+				var keywords = term.split(" ");
+				for (var i = 0; i < keywords.length; i++) {
+					if (text.indexOf(keywords[i]) === -1) {
+						return null;
+					}
+				}
+				return data;
+			},
+			theme: 'default',		/* to add css on generated html components */
+			containerCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			selectionCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			dropdownCssClass: 'ui-dialog',
+			templateResult: function (data, container) {	/* Format visible output into combo list */
+ 				/* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+				if (data.element) { $(container).addClass($(data.element).attr("class")); }
+				/* console.log("data html is "+$(data.element).attr("data-html")); */
+				if (data.id == '-1' && $(data.element).attr("data-html") == undefined) {
+					return '&nbsp;';
+				}
+				if ($(data.element).attr("data-html") != undefined) {
+					/* If property html set, we decode html entities and use this. */
+					/* Note that HTML content must have been sanitized against js injection with dol_escape_htmltag(xxx, 0, 0, '', 0, 1) when building the select option. */
+					if (typeof htmlEntityDecodeJs === "function") {
+						return htmlEntityDecodeJs($(data.element).attr("data-html"));
+					}
+				}
+				return data.text;
+			},
+			templateSelection: function (selection) {		/* Format visible output of selected value */
+				if (selection.id == '-1') return '<span class="placeholder">'+selection.text+'</span>';
+				return selection.text;
+			},
+			escapeMarkup: function(markup) {
+				return markup;
+			}
+		});
+});
+</script>
+</div><div class="divsearchfield"><label for="search_option">Alert </label><input type="checkbox" name="search_option" id="search_option" value="late"></div></div><div class="div-table-responsive"><table class="tagtable nobottomiftotal liste listwithfilterbefore">
+<tr class="liste_titre_filter"><td class="liste_titre center maxwidthsearch actioncolumn"><div class="nowraponall"><button type="submit" class="liste_titre button_search reposition" name="button_search_x" value="x"><span class="fas fa-search"></span></button><button type="submit" class="liste_titre button_removefilter reposition" name="button_removefilter_x" value="x"><span class="fas fa-times"></span></button></div></td><td class="liste_titre"><input class="flat maxwidth75imp" type="text" name="search_ref" value=""></td><td class="liste_titre center"><div class="nowrapfordate"><!-- datepicker usecalendar=jquery --><script nonce="97e86f86" type="text/javascript">$(function(){ $('#search_date_start').datepicker({
+							dateFormat: 'mm/dd/yy',
+							autoclose: true,
+							todayHighlight: true,
+							yearRange: '1926:2126',
+								showOn: 'button',	/* both has problem with autocompletion */
+								buttonImage: '/theme/eldy/img/object_calendarday.png',
+								buttonImageOnly: true
+							}) });</script><div class="nowraponall inline-block divfordateinput"><input id="search_date_start" name="search_date_start" type="text" class="maxwidthdate center" maxlength="11" value="" placeholder="From" onChange="dpChangeDay('search_date_start','MM/dd/yyyy'); " autocomplete="off"></div><input type="hidden" id="search_date_startday"   name="search_date_startday"   value="">
+<input type="hidden" id="search_date_startmonth" name="search_date_startmonth" value="">
+<input type="hidden" id="search_date_startyear"  name="search_date_startyear"  value="">
+</div><div class="nowrapfordate"><!-- datepicker usecalendar=jquery --><script nonce="97e86f86" type="text/javascript">$(function(){ $('#search_date_end').datepicker({
+							dateFormat: 'mm/dd/yy',
+							autoclose: true,
+							todayHighlight: true,
+							yearRange: '1926:2126',
+								showOn: 'button',	/* both has problem with autocompletion */
+								buttonImage: '/theme/eldy/img/object_calendarday.png',
+								buttonImageOnly: true
+							}) });</script><div class="nowraponall inline-block divfordateinput"><input id="search_date_end" name="search_date_end" type="text" class="maxwidthdate center" maxlength="11" value="" placeholder="to" onChange="dpChangeDay('search_date_end','MM/dd/yyyy'); " autocomplete="off"></div><input type="hidden" id="search_date_endday"   name="search_date_endday"   value="">
+<input type="hidden" id="search_date_endmonth" name="search_date_endmonth" value="">
+<input type="hidden" id="search_date_endyear"  name="search_date_endyear"  value="">
+</div></td><td class="liste_titre center"><div class="nowrapfordate"><!-- datepicker usecalendar=jquery --><script nonce="97e86f86" type="text/javascript">$(function(){ $('#search_datelimit_start').datepicker({
+							dateFormat: 'mm/dd/yy',
+							autoclose: true,
+							todayHighlight: true,
+							yearRange: '1926:2126',
+								showOn: 'button',	/* both has problem with autocompletion */
+								buttonImage: '/theme/eldy/img/object_calendarday.png',
+								buttonImageOnly: true
+							}) });</script><div class="nowraponall inline-block divfordateinput"><input id="search_datelimit_start" name="search_datelimit_start" type="text" class="maxwidthdate center" maxlength="11" value="" placeholder="From" onChange="dpChangeDay('search_datelimit_start','MM/dd/yyyy'); " autocomplete="off"></div><input type="hidden" id="search_datelimit_startday"   name="search_datelimit_startday"   value="">
+<input type="hidden" id="search_datelimit_startmonth" name="search_datelimit_startmonth" value="">
+<input type="hidden" id="search_datelimit_startyear"  name="search_datelimit_startyear"  value="">
+</div><div class="nowrapfordate"><!-- datepicker usecalendar=jquery --><script nonce="97e86f86" type="text/javascript">$(function(){ $('#search_datelimit_end').datepicker({
+							dateFormat: 'mm/dd/yy',
+							autoclose: true,
+							todayHighlight: true,
+							yearRange: '1926:2126',
+								showOn: 'button',	/* both has problem with autocompletion */
+								buttonImage: '/theme/eldy/img/object_calendarday.png',
+								buttonImageOnly: true
+							}) });</script><div class="nowraponall inline-block divfordateinput"><input id="search_datelimit_end" name="search_datelimit_end" type="text" class="maxwidthdate center" maxlength="11" value="" placeholder="to" onChange="dpChangeDay('search_datelimit_end','MM/dd/yyyy'); " autocomplete="off"></div><input type="hidden" id="search_datelimit_endday"   name="search_datelimit_endday"   value="">
+<input type="hidden" id="search_datelimit_endmonth" name="search_datelimit_endmonth" value="">
+<input type="hidden" id="search_datelimit_endyear"  name="search_datelimit_endyear"  value="">
+</div></td><td class="liste_titre"><input class="flat maxwidth75imp" type="text" name="search_company" value=""></td><td class="liste_titre right"><input class="flat" type="text" size="4" name="search_montant_ht" value=""></td><td class="liste_titre right"><input class="flat" type="text" size="4" name="search_montant_ttc" value=""></td><!-- extrafields_list_search_input.tpl.php -->
+<td class="liste_titre center parentonrightofpage"><select id="search_status" class="flat search_status search_status width100 onrightofpage selectformat" name="search_status" >
+<option class="optiongrey" value="-1">&nbsp;</option>
+<option value="0">Draft</option>
+<option value="0,1">Draft+Not paid</option>
+<option value="1">Not paid</option>
+<option value="1,2">Not paid+Paid</option>
+<option value="2">Paid</option>
+<option value="3">Abandoned</option>
+</select>
+<!-- JS CODE TO ENABLE select2 for id = search_status -->
+<script>
+$(document).ready(function () {
+		$('#search_status').select2({ dropdownAutoWidth: true, dropdownParent: $('#search_status').parent(), 
+
+			dir: 'ltr',
+			width: 'resolve',		/* off or resolve */
+			minimumInputLength: 0,
+			language: (typeof select2arrayoflanguage === 'undefined') ? 'en' : select2arrayoflanguage,
+			matcher: function (params, data) {
+				if ($.trim(params.term) === "") { return data; }
+				var term = params.term.toLowerCase();
+				var text = (data.text || "").toLowerCase();
+				var keywords = term.split(" ");
+				for (var i = 0; i < keywords.length; i++) {
+					if (text.indexOf(keywords[i]) === -1) {
+						return null;
+					}
+				}
+				return data;
+			},
+			theme: 'default search_status width100 onrightofpage',		/* to add css on generated html components */
+			containerCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			selectionCssClass: ':all:',		/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+			dropdownCssClass: 'ui-dialog',
+			templateResult: function (data, container) {	/* Format visible output into combo list */
+ 				/* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+				if (data.element) { $(container).addClass($(data.element).attr("class")); }
+				/* console.log("data html is "+$(data.element).attr("data-html")); */
+				if (data.id == '-1' && $(data.element).attr("data-html") == undefined) {
+					return '&nbsp;';
+				}
+				if ($(data.element).attr("data-html") != undefined) {
+					/* If property html set, we decode html entities and use this. */
+					/* Note that HTML content must have been sanitized against js injection with dol_escape_htmltag(xxx, 0, 0, '', 0, 1) when building the select option. */
+					if (typeof htmlEntityDecodeJs === "function") {
+						return htmlEntityDecodeJs($(data.element).attr("data-html"));
+					}
+				}
+				return data.text;
+			},
+			templateSelection: function (selection) {		/* Format visible output of selected value */
+				if (selection.id == '-1') return '<span class="placeholder">'+selection.text+'</span>';
+				return selection.text;
+			},
+			escapeMarkup: function(markup) {
+				return markup;
+			}
+		});
+});
+</script>
+</td></tr>
+<tr class="liste_titre"><th class="wrapcolumntitle maxwidthsearch liste_titre" align="center"><!-- Component multiSelectArrayWithCheckbox selectedfields -->
+
+        <dl class="dropdown">
+            <dt>
+            <a href="#selectedfields" class="multiselectpicto">
+              <span class="fas fa-list" style=""></span>
+            </a>
+            <input type="hidden" class="selectedfields" name="selectedfields" value="f.ref,f.datef,f.date_lim_reglement,s.nom,f.total_ht,f.total_ttc,f.fk_statut,">
+            </dt>
+            <dd class="dropdowndd">
+                <div class="multiselectcheckboxselectedfields">
+                    <ul class="selectedfieldsleft">
+                    <li class="liinputsearch">
+						<input class="inputsearch_dropdownselectedfields width90p minwidth200imp" style="width:90%;" type="text" placeholder="Search">
+					</li>
+                    <li><input type="checkbox" id="checkboxf.ref" value="f.ref" checked="checked" data-position="5" /><label for="checkboxf.ref" class="paddingleft">Ref.</label></li><li><input type="checkbox" id="checkboxf.ref_client" value="f.ref_client" data-position="10" /><label for="checkboxf.ref_client" class="paddingleft">Ref. customer</label></li><li><input type="checkbox" id="checkboxf.type" value="f.type" data-position="15" /><label for="checkboxf.type" class="paddingleft">Type</label></li><li><input type="checkbox" id="checkboxf.datef" value="f.datef" checked="checked" data-position="20" /><label for="checkboxf.datef" class="paddingleft">Invoice date</label></li><li><input type="checkbox" id="checkboxf.date_valid" value="f.date_valid" data-position="22" /><label for="checkboxf.date_valid" class="paddingleft">Validation date</label></li><li><input type="checkbox" id="checkboxf.date_lim_reglement" value="f.date_lim_reglement" checked="checked" data-position="25" /><label for="checkboxf.date_lim_reglement" class="paddingleft">Due date</label></li><li><input type="checkbox" id="checkboxf.date_closing" value="f.date_closing" data-position="30" /><label for="checkboxf.date_closing" class="paddingleft">Closing date</label></li><li><input type="checkbox" id="checkboxs2.nom" value="s2.nom" data-position="32" /><label for="checkboxs2.nom" class="paddingleft">Parent company</label></li><li><input type="checkbox" id="checkboxs.nom" value="s.nom" checked="checked" data-position="50" /><label for="checkboxs.nom" class="paddingleft">Third party</label></li><li><input type="checkbox" id="checkboxs.name_alias" value="s.name_alias" data-position="51" /><label for="checkboxs.name_alias" class="paddingleft">Alias Name</label></li><li><input type="checkbox" id="checkboxs.code_client" value="s.code_client" data-position="52" /><label for="checkboxs.code_client" class="paddingleft">Customer Code</label></li><li><input type="checkbox" id="checkboxs.town" value="s.town" data-position="55" /><label for="checkboxs.town" class="paddingleft">City</label></li><li><input type="checkbox" id="checkboxs.zip" value="s.zip" data-position="60" /><label for="checkboxs.zip" class="paddingleft">Zip Code</label></li><li><input type="checkbox" id="checkboxstate.nom" value="state.nom" data-position="65" /><label for="checkboxstate.nom" class="paddingleft">State</label></li><li><input type="checkbox" id="checkboxcountry.code_iso" value="country.code_iso" data-position="70" /><label for="checkboxcountry.code_iso" class="paddingleft">Country</label></li><li><input type="checkbox" id="checkboxtypent.code" value="typent.code" data-position="75" /><label for="checkboxtypent.code" class="paddingleft">Third-party type</label></li><li><input type="checkbox" id="checkboxf.total_ht" value="f.total_ht" checked="checked" data-position="95" /><label for="checkboxf.total_ht" class="paddingleft">Amount (excl. tax)</label></li><li><input type="checkbox" id="checkboxf.total_tva" value="f.total_tva" data-position="100" /><label for="checkboxf.total_tva" class="paddingleft">Amount tax</label></li><li><input type="checkbox" id="checkboxf.total_ttc" value="f.total_ttc" checked="checked" data-position="130" /><label for="checkboxf.total_ttc" class="paddingleft">Amount (inc. tax)</label></li><li><input type="checkbox" id="checkboxdynamount_payed" value="dynamount_payed" data-position="140" /><label for="checkboxdynamount_payed" class="paddingleft">Already paid</label></li><li><input type="checkbox" id="checkboxrtp" value="rtp" data-position="150" /><label for="checkboxrtp" class="paddingleft">Remaining unpaid</label></li><li><input type="checkbox" id="checkboxf.fk_cond_reglement" value="f.fk_cond_reglement" data-position="190" /><label for="checkboxf.fk_cond_reglement" class="paddingleft">Payment Term</label></li><li><input type="checkbox" id="checkboxf.fk_mode_reglement" value="f.fk_mode_reglement" data-position="195" /><label for="checkboxf.fk_mode_reglement" class="paddingleft">Payment method</label></li><li><input type="checkbox" id="checkboxf.fk_input_reason" value="f.fk_input_reason" data-position="220" /><label for="checkboxf.fk_input_reason" class="paddingleft">Source</label></li><li><input type="checkbox" id="checkboxtotal_pa" value="total_pa" data-position="300" /><label for="checkboxtotal_pa" class="paddingleft">Cost price</label></li><li><input type="checkbox" id="checkboxtotal_margin" value="total_margin" data-position="301" /><label for="checkboxtotal_margin" class="paddingleft">Margin</label></li><li><input type="checkbox" id="checkboxf.fk_fac_rec_source" value="f.fk_fac_rec_source" data-position="305" /><label for="checkboxf.fk_fac_rec_source" class="paddingleft">Source recurring invoice</label></li><li><input type="checkbox" id="checkboxf.datec" value="f.datec" data-position="500" /><label for="checkboxf.datec" class="paddingleft">Creation date</label></li><li><input type="checkbox" id="checkboxf.tms" value="f.tms" data-position="502" /><label for="checkboxf.tms" class="paddingleft">Modif. date</label></li><li><input type="checkbox" id="checkboxu.login" value="u.login" data-position="504" /><label for="checkboxu.login" class="paddingleft">Created by</label></li><li><input type="checkbox" id="checkboxsale_representative" value="sale_representative" data-position="506" /><label for="checkboxsale_representative" class="paddingleft">Sales representatives of third party</label></li><li><input type="checkbox" id="checkboxf.note_public" value="f.note_public" data-position="520" /><label for="checkboxf.note_public" class="paddingleft">Note (public)</label></li><li><input type="checkbox" id="checkboxf.note_private" value="f.note_private" data-position="521" /><label for="checkboxf.note_private" class="paddingleft">Note (private)</label></li><li><input type="checkbox" id="checkboxf.import_key" value="f.import_key" data-position="900" /><label for="checkboxf.import_key" class="paddingleft">Import id</label></li><li><input type="checkbox" id="checkboxf.dispute_status" value="f.dispute_status" data-position="999" /><label for="checkboxf.dispute_status" class="paddingleft">Dispute status</label></li><li><input type="checkbox" id="checkboxf.fk_statut" value="f.fk_statut" checked="checked" data-position="1000" /><label for="checkboxf.fk_statut" class="paddingleft">Status</label></li>
+                    </ul>
+                </div>
+            </dd>
+        </dl>
+
+        <script nonce="97e86f86" type="text/javascript">
+			jQuery(document).ready(function () {
+				$('.multiselectcheckboxselectedfields input[type="checkbox"]').on("click", function () {
+                  console.log("A new field was added/removed, we edit field input[name=formfilteraction]");
+
+                  $("input:hidden[name=formfilteraction]").val('listafterchangingselectedfields');	// Update field so we know we changed something on selected fields after POST
+
+                  var title = $(this).val() + ",";
+                  if ($(this).is(':checked')) {
+                      $('.selectedfields').val(title + $('.selectedfields').val());
+                  }
+                  else {
+                      $('.selectedfields').val( $('.selectedfields').val().replace(title, '') )
+                  }
+                  // Now, we submit page
+                  //$(this).parents('form:first').submit();
+              	});
+
+				$("input.inputsearch_dropdownselectedfields").on("keyup", function() {
+					console.log("keyup on inputsearch_dropdownselectedfields");
+				    var value = $(this).val().toLowerCase();
+				    $('.multiselectcheckboxselectedfields li > label').filter(function() {
+				      $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				    });
+				});
+		
+					$(".dropdown dt a").on("click", function () {
+						console.log("Click on dropdown, we set focus to search field");
+		           		setTimeout(() => { $('.inputsearch_dropdownselectedfields').focus(); }, 200);
+					});
+			});
+        </script>
+
+        <div class="inline-block checkallactions"><input type="checkbox" id="checkforselects" name="checkforselects" class="checkallactions"></div><script nonce="97e86f86">
+            $(document).ready(function() {
+                $("#checkforselects").click(function() {
+                    if($(this).is(':checked')){
+                        console.log("We check all checkforselect and trigger the change method");
+                		$(".checkforselect").prop('checked', true).trigger('change');
+                    }
+                    else
+                    {
+                        console.log("We uncheck all");
+                		$(".checkforselect").prop('checked', false).trigger('change');
+                    }
+if (typeof initCheckForSelect == 'function') { initCheckForSelect(0, "massaction", "checkforselect"); } else { console.log("No function initCheckForSelect found. Call won't be done."); }         });
+/*
+        	        $(".checkforselect").change(function() {
+						console.log("We check and change the tr class highlight after a change on .checkforselect");
+						var $row = $(this).closest("tr");
+						if ($row.length) {
+	    					var anyChecked = $row.find('input[type="checkbox"].checkforselect:checked').length > 0;
+							console.log("anychecked="+anyChecked);
+							if (!anyChecked) {
+								$row.removeClass("highlight");
+							} else {
+								$row.addClass("highlight");
+							}
+						}
+					});
+*/
+		 	});
+    	</script></th><th class="wrapcolumntitle liste_titre"  title="Ref."><a class="reposition" href="/compta/facture/list.php?sortfield=f.ref&sortorder=desc&begin=&contextpage=invoicelist">Ref.</a></th><th class="wrapcolumntitle center liste_titre_sel"  title="Invoice date"><span class="nowrap"><span class="fas fa-caret-up imgup paddingright" style="" title="Z-A"></span></span><a class="reposition" href="/compta/facture/list.php?sortfield=f.datef&sortorder=asc&begin=&contextpage=invoicelist">Invoice date</a></th><th class="wrapcolumntitle center liste_titre"  title="Due date"><a class="reposition" href="/compta/facture/list.php?sortfield=f.date_lim_reglement&sortorder=desc&begin=&contextpage=invoicelist">Due date</a></th><th class="wrapcolumntitle liste_titre"  title="Third party"><a class="reposition" href="/compta/facture/list.php?sortfield=s.nom&sortorder=desc&begin=&contextpage=invoicelist">Third party</a></th><th class="wrapcolumntitle right liste_titre"  title="Amount (excl. tax)"><a class="reposition" href="/compta/facture/list.php?sortfield=f.total_ht&sortorder=desc&begin=&contextpage=invoicelist">Amount (excl. tax)</a></th><th class="wrapcolumntitle right liste_titre"  title="Amount (inc. tax)"><a class="reposition" href="/compta/facture/list.php?sortfield=f.total_ttc&sortorder=desc&begin=&contextpage=invoicelist">Amount (inc. tax)</a></th><th class="wrapcolumntitle center liste_titre"  title="Status"><a class="reposition" href="/compta/facture/list.php?sortfield=f.fk_statut%2Cf.paye%2Cf.type&sortorder=desc%2Cdesc%2Cdesc&begin=&contextpage=invoicelist">Status</a></th></tr>
+<tr data-rowid="1" class="oddeven row-with-select status0"><td class="nowrap center"><input id="cb1" class="flat checkforselect" type="checkbox" name="toselect[]" value="1"></td><td class="nowraponall"><table class="nobordernopadding"><tr class="nocellnopadd"><td class="nobordernopadding nowraponall"><a href="/compta/facture/card.php?id=1&save_lastsearch_values=1" title="tocomplete" data-params="{&quot;id&quot;:&quot;1&quot;,&quot;objecttype&quot;:&quot;facture&quot;,&quot;moretitle&quot;:&quot;&quot;,&quot;option&quot;:&quot;&quot;}" class="classforajaxtooltip"><span class="fas fa-file-invoice-dollar infobox-commande paddingright " style=""></span>(PROV1)</a><!-- html.formfile::getDocumentsLink -->
+</td></tr></table></td>
+<td align="center" class="nowraponall">03/24/2026</td><td align="center" class="nowraponall">05/23/2026</td><td class="tdoverflowmax150"><a href="/comm/card.php?socid=1&save_lastsearch_values=1" title="tocomplete" data-params="{&quot;id&quot;:&quot;1&quot;,&quot;objecttype&quot;:&quot;societe&quot;,&quot;option&quot;:&quot;customer&quot;,&quot;nofetch&quot;:1}" class="classforajaxtooltip refurl valignmiddle"><span class="fas fa-building paddingright" style=" color: #6c6aa8;"></span>Cliente de prueba 1 (Roberto Miranda Rodr&iacute;guez miranda)</a></td><td class="right nowraponall"><span class="amount">0.00</span></td>
+<td class="right nowraponall amount">0.00</td>
+<td class="nowrap center"><span class="badge badge-status0 badge-status" data-status-element="facture" data-already-paid="0" data-status="0" title="Draft (needs to be validated)">Draft</span></td></tr>
+<tr class="liste_total"><td>Total</td><td></td><td></td><td></td><td></td><td class="right">0.00</td><td class="right">0.00</td><td></td></tr></table>
+</div>
+</form>
+
+
+</div> <!-- End div class="fiche" -->
+</div> <!-- End div id-right -->
+</div> <!-- End div id-container -->
+
+
+<!-- Common footer for private page -->
+
+<!-- A div to store page_y POST parameter -->
+<div id="page_y" style="display: none;"></div>
+
+
+<!-- A script section to add menuhider handler on backoffice, manage focus and mandatory fields, tuning info, ... -->
+<script>
+jQuery(document).ready(function() {
+
+/* JS CODE TO ENABLE to manage handler to switch left menu page (menuhider) */
+jQuery("li.menuhider").click(function(event) {  if (!$( "body" ).hasClass( "sidebar-collapse" )){ event.preventDefault(); }
+  console.log("We click on .menuhider");
+  $("body").toggleClass("sidebar-collapse")
+});
+});
+
+</script>
+<!-- Output debugbar data -->
+<script type="text/javascript">
+var phpdebugbar = new PhpDebugBar.DebugBar();
+phpdebugbar.addTab("Variables", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Variables", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Duration of request"}), "right");
+phpdebugbar.addTab("Timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+phpdebugbar.addTab("Error handler", new PhpDebugBar.DebugBar.Tab({"icon":"list","title":"Error handler", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory usage"}), "right");
+phpdebugbar.addTab("Database", new PhpDebugBar.DebugBar.Tab({"icon":"arrow-right","title":"Database", "widget": new PhpDebugBar.Widgets.SQLQueriesWidget()}));
+phpdebugbar.addIndicator("database_info", new PhpDebugBar.DebugBar.TooltipIndicator({"icon":"database","tooltip":{"html":"Host: <strong>db<\/strong><br>Port: <strong>3306<\/strong><br>Name: <strong>dolibarr<\/strong><br>User: <strong>dolibarr<\/strong><br>Type: <strong>mysqli<\/strong><br>Prefix: <strong>llx_<\/strong><br>Charset: <strong>utf8mb4<\/strong>","class":"tooltip-wide"}}), "right");
+phpdebugbar.addIndicator("dolibarr_info", new PhpDebugBar.DebugBar.TooltipIndicator({"icon":"desktop","tooltip":{"html":"Version: <strong>23.0.0<\/strong><br>Theme: <strong>eldy<\/strong><br>Locale: <strong>auto<\/strong><br>Currency: <strong>EUR<\/strong><br>Environment: <strong>1<\/strong><br>MaxSizeList: <strong>20<\/strong><br>MaxSizeForUploadedFiles: <strong>2048<\/strong><br>$dolibarr_main_prod = <strong>1<\/strong><br>$dolibarr_nocsrfcheck = <strong><\/strong><br>MAIN_SECURITY_CSRF_WITH_TOKEN = <strong>2<\/strong><br>MAIN_FEATURES_LEVEL = <strong>0<\/strong><br>","class":"tooltip-wide"}}), "right");
+phpdebugbar.addIndicator("mail_info", new PhpDebugBar.DebugBar.TooltipIndicator({"icon":"envelope","tooltip":{"html":"Method: <strong><\/strong><br>Server: <strong><\/strong><br>Port: <strong><\/strong><br>ID: <strong><\/strong><br>Pwd: <strong><\/strong><br>TLS\/STARTTLS: <strong><\/strong> \/ <strong><\/strong><br>MAIN_DISABLE_ALL_MAILS: <strong>No<\/strong><br>dolibarr_mailing_limit_sendbyweb = <strong>0<\/strong><br>dolibarr_mailing_limit_sendbycli = <strong>0<\/strong><br>dolibarr_mailing_limit_sendbyday = <strong>0<\/strong><br>","class":"tooltip-extra-wide"}}), "right");
+phpdebugbar.addTab("Hooks", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Hooks", "widget": new PhpDebugBar.Widgets.HookListWidget()}));
+phpdebugbar.addTab("Logs", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Logs", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.setDataMap({
+"Variables": ["request", {}],
+"time": ["time.duration_str", '0ms'],
+"Timeline": ["time", {}],
+"Error handler": ["Error handler.messages", []],
+"Error handler:badge": ["Error handler.count", null],
+"memory": ["memory.peak_usage_str", '0B'],
+"Database": ["query", []],
+"Database:badge": ["query.nb_statements", 0],
+"database_info": ["", ],
+"dolibarr_info": ["", ],
+"mail_info": ["", ],
+"Hooks": ["hooks.hooks", {}],
+"Hooks:badge": ["hooks.nb_of_hooks", 0],
+"Logs": ["logs.messages", []],
+"Logs:badge": ["logs.count", null]
+});
+phpdebugbar.restoreState();
+phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar, undefined, true);
+if (jQuery) phpdebugbar.ajaxHandler.bindToJquery(jQuery);
+phpdebugbar.addDataSet({"__meta":{"id":"Xb59d400bcbbbbd4b0ede2e8cb8832e33","datetime":"2026-03-25 09:42:31","utime":1774428151.926051,"method":"GET","uri":"\/compta\/facture\/list.php","ip":"172.24.0.1"},"request":{"$_GET":"[]","$_POST":"[]","$_SESSION":"array:22 [\n  \"newtoken\" => \"6c1fc843d47d28a2ad5f500777f9ad50\"\n  \"dol_loginmesg\" => \"\"\n  \"token\" => \"6c1fc843d47d28a2ad5f500777f9ad50\"\n  \"dol_login\" => \"admin\"\n  \"dol_logindate\" => 1774428039\n  \"dol_authmode\" => \"dolibarr\"\n  \"dol_tz\" => \"\"\n  \"dol_tz_string\" => \"\"\n  \"dol_dst\" => 0\n  \"dol_dst_observed\" => 0\n  \"dol_dst_first\" => \"\"\n  \"dol_dst_second\" => \"\"\n  \"dol_screenwidth\" => \"\"\n  \"dol_screenheight\" => \"\"\n  \"dol_company\" => \"Veleta test\"\n  \"dol_entity\" => 1\n  \"mainmenu\" => \"home\"\n  \"leftmenuopened\" => \"\"\n  \"idmenu\" => \"\"\n  \"PHPDEBUGBAR_STACK_DATA\" => []\n  \"lastsearch_values_tmp_compta\/facture\/list.php\" => \"{\"search_category_invoice_list\":[]}\"\n  \"lastsearch_contextpage_tmp_compta\/facture\/list.php\" => \"invoicelist\"\n]","$_COOKIE":"array:1 [\n  \"DOLSESSID_9a96599003f015a153d9d6a89c2a7f2276f5f83f\" => \"*****hidden*****\"\n]","$_SERVER":"array:27 [\n  \"HTTP_HOST\" => \"51.254.244.216:8080\"\n  \"HTTP_USER_AGENT\" => \"curl\/7.88.1\"\n  \"HTTP_ACCEPT\" => \"*\/*\"\n  \"HTTP_COOKIE\" => \"DOLSESSID_9a96599003f015a153d9d6a89c2a7f2276f5f83f=npdrm6e52oomb7ed45db60gu6v\"\n  \"PATH\" => \"\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin\"\n  \"SERVER_SIGNATURE\" => \"\"\n  \"SERVER_SOFTWARE\" => \"Apache\"\n  \"SERVER_NAME\" => \"51.254.244.216\"\n  \"SERVER_ADDR\" => \"172.24.0.3\"\n  \"SERVER_PORT\" => \"8080\"\n  \"REMOTE_ADDR\" => \"172.24.0.1\"\n  \"DOCUMENT_ROOT\" => \"\/var\/www\/html\"\n  \"REQUEST_SCHEME\" => \"http\"\n  \"CONTEXT_PREFIX\" => \"\"\n  \"CONTEXT_DOCUMENT_ROOT\" => \"\/var\/www\/html\"\n  \"SERVER_ADMIN\" => \"webmaster@localhost\"\n  \"SCRIPT_FILENAME\" => \"\/var\/www\/html\/compta\/facture\/list.php\"\n  \"REMOTE_PORT\" => \"51628\"\n  \"GATEWAY_INTERFACE\" => \"CGI\/1.1\"\n  \"SERVER_PROTOCOL\" => \"HTTP\/1.1\"\n  \"REQUEST_METHOD\" => \"GET\"\n  \"QUERY_STRING\" => \"\"\n  \"REQUEST_URI\" => \"\/compta\/facture\/list.php\"\n  \"SCRIPT_NAME\" => \"\/compta\/facture\/list.php\"\n  \"PHP_SELF\" => \"\/compta\/facture\/list.php\"\n  \"REQUEST_TIME_FLOAT\" => 1774428151.9074\n  \"REQUEST_TIME\" => 1774428151\n]"},"time":{"start":1774428151.907439,"end":1774428151.926294,"duration":0.01885509490966797,"duration_str":"18.86ms","measures":[{"label":"Page generation (after environment init)","start":1774428151.909033,"relative_start":0.0015940666198730469,"end":1774428151.925569,"relative_end":1774428151.925569,"duration":0.01653599739074707,"duration_str":"16.54ms","params":[],"collector":null}]},"Error handler":{"count":1,"messages":[{"message":"Creation of dynamic property Facture::$totaldeposits_multicurrency is deprecated (\/var\/www\/html\/core\/class\/doldeprecationhandler.class.php:96)","message_html":null,"is_string":true,"label":"DEPRECATED","time":1774428151.925071}]},"memory":{"peak_usage":1862720,"peak_usage_str":"1862720 Bytes"},"query":{"nb_statements":18,"nb_failed_statements":0,"accumulated_duration":0.003621816635131836,"memory_usage":0,"statements":[{"sql":"SELECT transkey, transvalue FROM llx_overwrite_trans where (lang='en_US' OR lang IS NULL) AND entity IN (0, 0,1) ORDER BY lang DESC","duration":0.00014209747314453125,"duration_str":0.14,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.prefix, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position, m.showtopmenuinframe FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.type DESC, m.position, m.rowid","duration":0.0002090930938720703,"duration_str":0.21,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT rowid, name, label, type, size, elementtype, fieldunique, fieldrequired, param, pos, alwayseditable, emptyonclone, perms, langs, list, printable, totalizable, fielddefault, fieldcomputed, entity, enabled, help, aiprompt, css, cssview, csslist FROM llx_extrafields WHERE elementtype = 'facture' ORDER BY pos","duration":0.00016617774963378906,"duration_str":0.17,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT rowid, code, label as label FROM llx_c_invoice_subtype WHERE active = 1 AND fk_country = 4 AND entity IN(1) ORDER by rowid, code","duration":0.00013899803161621094,"duration_str":0.14,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT COUNT(*) as nbtotalofrecords FROM llx_societe as s LEFT JOIN llx_societe as s2 ON s2.rowid = s.parent LEFT JOIN llx_c_country as country on (country.rowid = s.fk_pays) LEFT JOIN llx_c_typent as typent on (typent.id = s.fk_typent) LEFT JOIN llx_c_departements as state on (state.rowid = s.fk_departement), llx_facture as f LEFT JOIN llx_projet as p ON p.rowid = f.fk_projet LEFT JOIN llx_user AS u ON f.fk_user_author = u.rowid WHERE f.fk_soc = s.rowid AND f.entity IN (1)","duration":0.0003170967102050781,"duration_str":0.32,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT f.rowid as id, f.ref, f.ref_client, f.fk_soc, f.type, f.subtype, f.note_private, f.note_public, f.increment, f.fk_mode_reglement, f.fk_cond_reglement, f.total_ht, f.total_tva, f.total_ttc, f.localtax1 as total_localtax1, f.localtax2 as total_localtax2, f.fk_user_author, f.fk_multicurrency, f.multicurrency_code, f.multicurrency_tx, f.multicurrency_total_ht, f.multicurrency_total_tva as multicurrency_total_vat, f.multicurrency_total_ttc, f.datef, f.date_valid, f.date_lim_reglement as datelimite, f.fk_input_reason, f.module_source, f.pos_source, f.paye as paye, f.fk_statut as status, f.import_key, f.close_code, f.datec as date_creation, f.tms as date_modification, f.date_closing as date_closing, f.retained_warranty, f.retained_warranty_date_limit, f.situation_final, f.situation_cycle_ref, f.situation_counter, f.payment_reference, f.dispute_status, s.rowid as socid, s.nom as name, s.name_alias as alias, s.email, s.phone, s.fax, s.address, s.town, s.zip, s.fk_pays, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta as code_compta_client, s.code_compta_fournisseur, s.parent as fk_parent, s2.nom as name2, typent.code as typent_code, state.code_departement as state_code, state.nom as state_name, country.code as country_code, f.fk_fac_rec_source, p.rowid as project_id, p.ref as project_ref, p.title as project_label, u.login, u.lastname, u.firstname, u.email as user_email, u.statut as user_statut, u.entity, u.photo, u.office_phone, u.office_fax, u.user_mobile, u.job, u.gender FROM llx_societe as s LEFT JOIN llx_societe as s2 ON s2.rowid = s.parent LEFT JOIN llx_c_country as country on (country.rowid = s.fk_pays) LEFT JOIN llx_c_typent as typent on (typent.id = s.fk_typent) LEFT JOIN llx_c_departements as state on (state.rowid = s.fk_departement), llx_facture as f LEFT JOIN llx_projet as p ON p.rowid = f.fk_projet LEFT JOIN llx_user AS u ON f.fk_user_author = u.rowid WHERE f.fk_soc = s.rowid AND f.entity IN (1) ORDER BY f.datef DESC LIMIT 21 ","duration":0.0008189678192138672,"duration_str":0.82,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT u.rowid, u.lastname, u.firstname, u.statut as status, u.login, u.photo, u.gender, u.entity, u.admin FROM llx_user as u WHERE u.entity IN (0,1) ORDER BY status DESC, firstname ASC, lastname ASC","duration":0.00023889541625976562,"duration_str":0.24,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT t.rowid, t.ref, t.label, t.share, t.entity, t.filename, t.filepath, t.fullpath_orig, t.description, t.keywords, t.cover, t.position, t.gen_or_uploaded, t.extraparams, t.date_c, t.tms as date_m, t.fk_user_c, t.fk_user_m, t.note_private, t.note_public, t.acl, t.src_object_type, t.src_object_id, t.agenda_id FROM llx_ecm_files as t WHERE 1 = 1 AND t.filepath = '.' AND t.filename = 'users' AND t.entity = 1","duration":0.00016498565673828125,"duration_str":0.16,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT rowid, name, label, type, size, elementtype, fieldunique, fieldrequired, param, pos, alwayseditable, emptyonclone, perms, langs, list, printable, totalizable, fielddefault, fieldcomputed, entity, enabled, help, aiprompt, css, cssview, csslist FROM llx_extrafields WHERE elementtype = 'ecm_files' ORDER BY pos","duration":0.0001430511474609375,"duration_str":0.14,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT DISTINCT u.rowid, u.lastname as lastname, u.firstname, u.statut as status, u.login, u.admin, u.entity, u.gender, u.photo FROM llx_user as u WHERE u.entity IN (0,1) ORDER BY u.statut DESC, u.firstname ASC, u.lastname ASC","duration":0.00012493133544921875,"duration_str":0.12,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT t.rowid, t.ref, t.label, t.share, t.entity, t.filename, t.filepath, t.fullpath_orig, t.description, t.keywords, t.cover, t.position, t.gen_or_uploaded, t.extraparams, t.date_c, t.tms as date_m, t.fk_user_c, t.fk_user_m, t.note_private, t.note_public, t.acl, t.src_object_type, t.src_object_id, t.agenda_id FROM llx_ecm_files as t WHERE 1 = 1 AND t.filepath = '.' AND t.filename = 'users' AND t.entity = 1","duration":0.00013017654418945312,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT id, code, libelle as label FROM llx_c_typent WHERE active = 1 AND (fk_country IS NULL OR fk_country = 4) ORDER by position, id","duration":0.00024199485778808594,"duration_str":0.24,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT sum(amount) as amount, sum(multicurrency_amount) as multicurrency_amount FROM llx_paiement_facture WHERE fk_facture = 1","duration":0.00013709068298339844,"duration_str":0.14,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type IN (0,2,5)","duration":0.0001590251922607422,"duration_str":0.16,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type = 3","duration":0.00013303756713867188,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT sum(amount) as amount, sum(multicurrency_amount) as multicurrency_amount FROM llx_paiement_facture WHERE fk_facture = 1","duration":0.00010204315185546875,"duration_str":0.1,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type IN (0,2,5)","duration":0.00012803077697753906,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null},{"sql":"SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type = 3","duration":0.00012612342834472656,"duration_str":0.13,"memory":0,"is_success":true,"error_code":null,"error_message":null}]},"dolibarr":[],"hooks":{"hooks":{"[1] updateSession":{"name":"updateSession","contexts":"main","file":"\/var\/www\/html\/main.inc.php","line":1006,"count":1},"[2] hookGetEntity":{"name":"hookGetEntity","contexts":"main","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":1},"[3] hookGetEntity":{"name":"hookGetEntity","contexts":"invoicelist, main","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":2},"[4] restrictedArea":{"name":"restrictedArea","contexts":"invoicelist, main","file":"\/var\/www\/html\/core\/lib\/security.lib.php","line":567,"count":1},"[5] doActions":{"name":"doActions","contexts":"invoicelist, main","file":"\/var\/www\/html\/compta\/facture\/list.php","line":394,"count":1},"[6] doMassActions":{"name":"doMassActions","contexts":"invoicelist, main","file":"\/var\/www\/html\/core\/actions_massactions.inc.php","line":1986,"count":1},"[7] printFieldListSelect":{"name":"printFieldListSelect","contexts":"invoicelist, main","file":"\/var\/www\/html\/compta\/facture\/list.php","line":798,"count":1},"[8] printFieldListFrom":{"name":"printFieldListFrom","contexts":"invoicelist, main","file":"\/var\/www\/html\/compta\/facture\/list.php","line":833,"count":1},"[9] printFieldListWhere":{"name":"printFieldListWhere","contexts":"invoicelist, main","file":"\/var\/www\/html\/compta\/facture\/list.php","line":1151,"count":1},"[10] printFieldListHaving":{"name":"printFieldListHaving","contexts":"invoicelist, main","file":"\/var\/www\/html\/compta\/facture\/list.php","line":1177,"count":1},"[11] llxHeader":{"name":"llxHeader","contexts":"invoicelist, main","file":"\/var\/www\/html\/main.inc.php","line":1424,"count":1},"[12] setContentSecurityPolicy":{"name":"setContentSecurityPolicy","contexts":"main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":1534,"count":1},"[13] setContentSecurityPolicy":{"name":"setContentSecurityPolicy","contexts":"main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":1571,"count":1},"[14] hookSetManifest":{"name":"hookSetManifest","contexts":"main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":1699,"count":1},"[15] setHtmlTitle":{"name":"setHtmlTitle","contexts":"main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":1736,"count":1},"[16] addHtmlHeader":{"name":"addHtmlHeader","contexts":"main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":2055,"count":1},"[17] printPhone":{"name":"printPhone","contexts":"toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":5007,"count":1},"[18] formatAddress":{"name":"formatAddress","contexts":"toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":3820,"count":1},"[19] buildurl":{"name":"buildurl","contexts":"toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":14},"[20] printTopRightMenu":{"name":"printTopRightMenu","contexts":"toprightmenu, main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":2187,"count":1},"[21] printTopRightMenuLoginDropdownBody":{"name":"printTopRightMenuLoginDropdownBody","contexts":"toprightmenu, main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":2472,"count":1},"[22] addSearchEntry":{"name":"addSearchEntry","contexts":"searchform, leftblock, toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/ajax\/selectsearchbox.php","line":200,"count":1},"[23] printSearchForm":{"name":"printSearchForm","contexts":"searchform, leftblock, toprightmenu, main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":3199,"count":1},"[24] printPhone":{"name":"printPhone","contexts":"searchform, leftblock, toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":5007,"count":1},"[25] formatAddress":{"name":"formatAddress","contexts":"searchform, leftblock, toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":3820,"count":1},"[26] buildurl":{"name":"buildurl","contexts":"searchform, leftblock, toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":4},"[27] menuLeftMenuItems":{"name":"menuLeftMenuItems","contexts":"searchform, leftblock, toprightmenu, main, invoicelist","file":"\/var\/www\/html\/core\/menus\/standard\/eldy.lib.php","line":930,"count":1},"[28] printLeftBlock":{"name":"printLeftBlock","contexts":"searchform, leftblock, toprightmenu, main, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":3383,"count":1},"[29] printMainArea":{"name":"printMainArea","contexts":"main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":3418,"count":1},"[30] printFieldListSearchParam":{"name":"printFieldListSearchParam","contexts":"main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/compta\/facture\/list.php","line":1451,"count":1},"[31] addMoreMassActions":{"name":"addMoreMassActions","contexts":"main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/class\/html.form.class.php","line":889,"count":1},"[32] doPreMassActions":{"name":"doPreMassActions","contexts":"main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/tpl\/massactions_pre.tpl.php","line":469,"count":1},"[33] addSQLWhereFilterOnSelectSalesRep":{"name":"addSQLWhereFilterOnSelectSalesRep","contexts":"main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/class\/html.formother.class.php","line":494,"count":1},"[34] hookGetEntity":{"name":"hookGetEntity","contexts":"main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":1},"[35] buildurl":{"name":"buildurl","contexts":"main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":1},"[36] getNomUrl":{"name":"getNomUrl","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/user\/class\/user.class.php","line":3253,"count":1},"[37] hookGetEntity":{"name":"hookGetEntity","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":616,"count":1},"[38] addSQLWhereFilterOnSelectUsers":{"name":"addSQLWhereFilterOnSelectUsers","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/class\/html.form.class.php","line":2337,"count":1},"[39] buildurl":{"name":"buildurl","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":1},"[40] getNomUrl":{"name":"getNomUrl","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/user\/class\/user.class.php","line":3253,"count":1},"[41] printFieldPreListTitle":{"name":"printFieldPreListTitle","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/compta\/facture\/list.php","line":1590,"count":1},"[42] printFieldListOption":{"name":"printFieldListOption","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/compta\/facture\/list.php","line":1891,"count":1},"[43] buildurl":{"name":"buildurl","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":1760,"count":7},"[44] printFieldListTitle":{"name":"printFieldListTitle","contexts":"userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/compta\/facture\/list.php","line":2163,"count":1},"[45] getNomUrl":{"name":"getNomUrl","contexts":"invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/compta\/facture\/class\/facture.class.php","line":2169,"count":1},"[46] getDirList":{"name":"getDirList","contexts":"fileslib, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/files.lib.php","line":151,"count":1},"[47] getNomUrl":{"name":"getNomUrl","contexts":"thirdpartydao, fileslib, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/societe\/class\/societe.class.php","line":3365,"count":1},"[48] printFieldListValue":{"name":"printFieldListValue","contexts":"thirdpartydao, fileslib, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/compta\/facture\/list.php","line":2977,"count":1},"[49] LibStatut":{"name":"LibStatut","contexts":"thirdpartydao, fileslib, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/class\/commoninvoice.class.php","line":1101,"count":1},"[50] printFieldListFooter":{"name":"printFieldListFooter","contexts":"thirdpartydao, fileslib, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/compta\/facture\/list.php","line":3118,"count":1},"[51] showDocuments":{"name":"showDocuments","contexts":"thirdpartydao, fileslib, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/class\/html.formfile.class.php","line":482,"count":1},"[52] getDirList":{"name":"getDirList","contexts":"fileslib, formfile, thirdpartydao, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/files.lib.php","line":151,"count":1},"[53] llxFooter":{"name":"llxFooter","contexts":"fileslib, formfile, thirdpartydao, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/main.inc.php","line":3580,"count":1},"[54] printCommonFooter":{"name":"printCommonFooter","contexts":"fileslib, formfile, thirdpartydao, invoicedao, userdao, main, searchform, leftblock, toprightmenu, invoicelist","file":"\/var\/www\/html\/core\/lib\/functions.lib.php","line":12806,"count":1}},"nb_of_hooks":54},"logs":{"count":34,"messages":[{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT DISTINCT r.module, r.perms, r.subperms, r.entity FROM llx_usergroup_rights as gr, llx_usergroup_user as gu, llx_rights_def as r WHERE r.id = gr.fk_id AND gr.entity = 1 AND gu.entity IN (0,1) AND r.entity = 1 AND gr.fk_usergroup = gu.fk_usergroup AND gu.fk_user = 1 AND r.perms IS NOT NULL AND r.perms NOT LIKE '%_advance'","message_html":null,"is_string":false,"label":"debug","time":1774428151.926355},{"message":"2026-03-25 09:42:31 NOTICE      160      33 --- Access to GET \/compta\/facture\/list.php - action=, massaction=","message_html":null,"is_string":false,"label":"notice","time":1774428151.926357},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT transkey, transvalue FROM llx_overwrite_trans where (lang='en_US' OR lang IS NULL) AND entity IN (0, 0,1) ORDER BY lang DESC","message_html":null,"is_string":false,"label":"debug","time":1774428151.926358},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.prefix, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position, m.showtopmenuinframe FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.type DESC, m.position, m.rowid","message_html":null,"is_string":false,"label":"debug","time":1774428151.92636},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT rowid, name, label, type, size, elementtype, fieldunique, fieldrequired, param, pos, alwayseditable, emptyonclone, perms, langs, list, printable, totalizable, fielddefault, fieldcomputed, entity, enabled, help, aiprompt, css, cssview, csslist FROM llx_extrafields WHERE elementtype = 'facture' ORDER BY pos","message_html":null,"is_string":false,"label":"debug","time":1774428151.926363},{"message":"2026-03-25 09:42:31 DEBUG       160      33 Facture::getArrayOfInvoiceSubtypes","message_html":null,"is_string":false,"label":"debug","time":1774428151.926364},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT rowid, code, label as label FROM llx_c_invoice_subtype WHERE active = 1 AND fk_country = 4 AND entity IN(1) ORDER by rowid, code","message_html":null,"is_string":false,"label":"debug","time":1774428151.926365},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT COUNT(*) as nbtotalofrecords FROM llx_societe as s LEFT JOIN llx_societe as s2 ON s2.rowid = s.parent LEFT JOIN llx_c_country as country on (country.rowid = s.fk_pays) LEFT JOIN llx_c_typent as typent on (typent.id = s.fk_typent) LEFT JOIN llx_c_departements as state on (state.rowid = s.fk_departement), llx_facture as f LEFT JOIN llx_projet as p ON p.rowid = f.fk_projet LEFT JOIN llx_user AS u ON f.fk_user_author = u.rowid WHERE f.fk_soc = s.rowid AND f.entity IN (1)","message_html":null,"is_string":false,"label":"debug","time":1774428151.926368},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT f.rowid as id, f.ref, f.ref_client, f.fk_soc, f.type, f.subtype, f.note_private, f.note_public, f.increment, f.fk_mode_reglement, f.fk_cond_reglement, f.total_ht, f.total_tva, f.total_ttc, f.localtax1 as total_localtax1, f.localtax2 as total_localtax2, f.fk_user_author, f.fk_multicurrency, f.multicurrency_code, f.multicurrency_tx, f.multicurrency_total_ht, f.multicurrency_total_tva as multicurrency_total_vat, f.multicurrency_total_ttc, f.datef, f.date_valid, f.date_lim_reglement as datelimite, f.fk_input_reason, f.module_source, f.pos_source, f.paye as paye, f.fk_statut as status, f.import_key, f.close_code, f.datec as date_creation, f.tms as date_modification, f.date_closing as date_closing, f.retained_warranty, f.retained_warranty_date_limit, f.situation_final, f.situation_cycle_ref, f.situation_counter, f.payment_reference, f.dispute_status, s.rowid as socid, s.nom as name, s.name_alias as alias, s.email, s.phone, s.fax, s.address, s.town, s.zip, s.fk_pays, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta as code_compta_client, s.code_compta_fournisseur, s.parent as fk_parent, s2.nom as name2, typent.code as typent_code, state.code_departement as state_code, state.nom as state_name, country.code as country_code, f.fk_fac_rec_source, p.rowid as project_id, p.ref as project_ref, p.title as project_label, u.login, u.lastname, u.firstname, u.email as user_email, u.statut as user_statut, u.entity, u.photo, u.office_phone, u.office_fax, u.user_mobile, u.job, u.gender FROM llx_societe as s LEFT JOIN llx_societe as s2 ON s2.rowid = s.parent LEFT JOIN llx_c_country as country on (country.rowid = s.fk_pays) LEFT JOIN llx_c_typent as typent on (typent.id = s.fk_typent) LEFT JOIN llx_c_departements as state on (state.rowid = s.fk_departement), llx_facture as f LEFT JOIN llx_projet as p ON p.rowid = f.fk_projet LEFT JOIN llx_user AS u ON f.fk_user_author = u.rowid WHERE f.fk_soc = s.rowid AND f.entity IN (1) ORDER BY f.datef DESC LIMIT 21","message_html":null,"is_string":false,"label":"debug","time":1774428151.926374},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT u.rowid, u.lastname, u.firstname, u.statut as status, u.login, u.photo, u.gender, u.entity, u.admin FROM llx_user as u WHERE u.entity IN (0,1) ORDER BY status DESC, firstname ASC, lastname ASC","message_html":null,"is_string":false,"label":"debug","time":1774428151.926377},{"message":"2026-03-25 09:42:31 DEBUG       160      33 EcmFiles::fetch","message_html":null,"is_string":false,"label":"debug","time":1774428151.926378},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT t.rowid, t.ref, t.label, t.share, t.entity, t.filename, t.filepath, t.fullpath_orig, t.description, t.keywords, t.cover, t.position, t.gen_or_uploaded, t.extraparams, t.date_c, t.tms as date_m, t.fk_user_c, t.fk_user_m, t.note_private, t.note_public, t.acl, t.src_object_type, t.src_object_id, t.agenda_id FROM llx_ecm_files as t WHERE 1 = 1 AND t.filepath = '.' AND t.filename = 'users' AND t.entity = 1","message_html":null,"is_string":false,"label":"debug","time":1774428151.92638},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT rowid, name, label, type, size, elementtype, fieldunique, fieldrequired, param, pos, alwayseditable, emptyonclone, perms, langs, list, printable, totalizable, fielddefault, fieldcomputed, entity, enabled, help, aiprompt, css, cssview, csslist FROM llx_extrafields WHERE elementtype = 'ecm_files' ORDER BY pos","message_html":null,"is_string":false,"label":"debug","time":1774428151.926383},{"message":"2026-03-25 09:42:31 DEBUG       160      33 Form::select_dolusers","message_html":null,"is_string":false,"label":"debug","time":1774428151.926385},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT DISTINCT u.rowid, u.lastname as lastname, u.firstname, u.statut as status, u.login, u.admin, u.entity, u.gender, u.photo FROM llx_user as u WHERE u.entity IN (0,1) ORDER BY u.statut DESC, u.firstname ASC, u.lastname ASC","message_html":null,"is_string":false,"label":"debug","time":1774428151.926387},{"message":"2026-03-25 09:42:31 DEBUG       160      33 EcmFiles::fetch","message_html":null,"is_string":false,"label":"debug","time":1774428151.926388},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT t.rowid, t.ref, t.label, t.share, t.entity, t.filename, t.filepath, t.fullpath_orig, t.description, t.keywords, t.cover, t.position, t.gen_or_uploaded, t.extraparams, t.date_c, t.tms as date_m, t.fk_user_c, t.fk_user_m, t.note_private, t.note_public, t.acl, t.src_object_type, t.src_object_id, t.agenda_id FROM llx_ecm_files as t WHERE 1 = 1 AND t.filepath = '.' AND t.filename = 'users' AND t.entity = 1","message_html":null,"is_string":false,"label":"debug","time":1774428151.926391},{"message":"2026-03-25 09:42:31 DEBUG       160      33 FormCompany::typent_array","message_html":null,"is_string":false,"label":"debug","time":1774428151.926392},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT id, code, libelle as label FROM llx_c_typent WHERE active = 1 AND (fk_country IS NULL OR fk_country = 4) ORDER by position, id","message_html":null,"is_string":false,"label":"debug","time":1774428151.926394},{"message":"2026-03-25 09:42:31 DEBUG       160      33 Facture::getSommePaiement","message_html":null,"is_string":false,"label":"debug","time":1774428151.926396},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT sum(amount) as amount, sum(multicurrency_amount) as multicurrency_amount FROM llx_paiement_facture WHERE fk_facture = 1","message_html":null,"is_string":false,"label":"debug","time":1774428151.926398},{"message":"2026-03-25 09:42:31 DEBUG       160      33 DiscountAbsolute::getSumCreditNotesUsed","message_html":null,"is_string":false,"label":"debug","time":1774428151.9264},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type IN (0,2,5)","message_html":null,"is_string":false,"label":"debug","time":1774428151.926402},{"message":"2026-03-25 09:42:31 DEBUG       160      33 DiscountAbsolute::getSumDepositsUsed","message_html":null,"is_string":false,"label":"debug","time":1774428151.926403},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type = 3","message_html":null,"is_string":false,"label":"debug","time":1774428151.926404},{"message":"2026-03-25 09:42:31 DEBUG       160      33 Facture::getSommePaiement","message_html":null,"is_string":false,"label":"debug","time":1774428151.926405},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT sum(amount) as amount, sum(multicurrency_amount) as multicurrency_amount FROM llx_paiement_facture WHERE fk_facture = 1","message_html":null,"is_string":false,"label":"debug","time":1774428151.926407},{"message":"2026-03-25 09:42:31 DEBUG       160      33 DiscountAbsolute::getSumCreditNotesUsed","message_html":null,"is_string":false,"label":"debug","time":1774428151.926408},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type IN (0,2,5)","message_html":null,"is_string":false,"label":"debug","time":1774428151.926409},{"message":"2026-03-25 09:42:31 DEBUG       160      33 DiscountAbsolute::getSumDepositsUsed","message_html":null,"is_string":false,"label":"debug","time":1774428151.92641},{"message":"2026-03-25 09:42:31 DEBUG       160      33 sql=SELECT sum(rc.amount_ttc) as amount, sum(rc.multicurrency_amount_ttc) as multicurrency_amount FROM llx_societe_remise_except as rc, llx_facture as f WHERE rc.fk_facture_source=f.rowid AND rc.fk_facture = 1 AND f.type = 3","message_html":null,"is_string":false,"label":"debug","time":1774428151.926411},{"message":"2026-03-25 09:42:31 INFO        160      33 files.lib.php::dol_dir_list path=\/var\/www\/documents\/facture\/(PROV1) types=files recursive=0 filter=\"^\\\\(PROV1\\\\)\\\\.\" excludefilter=\"\\\\.meta$|\\\\.png$\"","message_html":null,"is_string":false,"label":"info","time":1774428151.926412},{"message":"2026-03-25 09:42:31 INFO        160      33 files.lib.php::dol_dir_list path=\/var\/www\/documents\/facture\/temp\/massgeneration\/1 types=files recursive=0 filter=\"\" excludefilter=\"(\\\\.meta|_preview.*.*\\\\.png)$\"","message_html":null,"is_string":false,"label":"info","time":1774428151.92654},{"message":"2026-03-25 09:42:31 INFO        160      33 Save lastsearch_values_tmp_compta\/facture\/list.php={\"search_category_invoice_list\":[]} (systematic recording of last search criteria)","message_html":null,"is_string":false,"label":"info","time":1774428151.926543}]}}, "Xb59d400bcbbbbd4b0ede2e8cb8832e33");
+
+</script>
+
+<!-- JS CODE TO ENABLE select2 for id searchselectcombo -->
+				<script nonce="97e86f86">
+				$(document).ready(function () {
+					var data = [{"id":"searchintomember","text":"<span class=\"fas fa-user-alt  em092 infobox-adherent pictofixedwidth\" style=\"\"><\/span> Members","url":"\/adherents\/list.php"},{"id":"searchintothirdparty","text":"<span class=\"fas fa-building pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Third parties","url":"\/societe\/list.php"},{"id":"searchintocontact","text":"<span class=\"fas fa-address-book pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Contacts","url":"\/contact\/list.php"},{"id":"searchintoproduct","text":"<span class=\"fas fa-cube pictofixedwidth\" style=\" color: #a69944;\"><\/span> Products or services","url":"\/product\/list.php"},{"id":"searchintopropal","text":"<span class=\"fas fa-file-signature infobox-propal pictofixedwidth\" style=\"\"><\/span> Commercial proposals","url":"\/comm\/propal\/list.php"},{"id":"searchintoorder","text":"<span class=\"fas fa-file-invoice infobox-commande pictofixedwidth\" style=\"\"><\/span> Sales orders","url":"\/commande\/list.php"},{"id":"searchintoinvoice","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Customer invoices","url":"\/compta\/facture\/list.php"},{"id":"searchintoinvoicerec","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Template invoices","url":"\/compta\/facture\/invoicetemplate_list.php"},{"id":"searchintosupplierpropal","text":"<span class=\"fas fa-file-signature infobox-supplier_proposal pictofixedwidth\" style=\"\"><\/span> Vendor proposals","url":"\/supplier_proposal\/list.php"},{"id":"searchintosupplierorder","text":"<span class=\"fas fa-dol-order_supplier infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Purchase orders","url":"\/fourn\/commande\/list.php"},{"id":"searchintosupplierinvoice","text":"<span class=\"fas fa-file-invoice-dollar infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Vendor invoices","url":"\/fourn\/facture\/list.php"},{"id":"searchintocustomerpayments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Customer payments","url":"\/compta\/paiement\/list.php?leftmenu=customers_bills_payment"},{"id":"searchintovendorpayments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Vendor payments","url":"\/fourn\/paiement\/list.php?leftmenu=suppliers_bills_payment"},{"id":"searchintouser","text":"<span class=\"fas fa-user infobox-adherent pictofixedwidth\" style=\"\"><\/span> Users","url":"\/user\/list.php"},{"id":"searchintoleaves","text":"<span class=\"fas fa-umbrella-beach  em088 infobox-holiday pictofixedwidth\" style=\"\"><\/span> Leave","url":"\/holiday\/list.php?mainmenu=hrm"}];
+
+					var saveRemoteData = {"searchintomember":{"position":8,"shortcut":"M","img":"object_member","label":"Members","text":"<span class=\"fas fa-user-alt  em092 infobox-adherent pictofixedwidth\" style=\"\"><\/span> Members","url":"\/adherents\/list.php"},"searchintothirdparty":{"position":10,"shortcut":"T","img":"object_company","label":"Third parties","text":"<span class=\"fas fa-building pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Third parties","url":"\/societe\/list.php"},"searchintocontact":{"position":15,"shortcut":"A","img":"object_contact","label":"Contacts","text":"<span class=\"fas fa-address-book pictofixedwidth\" style=\" color: #6c6aa8;\"><\/span> Contacts","url":"\/contact\/list.php"},"searchintoproduct":{"position":30,"shortcut":"P","img":"object_product","label":"Products or services","text":"<span class=\"fas fa-cube pictofixedwidth\" style=\" color: #a69944;\"><\/span> Products or services","url":"\/product\/list.php"},"searchintopropal":{"position":60,"img":"object_propal","label":"Commercial proposals","text":"<span class=\"fas fa-file-signature infobox-propal pictofixedwidth\" style=\"\"><\/span> Commercial proposals","url":"\/comm\/propal\/list.php"},"searchintoorder":{"position":70,"img":"object_order","label":"Sales orders","text":"<span class=\"fas fa-file-invoice infobox-commande pictofixedwidth\" style=\"\"><\/span> Sales orders","url":"\/commande\/list.php"},"searchintoinvoice":{"position":90,"img":"object_bill","label":"Customer invoices","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Customer invoices","url":"\/compta\/facture\/list.php"},"searchintoinvoicerec":{"position":90,"img":"object_bill","label":"Template invoices","text":"<span class=\"fas fa-file-invoice-dollar infobox-commande pictofixedwidth\" style=\"\"><\/span> Template invoices","url":"\/compta\/facture\/invoicetemplate_list.php"},"searchintosupplierpropal":{"position":100,"img":"object_supplier_proposal","label":"Vendor proposals","text":"<span class=\"fas fa-file-signature infobox-supplier_proposal pictofixedwidth\" style=\"\"><\/span> Vendor proposals","url":"\/supplier_proposal\/list.php"},"searchintosupplierorder":{"position":110,"img":"object_supplier_order","label":"Purchase orders","text":"<span class=\"fas fa-dol-order_supplier infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Purchase orders","url":"\/fourn\/commande\/list.php"},"searchintosupplierinvoice":{"position":120,"img":"object_supplier_invoice","label":"Vendor invoices","text":"<span class=\"fas fa-file-invoice-dollar infobox-order_supplier pictofixedwidth\" style=\"\"><\/span> Vendor invoices","url":"\/fourn\/facture\/list.php"},"searchintocustomerpayments":{"position":170,"img":"object_payment","label":"Customer payments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Customer payments","url":"\/compta\/paiement\/list.php?leftmenu=customers_bills_payment"},"searchintovendorpayments":{"position":175,"img":"object_payment","label":"Vendor payments","text":"<span class=\"fas fa-money-check-alt  em080 infobox-bank_account pictofixedwidth\" style=\"\"><\/span> Vendor payments","url":"\/fourn\/paiement\/list.php?leftmenu=suppliers_bills_payment"},"searchintouser":{"position":200,"shortcut":"U","img":"object_user","label":"Users","text":"<span class=\"fas fa-user infobox-adherent pictofixedwidth\" style=\"\"><\/span> Users","url":"\/user\/list.php"},"searchintoleaves":{"position":220,"img":"object_holiday","label":"Leave","text":"<span class=\"fas fa-umbrella-beach  em088 infobox-holiday pictofixedwidth\" style=\"\"><\/span> Leave","url":"\/holiday\/list.php?mainmenu=hrm"}};
+
+					$('.searchselectcombo').select2({
+						data: data,
+						language: (typeof select2arrayoflanguage === 'undefined') ? 'en' : select2arrayoflanguage,
+						containerCssClass: ':all:',					/* Line to add class from the original SELECT propagated to the new <span class="select2-selection...> tag */
+						placeholder: '<span class=\'fa fa-search paddingright pictofixedwidth\'></span>Search',
+						escapeMarkup: function (markup) { return markup; }, 	// let our custom formatter work
+						minimumInputLength: 1,
+						formatResult: function (result, container, query, escapeMarkup) {
+							return escapeMarkup(result.text);
+						},
+						matcher: function (params, data) {
+
+							if(! data.id) return null;
+
+							var urlBase = data.url;
+							var separ = urlBase.indexOf("?") >= 0 ? "&" : "?";
+							/* console.log("params.term="+params.term); */
+							/* console.log("params.term encoded="+encodeURIComponent(params.term)); */
+							saveRemoteData[data.id].url = urlBase + separ + "search_all=" + encodeURIComponent(params.term.replace(/\"/g, ""));
+
+							return data;
+						}
+					});
+
+					
+					/* Code to execute a GET when we select a value */
+					$('.searchselectcombo').change(function() {
+						var selected = $('.searchselectcombo').val();
+						console.log("We select "+selected)
+
+						$('.searchselectcombo').val("");  /* reset visible combo value */
+						$.each( saveRemoteData, function( key, value ) {
+							if (key == selected)
+							{
+								console.log("selectArrayFilter - Do a redirect to "+value.url)
+								location.assign(value.url);
+							}
+						});
+					});
+
+				});
+				</script>
+<!-- Includes JS Footer of Dolibarr -->
+<script src="/core/js/lib_foot.js.php?lang=en_US&layout=classic&version=23.0.0"></script>
+
+<!-- A div to allow dialog popup by jQuery('#dialogforpopup').dialog() -->
+<div id="dialogforpopup" style="display: none;"></div>
+
+<!-- A div to allow uiblock by dolBlockUI(message) -->
+<div id="dol-block-ui" style="display: none;"><div class="message">Loading...</div></div>
+</body>
+</html>

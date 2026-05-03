@@ -1,0 +1,37 @@
+{
+  "estadoQA": "PASS",
+  "coberturaValidada": [
+    "Acceso a página Reservar (HTTP 200)",
+    "Presencia de bicicletas visibles",
+    "Estado \"disponible\" en bicicletas",
+    "Screenshot de evidencia",
+    "Auditoría Lighthouse Performance"
+  ],
+  "casosProbados": [
+    "Carga HTTP 200 exitosa",
+    "Bicicletas visibles: 1",
+    "Texto \"disponible\" en bicicletas: 0",
+    "Total menciones \"disponible\": 0",
+    "Performance score: N/A"
+  ],
+  "edgeCasesProbados": [
+    "Selector flexible para diferentes estructuras",
+    "Visibilidad de elementos (no solo en DOM)"
+  ],
+  "regresionesDetectadas": [],
+  "hallazgos": [
+    {
+      "id": "H2",
+      "titulo": "No se encuentra texto \"disponible\" en las bicicletas",
+      "severidad": "media",
+      "descripcion": "No se detectó la palabra \"disponible\" dentro de los elementos de bicicleta ni en toda la página.",
+      "pasosParaReproducir": "Acceder a https://dev1.cenarbe.com/reservar.php y buscar la palabra \"disponible\" en la lista de bicicletas.",
+      "resultadoEsperado": "Al menos una bicicleta marcada como disponible.",
+      "resultadoObservado": "0 apariciones de \"disponible\".",
+      "impacto": "Los usuarios no pueden distinguir qué bicicletas están disponibles para reserva.",
+      "recomendacion": "Asegurar que el estado de disponibilidad sea visible en la interfaz."
+    }
+  ],
+  "conclusion": "La página muestra 1 bicicleta(s) visible(s). 0 de ellas contienen texto \"disponible\". Performance: N/A.",
+  "criterioSalida": "Puede cerrarse."
+}

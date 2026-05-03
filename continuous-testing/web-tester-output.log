@@ -1,0 +1,53 @@
+Testing Cenarbe Bike Rental (https://dev1.cenarbe.com/)
+  Mode: smoke
+    PASS
+  Mode: responsive
+    PASS
+  Mode: accessibility
+    PASS
+  Critical path: /reservar.php
+    PASS
+  Critical path: /checkout.php
+    PASS
+Testing Calendario Cenarbe (https://dev1.cenarbe.com/calendario/)
+  Mode: smoke
+    PASS
+  Mode: api
+    PASS
+  Critical path: /calendario/
+    PASS
+  Critical path: /calendario/api/eventos.php
+    PASS
+  Critical path: /calendario/api/bicicletas.php
+    PASS
+Testing ContentoAI (https://cntai.cenarbe.com/)
+  Mode: smoke
+    PASS
+  Mode: responsive
+    PASS
+  Mode: accessibility
+  Critical path: /
+    PASS
+Testing Dashboard (https://dashboard.cenarbe.com/)
+  Mode: smoke
+    PASS
+  Mode: responsive
+    PASS
+  Mode: accessibility
+  Critical path: /
+    PASS
+Testing Villa Zocotin (https://villazocotin.cenarbe.com/)
+  Mode: smoke
+    PASS
+  Mode: responsive
+    PASS
+  Mode: accessibility
+  Critical path: /
+    PASS
+Added Villa Zocotin to applications list
+Extended continuous testing completed at 20260322_131519
+Applications tested: 5
+Total findings: 3
+  medium: 3
+
+No critical/high errors found.

@@ -1,0 +1,58 @@
+<!-- DEBUG: db.php included --><!-- DEBUG_MODE: 1 --><!-- DEBUG: MySQL conexión OK -->[
+    {
+        "id": 4,
+        "modelo": "Canyon Spectral:ON CF 8",
+        "marca": "Canyon",
+        "precio_hora": "28.00",
+        "estado": "alquilada"
+    },
+    {
+        "id": 7,
+        "modelo": "Neuron 7",
+        "marca": "Canyon",
+        "precio_hora": "7.00",
+        "estado": "alquilada"
+    },
+    {
+        "id": 6,
+        "modelo": "Ultimate CF SL 8",
+        "marca": "Canyon",
+        "precio_hora": "10.00",
+        "estado": "alquilada"
+    },
+    {
+        "id": 8,
+        "modelo": "Commuter 5",
+        "marca": "Gazelle",
+        "precio_hora": "9.00",
+        "estado": "disponible"
+    },
+    {
+        "id": 3,
+        "modelo": "Giant Trance X Advanced E+ Elite",
+        "marca": "Giant",
+        "precio_hora": "32.00",
+        "estado": "disponible"
+    },
+    {
+        "id": 5,
+        "modelo": "Orbea Rise M-Team",
+        "marca": "Orbea",
+        "precio_hora": "40.00",
+        "estado": "disponible"
+    },
+    {
+        "id": 1,
+        "modelo": "Specialized Turbo Levo SL Expert Di2",
+        "marca": "Specialized",
+        "precio_hora": "38.00",
+        "estado": "disponible"
+    },
+    {
+        "id": 2,
+        "modelo": "Trek Rail 9.8 XT",
+        "marca": "Trek",
+        "precio_hora": "35.00",
+        "estado": "disponible"
+    }
+]

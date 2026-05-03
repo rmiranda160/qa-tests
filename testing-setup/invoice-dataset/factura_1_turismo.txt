@@ -1,0 +1,18 @@
+FACTURA FACT-2026-001
+
+Cliente: División Turismo
+Proveedor: Turismo Rural Iota
+División: turismo
+Fecha: 2026-06-08
+
+Descripción:
+  - Servicios de turismo
+  - Materiales varios
+
+Subtotal: 685 €
+IVA (21%): 181 €
+Total: 866 €
+
+Forma de pago: Transferencia bancaria
+Vencimiento: 2026-06-08
+

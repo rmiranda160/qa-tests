@@ -1,0 +1,150 @@
+{
+  "timestamp": "2026-05-01T01:30:00Z",
+  "agent": "tester",
+  "project": "zonacnc",
+  "focus": "responsive",
+  "url": "https://new.zonacnc.com",
+  "method": "MCP remote browser (Playwright via pwmcp-zonacnc) — real browser rendering with interaction",
+  "scenario": "Login flow at mobile (390×844) + desktop verificación visual (1440×900) + tablet category layout (768×1024) — pruebas interactivas reales",
+  "anti_duplicate_note": "Tests previos: 0100 (curl/PageSpeed performance), 0115 (screenshots estáticos 390px + 768px). Este test añade: (1) flujo completo login con credenciales reales en móvil, (2) verificación visual escritorio con navegador real, (3) análisis layout tablet con interacción, (4) verificación overflow en listing rows.",
+  "coverage": {
+    "scenarios_tested": [
+      "Login flow at mobile 390×844 — fill form → submit → redirect verification",
+      "Home page at desktop 1440×900 — visual structure, overflow analysis",
+      "Category page (15-tornos) at tablet 768×1024 — listing layout, overflow, column count",
+      "Home page at tablet 768×1024 — hero section, overflow"
+    ],
+    "viewports_tested": [
+      "390×844 (mobile — login flow interaction)",
+      "768×1024 (tablet — home + category)",
+      "1440×900 (desktop — home — PRIMERA vez con navegador real)"
+    ],
+    "user_flow_verified": "Login flow: navigate → fill email (test3@zonacnc.com) → fill password → click submit → redirect to home page"
+  },
+  "findings_login_flow_390px": {
+    "status": "PASS",
+    "form_filled": {"email": true, "password": true},
+    "submit_clicked": true,
+    "redirect_after_login": {"url": "https://new.zonacnc.com/es/", "title": "Maquinaria Industrial Segunda Mano y Nueva | ZonaCNC España"},
+    "horizontal_overflow": {"has_overflow": false, "docWidth": 390, "viewportWidth": 390},
+    "overflow_elements_detected": [
+      {"element": "A.visually-hidden-focusable skip-link", "verdict": "INTENTIONAL — hidden element, 1px visible, not user-facing"},
+      {"element": "DIV#_mobile_ps_searchbar", "scrollW": 267, "clientW": 261, "verdict": "MINOR — 6px overflow on mobile search icon, not visible (overflow:hidden on parent)"},
+      {"element": "SPAN.visually-hidden (x3)", "verdict": "INTENTIONAL — screenreader-only elements"},
+      {"element": "SECTION.zcnc-hero", "scrollW": 490, "clientW": 390, "verdict": "INTENTIONAL — overflow:hidden applied, background pattern extends beyond container"}
+    ],
+    "key_layout_elements": {
+      "header": true,
+      "breadcrumb": true,
+      "login_form": {"email_input": true, "password_input": true, "show_password_toggle": true, "forgot_password_link": true},
+      "google_oauth": true,
+      "register_link": true,
+      "footer": true
+    },
+    "console_errors": [
+      {"severity": "ERROR", "message": "Provider's accounts list is empty", "impact": "Expected — Google Sign-In not configured in test browser"},
+      {"severity": "ERROR", "message": "[GSI_LOGGER]: FedCM get() rejects with NetworkError", "impact": "Expected — no Google auth session"},
+      {"severity": "ERROR", "message": "Invalid regular expression: /^[\\p{L}\\p{Mn} \\-\\']+$/u: Invalid escape", "impact": "MINOR — duplicate of previously reported regex issue (\\- inside [...] is invalid). Could affect name field validation."}
+    ]
+  },
+  "findings_desktop_1440px": {
+    "status": "PASS",
+    "horizontal_overflow": "NONE — docWidth=1440 matches viewport",
+    "content_height": 3205,
+    "key_elements_present": {"header": true, "main": true, "hero": true, "category_grid": true, "footer": true, "listing_cards": 6},
+    "overflow_details": [
+      {"element": "SECTION.zcnc-hero", "scrollW": 1728, "clientW": 1440, "overflow": "hidden", "verdict": "INTENTIONAL — hero has CSS overflow:hidden. The extra width comes from background pattern/design elements that extend beyond the container. NOT visible to users."},
+      {"element": "DIV.zonacnc-cta-inner", "scrollW": 1220, "clientW": 1200, "overflow": "hidden", "verdict": "MINOR — 20px difference due to padding calculation. Clipped by overflow:hidden, not visible."},
+      {"element": "LABEL.visually-hidden (skip link)", "scrollW": 214, "clientW": 1, "verdict": "INTENTIONAL — screenreader-only element"}
+    ],
+    "hero_visibility": {"visible": true, "rect_width": 1440, "offset_left": 0, "overflow": "hidden", "verdict": "Hero renders fully within viewport. Excess background is clipped by overflow:hidden — INTENTIONAL DESIGN."},
+    "console_errors_after_page_load": 0
+  },
+  "findings_tablet_768px": {
+    "status": "PASS",
+    "home_page": {
+      "horizontal_overflow": "NONE — docWidth=768",
+      "scrollHeight": 4918,
+      "hero_overflow": {"scrollW": 922, "clientW": 768, "overflow": "hidden", "verdict": "INTENTIONAL — same hero pattern as desktop, clipped"},
+      "overflow_elements": "Only visually-hidden elements and hero (intentional)"
+    },
+    "category_page_15_tornos": {
+      "horizontal_overflow": "NONE — docWidth=768",
+      "scrollHeight": 6376,
+      "listing_style": "zcnc-listing-row (stacked single column)",
+      "product_cards_found": 12,
+      "card_width": 440,
+      "card_x_offset": 284,
+      "sidebar_width": 200,
+      "layout_verdict": "Clean single-column stacked layout. Sidebar (200px) + product area (440px) + padding fills 768px viewport correctly.",
+      "row_element_overflow_analysis": {
+        "initial_detection": {"zcnc-row-info": "scrollW=116 vs clientW=100", "zcnc-row-top": "116 vs 100", "zcnc-row-title": "116 vs 100", "zcnc-row-location": "114 vs 100"},
+        "re_verification": {"all_metrics": "scrollW=clientW=offsetWidth=137", "verdict": "TRANSIENT — overflow was a race condition during initial layout render. After page stabilizes, all measurements match."},
+        "final_verdict": "NO VISIBLE OVERFLOW — all listing cards render within viewport boundaries (right edge ≤ 768px)."
+      }
+    }
+  },
+  "issues_found": {
+    "critical": [],
+    "warnings": [],
+    "minor": [
+      {
+        "id": "RESP-REGEX-01",
+        "severity": "MINOR",
+        "description": "Invalid regular expression in form validation: /^[\\p{L}\\p{Mn} \\-\\']+$/u",
+        "pages": ["login", "search", "category", "home", "pricing"],
+        "impact": "Minor — the \\- inside [... ] is an invalid escape in JS. The regex still works because \\- is treated as literal hyphen in most engines, but it throws a console error.",
+        "recommendation": "Change \\- to just - inside the character class"
+      },
+      {
+        "id": "RESP-MOBILE-SEARCH-01",
+        "severity": "MINOR",
+        "description": "Mobile search bar container has 6px overflow (scrollW=267, clientW=261) at 390px",
+        "impact": "Not visible to users (parent has overflow control), but indicates a sizing imperfection",
+        "recommendation": "Verify CSS width calculation for #_mobile_ps_searchbar at 390px"
+      }
+    ],
+    "regressions_from_previous_tests": {
+      "404_routes": {"faq": true, "como-funciona": true, "crear-anuncio": true, "note": "Still unresolved — same as 0045 report"},
+      "regex_issue": {"note": "Same invalid regex found in 0115 report — still present"}
+    }
+  },
+  "verified_good": {
+    "login_flow_mobile": "PASS — credentials accepted, redirect to home, no errors during form submission",
+    "desktop_rendering": "PASS — no horizontal overflow, hero properly clipped with overflow:hidden, all key elements present",
+    "tablet_category": "PASS — single-column stacked layout at 768px, 12 product cards, sidebar present, no overflow",
+    "tablet_home": "PASS — no overflow at 768px",
+    "desktop_console": "CLEAN — 0 errors after full page load",
+    "persistent_issue": "Regex error on login/search/category/home/pricing pages — minor, non-blocking"
+  },
+  "summary": {
+    "overall": "PASS",
+    "grade": "A-",
+    "scenarios_completed": 5,
+    "viewports_tested_real_browser": 3,
+    "critical_fails": 0,
+    "warnings": 0,
+    "minor_issues": 2,
+    "new_positive_findings": [
+      "Login flow a 390px (móvil) funciona correctamente — formulario se llena, submit funciona, redirige a home",
+      "Desktop (1440×900) verificado con navegador real por primera vez — sin overflow horizontal",
+      "Hero section tiene overflow:hidden correctamente configurado — el diseño visual no se rompe en ningún viewport",
+      "Listing rows en tablet muestran layout stacked limpio con sidebar de categorías visible"
+    ],
+    "new_issues_this_run": [
+      "RE-ISSUE: Regex inválido aún presente (mismo que report 0115) en todas las páginas",
+      "MINOR: Mobile search container 6px overflow en 390px (no visible al usuario)"
+    ],
+    "regressions_not_found": [
+      "No regresiones desde el test 0115 (hace 15 minutos)",
+      "Los 3 404 routes (faq, como-funciona, crear-anuncio) siguen igual — no hay empeoramiento"
+    ],
+    "next_recommendations": [
+      "Fix invalid regex /^[\\p{L}\\p{Mn} \\-\\']+$/u → /^[\\p{L}\\p{Mn} \\-']+$/u en todos los formularios",
+      "Resolver 404 routes persistentes (faq, como-funciona, crear-anuncio) — reportados desde 0045",
+      "Considerar test de flujo de registro en móvil (create_account)",
+      "Considerar test de flujo de búsqueda + vista de producto en móvil",
+      "Ejecutar test de accesibilidad con axe-core sobre la página de login"
+    ]
+  }
+}
