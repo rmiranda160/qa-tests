@@ -81,3 +81,19 @@
 | ❌ BLOCKED | `findings/CRONQA-2026-05-03-stripe-billing-pool-exhausted-day5.md` | #33 (comment) | [#34](https://github.com/rmiranda160/qa-tests/pull/34) |
 
 **State:** Login 500 (Día 5), QA pool test7-test30 exhausted (Día 5). Sin cambios.
+
+## Stripe Billing — 2026-05-03 17:20 UTC — Site Outage HTTP 500 Persiste (Día 3)
+
+| Result | Finding | Issue | PR |
+|--------|---------|-------|----|
+| ❌ BLOCKED | `findings/CRONQA-2026-05-03-stripe-billing-site-outage-v3.md` | [#68](https://github.com/rmiranda160/qa-tests/issues/68) (comment updated) | [#70](https://github.com/rmiranda160/qa-tests/pull/70) (merged) |
+
+**Detail:** Tercer outage en 3 días con mismo patrón (HTTP 500 cuerpo vacío todas las rutas). Sitio caído desde ~15:19 UTC, confirmado a las 17:20 UTC (~26+ min). nginx/PHP funcional, app PrestaShop crashea. Pool QA test7-test30 exhausto.
+
+## Responsive — 2026-05-03 16:57 UTC — Site Outage Bloquea Testing Responsive
+
+| Result | Finding | Issue | PR |
+|--------|---------|-------|----|
+| ❌ BLOCKED | `findings/CRONQA-RESPONSIVE-2026-05-03-site-outage-blocks-testing.md` | [#68](https://github.com/rmiranda160/qa-tests/issues/68) (update) | Current branch |
+
+**Detail:** Site outage HTTP 500 persiste desde 16:54 UTC. Responsive testing completamente bloqueado (no se puede acceder a ninguna página para probar layout, viewports, touch targets, ni emails). Último responsive exitoso: 16:19 UTC (verificación completa 6 páginas). Misma causa raíz que stripe-billing outage.

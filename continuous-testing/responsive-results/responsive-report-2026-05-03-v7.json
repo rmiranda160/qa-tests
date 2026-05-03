@@ -1,0 +1,29 @@
+{
+  "ok": false,
+  "date": "2026-05-03T17:22:00Z",
+  "mode": "responsive",
+  "url": "https://new.zonacnc.com",
+  "error": "HTTP 500 Internal Server Error en todas las páginas del sitio",
+  "findings": [
+    {
+      "id": "OUTAGE-001",
+      "severity": "CRITICAL",
+      "description": "Sitio completo HTTP 500 — todas las páginas devuelven Internal Server Error",
+      "urls_affected": ["/", "/es/", "/en/", "/login", "/register", "/es/pricing", "/es/buscar", "/es/contactenos"],
+      "status": "new",
+      "worse_than_yesterday": true
+    }
+  ],
+  "pages_tested": {
+    "https://new.zonacnc.com/": 500,
+    "https://new.zonacnc.com/es/": 500,
+    "https://new.zonacnc.com/en/": 500,
+    "https://new.zonacnc.com/login": 500,
+    "https://new.zonacnc.com/register": 500,
+    "https://new.zonacnc.com/es/pricing": 500,
+    "https://new.zonacnc.com/es/buscar": 500,
+    "https://new.zonacnc.com/es/contactenos": 500,
+    "https://new.zonacnc.com/api/health": 401
+  },
+  "responsive_tests": "SKIPPED — site completely down, no pages rendered"
+}
