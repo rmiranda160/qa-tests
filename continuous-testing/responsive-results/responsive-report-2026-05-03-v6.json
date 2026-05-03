@@ -1,0 +1,82 @@
+{
+  "site": "https://new.zonacnc.com",
+  "date": "2026-05-03T06:05:00Z",
+  "mode": "responsive",
+  "tester": "CRON_QA subagent",
+  "browser": "MCP remote browser (pwmcp-zonacnc)",
+  "viewports_tested": [
+    "mobile (390×844)",
+    "tablet (768×1024)",
+    "desktop (1440×900)"
+  ],
+  "pages_tested": [
+    "home (/)",
+    "search (?search_query=torno)",
+    "category (/28-maquinaria-metal)",
+    "pricing (/module/zonacncplans/pricing)"
+  ],
+  "summary": {
+    "result": "FAIL",
+    "critical_issues": 0,
+    "warnings": 1,
+    "info": 2,
+    "total_checks": 12,
+    "message": "1 overflow issue detected: .zcnc-hero element overflows on ALL viewport sizes (78px mobile, 154px tablet, 288px desktop). Also 2 console JS errors persist (Google FedCM/Firebase)."
+  },
+  "findings": [
+    {
+      "severity": "error",
+      "type": "HERO_OVERFLOW",
+      "page": "home",
+      "viewport": "all (390px, 768px, 1440px)",
+      "description": "The .zcnc-hero section has a scrollWidth exceeding its clientWidth on all viewport sizes. This causes horizontal scrollbars or clipped content across devices.",
+      "measurements": {
+        "mobile_390": {"scrollWidth": 468, "clientWidth": 390, "diff": 78},
+        "tablet_768": {"scrollWidth": 922, "clientWidth": 768, "diff": 154},
+        "desktop_1440": {"scrollWidth": 1728, "clientWidth": 1440, "diff": 288}
+      },
+      "element": "DIV.zcnc-hero",
+      "impact": "The hero section adds horizontal scroll to the page, creating a poor UX on all devices. Content inside the hero may be clipped or force unwanted horizontal scrolling.",
+      "suggestion": "Set overflow:hidden on .zcnc-hero container OR ensure child elements have width constraints that respect the parent container. Check for fixed-width backgrounds, images, or CSS grid/flex items that don't wrap.",
+      "screenshots": [
+        "responsive-home-mobile-hero-overflow.png",
+        "responsive-home-tablet-hero-overflow.png",
+        "responsive-home-desktop-hero-overflow.png"
+      ],
+      "reproducible": true
+    },
+    {
+      "severity": "warning",
+      "type": "CONSOLE_ERRORS",
+      "page": "all",
+      "viewport": "all",
+      "description": "Two persistent JavaScript console errors detected across all pages: (1) 'Provider's accounts list is empty' - likely Firebase/Google Auth init; (2) 'FedCM get() rejects with NetworkError' - Google Identity Services FedCM token retrieval fails.",
+      "element": "JavaScript runtime",
+      "impact": "User-facing impact unknown but indicates misconfigured Google sign-in or Firebase provider initialization. Could affect login/social auth functionality.",
+      "suggestion": "Verify Google OAuth client ID configuration and Firebase auth provider setup in the test environment.",
+      "reproducible": true
+    },
+    {
+      "severity": "info",
+      "type": "PUBLIC_PAGES_CLEAN",
+      "page": "search, category, pricing",
+      "viewport": "all",
+      "description": "The search results page, category listing page, and pricing page show NO overflow issues across mobile, tablet, and desktop viewports. All containers properly constrain their content.",
+      "element": "N/A",
+      "impact": "No issue - these pages are responsive.",
+      "suggestion": "None needed.",
+      "reproducible": false
+    },
+    {
+      "severity": "info",
+      "type": "MODO_TEST_BANNER",
+      "page": "all",
+      "viewport": "all",
+      "description": "Test mode banner visible: '⚠️ MODO TEST — entorno de pruebas. Los emails NO llegan a vendedores reales.' This is expected for the staging/test environment.",
+      "element": "Generic banner",
+      "impact": "No issue - expected for test environment.",
+      "suggestion": "None needed.",
+      "reproducible": false
+    }
+  ]
+}
