@@ -1,0 +1,84 @@
+{
+  "test": "CRON_QA Responsive Testing - new.zonacnc.com",
+  "date": "2026-05-03T07:38:00Z",
+  "focus_area": "responsive",
+  "tested_pages": [
+    "https://new.zonacnc.com/es/ (Homepage)",
+    "https://new.zonacnc.com/es/28-maquinaria-metal (Category page)",
+    "https://new.zonacnc.com/es/buscar (Search page)",
+    "https://new.zonacnc.com/es/pricing (Pricing page)",
+    "https://new.zonacnc.com/es/tornos-automaticos/12931-torno-cnc-haas-st-10-2018-en-buen-estado.html (Product detail)",
+    "https://new.zonacnc.com/es/?controller=registration (Registration page)"
+  ],
+  "viewports_tested": [
+    {"name": "Mobile", "width": 375, "height": 667},
+    {"name": "Tablet", "width": 768, "height": 1024},
+    {"name": "Desktop", "width": 1280, "height": 800}
+  ],
+  "critical_findings": [
+    {
+      "severity": "CRITICAL",
+      "page": "Login page /es/iniciar-sesion",
+      "issue": "Iniciar sesión (login) page returns HTTP server error (ERR_HTTP_RESPONSE_CODE_FAILURE). Users cannot log in to the platform.",
+      "impact": "All existing users are locked out. Cannot access account, favorites, or seller dashboard.",
+      "reproduction": "Navigate to https://new.zonacnc.com/es/iniciar-sesion or click 'Iniciar sesión' link from any page"
+    }
+  ],
+  "high_findings": [
+    {
+      "severity": "HIGH",
+      "page": "Registration page /es/?controller=registration",
+      "issue": "Cannot register new QA accounts. All 24 test emails (test7-test30@zonacnc.com) are already registered ('ya está en uso'). Error alert cannot be dismissed via the close button (hidden/not interactable).",
+      "impact": "QA registration flow is blocked. Need to clear test accounts or use login instead of registration."
+    }
+  ],
+  "medium_findings": [
+    {
+      "severity": "MEDIUM",
+      "page": "Homepage (all pages)",
+      "issue": "Mobile hero section (.zcnc-hero) has 75px horizontal overflow at 375px viewport. Content exceeds container width by 75px causing right-side clipping.",
+      "impact": "Users on mobile devices see clipped hero content on the homepage."
+    },
+    {
+      "severity": "MEDIUM",
+      "page": "All pages (mobile viewport)",
+      "issue": "15-52 touch/click targets smaller than the recommended 44x44px minimum for mobile. This includes icon buttons, nav toggles, and footer accordion buttons.",
+      "impact": "Poor mobile usability; users may have difficulty tapping small targets."
+    },
+    {
+      "severity": "MEDIUM",
+      "page": "Pricing page (tablet 768px)",
+      "issue": "Pricing card (.zonacnc-pricing__card) has 4px horizontal overflow at tablet viewport.",
+      "impact": "Minor visual overflow on pricing cards at tablet width."
+    }
+  ],
+  "low_findings": [
+    {
+      "severity": "LOW",
+      "page": "Homepage (homepage)",
+      "issue": "Google Sign-In (GSI) FedCM error in console: 'Not signed in with the identity provider' and 'FedCM get() rejects with NetworkError'. These appear on page load.",
+      "impact": "None visible to users. Background library initialization error. Google One Tap may not work."
+    },
+    {
+      "severity": "LOW",
+      "page": "Product detail page",
+      "issue": "1 image missing alt text attribute at mobile viewport.",
+      "impact": "Minor accessibility concern for screen readers."
+    }
+  ],
+  "passed_checks": [
+    "No horizontal overflow on category page at any viewport",
+    "No horizontal overflow on search page at any viewport",
+    "No horizontal overflow on product detail page at any viewport",
+    "Breadcrumbs render correctly on all tested pages",
+    "Footer accordion collapse/expand works on mobile",
+    "Navigation collapses to hamburger-style on mobile",
+    "Category grid adapts to single column on mobile",
+    "Product listing cards adapt to single column on mobile",
+    "No images missing alt text on homepage or category pages",
+    "Pricing page layout renders correctly at mobile and desktop",
+    "Registration form renders correctly at all viewports",
+    "No layout breakage on any tested page at any viewport"
+  ],
+  "summary": "The responsive layout of new.zonacnc.com is generally good, with proper breakpoints and adaptive content. However, there is one CRITICAL issue (login page completely broken with HTTP 500 error) that blocks all user access. One overflow issue on the mobile hero section and several touch targets below recommended size need attention. All registration emails in the QA range (test7-test30) are already taken, preventing new account creation."
+}
