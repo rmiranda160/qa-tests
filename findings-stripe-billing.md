@@ -135,3 +135,99 @@
 10. ✅ Email templates verified via IMAP (password reset and confirmation)
 
 **Note**: All emails in test environment are encrypted at rest in IMAP (AES?) — must use specific MIME part fetches (BODY[1.1.1]) and quoted-printable decode to read plain text.
+
+---
+
+## 6. Stripe Checkout — Free → Starter Upgrade (test10)
+
+**Date**: 2026-05-04 16:23–16:38 UTC  
+**Tester**: test10@zonacnc.com (customer ID 6617)  
+**Scenario**: Free → Starter (€39/mo) via Stripe hosted checkout
+
+### 6.1 Pre-upgrade State
+- **Plan**: Free
+- **Ads**: 3/3 active (at limit)
+- **Warning**: "Has alcanzado el límite de anuncios de tu plan"
+
+### 6.2 Billing Address Pre-condition
+- **Finding**: Pricing page showed "Completa tu dirección de facturación antes de contratar un plan" warning
+- **Filled**: Empresa, Dirección, CP, Ciudad, Teléfono, NIF → saved successfully
+- **🐛 BUG #1 — Redirect after billing address save**: After saving billing address from `/es/direcciones?back=https://new.zonacnc.com/es/pricing`, browser was redirected to `https://new.zonacnc.com/es/?controller=https://new.zonacnc.com/es/pricing` — the `back` parameter is incorrectly being treated as a controller parameter, resulting in a malformed URL (hits homepage instead of pricing). **Workaround**: manually navigated to `/es/pricing`.
+
+### 6.3 Stripe Hosted Checkout Flow
+1. Clicked "Contratar Starter" → redirected to `/es/module/zonacncplans/checkout?plan=starter`
+2. Page shows: Starter plan, €39/month, Stripe payment, support badges
+3. Clicked "Proceder al pago" → redirected to `checkout.stripe.com/c/pay/cs_test_...` (Stripe hosted checkout, test mode)
+4. **🐛 BUG #2 — Card fields not rendering initially**: On first load, Stripe checkout showed only Link/Amazon Pay express checkout frames. Card input fields (number, expiry, CVC, cardholder name) were not present. Multiple attempts to expand the card accordion failed. Card fields only appeared after clicking "Pay and subscribe" which triggered a validation error, forcing the form to render.
+5. After card fields appeared: filled 4242 4242 4242 4242, exp 12/35, CVC 123, name "Test Usuario", country Spain
+6. Clicked "Pay and subscribe" → payment succeeded
+7. Redirected to `/es/module/zonacncplans/success?session_id=cs_test_...`
+
+### 6.4 Post-upgrade State
+- **Plan**: Starter Activa ✅
+- **Price**: €39/mes
+- **Next billing**: 04/06/2026
+- **Ads**: 3/3 — limit warning still shows (Free plan also had 3 ads, so no increase)
+- **Payment method**: "No hay metodo de pago guardado en este sitio. Si tu suscripcion esta activa, Stripe usara la tarjeta registrada en tu cuenta."
+
+### 6.5 Emails Received (IMAP Verification)
+
+#### Email 7 — vendor_onboarding ("Empieza con buen pie en ZonaCNC")
+| Field | Value | Status |
+|-------|-------|--------|
+| Subject | "Empieza con buen pie en ZonaCNC: 3 pasos en 10 minutos" | ✅ Good |
+| From | ZonaCNC <no-reply@mg.zonacnc-sales.es> | ✅ |
+| Greeting | "Hola Test Usuario" | ✅ Full name used |
+| Plan reference | "Tu plan Starter está activo" | ✅ |
+| Content | 3 steps: perfil empresa, publicar anuncio, recibir consultas | ✅ Well formatted |
+| HTML | Colored boxes (green, amber, blue), links | ✅ |
+| Translation | All Spanish | ✅ |
+
+#### Email 8 — subscription_started ("¡Bienvenido a Starter! Tu suscripción está activa")
+| Field | Value | Status |
+|-------|-------|--------|
+| Subject | "¡Bienvenido a Starter! Tu suscripción está activa" | ✅ |
+| From | ZonaCNC <no-reply@mg.zonacnc-sales.es> | ✅ |
+| Greeting | "Hola Test," | 🐛 **BUG #3** |
+| Plan | Starter | ✅ |
+| Period | "monthly" | 🐛 **BUG #4** |
+| Price | 39,00 € | ✅ |
+| Ads included | **1** | 🐛 **BUG #5** |
+| Next renewal | 04/06/2026 | ✅ |
+| HTML | Dark header, white card, red CTA button | ✅ |
+
+### 6.6 Bugs Found
+
+| # | Severity | Description | Location |
+|---|----------|-------------|----------|
+| BUG #1 | Medium | Billing address save redirect corrupts `back` URL parameter (becomes `/?controller=https://...`) | `/es/direcciones` |
+| BUG #2 | Medium | Stripe hosted checkout card fields not rendered on first load; only appear after validation error on submit | Stripe checkout page |
+| BUG #3 | Low | subscription_started email greeting says "Hola Test," (first name only) instead of full name "Test Usuario" | Email template: subscription_started |
+| BUG #4 | Medium | subscription_started email shows "Periodo: monthly" (untranslated) — should be "Período: Mensual" | Email template: subscription_started |
+| BUG #5 | High | subscription_started email says "Anuncios incluidos: 1" — Starter plan actually includes **3** ads, not 1 | Email template: subscription_started |
+
+### 6.7 Translation Issues (non-critical)
+
+| Issue | Location | Detail |
+|-------|----------|--------|
+| Missing accent | Success page | "confirmacion" → should be "confirmación" |
+| Missing accent | Subscription page | "metodo" → should be "método" |
+| Missing accent | Subscription page sidebar | "Mi suscripcion" → should be "Mi suscripción" |
+| Missing accent | Subscription page body | "suscripcion" (multiple) → should be "suscripción" |
+| Untranslated | Email template | "Periodo: monthly" → should be "Período: Mensual" |
+
+---
+
+## 7. Summary of All Findings
+
+### High Severity
+- 🐛 BUG #5: subscription_started template hardcodes "Anuncios incluidos: 1" — wrong for all plans except Free. Should use plan's actual ad limit variable.
+
+### Medium Severity
+- 🐛 BUG #1: Redirect after billing address save is broken (back param becomes controller)
+- 🐛 BUG #2: Stripe hosted checkout card form requires validation error to render
+- 🐛 BUG #4: "Periodo: monthly" untranslated in email
+
+### Low Severity
+- 🐛 BUG #3: First name used instead of full name in subscription_started greeting
+- Missing accents in multiple UI strings (confirmacion, metodo, suscripcion)
