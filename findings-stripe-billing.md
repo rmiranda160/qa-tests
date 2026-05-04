@@ -1,91 +1,117 @@
-# CRON_QA Results — stripe-billing
-**Run:** 2026-05-04 18:34 UTC | **Duration:** ~15 min  
-**Account:** test7@zonacnc.com | **Plan:** Enterprise (€299/mes) | **Next billing:** 03/06/2026
+# Stripe Billing QA Findings — 2026-05-04 20:35 UTC
 
-## Scope
-Tested stripe-billing focus area on `new.zonacnc.com` — covered:
-- Subscription management page (`/es/suscripcion`)
-- Plan change page (`/es/cambiar-plan`)
-- Invoices & payments page (`/es/facturacion`)
-- Stripe Elements card update flow (embedded dialog)
-- Cancel subscription flow
-- Stripe Checkout for Boost pack purchase
-- Stripe hosted invoice pages
-- IMAP email verification for billing notifications
+**Test account:** test25@zonacnc.com (Fresh account, Free plan, 2/3 ads)
+**Focus area:** stripe-billing — Plans, Subscription, Checkout, Billing, Emails
+**Scope:** new.zonacnc.com only
 
-## Findings (6)
+---
 
-### FINDING-001 ✅ PASS — Subscription page renders complete billing state
-**Page:** `/es/suscripcion` | **Plan:** Enterprise Activa
-- Plan name, status (Activa), price (€299/mes), next billing date (03/06/2026) all correct
-- Listing count (19/102) accurate
-- Payment method section shows Visa •••• 4242
-- 5 completed invoices + 1 pending boost payment in history table
-- 2 active add-ons (Anuncios extra x2 @ €3.00/mes each)
-- All Stripe invoice links open hosted invoice pages with sandbox badge
-- PDF download links present for all completed invoices
+## Finding 1: Checkout page has generic page title (SEO/A11y)
 
-### FINDING-002 ✅ PASS — Card update via Stripe Elements works
-**Flow:** "Cambiar tarjeta" button → embedded Stripe Elements dialog
-- Dialog opens in-page with heading "Actualizar método de pago"
-- Card number field accepts input in Stripe iframe (`4242424242424242`)
-- Expiry (12/30) and CVC (123) fields fillable
-- **ZIP code validation works**: shows "Your postal code is incomplete." when empty
-- After filling ZIP (28001), card saved successfully, dialog closes
-- Stripe brand detection shows "Visa" matching card number
-- No confirmation email sent for same-card update (acceptable — may be intentional)
+**Severity:** Low  
+**URLs:**
+- `https://new.zonacnc.com/es/pagar-plan?plan=starter`
+- `https://new.zonacnc.com/en/pagar-plan?plan=starter`
 
-### FINDING-003 ✅ PASS — Cancel flow has proper confirmation dialog
-**Flow:** "Cancelar al final del período" button
-- Dialog title: "Cancelar al final del período"
-- Explanatory text: acceso hasta fin del período pagado, sin más cobros
-- Optional reason textbox with placeholder "Cuéntanos brevemente por qué..."
-- "Volver" and "Confirmar cancelación" buttons present
-- Dialog correctly dismisses without cancelling on "Volver"
+**Description:** The checkout/payment page (`/pagar-plan`) sets `<title>zonacnc.com</title>` instead of a descriptive title like "Subscribe to Starter Plan · ZonaCNC" or "Contratar plan Starter · ZonaCNC".
 
-### FINDING-004 ✅ PASS — Plan change page is complete and well-documented
-**Page:** `/es/cambiar-plan`
-- All 5 plans shown: Free (€0), Starter (€39), Pro (€99), Business (€199), Enterprise (€299 actual)
-- Each plan card lists features: photos/listing, destacados, import, add-on price
-- Current plan marked "ACTUAL", other plans clickable
-- "Confirmar cambio" button disabled until a different plan selected
-- Clear explanation of upgrade/downgrade/cancel/add-on/boost rules
-- 7-day refund policy detailed with conditions
-- Upgrade: prorated charge (difference only, unused time credited)
-- Downgrade: effective at period end, no refund
+**Impact:** Poor SEO, confusing browser tab labels, accessibility issue for screen readers.
 
-### FINDING-005 ⚠️ PARTIAL — Stripe Checkout renders correctly but card payment completion blocked by cross-origin iframe
-**Flow:** Boost Pack 5 purchase → redirect to `checkout.stripe.com/c/pay/cs_test_...`
-- Checkout page renders correctly: business name "Veleta Comercializaciones y Servicios SLU", sandbox banner, product "Boost Pack 5" at €15.00, email pre-filled
-- Payment methods shown: Card, MB WAY, Klarna, Bancontact, EPS
-- Terms/Privacy links present, Stripe Pass save option available
-- **Blocked**: Card number/expiry/CVC inputs in cross-origin `js.stripe.com` iframe — 16 frames enumerated, card fields not accessible via Playwright
-- **Result**: Boost Pack 5 listed as "pendiente" (€15.00) on Facturas y pagos
-- **Impact**: Automated end-to-end payment testing not feasible for Stripe Checkout without Stripe test API integration
+---
 
-### FINDING-006 ✅ PASS — Stripe hosted invoice pages verified
-**Pages:** `invoice.stripe.com/i/acct_1TPLFqELpLIGgmZK/test_...`
-- Business name "Veleta Comercializaciones y Servicios SLU" correct
-- Sandbox/test mode badge present
-- Invoice numbers and amounts match subscription page data
-- Paid status correctly shown
+## Finding 2: English checkout page (/en/pagar-plan) renders entirely in Spanish — CRITICAL i18n
 
-## Email Review
-- **Invoice paid notification** (`plans-subscription_invoice_paid`): Sent from `no-reply@mg.zonacnc-sales.es`, subject "Factura pagada — Tu plan sigue activo", Spanish template with plan name and amount
-- **Welcome email** (`plans-vendor_onboarding`): Reviewed in prior run (FINDING-001/002 still valid — template variables not substituted, name truncation)
-- **No card update notification email** found (expected behavior for same-card update)
+**Severity:** High  
+**URL:** `https://new.zonacnc.com/en/pagar-plan?plan=starter`
+
+**Description:** The English checkout page displays virtually ALL content in Spanish:
+- Page heading: "Contratar plan" (not "Subscribe to plan")
+- "Resumen del pedido" (not "Order summary")
+- Plan features: "10 fotos por anuncio", "3 destacados al mes"
+- Pricing toggle: "Mensual" / "Anual" (not "Monthly" / "Annual")
+- Price: "39.00 €/mes" (should be "€39.00/month")
+- Annual price: "390.00 €/ano" (should be "€390.00/year")
+- Savings: "Ahorras 78 €"
+- Security: "Pago seguro con Stripe. Tus datos estan protegidos."
+- CTA button: "Proceder al pago" (not "Proceed to payment")
+- "Cómo se factura" section entirely in Spanish
+- Trust badges: "Sin permanencia", "Cancela cuando quieras", "Soporte en castellano"
+- "Aceptamos:" (not "We accept:")
+- "Volver a planes" (not "Back to plans")
+
+**Impact:** English-speaking users cannot reliably complete the payment flow. This likely affects Stripe conversion rates for international users. The checkout page appears to not respect the language context at all.
+
+---
+
+## Finding 3: English pricing page (/en/pricing) has mixed i18n — price units and footer
+
+**Severity:** Medium  
+**URL:** `https://new.zonacnc.com/en/pricing`
+
+**Description:** On the English pricing page:
+- **Plan prices display `/mes` instead of `/month`** — All paid plans (Starter €39, Pro €99, Business €199, Enterprise €299) show the Spanish frequency unit "/mes" instead of English "/month"
+- **Footer sections untranslated:**
+  - Legal nav: "Aviso legal", "Politica de privacidad", "Politica de cookies" (all Spanish)
+  - Marketplace nav: "Cómo funciona", "Planes para vendedores", "Todos los vendedores", "Preguntas frecuentes" (all Spanish)
+  - Section heading: "Nuestra empresa" (not "Our company")
+  - Newsletter unsubscribe: "Puede darse de baja en cualquier momento..." (Spanish)
+  - Store location: "España" (not "Spain")
+
+**Impact:** Mixed-language UI erodes trust and looks unprofessional. Price units in wrong language could confuse international buyers about billing frequency.
+
+---
+
+## Finding 4: Password reset emails have language mismatch (English subject, Spanish body)
+
+**Severity:** Medium  
+**Evidence:** IMAP inbox for test25@zonacnc.com, email from May 3, 2026
+
+**Description:** When a password reset is requested from the English interface (`/en/`), the email is sent with:
+- **Subject:** "Password query confirmation" (English)  ← also "query" is odd wording, should be "Password reset request"
+- **Body:** "Hola Test UserLastName, Confirmación de la solicitud de contraseña…" (Spanish)
+- The body is entirely in Spanish despite the English subject and English URL context
+
+Similarly, the "Your new password" confirmation email has English subject but Spanish body.
+
+**Impact:** Confusing user experience. Users who requested password reset in English receive an email with an English subject line but Spanish content they may not understand.
+
+---
+
+## Finding 5: JavaScript console error on checkout page
+
+**Severity:** Low-Medium  
+**Evidence:** Browser console shows `Unexpected token '&'` on both Spanish and English checkout (`/es/pagar-plan` and `/en/pagar-plan`)
+
+**Description:** A JavaScript parsing error occurs on the checkout/payment page. The error `Unexpected token '&'` suggests malformed JS (possibly an unescaped ampersand in inline script or HTML entity in wrong context).
+
+**Impact:** Could break JS-dependent features on the checkout page, potentially affecting Stripe Elements initialization or form validation.
+
+---
+
+## Finding 6: Email subject Q-encoding splits across lines
+
+**Severity:** Low  
+**Evidence:** IMAP inbox for test25@zonacnc.com, emails from May 4, 2026
+
+**Description:** Spanish password reset emails have subject headers that split mid-word across lines:
+```
+Subject: [zonacnc.com] =?utf-8?Q?Confirmaci=C3=B3n?= de
+ =?utf-8?Q?contrase=C3=B1a?=
+```
+
+While this is technically valid RFC 2047 encoding, it renders poorly in some email clients and looks unprofessional.
+
+**Impact:** Minor cosmetic issue but contributes to poor email deliverability perception.
+
+---
 
 ## Summary
-| # | Area | Result |
-|---|------|--------|
-| 1 | Subscription page | ✅ PASS |
-| 2 | Card update (Stripe Elements) | ✅ PASS |
-| 3 | Cancel flow | ✅ PASS |
-| 4 | Plan change page | ✅ PASS |
-| 5 | Stripe Checkout (boost) | ⚠️ PARTIAL |
-| 6 | Stripe invoices | ✅ PASS |
 
-**Overall**: Stripe billing integration on new.zonacnc.com is solid. Plan management, card update, invoicing, and cancel flows all work correctly with proper Spanish translations. The main gap is automated end-to-end payment testing via Stripe Checkout, which requires either Stripe test API integration or manual testing.
-
-## Resolution
-Report saved → commit → PR → merge → issue.
+| # | Finding | Severity | Page/Feature |
+|---|---------|----------|-------------|
+| 1 | Generic page title "zonacnc.com" on checkout | Low | Checkout |
+| 2 | **English checkout fully in Spanish** | **High** | /en/pagar-plan |
+| 3 | English pricing mixed i18n (/mes, footer Spanish) | Medium | /en/pricing |
+| 4 | Password reset email: EN subject + ES body | Medium | Email templates |
+| 5 | JS error `Unexpected token '&'` on checkout | Low-Medium | Checkout |
+| 6 | Email subject Q-encoding split across lines | Low | Email headers |
