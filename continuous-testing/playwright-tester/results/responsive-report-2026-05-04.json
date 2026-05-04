@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "date": "2026-05-04",
+  "time": "15:26-15:30 UTC",
+  "mode": "responsive",
+  "url": "https://new.zonacnc.com",
+  "cronId": "53983183-66c6-4b72-9b21-404aac116c60",
+  "playwrightWs": "unavailable",
+  "method": "manual-mcp-browser",
+  "pagesTested": 4,
+  "viewports": [
+    { "name": "mobile", "width": 390, "height": 844 },
+    { "name": "tablet", "width": 768, "height": 1024 },
+    { "name": "desktop", "width": 1440, "height": 900 }
+  ],
+  "pages": [
+    { "url": "/es/", "name": "Homepage", "status": "pass" },
+    { "url": "/es/tornos/13004-torno-cnc-haas-st-20-2019.html", "name": "Producto", "status": "pass" },
+    { "url": "/es/buscar", "name": "Busqueda", "status": "pass" },
+    { "url": "/es/iniciar-sesion", "name": "Login", "status": "pass" }
+  ],
+  "findings": {
+    "responsive": {
+      "status": "pass",
+      "issues": 0,
+      "horizontalOverflow": false,
+      "overlappingElements": false,
+      "truncatedContent": false,
+      "missingNavItems": false
+    },
+    "consoleErrors": {
+      "total": 2,
+      "persistent": [
+        "Provider's accounts list is empty",
+        "Unexpected token '&'"
+      ],
+      "gsiExpected": [
+        "Not signed in with the identity provider",
+        "FedCM get() rejects with NetworkError"
+      ]
+    }
+  },
+  "observations": {
+    "headerAdaptation": "proper",
+    "footerAdaptation": "proper (accordion toggles mobile, expanded desktop)",
+    "productGrid": "1col mobile → multi-col desktop",
+    "languageSelector": "select mobile → combobox desktop",
+    "searchBar": "collapsed icon mobile → inline combobox desktop"
+  }
+}
