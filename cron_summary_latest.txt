@@ -1,1 +1,26 @@
-Confirmed still down at 17:22
+CRON: tester-responsive | 2026-05-04 15:26 UTC | RESPONSIVE QA: PASS (4 pages × 3 viewports) ✅
+- Cron ID: 53983183-66c6-4b72-9b21-404aac116c60
+- new.zonacnc.com responsive testing across 3 viewports (390×844, 768×1024, 1440×900)
+- Method: Manual MCP browser (pwmcp-zonacnc) — Playwright WS unavailable
+- Pages: Homepage, Product (Haas ST-20 2019), Search, Login
+
+PASSES ✅:
+- No horizontal overflow at any viewport
+- No overlapping elements at any viewport
+- Header adapts correctly: icons (mobile) → text links (desktop)
+- Footer adapts: accordion toggles (mobile) → expanded columns (desktop)
+- Product cards: 1 col (mobile) → multi-col (desktop)
+- Language selector: <select> (mobile) → <combobox> (desktop)
+- Search bar: collapsed icon (mobile) → inline combobox (desktop)
+- Issue #96 (product 500 + mobile menu) appears RESOLVED
+
+FINDINGS ⚠️:
+1. MEDIUM: 2 persistent JS console errors across ALL pages:
+   - "Provider's accounts list is empty"
+   - "Unexpected token '&'" (JSON parse)
+   Non-blocking but present on every page load.
+2. LOW: Google Sign-In/FedCM errors on login page (expected without Google session)
+
+PR #106 merged | Branch: cronqa/stripe-billing-retest-2026-05-04T15v2
+Report: continuous-testing/playwright-tester/results/responsive-test-2026-05-04.md
+Issue: https://github.com/rmiranda160/qa-tests/issues/107 (JS console errors)
