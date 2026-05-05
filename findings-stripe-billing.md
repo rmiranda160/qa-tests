@@ -1,124 +1,123 @@
-# Findings: stripe-billing — 2026-05-05
+# Findings: Stripe Billing QA — 2026-05-05
 
-> Test account: test8@zonacnc.com | Plan: Pro | MCP: pwmcp-zonacnc | Site: new.zonacnc.com
+**Test account:** test9@zonacnc.com (Customer ID 6611, "Test User", Plan Pro anual)
+**Previous report:** test8@zonacnc.com (2026-05-04)
 
 ---
 
-## Finding 1 (HIGH): Variable substitution failure in add-on email
+## Finding 1 — HIGH: Variable substitution failure in add-on confirmation email (REGRESSION)
 
-**Location**: Email template for add-on added (`Add-on añadido a tu suscripción`, IMAP msg #13)
-
-**Observed**: The email body shows literal fallback text `(prorrateado por Stripe)` instead of the actual prorated amount.
+**Location:** Email template `Add-on añadido a tu suscripción`
+**Evidence:** Both plain-text and HTML body contain literal placeholder `(prorrateado por Stripe)` instead of the actual prorated charge amount (€89.69).
 
 ```
-Hemos añadido 1 x anuncio extra a tu suscripción Pro.
 Stripe ha cobrado la parte proporcional ((prorrateado por Stripe)). La siguiente
-factura recurrente la verás en 02/06/2026.
-
-- Cobro proporcional ahora: (prorrateado por Stripe)
+factura recurrente la verás en 03/05/2027.
 ```
 
-The actual prorated amount (€8.25, as seen in invoice email #14) is not substituted into the template. Double parentheses in the first instance suggest a nested fallback.
-
-**Expected**: The actual prorated amount (e.g., `8,25 €`) should appear, not the fallback placeholder.
-
----
-
-## Finding 2 (HIGH): Massive i18n leakage — English subscription page is ~80% Spanish
-
-**Location**: `new.zonacnc.com/en/subscription` (and related billing pages)
-
-**Observed**: When viewing the subscription page in English, the vast majority of content renders in Spanish. Specific untranslated strings:
-
-| Element | Rendered (Spanish) | Expected (English) |
-|---------|-------------------|-------------------|
-| Page heading | "Mi suscripción" | "My subscription" |
-| Plan status | "Activa" | "Active" |
-| Next charge label | "Próximo cobro:" | "Next charge:" |
-| Ads counter | "Anuncios activos" | "Active listings" |
-| Price unit | "99 € /mes" | "99 € /month" |
-| Limit warning | "Has alcanzado el límite..." | "You have reached your plan limit" |
-| Payment heading | "Método de pago" | "Payment method" |
-| Change card button | "Cambiar tarjeta" | "Change card" |
-| Subscription heading | "Suscripción" | "Subscription" |
-| Cancel text | "Puedes cancelar tu suscripción..." | Full paragraph in English |
-| Cancel button | "Cancelar al final del período" | "Cancel at end of period" |
-| Invoice heading | "Historial de facturas" | "Invoice history" |
-| Table headers | "Fecha", "Plan", "Importe", "Estado", "Factura" | "Date", "Plan", "Amount", "Status", "Invoice" |
-| Status | "Completado" | "Completed" |
-| View invoice | "Ver factura" | "View invoice" |
-| Add-on heading | "Añadir add-on a tu plan" | "Add add-on to your plan" |
-| Add-on desc | "Se añade sobre tu suscripción..." | Full paragraph in English |
-| Add-on type | "Anuncios extra" | "Extra listings" |
-| Add-on status | "Cancelado" | "Cancelled" |
-| Table cols | "Tipo", "Cantidad", "Precio", "Período" | "Type", "Quantity", "Price", "Period" |
-| Add button | "Añadir" | "Add" |
-| Breadcrumb | "Mi cuenta" / "Mi suscripción" | "My account" / "My subscription" |
-| Footer legal links | "Aviso legal", "Politica de privacidad" | "Legal notice", "Privacy policy" |
-| Footer company | "Nuestra empresa" | "Our company" |
-| Footer marketplace | "Cómo funciona", "Planes para..." | "How it works", "Seller plans" |
-| Footer unsubscribe | Full Spanish paragraph | English |
-
-**Impact**: English-speaking users cannot effectively use the billing/subscription area.
-
----
-
-## Finding 3 (MEDIUM): Email body not translated for English locale
-
-**Location**: Password reset email templates (IMAP msgs #9, #10)
-
-**Observed**: When user triggers password reset from English interface, the email subject is English ("Your new password", "Password query confirmation") but the **email body is entirely in Spanish**:
-
+Also in the details table:
 ```
-Subject: [zonacnc.com] Your new password
-Body: Hola Test Usuario SEO,
-       Su contraseña ha sido actualizada correctamente.
+Cobro proporcional ahora: (prorrateado por Stripe)
 ```
 
-Same for password confirmation: English subject with Spanish body ("Confirmación de la solicitud de contraseña...").
-
-**Expected**: Email body should match the user's language preference.
+**Expected:** Show actual amount charged (e.g., "89,69 €")  
+**Actual:** Placeholder text `(prorrateado por Stripe)`  
+**Impact:** Users cannot see how much they were charged in the confirmation email — the most critical piece of information.  
+**Confirmed on:** Annual Pro plan (€990/yr) with 1 extra ad add-on  
+**Previously reported:** Yes (finding #1 from 2026-05-04 on test8 monthly plan)
 
 ---
 
-## Finding 4 (MEDIUM): Invoice description mixes English and Spanish
+## Finding 2 — HIGH: Invoice email falsely claims plan renewal instead of add-on charge (REGRESSION)
 
-**Location**: Invoice history table on subscription page
-
-**Observed**: The invoice description for the add-on purchase reads:
+**Location:** Email template `Factura pagada — Tu plan sigue activo`
+**Evidence:** Email body says:
 
 ```
-Remaining time on ZonaCNC — Add-on: anuncio extra after 05 May 2026 (+8,25 €)
+Hemos cobrado la renovación de tu plan Pro. Tu suscripción sigue
+activa hasta 03/05/2027.
 ```
 
-English fragments ("Remaining time on", "after") are mixed with Spanish ("anuncio extra"). This comes from Stripe's invoice metadata but the concatenation produces broken output.
+But this invoice was generated for an add-on purchase (€89.69 prorated), **not** a plan renewal. The plan was already prepaid through 2027.
+
+**Expected:** Email should say "Hemos cobrado un add-on de anuncio extra" or similar  
+**Actual:** Falsely claims it's a plan "renovación"  
+**Impact:** Confuses users into thinking their annual plan was charged again. Could trigger unnecessary support tickets.  
+**Previously reported:** Yes (finding #2 from 2026-05-04 on test8)
 
 ---
 
-## Finding 5 (LOW): Email subject spacing error
+## Finding 3 — MEDIUM: Mixed language in invoice line item description
 
-**Location**: Password reset confirmation email subject (IMAP msg #11)
+**Location:** Billing history table on `/es/suscripcion`
+**Evidence:** Invoice description reads:
 
-**Observed**: Subject reads `[zonacnc.com] Confirmación decontraseña` — missing space between `de` and `contraseña`.
+```
+Remaining time on ZonaCNC — Add-on: anuncio extra after 05 May 2026 (+89,69 €)
+```
 
-**Expected**: `[zonacnc.com] Confirmación de contraseña`
+The string mixes English ("Remaining time", "after") with Spanish ("anuncio extra"). The invoice description comes from Stripe metadata and is not properly localized.
+
+**Expected:** Fully localized description, e.g., "Tiempo restante en ZonaCNC — Add-on: anuncio extra desde 05 May 2026"  
+**Actual:** Mixed English/Spanish  
+**Impact:** Unprofessional appearance in billing records. Shows lack of i18n attention to Stripe metadata strings.
 
 ---
 
-## Finding 6 (LOW): Misleading invoice email wording
+## Finding 4 — LOW: Add-on period label mismatch (annual plan)
 
-**Location**: Invoice paid email (IMAP msg #14)
+**Location:** Add-ons table on `/es/suscripcion`
+**Evidence:** The "Añadir add-on" section advertises:
 
-**Observed**: The email says "Hemos cobrado la renovación de tu plan Pro" ("We have charged the renewal of your Pro plan"), but the transaction was an add-on purchase (extra listing), not a plan renewal. This is confusing for users.
+```
+Anuncio extra: 9.00 € /mes
+```
+
+But after purchase, the Add-ons table shows:
+
+```
+Anuncios extra x1  9.00 €  9.00 € /año  Activo
+```
+
+**Expected:** The period label should match the billing period. On annual plans, add-ons are billed annually (prorated), so both should show `€/año` or `€/mes` consistently.  
+**Actual:** Monthly label in selector vs annual label in summary table  
+**Impact:** Minor confusion — users may expect €9/month but are actually charged differently on annual plans.
 
 ---
 
-## Finding 7 (INFO): No payment method required for add-on purchase
+## Finding 5 — LOW: Password reset email subject missing space (REGRESSION)
 
-**Observed**: Before adding the add-on, the subscription page showed "No hay método de pago guardado" (No payment method saved). After adding the add-on, a Visa ending in 4242 appeared as the saved payment method, and an invoice was generated and paid.
+**Location:** Email for password recovery  
+**Evidence:** Subject line reads:
 
-This suggests the system either:
-- Has a stored payment method in Stripe not reflected locally
-- Automatically created a payment method during the transaction
+```
+Confirmación decontraseña
+```
 
-No user action was required to provide payment details.
+Missing space between "de" and "contraseña".  
+**Previously reported:** Yes (finding #5 from 2026-05-04 on test8)  
+**Impact:** Unprofessional appearance.
+
+---
+
+## Finding 6 — INFO: No payment method required for add-on purchase
+
+**Location:** Add-on purchase flow  
+**Evidence:** Before adding a payment method, the add-on "Añadir" button was shown and clickable. The confirmation dialog mentions "tarjeta guardada" even when no payment method exists.  
+**Note:** This may work because Stripe saves the card from the original plan purchase and reuses it. Low impact since the add-on requires a prior plan with payment method.
+
+---
+
+## Summary
+
+| ID | Severity | Description | Previously Reported |
+|----|----------|-------------|---------------------|
+| 1  | HIGH | Variable substitution `(prorrateado por Stripe)` in add-on email | Yes |
+| 2  | HIGH | Invoice email says "renovación" for add-on charge | Yes |
+| 3  | MEDIUM | Mixed EN/ES in invoice description | **No** |
+| 4  | LOW | Add-on period label mismatch (€/mes vs €/año) | **No** |
+| 5  | LOW | Missing space in password reset subject | Yes |
+| 6  | INFO | No payment method required for add-on | **No** |
+
+**New findings this run:** #3, #4, #6
+**Regressions confirmed:** #1, #2, #5
