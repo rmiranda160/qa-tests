@@ -1,117 +1,124 @@
-# Stripe Billing QA Findings — 2026-05-04 20:35 UTC
+# Findings: stripe-billing — 2026-05-05
 
-**Test account:** test25@zonacnc.com (Fresh account, Free plan, 2/3 ads)
-**Focus area:** stripe-billing — Plans, Subscription, Checkout, Billing, Emails
-**Scope:** new.zonacnc.com only
+> Test account: test8@zonacnc.com | Plan: Pro | MCP: pwmcp-zonacnc | Site: new.zonacnc.com
 
 ---
 
-## Finding 1: Checkout page has generic page title (SEO/A11y)
+## Finding 1 (HIGH): Variable substitution failure in add-on email
 
-**Severity:** Low  
-**URLs:**
-- `https://new.zonacnc.com/es/pagar-plan?plan=starter`
-- `https://new.zonacnc.com/en/pagar-plan?plan=starter`
+**Location**: Email template for add-on added (`Add-on añadido a tu suscripción`, IMAP msg #13)
 
-**Description:** The checkout/payment page (`/pagar-plan`) sets `<title>zonacnc.com</title>` instead of a descriptive title like "Subscribe to Starter Plan · ZonaCNC" or "Contratar plan Starter · ZonaCNC".
+**Observed**: The email body shows literal fallback text `(prorrateado por Stripe)` instead of the actual prorated amount.
 
-**Impact:** Poor SEO, confusing browser tab labels, accessibility issue for screen readers.
-
----
-
-## Finding 2: English checkout page (/en/pagar-plan) renders entirely in Spanish — CRITICAL i18n
-
-**Severity:** High  
-**URL:** `https://new.zonacnc.com/en/pagar-plan?plan=starter`
-
-**Description:** The English checkout page displays virtually ALL content in Spanish:
-- Page heading: "Contratar plan" (not "Subscribe to plan")
-- "Resumen del pedido" (not "Order summary")
-- Plan features: "10 fotos por anuncio", "3 destacados al mes"
-- Pricing toggle: "Mensual" / "Anual" (not "Monthly" / "Annual")
-- Price: "39.00 €/mes" (should be "€39.00/month")
-- Annual price: "390.00 €/ano" (should be "€390.00/year")
-- Savings: "Ahorras 78 €"
-- Security: "Pago seguro con Stripe. Tus datos estan protegidos."
-- CTA button: "Proceder al pago" (not "Proceed to payment")
-- "Cómo se factura" section entirely in Spanish
-- Trust badges: "Sin permanencia", "Cancela cuando quieras", "Soporte en castellano"
-- "Aceptamos:" (not "We accept:")
-- "Volver a planes" (not "Back to plans")
-
-**Impact:** English-speaking users cannot reliably complete the payment flow. This likely affects Stripe conversion rates for international users. The checkout page appears to not respect the language context at all.
-
----
-
-## Finding 3: English pricing page (/en/pricing) has mixed i18n — price units and footer
-
-**Severity:** Medium  
-**URL:** `https://new.zonacnc.com/en/pricing`
-
-**Description:** On the English pricing page:
-- **Plan prices display `/mes` instead of `/month`** — All paid plans (Starter €39, Pro €99, Business €199, Enterprise €299) show the Spanish frequency unit "/mes" instead of English "/month"
-- **Footer sections untranslated:**
-  - Legal nav: "Aviso legal", "Politica de privacidad", "Politica de cookies" (all Spanish)
-  - Marketplace nav: "Cómo funciona", "Planes para vendedores", "Todos los vendedores", "Preguntas frecuentes" (all Spanish)
-  - Section heading: "Nuestra empresa" (not "Our company")
-  - Newsletter unsubscribe: "Puede darse de baja en cualquier momento..." (Spanish)
-  - Store location: "España" (not "Spain")
-
-**Impact:** Mixed-language UI erodes trust and looks unprofessional. Price units in wrong language could confuse international buyers about billing frequency.
-
----
-
-## Finding 4: Password reset emails have language mismatch (English subject, Spanish body)
-
-**Severity:** Medium  
-**Evidence:** IMAP inbox for test25@zonacnc.com, email from May 3, 2026
-
-**Description:** When a password reset is requested from the English interface (`/en/`), the email is sent with:
-- **Subject:** "Password query confirmation" (English)  ← also "query" is odd wording, should be "Password reset request"
-- **Body:** "Hola Test UserLastName, Confirmación de la solicitud de contraseña…" (Spanish)
-- The body is entirely in Spanish despite the English subject and English URL context
-
-Similarly, the "Your new password" confirmation email has English subject but Spanish body.
-
-**Impact:** Confusing user experience. Users who requested password reset in English receive an email with an English subject line but Spanish content they may not understand.
-
----
-
-## Finding 5: JavaScript console error on checkout page
-
-**Severity:** Low-Medium  
-**Evidence:** Browser console shows `Unexpected token '&'` on both Spanish and English checkout (`/es/pagar-plan` and `/en/pagar-plan`)
-
-**Description:** A JavaScript parsing error occurs on the checkout/payment page. The error `Unexpected token '&'` suggests malformed JS (possibly an unescaped ampersand in inline script or HTML entity in wrong context).
-
-**Impact:** Could break JS-dependent features on the checkout page, potentially affecting Stripe Elements initialization or form validation.
-
----
-
-## Finding 6: Email subject Q-encoding splits across lines
-
-**Severity:** Low  
-**Evidence:** IMAP inbox for test25@zonacnc.com, emails from May 4, 2026
-
-**Description:** Spanish password reset emails have subject headers that split mid-word across lines:
 ```
-Subject: [zonacnc.com] =?utf-8?Q?Confirmaci=C3=B3n?= de
- =?utf-8?Q?contrase=C3=B1a?=
+Hemos añadido 1 x anuncio extra a tu suscripción Pro.
+Stripe ha cobrado la parte proporcional ((prorrateado por Stripe)). La siguiente
+factura recurrente la verás en 02/06/2026.
+
+- Cobro proporcional ahora: (prorrateado por Stripe)
 ```
 
-While this is technically valid RFC 2047 encoding, it renders poorly in some email clients and looks unprofessional.
+The actual prorated amount (€8.25, as seen in invoice email #14) is not substituted into the template. Double parentheses in the first instance suggest a nested fallback.
 
-**Impact:** Minor cosmetic issue but contributes to poor email deliverability perception.
+**Expected**: The actual prorated amount (e.g., `8,25 €`) should appear, not the fallback placeholder.
 
 ---
 
-## Summary
+## Finding 2 (HIGH): Massive i18n leakage — English subscription page is ~80% Spanish
 
-| # | Finding | Severity | Page/Feature |
-|---|---------|----------|-------------|
-| 1 | Generic page title "zonacnc.com" on checkout | Low | Checkout |
-| 2 | **English checkout fully in Spanish** | **High** | /en/pagar-plan |
-| 3 | English pricing mixed i18n (/mes, footer Spanish) | Medium | /en/pricing |
-| 4 | Password reset email: EN subject + ES body | Medium | Email templates |
-| 5 | JS error `Unexpected token '&'` on checkout | Low-Medium | Checkout |
-| 6 | Email subject Q-encoding split across lines | Low | Email headers |
+**Location**: `new.zonacnc.com/en/subscription` (and related billing pages)
+
+**Observed**: When viewing the subscription page in English, the vast majority of content renders in Spanish. Specific untranslated strings:
+
+| Element | Rendered (Spanish) | Expected (English) |
+|---------|-------------------|-------------------|
+| Page heading | "Mi suscripción" | "My subscription" |
+| Plan status | "Activa" | "Active" |
+| Next charge label | "Próximo cobro:" | "Next charge:" |
+| Ads counter | "Anuncios activos" | "Active listings" |
+| Price unit | "99 € /mes" | "99 € /month" |
+| Limit warning | "Has alcanzado el límite..." | "You have reached your plan limit" |
+| Payment heading | "Método de pago" | "Payment method" |
+| Change card button | "Cambiar tarjeta" | "Change card" |
+| Subscription heading | "Suscripción" | "Subscription" |
+| Cancel text | "Puedes cancelar tu suscripción..." | Full paragraph in English |
+| Cancel button | "Cancelar al final del período" | "Cancel at end of period" |
+| Invoice heading | "Historial de facturas" | "Invoice history" |
+| Table headers | "Fecha", "Plan", "Importe", "Estado", "Factura" | "Date", "Plan", "Amount", "Status", "Invoice" |
+| Status | "Completado" | "Completed" |
+| View invoice | "Ver factura" | "View invoice" |
+| Add-on heading | "Añadir add-on a tu plan" | "Add add-on to your plan" |
+| Add-on desc | "Se añade sobre tu suscripción..." | Full paragraph in English |
+| Add-on type | "Anuncios extra" | "Extra listings" |
+| Add-on status | "Cancelado" | "Cancelled" |
+| Table cols | "Tipo", "Cantidad", "Precio", "Período" | "Type", "Quantity", "Price", "Period" |
+| Add button | "Añadir" | "Add" |
+| Breadcrumb | "Mi cuenta" / "Mi suscripción" | "My account" / "My subscription" |
+| Footer legal links | "Aviso legal", "Politica de privacidad" | "Legal notice", "Privacy policy" |
+| Footer company | "Nuestra empresa" | "Our company" |
+| Footer marketplace | "Cómo funciona", "Planes para..." | "How it works", "Seller plans" |
+| Footer unsubscribe | Full Spanish paragraph | English |
+
+**Impact**: English-speaking users cannot effectively use the billing/subscription area.
+
+---
+
+## Finding 3 (MEDIUM): Email body not translated for English locale
+
+**Location**: Password reset email templates (IMAP msgs #9, #10)
+
+**Observed**: When user triggers password reset from English interface, the email subject is English ("Your new password", "Password query confirmation") but the **email body is entirely in Spanish**:
+
+```
+Subject: [zonacnc.com] Your new password
+Body: Hola Test Usuario SEO,
+       Su contraseña ha sido actualizada correctamente.
+```
+
+Same for password confirmation: English subject with Spanish body ("Confirmación de la solicitud de contraseña...").
+
+**Expected**: Email body should match the user's language preference.
+
+---
+
+## Finding 4 (MEDIUM): Invoice description mixes English and Spanish
+
+**Location**: Invoice history table on subscription page
+
+**Observed**: The invoice description for the add-on purchase reads:
+
+```
+Remaining time on ZonaCNC — Add-on: anuncio extra after 05 May 2026 (+8,25 €)
+```
+
+English fragments ("Remaining time on", "after") are mixed with Spanish ("anuncio extra"). This comes from Stripe's invoice metadata but the concatenation produces broken output.
+
+---
+
+## Finding 5 (LOW): Email subject spacing error
+
+**Location**: Password reset confirmation email subject (IMAP msg #11)
+
+**Observed**: Subject reads `[zonacnc.com] Confirmación decontraseña` — missing space between `de` and `contraseña`.
+
+**Expected**: `[zonacnc.com] Confirmación de contraseña`
+
+---
+
+## Finding 6 (LOW): Misleading invoice email wording
+
+**Location**: Invoice paid email (IMAP msg #14)
+
+**Observed**: The email says "Hemos cobrado la renovación de tu plan Pro" ("We have charged the renewal of your Pro plan"), but the transaction was an add-on purchase (extra listing), not a plan renewal. This is confusing for users.
+
+---
+
+## Finding 7 (INFO): No payment method required for add-on purchase
+
+**Observed**: Before adding the add-on, the subscription page showed "No hay método de pago guardado" (No payment method saved). After adding the add-on, a Visa ending in 4242 appeared as the saved payment method, and an invoice was generated and paid.
+
+This suggests the system either:
+- Has a stored payment method in Stripe not reflected locally
+- Automatically created a payment method during the transaction
+
+No user action was required to provide payment details.
