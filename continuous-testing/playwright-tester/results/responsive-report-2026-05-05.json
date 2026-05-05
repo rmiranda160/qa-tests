@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "date": "2026-05-05",
+  "time": "00:34-00:42 UTC",
+  "mode": "responsive",
+  "url": "https://new.zonacnc.com",
+  "cronId": "53983183-66c6-4b72-9b21-404aac116c60",
+  "playwrightWs": "unavailable (ECONNREFUSED 51.254.244.216:3000)",
+  "method": "manual-mcp-browser (pwmcp-zonacnc)",
+  "pagesTested": 5,
+  "viewports": [
+    { "name": "mobile-small", "width": 320, "height": 568 },
+    { "name": "mobile", "width": 390, "height": 844 },
+    { "name": "tablet", "width": 768, "height": 1024 },
+    { "name": "tablet-landscape", "width": 1024, "height": 768 },
+    { "name": "desktop", "width": 1440, "height": 900 }
+  ],
+  "pages": [
+    { "url": "/es/", "name": "Homepage", "status": "pass" },
+    { "url": "/es/buscar", "name": "Búsqueda", "status": "pass" },
+    { "url": "/es/publicar", "name": "Publicar", "status": "pass" },
+    { "url": "/es/contactenos", "name": "Contacto", "status": "pass" },
+    { "url": "/es/iniciar-sesion", "name": "Login", "status": "pass" }
+  ],
+  "findings": {
+    "responsive": {
+      "status": "pass",
+      "issues": 2,
+      "horizontalOverflow": false,
+      "overlappingElements": false,
+      "truncatedContent": false,
+      "missingNavItems": false,
+      "details": [
+        {
+          "severity": "low",
+          "type": "touch-target-size",
+          "description": "Botones de favoritos (zcnc-fav-btn) miden 36x36px — por debajo del mínimo WCAG 2.5.5 de 44x44px",
+          "elements": "button.zcnc-fav-btn.zcnc-fav-card-overlay (x5+)",
+          "wcag": "2.5.5 Target Size (AAA)"
+        },
+        {
+          "severity": "low",
+          "type": "touch-target-size",
+          "description": "Varios elementos interactivos con altura < 44px en móvil: link 'Contacte con nosotros' (20px), selector idioma (38px), input búsqueda (42px), 'Categorías' (37px), 'Ver catálogo' (30px), 'Ver todos los anuncios' (22px)",
+          "elements": "a.ps-contactinfo__email, select.form-select, input.js-search-input, a.zcnc-cat-btn, a.zcnc-banner-strip__cta, a.zcnc-home-view-all",
+          "wcag": "2.5.5 Target Size (AAA)"
+        }
+      ]
+    },
+    "typography": {
+      "status": "warning",
+      "minFontSize": "11px",
+      "recommendedMin": "16px",
+      "description": "Se detectó texto a 11px en móvil, por debajo de los 16px recomendados para legibilidad"
+    },
+    "images": {
+      "status": "warning",
+      "description": "El logo (1084x235px natural) se carga sin srcset/sizes, forzando descarga de imagen grande en todos los dispositivos",
+      "logoNaturalSize": "1084x235",
+      "hasSrcset": false
+    },
+    "consoleErrors": {
+      "total": 3,
+      "persistent": [
+        "Provider's accounts list is empty",
+        "Unexpected token '&'"
+      ],
+      "gsiExpected": [
+        "FedCM get() rejects with NetworkError: Error retrieving a token"
+      ]
+    },
+    "mediaQueries": {
+      "breakpoints": [400, 480, 575, 600, 640, 720, 767, 768, 991, 1024],
+      "coverage": "good — múltiples breakpoints bien distribuidos"
+    }
+  },
+  "observations": {
+    "headerAdaptation": "proper — texto completo en desktop, iconos en tablet/móvil, simplificado en móvil",
+    "footerAdaptation": "proper — secciones expandidas en desktop, acordeón colapsable en móvil",
+    "productGrid": "grid responsive con columnas adaptativas",
+    "languageSelector": "dropdown con 11 idiomas visibles en móvil — puede ser denso en pantallas pequeñas",
+    "searchBar": "input inline en desktop/tablet, botón colapsado en móvil",
+    "topBar": "visible 'Contacte con nosotros' en desktop/tablet, oculto en móvil",
+    "navigation": "enlaces de texto en desktop, iconos en tablet/móvil, 'Iniciar sesión' visible solo en móvil"
+  }
+}
