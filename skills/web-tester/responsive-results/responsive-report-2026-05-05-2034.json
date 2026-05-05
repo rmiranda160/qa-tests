@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "timestamp": "2026-05-05T20:34:00Z",
+  "agent": "tester",
+  "focus": "responsive",
+  "scenario": "Full-site responsive test — Homepage, Search/Buscar, Product Detail, Login, Publish",
+  "url": "https://new.zonacnc.com",
+  "antiDupe": true,
+  "verdict": "PASS_WITH_NOTES",
+  "viewports": {
+    "desktop": { "width": 1440, "height": 900, "status": "PASS", "overflow": false },
+    "tablet": { "width": 768, "height": 1024, "status": "PASS", "overflow": false },
+    "mobile": { "width": 390, "height": 844, "status": "PASS", "overflow": false }
+  },
+  "testedPages": [
+    { "url": "/es/", "name": "Homepage", "overflow": false, "status": "PASS" },
+    { "url": "/es/buscar", "name": "Search/Buscar", "overflow": false, "status": "PASS" },
+    { "url": "/es/tornos-automaticos/13047-haas-tl-2-toolroom-lathe-2020.html", "name": "Product Detail", "overflow": false, "status": "PASS" },
+    { "url": "/es/iniciar-sesion", "name": "Login", "overflow": false, "status": "PASS" },
+    { "url": "/es/publicar", "name": "Publish Ad", "overflow": false, "status": "PASS" }
+  ],
+  "regressions": {
+    "fixed": [
+      { "id": "RESP-OVERFLOW-01", "description": "Product page MAIN.wrapper horizontal overflow (511px at 390px) — FIXED. No overflow detected (main: 390px at 390px viewport)." }
+    ]
+  },
+  "warnings": [
+    { "id": "RESP-TAP-01", "severity": "MEDIUM", "description": "Favorite buttons (zcnc-fav-btn) at 36x36px on mobile, 8px below WCAG 44px minimum touch target. Found 5+ instances on homepage." },
+    { "id": "RESP-TAP-02", "severity": "MEDIUM", "description": "Multiple link text heights at 20-22px ('Contacte con nosotros', 'Ver todos los anuncios →', 'Inicio' breadcrumb) — below accessible readability threshold." },
+    { "id": "RESP-TAP-03", "severity": "LOW", "description": "Cookie consent 'Cancelar' button at 38px height on mobile." },
+    { "id": "RESP-TAP-04", "severity": "LOW", "description": "'Categorías' navigation trigger at 37px height on mobile." },
+    { "id": "RESP-TAP-05", "severity": "LOW", "description": "CTA links 'Ver catálogo' and 'Crear alerta' at 30px height (below 44px)." },
+    { "id": "RESP-FONT-01", "severity": "LOW", "description": "26 elements with font-size below 12px, mainly ▸ arrow markers at 11.2px." },
+    { "id": "RESP-CONSOLE-01", "severity": "LOW", "description": "Console errors persist on all pages: [GSI_LOGGER] FedCM get() rejects with NetworkError + 'Unexpected token &' — Google Identity Services related, not functional." }
+  ],
+  "emailCheck": {
+    "account": "test7@zonacnc.com",
+    "total": 39,
+    "latestActivity": "Password update confirmation at 2026-05-05T19:36:33+0200",
+    "templateCheck": "OK — Welcome email has proper multipart/alternative structure, HTML + plain-text, proper encoding",
+    "i18nCheck": "OK — Spanish content ('Hola Test Seven', 'Gracias por crear una cuenta') in welcome email, properly encoded"
+  },
+  "reportFile": "qa/responsive-2026-05-05-2034.md",
+  "durationMinutes": 8
+}
