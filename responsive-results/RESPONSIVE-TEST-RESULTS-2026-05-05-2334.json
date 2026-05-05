@@ -1,0 +1,124 @@
+{
+  "test": {
+    "type": "responsive",
+    "url": "https://new.zonacnc.com",
+    "timestamp": "2026-05-05T23:34:00Z",
+    "execution_time_utc": "2026-05-05T23:34:00Z",
+    "tool": "MCP Browser (pwmcp-zonacnc) — Playwright remote server unavailable (ECONNREFUSED 51.254.244.216:3000)",
+    "cron_id": "53983183-66c6-4b72-9b21-404aac116c60",
+    "focus_area": "responsive"
+  },
+  "summary": {
+    "overall": "PASS",
+    "critical_issues": 0,
+    "warnings": 2,
+    "observations": 4
+  },
+  "viewport_results": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "status": "PASS",
+      "scrollWidth": 1440,
+      "hasOverflow": false,
+      "viewportMeta": "width=device-width, initial-scale=1",
+      "title": "Maquinaria Industrial Segunda Mano y Nueva | ZonaCNC España",
+      "notes": "All elements fit correctly. Layout uses full width with proper spacing."
+    },
+    {
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "status": "PASS",
+      "scrollWidth": 768,
+      "hasOverflow": false,
+      "title": "Maquinaria Industrial Segunda Mano y Nueva | ZonaCNC España",
+      "notes": "No overflow. Content stacks properly. Navigation elements remain accessible."
+    },
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "status": "PASS",
+      "scrollWidth": 390,
+      "hasOverflow": false,
+      "title": "Maquinaria Industrial Segunda Mano y Nueva | ZonaCNC España",
+      "details": {
+        "offcanvas_position": "left:-390 (correctly hidden)",
+        "header_structure": "Inline links (Categorías, search, login, publish) instead of hamburger menu",
+        "search_bar": "Hidden off-screen (top:-50), toggled via search icon",
+        "product_cards": "6 cards visible, first card 358x379px, fits within viewport",
+        "footer_sections": "Collapsible accordion sections properly collapsed at mobile",
+        "chat_fab": "60x60px visible at bottom"
+      },
+      "notes": "No horizontal overflow. All main sections (main, footer) visible. Offcanvas menu properly positioned off-screen when inactive. Content stacks vertically as expected."
+    }
+  ],
+  "page_checks": [
+    {
+      "page": "Login page (/es/iniciar-sesion)",
+      "viewport": "mobile (390x844)",
+      "status": "PASS",
+      "scrollWidth": 390,
+      "hasOverflow": false,
+      "form": {
+        "width": 366,
+        "left": 12,
+        "top": 209,
+        "email_input": "366px (100% width)",
+        "password_input": "317px + 50px toggle button = 367px (fits form)",
+        "submit_button": "366px (100% width), text: 'Iniciar sesión'",
+        "forgot_password_link": "366px (100% width)"
+      },
+      "notes": "Login form properly responsive. All inputs and buttons fill available width. Password visibility toggle present."
+    },
+    {
+      "page": "Search page (/es/buscar)",
+      "viewport": "tablet (768x1024)",
+      "status": "PASS",
+      "scrollWidth": 768,
+      "hasOverflow": false,
+      "details": {
+        "card_count": 18,
+        "first_card_width": 664,
+        "filters_sidebar": true
+      },
+      "notes": "Search results properly displayed at tablet width. Filters sidebar present."
+    }
+  ],
+  "console_errors": [
+    {
+      "message": "Provider's accounts list is empty.",
+      "source": "https://new.zonacnc.com/es/",
+      "severity": "low",
+      "note": "Google Sign-In related — not a responsive issue"
+    },
+    {
+      "message": "[GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token.",
+      "source": "https://accounts.google.com/gsi/client",
+      "severity": "low",
+      "note": "Google Sign-In related — not a responsive issue"
+    }
+  ],
+  "warnings": [
+    {
+      "severity": "info",
+      "description": "Mobile navigation uses inline header links instead of hamburger menu. All links are visible and functional, but there is no dropdown/collapse for extended navigation on very small screens (<320px). At 390px it works well.",
+      "recommendation": "Consider adding a collapsed hamburger menu for sub-320px viewports or very long category lists."
+    },
+    {
+      "severity": "info",
+      "description": "Page has a visible TEST MODE banner: '⚠️ MODO TEST — entorno de pruebas. Los emails NO llegan a vendedores reales.' This is expected for the test environment."
+    }
+  ],
+  "observations": [
+    "Search bar is hidden off-screen and toggled via search icon — works correctly at all viewports",
+    "Offcanvas menu for categories properly hides off-screen (left:-390) when inactive",
+    "Footer uses collapsible accordion sections (collapsed by default on mobile) — proper responsive pattern",
+    "Cookie consent dialog present and dismissible — does not cause layout issues",
+    "Chat FAB button (60x60) positioned at bottom — proper mobile UX pattern",
+    "Language selector with 11 options visible in header",
+    "Product listing cards use consistent sizing and stack vertically at mobile"
+  ]
+}
