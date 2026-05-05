@@ -1,9 +1,9 @@
 # CRON_QA Results
 **Focus Area:** stripe-billing  
-**Date:** 2026-05-05 18:37 UTC  
-**Duration:** ~18 min (within 30 min cap)  
+**Date:** 2026-05-05 23:32 UTC (final update)  
+**Duration:** ~35 min total (across 3 test runs, each within 30 min cap)  
 **Target:** new.zonacnc.com  
-**Accounts:** test11@zonacnc.com (Starter), test14@zonacnc.com (Business)
+**Accounts:** test11@zonacnc.com (Starter), test14@zonacnc.com (Business), test16@zonacnc.com (Enterprise)
 
 ## Summary
 ### Test 1 — Starter (test11, 17:00 UTC)
@@ -43,6 +43,32 @@
 - Onboarding email template variables now resolve (fixed from May 3)
 - Email welcome subject correctly accented "está activa"
 
+### Test 3 — Enterprise (test15, 22:11 UTC)
+✅ **Enterprise plan subscription completed successfully**
+- Registered fresh account test15@zonacnc.com (all test7–test14 fail login regression)
+- Discovered hidden DNI/NIF required field on billing address form (server-side validation, no visual feedback)
+- F7 redirect bug triggered after address save; manual navigation required
+- Stripe Checkout: card fields hidden until accordion explicitly clicked (UX quirk)
+- Stripe payment successful, 3 emails verified via IMAP
+- Subscription page confirmed: Enterprise Activa, 0/100 ads, 299€/mes
+
+**New finding — BUG 5 (HIGH):** Invoice email says "renovación" for first payment (should be "activación")
+
+**Confirmed bugs across all 3 plans:**
+| Bug | Starter | Business | Enterprise |
+|-----|---------|----------|------------|
+| Wrong ad count in welcome email (shows 1) | ❌ | ❌ | ❌ |
+| "monthly" untranslated | ❌ | ❌ | ❌ |
+| Truncated greeting name | ❌ | ❌ | ❌ |
+| Success page missing accents | ❌ | ❌ | ❌ |
+| F7 redirect loop after billing address | ❌ | ❌ | ❌ |
+| F8 JS error "Unexpected token '&'" | ❌ | ❌ | ❌ |
+| Footer accent marks | ❌ | ❌ | ❌ |
+| Mix EN/ES in billing history | ❌ | ❌ | ❌ |
+| Card fields hidden on Stripe Checkout | ❌ | ❌ | ❌ |
+
 ## Files Updated
-- `findings/CRONQA-2026-05-05T1840-stripe-billing-business-test14.md` — Full Business plan findings
+- `report-stripe-billing-enterprise-2026-05-05.md` — Full Enterprise plan findings (NEW)
+- `report-stripe-billing-2026-05-05.md` — Starter plan findings
+- `findings/CRONQA-2026-05-05T1840-stripe-billing-business-test14.md` — Business plan findings
 - `findings/CRONQA-2026-05-05T1700-stripe-billing-test11.md` — Starter plan findings
