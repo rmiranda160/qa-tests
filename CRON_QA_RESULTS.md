@@ -1,45 +1,48 @@
 # CRON_QA Results
 **Focus Area:** stripe-billing  
-**Date:** 2026-05-05 17:00 UTC  
-**Duration:** ~15 min (within 30 min cap)  
+**Date:** 2026-05-05 18:37 UTC  
+**Duration:** ~18 min (within 30 min cap)  
 **Target:** new.zonacnc.com  
-**Account:** test11@zonacnc.com (freshly registered — test7-test10 login regression)  
+**Accounts:** test11@zonacnc.com (Starter), test14@zonacnc.com (Business)
 
 ## Summary
-✅ **Subscription flow for Starter plan completed successfully (test11)**
-- Registered new account via `/es/?controller=registration`
-- Added billing address (required DNI + Empresa fields)
-- Completed vendor registration
-- Stripe Checkout sandbox payment succeeded (test card 4242…4242)
-- Subscription page verified: Starter Activa, €39/mes, next billing 05/06/2026
+### Test 1 — Starter (test11, 17:00 UTC)
+✅ Subscription flow for Starter plan completed
+- test7–test10 login regression confirmed; registered fresh account test11
+- Stripe Checkout sandbox success, 3 emails verified
 
-✅ **Email verification via IMAP completed (3 emails received)**
-- Email 13: "Factura pagada — Tu plan sigue activo" — ⚠️ "monthly" untranslated
-- Email 12: "¡Bienvenido a Starter! Tu suscripción está activa" — ❌ Wrong ad count (1→3)
-- Email 11: "Empieza con buen pie en ZonaCNC" — ✅ Template variables resolved! ⚠️ Boost count 0→3
+### Test 2 — Business (test14, 18:37 UTC)
+✅ **Business plan subscription completed successfully**
+- Registered fresh account test14@zonacnc.com (existing accounts test7–test13 all fail login)
+- Added billing address, vendor registration, Stripe checkout
+- 3 emails received and verified
 
-## New Findings
+## Findings — Business Plan Test
 
-### BUG 1 (NEW — HIGH): Boost quota shows 0 instead of 3 in onboarding email
-- Email #11 says "0 Boosts 24h al mes" — should be 3 for Starter
-- Template variable `{boost_quota_monthly}` returning 0
+### BUG 3 (NEW — HIGH): Email template shows wrong ad count for all plans
+- Business welcome email shows "Anuncios incluidos: 1" → should be 25+ for Business
+- Starter welcome email also showed "1" instead of 3
+- Root cause: Template variable returning 1 for all plans (same bug as BUG 1)
 
-### BUG 2 (NEW — HIGH): test7–test10 login regression
-- test7, test8, test9, test10 all fail with "Error de autenticación"
-- Password `Test1234%segura` confirmed working on test8 earlier today (06:42 UTC)
-- Workaround: Registered fresh account test11@zonacnc.com
+### BUG 4 (NEW — MEDIUM): "monthly" untranslated across all email templates
+- Both welcome and invoice emails use "monthly" instead of "Mensual"
+- Affects: Starter, Business, and likely all other plans
+- Confirmed in test11 and test14 email templates
 
-## Confirmed Issues (same as prior report #2026-05-05 06:42)
-- F2.1: "monthly" untranslated → should be "mensual" in Spanish emails
-- F2.2: Wrong ad count in subscription email (1 instead of 3)
-- F2.3: Truncated greeting "Hola Test" instead of full name
-- F2.5: Mixed EN/ES in billing description
-- F4: Missing accent marks on success page
-- F8: JS parse error `Unexpected token '&'` persists
+### BUG 5 (NEW — MEDIUM): Missing accents on checkout & success pages
+- `/es/pagar-plan`: "estan" → "están", "ano" → "año"
+- `/es/module/zonacncplans/success`: "esta" → "está", "confirmacion" → "confirmación"
+- Stripe product description: "imagenes" → "imágenes"
 
-## Fixed
-- ✅ Onboarding email template variables now resolve (was literal `{vendor_dashboard_url}` on May 3)
-- ✅ Welcome email subject properly accented
+### BUG 6 (NEW — MEDIUM): Vendor registration page missing accents
+- `/es/alta-vendedor`: "Registrate", "Unete", "Descripcion", "Ubicacion", "Presentacion", "Tamano maximo", "espanol", "Codigo postal", "Telefono" → all missing accents
+- Sector options: "Automatizacion", "Robotica", "Medicion", "Plasticos", "Construccion" → missing tildes
+
+### Confirmed
+- test7–test13 login regression (all fail with `Test1234%segura`)
+- Onboarding email template variables now resolve (fixed from May 3)
+- Email welcome subject correctly accented "está activa"
 
 ## Files Updated
-- `findings/CRONQA-2026-05-05T1700-stripe-billing-test11.md` — Full findings
+- `findings/CRONQA-2026-05-05T1840-stripe-billing-business-test14.md` — Full Business plan findings
+- `findings/CRONQA-2026-05-05T1700-stripe-billing-test11.md` — Starter plan findings

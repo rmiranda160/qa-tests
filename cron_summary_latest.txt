@@ -1,1 +1,9 @@
-Confirmed still down at 17:22
+CRON QA stripe-billing 2026-05-05 17:00 UTC
+Account: test11@zonacnc.com (test7-test10 login regression)
+Plan: Starter (39/mes)
+Result: FULL FLOW COMPLETED
+Bugs: boost quota 0 (NEW), login regression test7-10 (NEW), ad count 1vs3 (CONFIRMED), monthly untranslated (CONFIRMED)
+PR: #161 (merged)
+Issue: #162 (open)
+Emails: 3 received via IMAP, all reviewed
+Branch: master
