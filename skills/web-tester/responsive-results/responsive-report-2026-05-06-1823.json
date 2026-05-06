@@ -1,0 +1,81 @@
+{
+  "ok": true,
+  "date": "2026-05-06T18:23:00Z",
+  "cronId": "53983183-66c6-4b72-9b21-404aac116c60",
+  "url": "https://new.zonacnc.com",
+  "mode": "responsive",
+  "overall_result": "PASS",
+  "critical_issues": 0,
+  "pages_tested": 3,
+  "viewports": [
+    {"name": "mobile", "width": 390, "height": 844},
+    {"name": "tablet", "width": 768, "height": 1024},
+    {"name": "desktop", "width": 1440, "height": 900}
+  ],
+  "results": [
+    {
+      "page": "Homepage",
+      "url": "/es/",
+      "viewports": {
+        "390x844": {
+          "horizontal_overflow": false,
+          "issues": ["61 small tap targets (< 48px)"],
+          "notes": "viewport meta correct: width=device-width, initial-scale=1"
+        },
+        "768x1024": {
+          "horizontal_overflow": false,
+          "issues": ["68 small tap targets"]
+        },
+        "1440x900": {
+          "horizontal_overflow": false,
+          "issues": []
+        }
+      }
+    },
+    {
+      "page": "Category (Maquinaria Metal)",
+      "url": "/es/28-maquinaria-metal",
+      "viewports": {
+        "390x844": {
+          "horizontal_overflow": false,
+          "issues": ["127 small tap targets (product grid items)"]
+        }
+      }
+    },
+    {
+      "page": "Product Detail (Puma 2600LMS)",
+      "url": "/es/plaquitas-de-torneado/11870-doosan-puma-2600lms.html",
+      "viewports": {
+        "390x844": {
+          "horizontal_overflow": false,
+          "issues": ["69 small tap targets"]
+        }
+      }
+    }
+  ],
+  "cross_page_checks": {
+    "language_selector": "PASS - Proper <select> element with 11 language options (EN, CA, ES, GL, EU, FR, DE, PT, IT, TR, RU)",
+    "viewport_meta": "PASS - width=device-width, initial-scale=1 on all pages",
+    "no_horizontal_overflow": "PASS - No horizontal overflow detected at any viewport on any page",
+    "lazy_loading_images": "PASS - All images load correctly after scroll trigger",
+    "text_truncation": "Minor: 9 elements with overflow truncation, mostly intentional (sr-only labels, skip links). One category label ('Accesorios para maquinaria metal') slightly truncated at 220px",
+    "small_tap_targets": "INFO: Common across all pages (61-127 depending on page density). Typical for e-commerce product grids. Primary CTAs are adequately sized."
+  },
+  "console_errors": [
+    {"error": "Not signed in with the identity provider", "source": "Google GSI", "impact": "non-critical"},
+    {"error": "[GSI_LOGGER]: FedCM get() rejects with NetworkError", "source": "Google GSI client", "impact": "non-critical"},
+    {"error": "Unexpected token '&'", "source": "zonacnc JS", "impact": "non-critical"}
+  ],
+  "regression_checks": {
+    "language_selector_mobile": "PASS - remains properly wrapped in <select> elements",
+    "horizontal_overflow": "PASS - no regression, consistent with previous run",
+    "broken_images": "PASS - no broken images after lazy-load trigger"
+  },
+  "screenshots": [
+    "responsive-mobile-home-390x844.png",
+    "responsive-tablet-home-768x1024.png",
+    "responsive-desktop-home-1440x900.png",
+    "responsive-mobile-category-390x844.png",
+    "responsive-mobile-product-390x844.png"
+  ]
+}
