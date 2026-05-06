@@ -1,110 +1,127 @@
-# Findings: Stripe Billing QA — 2026-05-05
+# Findings: Stripe Billing QA — 2026-05-06
 
-**Test account:** test9@zonacnc.com (Customer ID 6611, "Test User", Plan Pro anual)
-**Previous report:** test8@zonacnc.com (2026-05-04)
-
----
-
-## Finding 1 — HIGH: Variable substitution failure in add-on confirmation email (REGRESSION)
-
-**Location:** Email template `Add-on añadido a tu suscripción`
-**Evidence:** Both plain-text and HTML body contain literal placeholder `(prorrateado por Stripe)` instead of the actual prorated charge amount (€89.69).
-
-```
-Stripe ha cobrado la parte proporcional ((prorrateado por Stripe)). La siguiente
-factura recurrente la verás en 03/05/2027.
-```
-
-Also in the details table:
-```
-Cobro proporcional ahora: (prorrateado por Stripe)
-```
-
-**Expected:** Show actual amount charged (e.g., "89,69 €")  
-**Actual:** Placeholder text `(prorrateado por Stripe)`  
-**Impact:** Users cannot see how much they were charged in the confirmation email — the most critical piece of information.  
-**Confirmed on:** Annual Pro plan (€990/yr) with 1 extra ad add-on  
-**Previously reported:** Yes (finding #1 from 2026-05-04 on test8 monthly plan)
+**Test account:** test25@zonacnc.com (Customer ID 6652, "Test TwentyFive", Plan Starter mensual)
+**Previous report:** test9@zonacnc.com (2026-05-05)
 
 ---
 
-## Finding 2 — HIGH: Invoice email falsely claims plan renewal instead of add-on charge (REGRESSION)
+## Finding 1 — HIGH: Missing space in password reset email subject (CONFIRMED REGRESSION)
 
-**Location:** Email template `Factura pagada — Tu plan sigue activo`
-**Evidence:** Email body says:
+**Location:** Email template for password recovery confirmation  
+**Evidence:** Subject line of emails #14, #8, #6 read:
 
 ```
-Hemos cobrado la renovación de tu plan Pro. Tu suscripción sigue
-activa hasta 03/05/2027.
+[zonacnc.com] Confirmación decontraseña
 ```
 
-But this invoice was generated for an add-on purchase (€89.69 prorated), **not** a plan renewal. The plan was already prepaid through 2027.
+Missing space between "de" and "contraseña". The correct subject should be:
 
-**Expected:** Email should say "Hemos cobrado un add-on de anuncio extra" or similar  
-**Actual:** Falsely claims it's a plan "renovación"  
-**Impact:** Confuses users into thinking their annual plan was charged again. Could trigger unnecessary support tickets.  
-**Previously reported:** Yes (finding #2 from 2026-05-04 on test8)
+```
+[zonacnc.com] Confirmación de contraseña
+```
+
+**Expected:** "Confirmación de contraseña"  
+**Actual:** "Confirmación decontraseña"  
+**Impact:** Unprofessional appearance in password recovery emails. Users may perceive reduced credibility.  
+**Previously reported:** Yes (finding #5 from 2026-05-04 on test8, 2026-05-05 on test9)  
+**Confirmed on:** test25@zonacnc.com, all password reset emails since account creation
 
 ---
 
-## Finding 3 — MEDIUM: Mixed language in invoice line item description
+## Finding 2 — MEDIUM: Misleading announcement count in Starter welcome email
 
-**Location:** Billing history table on `/es/suscripcion`
-**Evidence:** Invoice description reads:
+**Location:** Email template `¡Bienvenido a Starter! Tu suscripción está activa` (email #11)
+**Evidence:** The welcome email body states:
 
 ```
-Remaining time on ZonaCNC — Add-on: anuncio extra after 05 May 2026 (+89,69 €)
+Detalles:
+- Plan: Starter
+- Periodo: monthly
+- Cuota mensual: 39,00 €
+- Anuncios incluidos: 1
+- Próxima renovación: 05/06/2026
 ```
 
-The string mixes English ("Remaining time", "after") with Spanish ("anuncio extra"). The invoice description comes from Stripe metadata and is not properly localized.
+However, the Starter plan on the site clearly shows **3 anuncios** included (0 / 3 on the subscription dashboard). The plan change page also confirms Starter = 3 anuncios.
 
-**Expected:** Fully localized description, e.g., "Tiempo restante en ZonaCNC — Add-on: anuncio extra desde 05 May 2026"  
-**Actual:** Mixed English/Spanish  
-**Impact:** Unprofessional appearance in billing records. Shows lack of i18n attention to Stripe metadata strings.
+**Expected:** "Anuncios incluidos: 3"  
+**Actual:** "Anuncios incluidos: 1"  
+**Impact:** Users may believe they only have 1 listing slot instead of 3, reducing their use of the platform or triggering unnecessary support contacts.  
+**Previously reported:** No (new finding)
 
 ---
 
-## Finding 4 — LOW: Add-on period label mismatch (annual plan)
+## Finding 3 — LOW: Subscription page missing proper page title
 
-**Location:** Add-ons table on `/es/suscripcion`
-**Evidence:** The "Añadir add-on" section advertises:
-
-```
-Anuncio extra: 9.00 € /mes
-```
-
-But after purchase, the Add-ons table shows:
+**Location:** /es/suscripcion page  
+**Evidence:** The page `<title>` tag renders as just:
 
 ```
-Anuncios extra x1  9.00 €  9.00 € /año  Activo
+zonacnc.com
 ```
 
-**Expected:** The period label should match the billing period. On annual plans, add-ons are billed annually (prorated), so both should show `€/año` or `€/mes` consistently.  
-**Actual:** Monthly label in selector vs annual label in summary table  
-**Impact:** Minor confusion — users may expect €9/month but are actually charged differently on annual plans.
+While other account pages have descriptive titles:
+- /es/facturacion → "Facturas y pagos · ZonaCNC"
+- /es/cambiar-plan → "Cambiar plan — ZonaCNC"
+
+**Expected:** "Mi suscripción · ZonaCNC" or similar descriptive title  
+**Actual:** "zonacnc.com"  
+**Impact:** SEO and accessibility degradation. Users with many open tabs cannot identify this page.  
+**Previously reported:** No (new finding)
 
 ---
 
-## Finding 5 — LOW: Password reset email subject missing space (REGRESSION)
+## Finding 4 — LOW: Missing accents in footer legal links (ES translation)
 
-**Location:** Email for password recovery  
-**Evidence:** Subject line reads:
+**Location:** Footer navigation on all pages (ES locale)  
+**Evidence:** Two legal links lack proper accent marks:
 
 ```
-Confirmación decontraseña
+Politica de privacidad   → should be "Política de privacidad"
+Politica de cookies       → should be "Política de cookies"
 ```
 
-Missing space between "de" and "contraseña".  
-**Previously reported:** Yes (finding #5 from 2026-05-04 on test8)  
-**Impact:** Unprofessional appearance.
+**Expected:** "Política de privacidad" and "Política de cookies"  
+**Actual:** "Politica de privacidad" and "Politica de cookies"  
+**Impact:** Minor translation quality issue affecting professional appearance across all pages.  
+**Previously reported:** No (new finding)
 
 ---
 
-## Finding 6 — INFO: No payment method required for add-on purchase
+## Finding 5 — INFO: Console JavaScript errors on all account pages
 
-**Location:** Add-on purchase flow  
-**Evidence:** Before adding a payment method, the add-on "Añadir" button was shown and clickable. The confirmation dialog mentions "tarjeta guardada" even when no payment method exists.  
-**Note:** This may work because Stripe saves the card from the original plan purchase and reuses it. Low impact since the add-on requires a prior plan with payment method.
+**Location:** All account pages (/es/suscripcion, /es/facturacion, /es/cambiar-plan)  
+**Evidence:** Each page generates 1 JavaScript console error:
+
+```
+Unexpected token '&'
+```
+
+This appears to be a JavaScript parsing error, likely from inline script blocks containing unescaped HTML entities.
+
+**Impact:** Minor — no visible user-facing breakage observed, but may indicate fragile JS handling.  
+**Previously reported:** No (new finding)
+
+---
+
+## Items Verified — No Issues Found
+
+The following were checked and found to be working correctly:
+
+| Component | Result |
+|-----------|--------|
+| Password recovery flow (ES) | ✅ Link generated and functional |
+| Password reset confirmation email | ✅ "Su nueva contraseña" email sent correctly |
+| Password reset form | ✅ Both password fields, show/hide toggle working |
+| Login after password reset | ✅ Redirect to Mi Cuenta, success alert shown |
+| Subscription dashboard | ✅ Plan info, next charge date, active listing count displayed |
+| Invoice/billing history | ✅ Date, concept, amount, status, PDF download, Stripe invoice link all functional |
+| Plan change page | ✅ All 5 plans (Free/Starter/Pro/Business/Enterprise) displayed with correct pricing and features |
+| Plan change upgrade/downgrade info | ✅ Clear explanation of prorated charges |
+| 7-day refund policy | ✅ Detailed conditions displayed |
+| Breadcrumb navigation | ✅ Consistent across account pages |
+| Language switcher | ✅ All 10 languages available in header |
+| Sidebar navigation | ✅ All links present and functional |
 
 ---
 
@@ -112,12 +129,12 @@ Missing space between "de" and "contraseña".
 
 | ID | Severity | Description | Previously Reported |
 |----|----------|-------------|---------------------|
-| 1  | HIGH | Variable substitution `(prorrateado por Stripe)` in add-on email | Yes |
-| 2  | HIGH | Invoice email says "renovación" for add-on charge | Yes |
-| 3  | MEDIUM | Mixed EN/ES in invoice description | **No** |
-| 4  | LOW | Add-on period label mismatch (€/mes vs €/año) | **No** |
-| 5  | LOW | Missing space in password reset subject | Yes |
-| 6  | INFO | No payment method required for add-on | **No** |
+| 1  | HIGH | Missing space in password reset email subject: "decontraseña" | Yes (confirmed regression) |
+| 2  | MEDIUM | Starter welcome email says "1 anuncio" but plan has 3 | **New** |
+| 3  | LOW | /es/suscripcion page title is just "zonacnc.com" | **New** |
+| 4  | LOW | Footer links "Politica" missing accent (→ "Política") | **New** |
+| 5  | INFO | Console JS errors "Unexpected token '&'" on account pages | **New** |
 
-**New findings this run:** #3, #4, #6
-**Regressions confirmed:** #1, #2, #5
+**New findings this run:** #2, #3, #4, #5
+**Regressions confirmed:** #1
+**Previously reported findings NOT tested this run:** add-on variable substitution (Finding #1 from 2026-05-05), invoice "renovación" label (Finding #2 from 2026-05-05) — test25 has no add-ons to verify these.
