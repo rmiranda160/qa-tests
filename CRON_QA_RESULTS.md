@@ -137,3 +137,32 @@ All console errors are Google Sign-In FedCM related — not blocking responsive 
 
 ## Resolution
 Findings documented → commit → PR → merge → issue.
+
+---
+
+## Responsive 2026-05-06 17:05 UTC — ✅ PASS
+
+- **Sitio**: new.zonacnc.com
+- **Email QA**: test7-test30@zonacnc.com
+- **PR**: [#214](https://github.com/rmiranda160/qa-tests/pull/214) (merged)
+- **Issue**: [#215](https://github.com/rmiranda160/qa-tests/issues/215)
+- **Finding**: `findings/responsive-2026-05-06-1705.md`
+- **Resultado**: 7 páginas, 3 viewports — 0 overflow, 0 elementos desbordados
+- **Observaciones**: Touch targets pequeños (baja), título registro poco descriptivo (baja)
+
+---
+
+## Responsive 2026-05-06 18:23 UTC — ✅ PASS
+
+- **Sitio**: new.zonacnc.com
+- **Email QA**: test7-test30@zonacnc.com
+- **Modo**: responsive (MCP browser pwmcp-zonacnc)
+- **Reporte**: `skills/web-tester/responsive-results/responsive-report-2026-05-06-1823.json`
+- **Resultado**: 3 páginas (Home, Category, Product), 3 viewports (390×844, 768×1024, 1440×900)
+- **Horizontal Overflow**: 0 en todas las páginas/viewports
+- **Language Selector**: ✅ `<select>` con 11 idiomas, funcional
+- **Viewport Meta**: ✅ `width=device-width, initial-scale=1`
+- **Imágenes**: ✅ Todas cargan correctamente tras lazy-load
+- **Small Tap Targets**: 61–127 por página (típico para e-commerce, sin incidencias críticas)
+- **Console Errors**: 3 no-críticos (Google GSI, FedCM, parsing JS)
+- **Observaciones**: Sin regresiones respecto al run anterior. Texto "Accesorios para maquinaria metal" ligeramente truncado a 220px en categorías. Sin hallazgos bloqueantes.
