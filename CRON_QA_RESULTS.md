@@ -58,3 +58,82 @@ Report saved → commit → PR → merge → issue.
 ## Prior Bugs Status
 - BUG-2 (Email subject not translated): ❌ STILL UNFIXED
 - BUG-3 (Welcome email missing plan details): ❌ STILL UNFIXED
+
+---
+
+# CRON_QA Results — Responsive
+**Run:** 2026-05-06 08:27 UTC | **Duration:** ~15 min  
+**Branch:** `cronqa/responsive-2026-05-06T0827` | **Account:** test25@zonacnc.com | **IMAP:** ✅ verified
+
+**Scope:** Responsive layout testing on `new.zonacnc.com/es/` — Desktop (1280×800), Tablet (768×1024), Mobile (375×812)
+
+## Pages Tested
+| Page | Desktop | Tablet | Mobile |
+|------|---------|--------|--------|
+| Home (`/es/`) | ✅ | ✅ | ✅ |
+| Login (`/es/iniciar-sesion`) | — | — | ✅ |
+| Contact (`/es/contactenos`) | ✅ | — | ✅ |
+| Product Detail (`/es/tornos/13109-haas-st-30y-cnc-lathe-2019.html`) | — | — | ✅ |
+
+## Findings (3 bugs + 1 template issue)
+
+### BUG-RESP-001 ⚠️ MEDIUM — Cookie dialog too tall on mobile
+**Page:** All pages at 375×812
+- Cookie consent dialog height: ~426px on mobile vs 71px on desktop
+- Eats significant viewport space (~50%) on first visit
+- Text wraps into many lines making it overwhelming on small screens
+
+### BUG-RESP-002 ⚠️ LOW — Header links collapse to icon-only on tablet
+**Page:** Home at 768×1024
+- "Vendedores" and "Tarifas" become icon-only — no text label visible
+- Users must guess meaning from icons; accessibility concern
+- Language selector also hidden at this breakpoint
+
+### BUG-RESP-003 ⚠️ LOW — Footer accordion on mobile hides SEO content
+**Page:** All pages at 375×812
+- Footer sections collapse into expandable accordion at mobile
+- SEO-rich content (categories, brands, legal links) hidden by default
+- May impact SEO crawl budget; users must tap to find footer links
+
+### Contact Form Test
+- Submitted test message from test25@zonacnc.com ✅
+- Success alert: "Su mensaje ha sido enviado a nuestro equipo" ✅
+- Test mode banner: "Los emails NO llegan a vendedores reales" noted
+
+## Email Template Review (test25 IMAP, 15 emails)
+
+| UID | Template | Status |
+|-----|----------|--------|
+| 6 | Confirmación decontraseña (Password reset confirm) | ⚠️ Type: missing space |
+| 7 | Su nueva contraseña (Password changed) | ✅ Clean |
+| 8 | Confirmación decontraseña | ⚠️ Same typo |
+| 9 | Su nueva contraseña | ✅ Clean |
+| 10 | ¡Bienvenido! (Account welcome) | ✅ Clean |
+| 11 | ¡Bienvenido a Starter! | ✅ Clean |
+| 12 | Empieza con buen pie (Onboarding) | ✅ Clean |
+| 13 | Factura pagada (Invoice paid) | ✅ Clean |
+| 14 | Confirmación decontraseña | ⚠️ Same typo |
+| 15 | Su nueva contraseña | ✅ Clean |
+
+### BUG-EMAIL-TYPO ⚠️ LOW — "Confirmación decontraseña" missing space
+**All password reset emails:** Subject reads "Confirmación decontraseña"
+- Should be "Confirmación de contraseña" (missing space between "de" and "contraseña")
+- Present in emails #6, #8, #14 — all password reset confirmation emails
+
+### Translation note
+- All Spanish email templates properly translated
+- PrestaShop footer: "Powered by PrestaShop" shows in English (minor, could be localized)
+- Welcome email (#10): good Spanish with "Consejos Importantes de Seguridad" section
+- Onboarding email (#12): well-structured Spanish with numbered steps
+
+## Console Errors (non-blocking)
+| Page | Error |
+|------|-------|
+| Home | FedCM: Google Sign-In account chooser |
+| Home | Unrecognized feature: 'identity-credentials-get' | 
+| Contact | Same FedCM error |
+
+All console errors are Google Sign-In FedCM related — not blocking responsive functionality.
+
+## Resolution
+Findings documented → commit → PR → merge → issue.
