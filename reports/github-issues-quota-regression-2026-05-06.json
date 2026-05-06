@@ -1,0 +1,58 @@
+{
+  "issues": [
+    {
+      "title": "B-REG-01 [CRITICAL] No over-quota detection at ad creation (TC-02 FAIL)",
+      "labels": ["qa-quota-regression", "bug", "critical"],
+      "body": "## Description\nWhen a vendor is at quota limit (e.g. 3/3 for Starter), creating another ad goes through normal flow instead of being stopped/paused.\n\n## Expected behavior\n- Yellow warning banner on ad form: \"Has alcanzado el límite del plan…\"\n- Redirect to `/success?id_product=X&paused=1`\n- Message: \"Anuncio creado en pausa\"\n- CTAs: \"Ir a Mis anuncios\" + \"Ver planes superiores\"\n- `product.active = 0`\n\n## Actual behavior\n- No warning banner on form\n- Normal redirect `/anuncio-publicado?id_product=X` (no paused flag)\n- Message: \"pendiente de revisión\"\n- Standard CTAs\n- Ad gets PUBLISHED after moderator cron runs\n\n## Steps to reproduce\n1. Login as vendor with Starter plan (3 active ads max)\n2. Create 3 ads → reach 3/3 quota\n3. Go to `/module/zonacncproductadd/ads` → no warning\n4. Fill form and submit → ad created normally\n5. Run moderator cron → ad gets approved and PUBLISHED (should be paused)\n\n## Environment\n- new.zonacnc.com\n- AUTO_APPROVE=0\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-02 [CRITICAL] Moderator cron activates ads ignoring quota limits (TC-07 FAIL)",
+      "labels": ["qa-quota-regression", "bug", "critical"],
+      "body": "## Description\nWhen moderator cron runs and a vendor is already at quota (3/3), newly approved submissions should be left in paused state (product.active=0). Instead, ALL approved submissions are activated regardless of quota.\n\n## Expected behavior\n- Submission → approved\n- product.active = 0 (paused due to over-quota)\n- Email: \"Tu anuncio fue aprobado pero está en pausa\"\n- Log: \"onApproved: vendor over-quota — submission … queda en pausa\"\n\n## Actual behavior\n- Submission → approved\n- product.active = 1 (incorrectly activated)\n- Email (likely): \"Tu anuncio ha sido publicado\"\n- No over-quota check\n\n## Steps to reproduce\n1. Vendor at 3/3 active quota\n2. Create 4th ad → pending review\n3. Run moderator cron\n4. All ads activated and published (4/3 active)\n\n## Environment\n- new.zonacnc.com\n- AUTO_APPROVE=0\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-03 [HIGH] Toggle active/pause returns malformed JSON (409 with HTML)",
+      "labels": ["qa-quota-regression", "bug", "high"],
+      "body": "## Description\nWhen calling the toggle-active endpoint, the HTTP 409 response contains malformed JSON. The response body appears to contain HTML (`&amp;` etc) instead of proper JSON, causing frontend parsing error: `Unexpected token '&'`.\n\n## Expected behavior\n```json\n{\"error\":\"No puedes activar más anuncios. Tu plan permite 3 activos y ya tienes 3.\",\"quota\":{\"current\":3,\"limit\":3,\"is_unlimited\":false},\"pricing_url\":\"…\"}\n```\n\n## Actual behavior\n- HTTP 409 returned\n- Response body contains HTML/vendor text instead of JSON\n- Console: `Unexpected token '&'`\n- No user-visible error message (empty alert element)\n\n## Steps to reproduce\n1. Vendor at 3/3 quota\n2. Have a disabled/paused ad\n3. Click \"Activate\" on /myads\n4. Check network tab → 409 response\n5. Check console for JSON parse error\n\n## Environment\n- new.zonacnc.com\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-04 [HIGH] No user-visible error feedback on over-quota activation",
+      "labels": ["qa-quota-regression", "bug", "high"],
+      "body": "## Description\nWhen activation is rejected (HTTP 409), the frontend renders an empty alert element with no visible text. User sees no feedback at all.\n\n## Expected behavior\nToast/alert: \"No puedes activar más anuncios. Tu plan permite 3 activos y ya tienes 3. Pausa otro o cambia de plan.\"\n\n## Actual behavior\nEmpty `<div role=\"alert\"></div>` with no text content.\n\n## Steps to reproduce\n1. Vendor at 3/3 quota\n2. Click \"Activate\" on a disabled ad\n3. No visible feedback appears\n\n## Environment\n- new.zonacnc.com\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-05 [HIGH] Quota counter does not update via AJAX after toggle",
+      "labels": ["qa-quota-regression", "bug", "high"],
+      "body": "## Description\nAfter toggling an ad's active state (Disable/Activate), the quota counter (\"Anuncios activos: X / 3\") does not update in the DOM. It only shows the correct value after a full page refresh.\n\n## Expected behavior\n- After Disable: counter drops from 3/3 to 2/3 immediately\n- After Activate: counter rises from 2/3 to 3/3 immediately\n\n## Actual behavior\n- Counter stays at previous value\n- Only refreshes after page reload\n\n## Steps to reproduce\n1. Go to /myads\n2. Click Disable on a published ad\n3. Observe quota counter → unchanged\n4. Refresh page → shows correct value\n\n## Environment\n- new.zonacnc.com\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-06 [MEDIUM] Yellow \"límite alcanzado\" warning banner missing on ad creation form",
+      "labels": ["qa-quota-regression", "bug", "medium"],
+      "body": "## Description\nThe ad creation form page (`/module/zonacncproductadd/ads`) does not show the yellow warning banner when the vendor is at quota limit (3/3). The warning correctly appears on `/myads` after moderator cron runs.\n\n## Expected behavior\nYellow banner at top of form: \"Has alcanzado el límite del plan…\" — form still usable but with warning\n\n## Actual behavior\nNo warning, form looks identical to normal state\n\n## Steps to reproduce\n1. Vendor at 3/3 quota\n2. Navigate to /module/zonacncproductadd/ads\n3. No warning visible\n\n## Environment\n- new.zonacnc.com\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-07 [MEDIUM] DISABLED badge contradicts PUBLISHED status on same ad",
+      "labels": ["qa-quota-regression", "bug", "medium"],
+      "body": "## Description\nOn /myads, some ads show a \"DISABLED\" badge but their status text says \"PUBLISHED\". This UI inconsistency confuses users.\n\n## Expected behavior\nBadge should match actual status:\n- DISABLED → \"Disabled\" or \"Paused\"\n- PUBLISHED → \"Active\" or \"Published\"\n\n## Actual behavior\nAd #13071 (Mazak Quick Turn) shows:\n- Badge: DISABLED (red/gray)\n- Status line: PUBLISHED\n\n## Steps to reproduce\n1. Create ads and toggle some to disabled\n2. Observe badge vs status text mismatch\n\n## Environment\n- new.zonacnc.com\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-08 [MEDIUM] Success message always shows \"pending review\" regardless of auto-approve",
+      "labels": ["qa-quota-regression", "bug", "medium"],
+      "body": "## Description\nAfter submitting an ad, the success page always displays \"Tu anuncio está pendiente de revisión\" even when AUTO_APPROVE could bypass this.\n\n## Expected behavior (from regression book)\n\"Tu anuncio … ya está publicado y visible para los compradores\"\n\n## Actual behavior\n\"Tu anuncio … está pendiente de revisión. Te notificaremos por email cuando sea aprobado.\"\n\n## Notes\n- AUTO_APPROVE=0 but message should differentiate between auto-approve and manual moderation flows\n- The message is inconsistent with actual behavior (ads DO get approved by moderator cron)\n\n## Environment\n- new.zonacnc.com\n- Account: qatester-reg20260506@zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    },
+    {
+      "title": "B-REG-09 [LOW] Enforcequota shows \"sync_failed:plan_not_loaded\" for subscription 1",
+      "labels": ["qa-quota-regression", "bug", "low"],
+      "body": "## Description\nWhen running the enforcequota cron, the response shows a subscription (id_subscription: 1) with stripe_sync status \"sync_failed:plan_not_loaded\". This suggests a Stripe-to-local plan mapping failure.\n\n## Cron output\n```json\n{\n  \"id_subscription\": 1,\n  \"status\": \"applied\",\n  \"new_plan\": 0,\n  \"new_quota\": 0,\n  \"stripe_sync\": \"sync_failed:plan_not_loaded\"\n}\n```\n\n## Steps to reproduce\n1. Run `curl https://new.zonacnc.com/module/zonacncplans/cron?token=...&action=enforcequota`\n2. Check details for sync_failed entries\n\n## Environment\n- new.zonacnc.com\n- Test date: 2026-05-06",
+      "assignee": null
+    }
+  ]
+}
