@@ -1,0 +1,43 @@
+{
+  "ok": false,
+  "blocked": true,
+  "reason": "sitewide-500-outage",
+  "timestamp": "2026-05-06T23:21:00Z",
+  "cronId": "53983183-66c6-4b72-9b21-404aac116c60",
+  "focus": "responsive",
+  "scope": "new.zonacnc.com",
+  "finding": "SITE-500-001",
+  "findingFile": "FINDING-2026-05-06-sitewide-500.md",
+  "status": {
+    "allPages": "500",
+    "server": "nginx",
+    "backend": "PHP/8.3.30",
+    "body": "empty",
+    "lastKnownGood": "2026-05-06T20:45:00Z"
+  },
+  "urlsTested": [
+    { "url": "https://new.zonacnc.com/", "status": 301 },
+    { "url": "https://new.zonacnc.com/es/", "status": 500 },
+    { "url": "https://new.zonacnc.com/en/", "status": 500 },
+    { "url": "https://new.zonacnc.com/es/iniciar-sesion", "status": 500 },
+    { "url": "https://new.zonacnc.com/es/buscar", "status": 500 },
+    { "url": "https://new.zonacnc.com/es/contactenos", "status": 500 },
+    { "url": "https://new.zonacnc.com/es/?controller=registration", "status": 500 }
+  ],
+  "responsive": {
+    "executed": false,
+    "viewports": ["390x844", "768x1024", "1440x900"],
+    "results": "blocked"
+  },
+  "emailVerification": {
+    "performed": false,
+    "reason": "No user actions possible due to site outage"
+  },
+  "recommendations": [
+    "Check PHP error logs for fatal error details",
+    "Enable _PS_MODE_DEV_ to surface the actual error",
+    "Verify database connectivity",
+    "Check for recent deployments between 20:45-23:21 UTC",
+    "Roll back to last known good state if deployment-related"
+  ]
+}
