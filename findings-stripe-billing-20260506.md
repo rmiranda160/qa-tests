@@ -229,3 +229,144 @@ Content-Type: text/html; charset=ascii
 | 9 | Welcome + onboarding emails not translated (English only) | 🔴 High |
 | 10 | Onboarding email has unreplaced `{myads_url}` variable | 🟡 Medium |
 | 11 | Onboarding email HTML charset=ascii instead of utf-8 | 🟢 Low |
+
+---
+
+## Scenario C: Add-on Purchase Flow — Anuncio Extra (NEW)
+**Flow:** Login → Mi suscripción → Añadir add-on (Anuncio Extra) → Confirm dialog → Auto-charged to Stripe subscription → Updated subscription panel → Invoice
+
+### 🔴 FINDING 12: Stripe Invoice Item Names Contain Mixed Language
+
+**Verified via:** Stripe Invoice #QLS0NX5B-0040 and facturas page
+
+The Stripe invoice line item for the Anuncio Extra add-on shows mixed English/Spanish:
+
+| Location | Text |
+|---|---|
+| Stripe Invoice item | "Remaining time on ZonaCNC — Add-on: anuncio extra after 06 May 2026" |
+| Facturas page (ES) | "Remaining time on Add-on Anuncio Extra after 06 May 2026 (+11,94 €)" |
+| Facturas page (EN) | "Remaining time on ZonaCNC — Add-on: anuncio extra after 06 May 2026 (+11,94 €)" |
+
+**Severity:** 🔴 High  
+**Impact:** Stripe invoice items are user-facing billing records. Mixed-language descriptions look unprofessional and may confuse customers. The English facturas page shows Spanish "anuncio extra" while the Spanish facturas page uses English "Add-on". Both should match the page language.
+
+**Recommendation:** Set Stripe invoice item description in the language of the checkout session, or add translation logic to the module that creates the Stripe invoice item. Use "Anuncio extra" for ES and "Extra listing" for EN.
+
+---
+
+### 🔴 FINDING 13: English Subscription Page — Widespread Missing Translations
+
+**Verified via:** Browser navigation to `/en/subscription`
+
+The English subscription page (`/en/subscription`) has severe translation gaps. Most dynamic content remains in Spanish despite the English language being selected:
+
+| Element | Current (ES shown in EN) | Expected (EN) |
+|---|---|---|
+| Page heading | "Mi suscripción" | "My subscription" |
+| Plan status | "Starter Activa" | "Starter Active" |
+| Next charge | "Próximo cobro: 06/06/2026" | "Next charge: 06/06/2026" |
+| Price unit | "39 € /mes" | "39 € /month" |
+| Active ads label | "Anuncios activos" | "Active listings" |
+| Change plan link | "Cambiar de plan" | "Change plan" |
+| Payment method heading | "Método de pago" | "Payment method" |
+| Change card button | "Cambiar tarjeta" | "Change card" |
+| Subscription heading | "Suscripción" | "Subscription" |
+| Cancel text | "Puedes cancelar tu suscripción..." | "You can cancel your subscription..." |
+| Cancel button | "Cancelar al final del período" | "Cancel at end of period" |
+| Invoice history heading | "Historial de facturas" | "Invoice history" |
+| Table headers | "Fecha / Plan / Importe / Estado / Factura" | "Date / Plan / Amount / Status / Invoice" |
+| Status badge | "Completado" | "Completed" |
+| PDF/View links | "PDF Ver factura" | "PDF View invoice" |
+| Add-on heading | "Añadir add-on a tu plan" | "Add add-on to your plan" |
+| Add-on description | "Se añade sobre tu suscripción actual..." | "Added on top of your current subscription..." |
+| Quantity label | "Cantidad" | "Quantity" |
+| Add button | "Añadir" | "Add" |
+| Cancel add-on button | "Cancelar" | "Cancel" |
+| Breadcrumb | "Mi cuenta / Mi suscripción" | "My account / My subscription" |
+
+**Severity:** 🔴 High  
+**Impact:** The English subscription page is essentially unusable for English-speaking sellers. Only the sidebar navigation and add-on table headers are properly translated. This breaks the multilingual promise of the site.
+
+**Recommendation:** Ensure all subscription module strings have translations registered in the PrestaShop translation system for all supported languages. Run a translation audit across all account pages.
+
+---
+
+### 🟡 FINDING 14: Payment Method Display Changes After Add-on Purchase
+
+**Before add-on purchase** (ES page):
+- "No hay método de pago guardado en este sitio. Si tu suscripción está activa, Stripe usará la tarjeta registrada en tu cuenta."
+- Button: "Añadir método de pago"
+
+**After add-on purchase** (ES page):
+- Shows full card details: "Visa •••• •••• •••• 4242"
+- Button: "Cambiar tarjeta"
+
+**Severity:** 🟡 Medium  
+**Impact:** The payment method display changed between the first page load and after the add-on was charged. This suggests the module only fetches/syncs the payment method from Stripe after a transaction occurs, not on page load. Users see "no payment method" even though their subscription is active and has a valid payment method on file.
+
+**Recommendation:** Sync payment method info from Stripe on every subscription page load, not only after transactions. A user with an active subscription always has a payment method in Stripe — the UI should reflect that.
+
+---
+
+### 🟢 FINDING 15: Add-on Purchase Flow Works Correctly
+
+- ✅ Confirmation dialog appears with correct text: "¿Añadir 1 anuncio(s) extra? Stripe cobrará la parte proporcional del periodo en curso con la tarjeta guardada."
+- ✅ Add-on added to existing Stripe subscription (no separate checkout needed)
+- ✅ Active ads limit increased: 1/3 → 1/4
+- ✅ New Add-ons section appears with table: "Anuncios extra x1 12.00 € /mes Activo"
+- ✅ Cancel button available for active add-ons
+- ✅ Prorated billing correct: €11.94 (base) + €2.51 (IVA 21%) = €14.45 total
+- ✅ Invoice generated: #QLS0NX5B-0040
+- ✅ Facturas badge updated: 1 → 2
+- ✅ Stripe invoice shows correct period: May 6 - June 6, 2026
+- ✅ Invoice shows correct payment method: Visa •••• 4242
+- ✅ Invoice has Download invoice and Download receipt options
+
+---
+
+### 🟡 FINDING 16: Add-on Section Remains Visible After Successful Purchase
+
+The "Añadir add-on a tu plan" section remains fully visible and functional even after successfully purchasing the add-on. A user could accidentally purchase the same add-on multiple times.
+
+**Severity:** 🟡 Medium  
+**Impact:** Users could accidentally double-purchase. While the Add-ons table shows existing add-ons with cancel buttons, the "Añadir" section below it shows the same add-on available for purchase again.
+
+**Recommendation:** Either hide the add-on section for already-purchased add-ons, or show a warning that the user already has this add-on active.
+
+---
+
+### 🟡 FINDING 17: No Email Notification Verified for Add-on Purchase
+
+**Attempted:** IMAP check on test7@zonacnc.com and test3@zonacnc.com  
+**Result:** 
+- test7@zonacnc.com (where previous billing emails were received): No add-on email received
+- test3@zonacnc.com (account that made purchase): IMAP authentication failed (password different from site password)
+
+**Severity:** 🟡 Medium (unverified)  
+**Impact:** Cannot confirm whether add-on purchases trigger email notifications to the account holder. The invoice is available on the site and Stripe, but email notification for add-on charges should be verified.
+
+**Recommendation:** Add test3@zonacnc.com IMAP credentials to `.env.qa.email` or ensure test accounts share the same password across site and email. Test add-on purchase email notification once the account's inbox is accessible.
+
+---
+
+## Updated Summary of Issues Found
+
+| # | Finding | Severity |
+|---|---|---|
+| 1 | IVA (21%) not shown on pricing/payment pages before Stripe | 🟡 Medium |
+| 2 | Stripe Checkout not localized to Spanish | 🟡 Medium |
+| 3 | Payment method names partially in English | 🟢 Low |
+| 4 | Payment flow works end-to-end | ✅ OK |
+| 5 | Missing accent on "confirmación" in success message | 🟢 Low |
+| 6 | Annual plan discount calculation correct | ✅ OK |
+| 7 | Test account management needs improvement | 🟡 Process |
+| 8 | Welcome email shows wrong ad count (1 instead of 3) | 🔴 High |
+| 9 | Welcome + onboarding emails not translated (English only) | 🔴 High |
+| 10 | Onboarding email has unreplaced `{myads_url}` variable | 🟡 Medium |
+| 11 | Onboarding email HTML charset=ascii instead of utf-8 | 🟢 Low |
+| 12 | Stripe invoice items contain mixed language (EN/ES) | 🔴 High |
+| 13 | English subscription page — widespread missing translations | 🔴 High |
+| 14 | Payment method display inconsistent before/after transaction | 🟡 Medium |
+| 15 | Add-on purchase flow works correctly | ✅ OK |
+| 16 | Add-on section stays visible after purchase (duplicate risk) | 🟡 Medium |
+| 17 | No email notification verified for add-on purchase | 🟡 Medium |
