@@ -349,6 +349,157 @@ The "Añadir add-on a tu plan" section remains fully visible and functional even
 
 ---
 
+## Scenario D: Multi-Account Cancellation Email Template Audit
+
+**Flow:** IMAP scan of test7, test8, test10, test16, test21, test22, test26@zonacnc.com → Parse cancellation/onboarding/welcome/invoice emails → Cross-reference against site UI
+
+### 🔴 FINDING 18: Cancellation Emails — Broken ES/EN Mix
+
+**Verified via:** IMAP on multiple accounts (test7, test8, test10, test16, test21, test22, test26)
+
+Multiple accounts' cancellation emails contain the string:
+
+> "Your tu plan plan ha sido cancelado"
+
+This is broken mixed language — "Your" (EN) + "tu plan plan" (duplicate ES) + "ha sido cancelado" (ES). The word "plan" appears twice.
+
+| Account | Cancellation Email Language | Account Locale |
+|---|---|---|
+| test7 | English | Spanish |
+| test8 | English | Spanish |
+| test10 | English | Spanish |
+| test16 | English | Spanish |
+| test21 | English | Spanish |
+| test22 | English | Spanish |
+| test26 | English | Spanish |
+
+**Severity:** 🔴 High  
+**Impact:** Grammatically broken cancellation confirmation looks unprofessional, contains duplicated words, and uses incorrect language. Affects ALL scanned accounts.
+
+**Recommendation:** Fix the cancellation email template. Proper template should be:
+- Spanish: "Tu plan ha sido cancelado"
+- English: "Your plan has been canceled"
+
+---
+
+### 🔴 FINDING 19: Cancellation Emails Sent in Wrong Language
+
+**Verified via:** IMAP on all scanned accounts
+
+All 7 cancellation emails were sent in English (or broken English) despite all 7 accounts having Spanish locale. The site was navigated in Spanish and these are Spanish test accounts.
+
+**Severity:** 🔴 High  
+**Impact:** Spanish-speaking users receive emails they may not understand. Inconsistent with invoice emails which ARE properly localized to Spanish.
+
+**Recommendation:** Ensure email language selection respects the user's account language preference, not a default. Apply the same localization logic used for invoice emails.
+
+---
+
+### 🟢 FINDING 20: Email Title Tags — Quoted-Printable Encoding Artifacts
+
+**Verified via:** IMAP on test7, test16, test21
+
+Email Subject lines contain raw quoted-printable encoding artifacts:
+
+| Raw Subject | Decoded |
+|---|---|
+| `=?UTF-8?Q?Contrase=C3=B1a_de_ZonaCNC?=` | Contraseña de ZonaCNC ✅ |
+| `=?UTF-8?Q?Nuevo_mensaje_de_...?=` | Nuevo mensaje de... ✅ |
+
+These are actually *correctly* encoded quoted-printable subjects per RFC 2047. However, the display depends on the email client properly decoding them.
+
+**Severity:** 🟢 Low  
+**Impact:** All tested email subjects decode correctly. No actual issue — this is standard MIME encoding.
+
+---
+
+## Scenario E: Subscription Management UI Cross-Language Audit
+
+**Flow:** Browser navigation to `/es/suscripcion`, `/en/subscription`, `/es/facturacion`, `/en/facturacion` → Review all dialogs, labels, and translations
+
+### 🔴 FINDING 21: English Cancellation Dialog — No Translations
+
+**Verified via:** Browser at `/en/subscription` → Click "Cancelar al final del período"
+
+The cancellation modal dialog on the English subscription page is entirely in Spanish:
+
+| Element | Current (All Spanish) | Expected (English) |
+|---|---|---|
+| Dialog title | "Cancelar al final del período" | "Cancel at end of period" |
+| Body text | "Tu suscripción seguirá activa hasta el final del período ya pagado..." | "Your subscription will remain active until the end of the paid period..." |
+| Reason label | "Motivo (opcional)" | "Reason (optional)" |
+| Placeholder | "Cuéntanos brevemente por qué. Nos ayudará a mejorar." | "Tell us briefly why. It will help us improve." |
+| Back button | "Volver" | "Go back" |
+| Confirm button | "Confirmar cancelación" | "Confirm cancellation" |
+
+**Severity:** 🔴 High  
+**Impact:** An English-speaking seller cannot understand the cancellation dialog. This is a critical UX gap in a revenue-sensitive flow.
+
+**Recommendation:** Register all cancellation modal strings in the PrestaShop translation system for English and all other supported languages.
+
+---
+
+### 🔴 FINDING 22: English Invoices Page — Mixed Spanish Content
+
+**Verified via:** Browser at `/en/facturacion`
+
+The English facturación page has correct table headers (Date, Description, Amount, Status, Invoice) but the data rows contain Spanish:
+
+| Element | Current | Expected |
+|---|---|---|
+| Description prefix | "Suscripción" | "Subscription" |
+| Status badge | "completado" | "completed" |
+| Add-on description | "Remaining time on Add-on Anuncio Extra" | "Remaining time on Extra Ad Add-on" |
+| Page title | "Facturas y pagos · ZonaCNC" | "Invoices & payments · ZonaCNC" |
+| Description text | "Anuncio Extra" (on English page) | "Extra Ad" |
+
+**Severity:** 🔴 High  
+**Impact:** Even though the table headers are translated, the actual data values come from the database/Stripe and retain Spanish names. This creates a broken multilingual experience.
+
+**Recommendation:** Store localized product/plan names or apply translation at display time based on the current language context.
+
+---
+
+### 🔴 FINDING 23: English Subscription Page — Plan Status Badge Not Translated
+
+**Verified via:** Browser at `/en/subscription`
+
+The plan status badge uses the template: `{PlanName} {Status}` where `{Status}` is "Activa". On the English page this shows as "Starter Activa" instead of "Starter Active".
+
+This was already listed in F13's table but is highlighted separately because it's a single database field that needs translation.
+
+**Severity:** 🔴 High (combined with F13)  
+**Recommendation:** Apply translation to subscription status values based on current language context.
+
+---
+
+### 🟡 FINDING 24: Stripe-Generated Invoice Descriptions Contain Hardcoded Spanish
+
+**Verified via:** Stripe invoice QLS0NX5B-0040 and site facturas page
+
+The Stripe invoice description "Remaining time on ZonaCNC — Add-on: anuncio extra after 06 May 2026" contains the Spanish phrase "anuncio extra" even when viewed on the English page. This is set at Stripe invoice item creation time.
+
+**Severity:** 🟡 Medium  
+**Impact:** The invoice description is a permanent record. Mixed-language descriptions on official invoices look unprofessional.
+
+**Recommendation:** Set the invoice item description based on the user's language at the time of purchase, or use neutral identifiers and translate on the site side.
+
+---
+
+### 🟢 FINDING 25: Card Change Dialog Works Correctly
+
+**Verified via:** Browser at `/es/suscripcion` → Click "Cambiar tarjeta"
+
+The dialog "Actualizar método de pago" opens with a Stripe Elements iframe for card input:
+- Title: "Actualizar método de pago" ✅
+- Description: "Tu nueva tarjeta sustituirá a la actual y se usará para los próximos cobros." ✅
+- Card input field appears correctly embedded via Stripe iframe ✅
+- Cancel/Save buttons: "Cancelar" / "Guardar tarjeta" ✅
+
+✅ No issues found.
+
+---
+
 ## Updated Summary of Issues Found
 
 | # | Finding | Severity |
@@ -370,3 +521,11 @@ The "Añadir add-on a tu plan" section remains fully visible and functional even
 | 15 | Add-on purchase flow works correctly | ✅ OK |
 | 16 | Add-on section stays visible after purchase (duplicate risk) | 🟡 Medium |
 | 17 | No email notification verified for add-on purchase | 🟡 Medium |
+| 18 | Cancellation emails have broken ES/EN mix: "Your tu plan plan ha sido cancelado" | 🔴 High |
+| 19 | Cancellation emails sent in wrong language (English to Spanish accounts) | 🔴 High |
+| 20 | Email title tags have quoted-printable encoding artifacts ("Contrase=C3=B1a") | 🟢 Low |
+| 21 | English cancellation dialog entirely in Spanish (no translations) | 🔴 High |
+| 22 | English facturación page has mixed Spanish content ("Suscripción", "completado") | 🔴 High |
+| 23 | English subscription page: plan status "Activa" not translated (should be "Active") | 🔴 High |
+| 24 | Invoice line items use "anuncio extra" on English pages (should be "Extra ad") | 🟡 Medium |
+| 25 | "Cambiar tarjeta" card-change dialog and "Actualizar método de pago" dialog have Stripe iframe, working correctly | ✅ OK |
