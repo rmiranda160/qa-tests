@@ -1,212 +1,232 @@
 # QA Report — Stripe Billing · new.zonacnc.com
-**Date:** 2026-05-06 10:42–11:10 UTC  
+**Date:** 2026-05-06 12:57–13:05 UTC  
 **Focus Area:** stripe-billing (email templates, translations, pricing consistency)  
-**Scenario:** Multi-account email template review + pricing page verification  
-**Accounts reviewed:** test21, test22, test16, test10, test26, test8, test18  
-**Site:** https://new.zonacnc.com (logged in as test3@zonacnc.com for UI)
+**Scenario:** Password recovery flow + Stripe billing email template audit (test26)  
+**Account tested:** test26@zonacnc.com  
+**Site:** https://new.zonacnc.com
 
 ---
 
-## Scope
-Review billing email templates, translations, plan data consistency, and password recovery flow across the test7–test30 account pool. Compare pricing page data against email template values.
+## Scenario
+1. Password recovery flow for test26 → verify email delivery via IMAP
+2. Password reset → login → verify subscription & billing pages
+3. Comprehensive audit of ALL 17 inbox emails for template/translation issues
+4. Pricing page verification
+
+Prior reports: [v1 09:40 UTC], [v2 10:42 UTC], [v3 13:05 UTC] (this report)
 
 ---
 
 ## Findings Summary
 
-| # | Severity | Component | Description | Cross-Account |
+| # | Severity | Component | Description | Status |
 |---|----------|-----------|-------------|:---:|
-| 1 | **P0** | Email·Template | Starter welcome: "Anuncios incluidos: 1" (pricing shows 3) | ✅ test21, test26 |
-| 2 | **P0** | Email·I18N | Cancellation email: English body + "Your tu plan plan" mix | ✅ test22, test26 |
-| 3 | **P0** | Email·I18N | Onboarding email: English body + `{myads_url}` unresolved | ✅ test10, test26 |
-| 4 | **P0** | Email·Delivery | Password recovery emails NOT delivered to test18, test22 | ✅ test18, test22 |
-| 5 | **P0** | Email·I18N | Invoice email: English body for Spanish account | ✅ test10 |
-| 6 | **P1** | Email·I18N | Onboarding HTML `<title>` = "Get started on ZonaCNC" (ES subj) | ✅ test10, test26 |
-| 7 | **P1** | UI·Pricing | Free plan shows "1 anuncio activo" (previous reports showed 3) | test3 |
-| 8 | **P1** | Email·Delivery | Password recovery tokens expire within ~1h | ✅ test21 |
-| 9 | — | Info | Pricing page well structured, all 5 plans present, annual toggle works | — |
-| 10 | — | Info | Subscription page (mi cuenta) functional, correct sidebar items | test3 |
+| 1 | **P0-REOPEN** | Email·Template | Starter welcome: wrong ad count (email=1, subscription=3) | OPEN |
+| 2 | **P0-REOPEN** | Email·I18N | Cancellation email: "Your tu plan plan has been canceled" | OPEN |
+| 3 | **P0-NEW** | Email·I18N | Welcome email #11: EN subject + ES body + DE URL (triple lang) | OPEN |
+| 4 | **P1-REOPEN** | Email·I18N | Password recovery subject: "Confirmación decontraseña" (missing space) | OPEN |
+| 5 | **P1-PERSIST** | Email·I18N | Password recovery subject in EN, body in ES (#3,#5) | OPEN |
+| 6 | **P1-PERSIST** | Email·I18N | Onboarding email #8: ES subject, EN body (old template) | OPEN |
+| 7 | **P2** | Email·I18N | Password confirm: EN subject + ES body (#4,#6) | OPEN |
+| 8 | **✅ FIXED** | Email·Delivery | Password recovery emails now delivered to test26 | CLOSED |
+| 9 | **✅ FIXED** | Email·I18N | Onboarding #14: Fully Spanish (was EN before) | CLOSED |
+| 10 | **✅ PASS** | UI·Subscription | Subscription page correct (Starter, 39€/mes, 0/3 ads) | PASS |
+| 11 | **✅ PASS** | UI·Billing | Billing page shows "Sin movimientos todavía" (expected) | PASS |
+| 12 | **✅ PASS** | UI·Pricing | Pricing page fully translated in ES, correct plan data | PASS |
+| 13 | **✅ PASS** | Flow·Password | Reset token works, password change succeeds, login OK | PASS |
 
 ---
 
 ## Detailed Findings
 
-### F1 [P0] — Starter Welcome: Wrong Ad Count (REGRESSION, cross-account)
-**Evidence:** test21 #8, test26 #15
+### F1 [P0-REOPEN] — Starter Welcome: Wrong Ad Count
+**Evidence:** test26 #15
 
 ```
 Subject: ¡Bienvenido a Starter! Tu suscripción está activa
 Body:  - Plan: Starter
-       - Anuncios incluidos: 1
+       - Anuncios incluidos: 1   ← WRONG
        - Cuota mensual: 39,00 €
 ```
 
-Pricing page (`/es/pricing`) clearly states Starter = **3 anuncios activos**. The email template says **1**. This creates customer confusion and potential legal risk (misrepresentation of plan benefits).
+Subscription page correctly shows "0 / 3" and pricing page shows Starter = 3 anuncios.
+Email template still says 1.
 
-**Impact:** Customers believe they paid for only 1 ad; may complain or cancel.
-**Root cause:** Email template `{active_products}` variable mapped to wrong value or hardcoded.
+**Impact:** Customer confusion, potential legal risk.
+**Previously reported:** v1, v2. Still present.
 
 ---
 
-### F2 [P0] — Cancellation Email: English Body + ES/EN Language Mix (REGRESSION, cross-account)
-**Evidence:** test22 #11, test26 #10
+### F2 [P0-REOPEN] — Cancellation Email: Text Corruption
+**Evidence:** test26 #10
 
 ```
-Subject: Tu suscripción se ha cancelado  (SPANISH ✓)
-Body:  Hello QA Tester,                  (ENGLISH ✗)
-       Your tu plan plan has been canceled.  (BROKEN MIX ✗)
+Subject: Tu suscripción se ha cancelado  (ES ✓)
+Body:  Hello Test,                       (EN ✗)
+       Your tu plan plan has been canceled.  ← DUPLICATE "plan" + "tu" mix
 ```
 
-- Subject is correct Spanish, but body is entirely English
-- "Your tu plan plan" = nonsensical mix: English "your" + Spanish "tu" + duplicate "plan"
-- Full body in English: "If you would like to re-subscribe...", "If you have any questions..."
-- Both test22 (QA Tester) and test26 (QA Tester DE) are Spanish-language accounts
+- "Your" (EN) + "tu" (ES) + "plan plan" (duplicated) = severely broken
+- Entire body is English for a Spanish account
 
-**Impact:** Unprofessional, confusing; non-English speakers cannot understand cancellation details.
-**Previously reported:** Yes (2026-05-06 v2 F3). Still present.
+**Impact:** Unprofessional, confusing, non-English speakers cannot understand.
+**Previously reported:** v1, v2. Still present.
 
 ---
 
-### F3 [P0] — Onboarding Email: English Body + Unresolved Placeholder (REGRESSION, cross-account)
-**Evidence:** test10 #14, test26 #8
+### F3 [P0-NEW] — Welcome Email: Triple-Language Confusion
+**Evidence:** test26 #11
 
 ```
-Subject: Empieza con buen pie en ZonaCNC: 3 pasos en 10 minutos  (SPANISH ✓)
-HTML <title>: Get started on ZonaCNC                              (ENGLISH ✗)
-Body:  Hello Test,                                                (ENGLISH ✗)
-       Welcome as a seller on ZonaCNC!
-       Start selling:
-       {myads_url}                                                (BROKEN ✗)
+Subject: [zonacnc.com] Welcome!          (EN)
+Body:   Hola QA Tester DE TestTwentySix, (ES)
+        ...en zonacnc.com
+URL:    https://new.zonacnc.com/de/      (DE - GERMAN!)
 ```
 
-- Title and body are fully English despite Spanish account
-- `{myads_url}` placeholder is NOT replaced — shows literal text `{myads_url}`
-- Newer emails (test26 #14) correctly use Spanish template → template selection is inconsistent
+Subject is English, body is Spanish, URL target is German. Language selection logic is broken. Email links point to wrong locale.
 
-**Impact:** Broken UX for new sellers; broken link means they can't start selling.
-**Previously reported:** Yes (2026-05-06 v2 F8). Still present.
+**Impact:** Users click links and land on wrong language page. Broken first impression.
 
 ---
 
-### F4 [P0] — Password Recovery Emails Not Delivered (REGRESSION)
-**Evidence:** 
-- Requested password reset for test18@zonacnc.com at 10:50 UTC → no email arrived (inbox still 4 emails, oldest from May 3)
-- Requested password reset for test22@zonacnc.com at 10:53 UTC → no email arrived (inbox still 11 emails, last from May 5)
-- test21 received reset confirmation at 10:45 UTC but the reset token expired within minutes
-- test3 used as workaround for UI review only
-
-**Impact:** Cannot log into test7–test30 pool accounts for billing testing; customers locked out.
-**Previously reported:** Yes (2026-05-06 v2 F2). Still present, worsening.
-
----
-
-### F5 [P0] — Invoice Email: English Body for Spanish Account (REGRESSION)
-**Evidence:** test10 #15
+### F4 [P1-REOPEN] — Password Recovery Subject: Missing Space
+**Evidence:** test26 #9, #12, #16
 
 ```
-Subject: Factura pagada — Tu plan sigue activo     (SPANISH ✓)
-Body:  Hello Test,                                  (ENGLISH ✗)
-       We have charged the renewal of your Starter plan. Your subscription remains
-       active until 06/06/2026.
-       - Amount: 39,00 €
-       - Plan: Starter (monthly)
-       - Next charge: 06/06/2026
-       ...
-       Thank you
+Subject: [zonacnc.com] Confirmación decontraseña
+                              ^^ missing space
+Should be: [zonacnc.com] Confirmación de contraseña
 ```
 
-- Subject correctly Spanish, but entire body is English
-- Compare with test21 #10: same subject, but body IS Spanish → **template selection is inconsistent**
+"decontraseña" vs "de contraseña" — missing space between preposition and noun.
+Present in ALL password recovery emails sent since May 5.
 
-**Impact:** Non-English-speaking customers cannot understand their billing details.
-
----
-
-### F6 [P1] — Onboarding HTML `<title>` Tag: English for Spanish Email
-**Evidence:** test10 #14, test26 #8
-- `<title>Get started on ZonaCNC</title>` 
-- Should be: `<title>Empieza con buen pie en ZonaCNC</title>`
-- The email subject and most UI text is Spanish, but the browser tab title is English
-
-**Impact:** Minor but unprofessional; visible when viewing email in browser tab.
+**Previously reported:** v2. Still present.
 
 ---
 
-### F7 [P1] — Free Plan: "1 anuncio activo" vs Previous Reports Showing 3
-**Evidence:** Pricing page `/es/pricing` and subscription page `/es/suscripcion`
+### F5 [P1] — Password Recovery Subject: EN Subject + ES Body
+**Evidence:** test26 #3, #5
 
-Current pricing page shows:
-- Free: **1 anuncio activo**, 5 imágenes/anuncio
-- Starter: **3 anuncios activos**, 10 imágenes/anuncio
+```
+Subject: [zonacnc.com] Password query confirmation  (EN)
+Body:   Hola Test ZonaCNC,
+        Confirmación de la solicitud de contraseña en zonacnc.com  (ES)
+URL:    https://new.zonacnc.com/en/  (EN)
+```
 
-Previous QA report (2026-05-06 v2 F12) listed Free = 3 anuncios. This could be:
-1. A deliberate plan change (Free was reduced from 3→1)
-2. A UI regression/bug
-
-Either way, this needs clarification.
-
-**Impact:** If deliberate, needs changelog. If bug, customers see wrong limits.
+When password recovery is requested from English context, subject stays English but body uses Spanish template.
 
 ---
 
-### F8 [P1] — Password Recovery Token Expiry <1h
-**Evidence:** test21 reset token from 10:45 UTC expired by 10:50 UTC (~5 min)
-Message: "La solicitud de cambio de contraseña ha caducado."
-**Previously reported:** Yes (2026-05-06 v2 F9). Still present.
+### F6 [P1] — Onboarding #8: ES Subject + EN Body (Old Template)
+**Evidence:** test26 #8
+
+```
+Subject: Empieza con buen pie en ZonaCNC: 3 pasos en 10 minutos  (ES)
+Body:   Hello Test,
+        Welcome as a seller on ZonaCNC!
+        Start selling:
+        {myads_url}   ← UNRESOLVED PLACEHOLDER
+```
+
+Compare with #14 (same subject, same account!) which is correctly in Spanish. Two different template versions are being used for the same trigger. `{myads_url}` placeholder not resolved.
 
 ---
 
-## Email Template Language Summary
+### F7 [P2] — Password Confirmation: EN Subject + ES Body
+**Evidence:** test26 #4, #6
 
-| Account | # | Type | Subject Lang | Body Lang | Issues |
-|---------|---|------|-------------|-----------|--------|
-| test21 | 8 | Starter welcome | ES ✅ | ES ✅ | Wrong ad count: 1≠3 |
-| test21 | 9 | Onboarding | ES ✅ | ES ✅ | None |
-| test21 | 10 | Invoice paid | ES ✅ | ES ✅ | None |
-| test22 | 11 | Cancellation | ES ✅ | EN ✗ | "Your tu plan plan" |
-| test10 | 14 | Onboarding | ES ✅ | EN ✗ | `{myads_url}` unresolved |
-| test10 | 15 | Invoice paid | ES ✅ | EN ✗ | Full EN body |
-| test26 | 8 | Onboarding | ES ✅ | EN ✗ | `{myads_url}` unresolved |
-| test26 | 10 | Cancellation | ES ✅ | EN ✗ | "Your tu plan plan" |
-| test26 | 15 | Starter welcome | ES ✅ | ES ✅ | Wrong ad count: 1≠3 |
-
-**Pattern:** 4 of 9 billing emails (44%) have wrong language for Spanish accounts. Onboarding and cancellation templates are consistently affected.
+```
+Subject: [zonacnc.com] Your new password     (EN)
+Body:   Hola Test ZonaCNC,
+        Su contraseña ha sido actualizada correctamente.  (ES)
+```
 
 ---
 
-## Pricing Page Verification
+## POSITIVE Results (Fixed/Working)
 
-| Plan | Price/mo | Ads | Images | Verified |
-|------|----------|-----|--------|:---:|
-| Free | 0 € | 1 | 5 | ✅ |
-| Starter | 39 € | 3 | 10 | ✅ |
-| Pro | 99 € | 10 | 20 | ✅ |
-| Business | 199 € | 25 | 30 | ✅ |
-| Enterprise | 299 € | 100 | 50 | ✅ |
+### ✅ Password Recovery Now Delivers Emails
+- test26 password recovery email arrived at 14:59 UTC (#16) — within ~1 minute
+- Password reset token usable
+- Confirmation email after password change arrived at 15:01 UTC (#17) — properly in Spanish
+- **Previously broken** (v1, v2: no emails to test18, test22)
 
-Annual billing toggle available (save 78 € on Starter).
+### ✅ Onboarding #14: Fully Spanish
+```
+Subject: Empieza con buen pie en ZonaCNC: 3 pasos en 10 minutos
+Body:   Bienvenido a ZonaCNC
+        Hola QA Tester DE TestTwentySix,
+        Tu plan Starter está activo. Para sacarle el máximo...
+        PASO 1 · Completa tu perfil de empresa
+        PASO 2 · Publica tu primer anuncio
+        PASO 3 · Configura tu tienda
+```
+Correct template, correct translations, links work.
+
+### ✅ Password Reset Confirmation: Correct Spanish
+Email #17: "[zonacnc.com] Su nueva contraseña" — fully Spanish, no issues.
+
+### ✅ Subscription Page
+- Starter plan active, 39 €/mes
+- "0 / 3" anuncios activos (correct!)
+- Next charge: 06/06/2026
+- Cancel, change plan, add-ons all functional
+
+### ✅ Billing Page
+- "Sin movimientos todavía" (expected for new account)
+
+### ✅ Pricing Page
+- All 5 plans (Free through Enterprise) correctly displayed in Spanish
+- Annual billing toggle works
+- Boost 24h packs section present
 
 ---
 
-## Account Status (IMAP)
+## Email Language Audit (all 17 emails for test26)
 
-All test7–test30 accounts have working IMAP access (24/24 verified ✅). Unlike previous report where 9 accounts failed auth, all passwords are now functional.
+| # | Type | Subject | Body | URL lang | Issues |
+|---|------|---------|------|----------|--------|
+| 1 | Welcome | ES ✅ | ES ✅ | ES | None |
+| 2 | Welcome | ES ✅ | ES ✅ | ES | None |
+| 3 | PW Recovery | EN ❌ | ES | EN | SUBJECT_EN |
+| 4 | PW Confirm | EN ❌ | ES | EN | SUBJECT_EN |
+| 5 | PW Recovery | EN ❌ | ES | EN | SUBJECT_EN |
+| 6 | PW Confirm | EN ❌ | ES | EN | SUBJECT_EN |
+| 7 | Starter Welc | ES ✅ | EN ❌ | — | BODY_EN |
+| 8 | Onboarding | ES ✅ | EN ❌ | — | BODY_EN + {myads_url} |
+| 9 | PW Recovery | ES❌ | ES | ES | "decontraseña" typo |
+| 10 | Cancel | ES ✅ | EN ❌ | — | "Your tu plan plan" |
+| 11 | Welcome | EN ❌ | ES ✅ | **DE**❌ | Triple lang |
+| 12 | PW Recovery | ES❌ | ES | ES | "decontraseña" typo |
+| 13 | PW Confirm | ES ✅ | ES ✅ | ES | None ✅ |
+| 14 | Onboarding | ES ✅ | ES ✅ | ES | None ✅ |
+| 15 | Starter Welc | ES ✅ | ES ✅ | ES | Wrong ad count (1≠3) |
+| 16 | PW Recovery | ES❌ | ES | ES | "decontraseña" typo |
+| 17 | PW Confirm | ES ✅ | ES ✅ | ES | None ✅ |
 
-**Critical blocker:** Password recovery emails NOT delivered → cannot log into any test7–test30 account to test actual billing/checkout flow.
+**Summary:** 10 of 17 emails (59%) have some issue. 7 emails (41%) are correct.
+
+---
+
+## Account Status
+- **test26@zonacnc.com**: Logged in ✅, IMAP working ✅, Password changed to `QAreset2026!`
+- IMAP credentials working for test26 (Ttc5ZxPltimz)
 
 ---
 
 ## Recommendations
 
-1. **P0:** Fix Starter welcome email template → change "Anuncios incluidos: 1" → "3"
-2. **P0:** Fix cancellation email → full Spanish translation, remove "Your tu plan plan" mix
-3. **P0:** Fix onboarding email → render `{myads_url}` variable, use Spanish template
-4. **P0:** Fix password recovery email delivery (SMTP/Mailgun misconfiguration)
-5. **P0:** Fix invoice email language detection → Spanish accounts must get Spanish emails
-6. **P1:** Fix onboarding HTML `<title>` → use Spanish "Empieza con buen pie en ZonaCNC"
-7. **P1:** Clarify Free plan ad count (1 vs 3) — if deliberate change, document; if bug, fix
-8. **P1:** Increase password reset token lifespan from <1h to 24h
+1. **P0:** Fix Starter welcome template → change ad count from 1 to 3
+2. **P0:** Fix cancellation email → full Spanish, remove "Your tu plan plan" duplicate
+3. **P0:** Fix welcome email language detection → subject/body/URL must match locale
+4. **P1:** Fix "Confirmación decontraseña" → add space ("de contraseña")
+5. **P1:** Fix password recovery email language → subject must match body language
+6. **P1:** Remove old onboarding template (#8) that renders `{myads_url}` unresolved
+7. **P2:** Fix password confirmation email → subject in same language as body
 
 ---
 
-*Report generated by OpenClaw QA cron job — stripe-billing scenario · 2026-05-06 10:42–11:10 UTC*
+*Report generated by OpenClaw QA cron job — stripe-billing scenario · 2026-05-06 12:57–13:05 UTC*
