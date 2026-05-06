@@ -1,4 +1,39 @@
-# CRON_QA Results — stripe-billing
+# CRON_QA Results — stripe-billing (Latest)
+**Run:** 2026-05-06 19:12 UTC | **Duration:** ~10 min  
+**Account:** test7@zonacnc.com | **Plan:** Starter (Stripe) | **Session:** cs_test_a1gETId30UAYzz2M14o0n6IetPEcLapqaalQNQ02eLCd6x6ALTLiamKycG
+
+## Findings (4)
+
+### BUG-SB-001 ⚠️ MEDIUM — Renewal wording used for first subscription
+**Email:** "Factura pagada — Tu plan sigue activo" (`plans-invoice_paid`)
+- Body says "Hemos cobrado la **renovación** de tu plan" — renewal language, not first-subscription
+- Should be welcome/activation wording for new subscribers
+
+### BUG-SB-002 ⚠️ MEDIUM — Missing accent on success page  
+**Page:** `/es/module/zonacncplans/success`
+- "Tu suscripción **esta** activa" → should be "**está** activa"
+
+### BUG-SB-003 ⚠️ LOW — Misleading "+" prefix on invoice line
+**Page:** `/es/suscripcion` → Historial de facturas
+- "1 × Plan Starter (at €39.00 / month) (**+**39,00 €)" — "+" suggests add-on
+
+### BUG-SB-004 ⚠️ LOW — Payment method not saved after Stripe Checkout
+**Page:** `/es/suscripcion` → Método de pago
+- Message says no method saved even after completing Stripe Checkout
+
+## Flow Verified
+| Step | Status |
+|------|--------|
+| Select Starter plan → Stripe Checkout | ✅ |
+| Fill test card (4242...) | ✅ |
+| Payment success + redirect | ✅ |
+| Subscription active (next billing 06/06/2026) | ✅ |
+| Invoice in history (47,19€, PDF) | ✅ |
+| Email received (< 2s, DKIM/SPF/DMARC pass) | ✅ |
+
+---
+
+# CRON_QA Results — stripe-billing (Historical)
 **Run:** 2026-05-04 01:26 UTC | **Duration:** ~12 min  
 **Account:** test24@zonacnc.com | **Plan:** Starter (Stripe) | **Ad:** ID 12987
 
