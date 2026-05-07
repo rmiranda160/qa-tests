@@ -1,4 +1,21 @@
 # CRON_QA Results — stripe-billing
+
+## Run 2: Post-PR #237 Regression Verification
+**Run:** 2026-05-07 05:49 UTC | **Duration:** ~8 min  
+**PR:** #241 (merged) | **Issue:** #242  
+**Result:** ❌ REGRESSION — 3 prior findings NOT FIXED + 1 new  
+
+PR #237 was merged but i18n fixes are not deployed. All 3 previous findings persist:
+- **Finding #1:** English cambiar-plan entirely in Spanish (REGRESSION)
+- **Finding #2:** English footer partially untranslated (PERSISTS)
+- **Finding #3:** Add-on email shows "(prorrateado por Stripe)" placeholder (PERSISTS)
+- **Finding #4 (NEW):** English subscription page: title="zonacnc.com" (generic), H1="Mi suscripción" (Spanish)
+
+Full report: `findings/CRONQA-2026-05-07-stripe-billing-i18n-regression-post-pr237.md`
+
+---
+
+## Run 1: Initial Translation & Template Review
 **Run:** 2026-05-07 04:52 UTC | **Duration:** ~25 min  
 **Scenario:** Stripe billing flow translation & email template review on new.zonacnc.com  
 **Cron ID:** f88c723f-9d7c-485a-b506-55f4e41efab3  
