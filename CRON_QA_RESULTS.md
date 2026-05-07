@@ -1,5 +1,33 @@
 # CRON QA Results — Combined
 
+## stripe-billing: Add-on Purchase Flow
+**Run:** 2026-05-07 08:19 UTC | **Duration:** ~6 min  
+**PR:** #249 (merged) | **Issue:** #250  
+**Result:** ⚠️ PASS (core flow) | 3 BUGS FOUND (1 new, 2 persistent)  
+
+**Account:** test8@zonacnc.com | **Add-on:** Anuncio extra (€9/mes)
+
+### What was tested
+Purchased 1× Anuncio extra add-on via saved Visa ••••4242, verified subscription page, invoice history, and emails.
+
+### Key Results
+- ✅ Core add-on purchase flow: PASS — immediate purchase via saved payment method
+- ✅ Proration calculation: PASS — €10,54 charged (€8,71 base + IVA)
+- ✅ Invoice history: PASS — third invoice appears, sidebar badge updates to 3
+- ✅ Add-on management: PASS — new section shows status/pricing/cancel option
+- ✅ Email delivery: PASS — 2 emails received (add-on confirmation + invoice)
+
+### Bugs Found
+| # | Severity | Description | Status |
+|---|----------|-------------|--------|
+| 1 | Medium | Add-on email shows "(prorrateado por Stripe)" placeholder instead of actual amount | PERSISTS (from post-PR#237) |
+| 2 | Low | Invoice email mislabels add-on charge as "renovación de tu plan" — should distinguish add-on vs plan charge | NEW |
+| 3 | Medium | English /en/subscription page has 15+ elements still in Spanish | PERSISTS (from post-PR#237) |
+
+Full report: `findings/CRONQA-2026-05-07-stripe-billing-addon-purchase-test8.md`
+
+---
+
 ## stripe-billing: Post-PR #237 Regression Verification
 **Run:** 2026-05-07 05:49 UTC | **Duration:** ~8 min  
 **PR:** #241 (merged) | **Issue:** #242  
