@@ -1,0 +1,28 @@
+{
+  "cronId": "53983183-66c6-4b72-9b21-404aac116c60",
+  "date": "2026-05-07T05:07:00Z",
+  "focus": "responsive",
+  "site": "https://new.zonacnc.com",
+  "overall": "PASS",
+  "summary": "Site responsive across all viewports. 5 minor findings (non-blocking).",
+  "emailAccount": "test7@zonacnc.com",
+  "viewports": {
+    "mobile": {"width": 390, "height": 844, "result": "PASS", "pagesTested": 9},
+    "tablet": {"width": 768, "height": 1024, "result": "PASS", "pagesTested": 1},
+    "desktop": {"width": 1440, "height": 900, "result": "PASS", "pagesTested": 1}
+  },
+  "findings": [
+    {"id": "RES-001", "severity": "low", "title": "Welcome email in English for Spanish-registered account"},
+    {"id": "RES-002", "severity": "low", "title": "Footer touch targets (20px) below WCAG 44px minimum"},
+    {"id": "RES-003", "severity": "low", "title": "Footer expand/collapse buttons too small (24x26px)"},
+    {"id": "RES-004", "severity": "trivial", "title": "Registration page title is 'zonacnc.com' instead of descriptive"},
+    {"id": "RES-005", "severity": "trivial", "title": "Console errors: Provider accounts list empty"}
+  ],
+  "emailVerification": {
+    "passwordResetEmail": {"id": 51, "language": "es", "status": "PASS"},
+    "welcomeEmail": {"id": 50, "language": "en", "status": "ISSUE", "note": "English for ES account"}
+  },
+  "previousRun": "2026-05-06T23:21:00Z",
+  "previousStatus": "BLOCKED (site-wide 500)",
+  "improvement": "Site recovered from 500 outage"
+}
