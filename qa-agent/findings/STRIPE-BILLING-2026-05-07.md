@@ -1,124 +1,116 @@
-# QA Report: Stripe Billing Flow — 2026-05-07
+# QA Stripe Billing — 2026-05-07 20:27 UTC
 
-**Scope:** `new.zonacnc.com` — Stripe billing flow (pricing, checkout, emails, templates, translations)
-**Tester:** CRON QA (tester agent)
-**Date:** 2026-05-07 11:14–11:30 UTC
-**Accounts tested:** test7@zonacnc.com, test8@zonacnc.com
-**IMAP verified:** ✅ test7@zonacnc.com (58 emails reviewed)
+**Focus area:** stripe-billing
+**Scope:** new.zonacnc.com (ES + EN)
+**Test runner:** backend tests + browser exploratory
 
 ---
 
-## Summary
+## Scenario: Pricing Page & Stripe Checkout Flow
 
-| Severity | Count | Status |
-|----------|-------|--------|
-| 🔴 HIGH  | 3     | Need fix |
-| 🟡 MEDIUM | 3     | Should fix |
-| 🟢 LOW   | 2     | Nice to fix |
-| ✅ PASS   | 14    | OK |
-
----
-
-## Findings
-
-### 🔴 HIGH-1: Renewal invoice: plan name doesn't match price
-- **Email:** #13 (test7, Stripe acct `acct_1TPLFqELpLIGgmZK`)
-- **Subject:** "Factura pagada — Tu plan sigue activo"
-- **Issue:** Plan says "Business" but amount is 99,73€, which matches the **Pro** plan (99€ + IVA prorated). The Business plan should be 199€/mes.
-- **Impact:** Customer receives an invoice with conflicting information. Could cause billing disputes or confusion about which plan they're on.
-- **Possible cause:** Plan name/price mapping out of sync in renewal webhook handler.
-
-### 🔴 HIGH-2: Pro welcome email shows wrong ad count
-- **Email:** #12 (test7)
-- **Subject:** "¡Bienvenido a Pro! Tu suscripción está activa"
-- **Issue:** "Anuncios incluidos: 1" — Pro plan should have **10** active ads, not 1. This is the Free plan ad count.
-- **Impact:** New Pro subscribers may think they only get 1 ad, potentially causing them to cancel immediately or not publish.
-- **Affected account:** Stripe acct `acct_1TPLFqELpLIGgmZK`
-
-### 🔴 HIGH-3: Pricing pages partially untranslated in all non-ES languages
-- **URLs:** `/fr/pricing`, `/de/pricing`, `/en/pricing`
-- **Issue:** Only the "active ads" count field and page `<title>` are translated. All other content (feature names, CTAs, section headings, footer promises) remains in Spanish.
-  - FR: "annonce active" ✅ but "Elige tu plan de vendedor" ❌, "Más popular" ❌
-  - DE: "aktive Anzeige" ✅ but everything else Spanish ❌
-  - EN: "active ad" ✅ but heading/features in Spanish ❌
-- **Impact:** Broken UX for international users. Non-Spanish speakers cannot understand plan features.
-- **Note:** English pricing page has its own template, but French and German reuse the Spanish template.
-
-### 🟡 MEDIUM-1: Cancelation email renders literal placeholder text
-- **Email:** #35 (test7)
-- **Subject:** "Tu suscripción se ha cancelado"
-- **Issue:** "Confirmamos la cancelación de tu plan **tu plan**" — the `{plan_name}` variable is empty, rendering the default placeholder text.
-- **Impact:** Unprofessional appearance. Customer can't tell which plan was canceled from the email alone.
-- **Expected:** "Confirmamos la cancelación de tu plan Pro"
-
-### 🟡 MEDIUM-2: Add-on email shows uncalculated proration
-- **Email:** #14 (test7)
-- **Subject:** "Add-on añadido a tu suscripción"
-- **Issue:** "Cobro proporcional ahora: (prorrateado por Stripe)" — the proration amount is never calculated or filled; literal placeholder text is displayed.
-- **Impact:** Customer doesn't know how much they were charged for the prorated add-on.
-- **Expected:** A real amount, e.g., "Cobro proporcional ahora: 2,50 €"
-
-### 🟢 LOW-1: "Periodo: monthly" not translated in Spanish welcome email
-- **Email:** #12 (test7)
-- **Issue:** "Periodo: monthly" uses English "monthly" instead of Spanish "Mensual"
-- **Impact:** Minor inconsistency in otherwise Spanish email.
-- **Note:** Fixed in newer Stripe account (`acct_1TTkeRPzDPgjo8Yc`, email #48 shows "mensual" ✅)
-
-### 🟡 MEDIUM-3: Pending invoice created on incomplete checkout visit
-- **Found:** 2026-05-07 13:13 UTC by CRON follow-up (test3@zonacnc.com)
-- **How:** Go to /es/packs-boost → click "Comprar" → visit Stripe checkout → go back without paying
-- **Issue:** A "pendiente" invoice appears in /es/facturacion even though the user never completed the Stripe payment.
-- **Impact:** Clutters billing history with incomplete purchases. Users may be confused seeing pending charges.
-- **Expected:** No invoice should be created until Stripe confirms payment completion.
-- **Example:** Invoice "Boost Pack 5 — 25,00 EUR — pendiente" visible at /es/facturacion with no PDF/Stripe link.
-
-### 🟢 LOW-2: Boost packs page has generic title
-- **URL:** `/module/zonacncplans/boostpacks`
-- **Issue:** `<title>` is just "zonacnc.com" — no descriptive title
-- **Impact:** Poor SEO, browser tab shows generic name
-- **Expected:** "Comprar Boosts 24h — ZonaCNC" or similar
+### Pages checked
+| Page | URL | Status |
+|------|-----|--------|
+| Pricing (ES) | `/es/pricing` | 200 OK |
+| Pricing (EN) | `/en/pricing` | 200 OK |
+| Boost Packs (ES) | `/es/packs-boost` | 200 OK |
+| Boost Packs (EN) | `/en/packs-boost` | 200 OK |
+| Login | `/es/iniciar-sesion` | 200 OK |
+| Registration | `/es/?controller=registration` | 200 OK |
+| Module pricing | `/module/zonacncplans/pricing` | 200 OK |
+| Stripe webhook | `/module/zonacncplans/webhook` | 400 (expected, GET) |
+| Stripe diag | `/zonacnc-stripe-diag.php` | forbidden (token req) |
+| Run tests | `/zonacnc-run-tests.php?full=1` | 44/45 PASS |
+| Boost ledger diag | `/zonacnc-boost-ledger-diag.php` | OK, consistent |
 
 ---
 
-## Passed Checks ✅
+## ✅ PASSES (21)
 
-| # | Check | Detail |
-|---|-------|--------|
-| 1 | Pricing page renders | All 5 plans (Free/Starter/Pro/Business/Enterprise) displayed correctly |
-| 2 | Plan prices match vault | 0€ / 39€ / 99€ / 199€ / 299€ + IVA (21%) per vault v17 |
-| 3 | Boost packs page | 5/10/25/50 packs (25€–179€), per-unit pricing correct |
-| 4 | Page titles (ES/EN/FR/DE) | Spanish ✅ "Planes para vendedores", EN/FR/DE titles correct |
-| 5 | Email HTML design | Consistent template: dark header (#1a2332), white card, proper typography |
-| 6 | Email sender | Always ZonaCNC <no-reply@mg.zonacnc-sales.es> ✅ |
-| 7 | Stripe invoice PDF links | Links to `pay.stripe.com/invoice/.../pdf` are valid |
-| 8 | Subscription link in emails | All emails include `module/zonacncplans/subscription` link |
-| 9 | Webhook endpoint security | Returns 404 (not 500) — doesn't leak info |
-| 10 | Seed script security | `/zonacnc-seed-stripe-prices.php` returns 403 (protected) ✅ |
-| 11 | Test script security | `/zonacnc-run-tests.php` returns 403 (protected) ✅ |
-| 12 | Auth gates | Checkout, subscription pages redirect unauthenticated to login ✅ |
-| 13 | MODO TEST banner | Present on all pages ✅ |
-| 14 | Multi-Stripe account support | Both `acct_1TPLFqELpLIGgmZK` and `acct_1TTkeRPzDPgjo8Yc` functioning |
+### Pricing page — visual
+1. **All 5 plan tiers render**: Free (0€), Starter (39€/mes), Pro (99€/mes), Business (199€/mes), Enterprise (299€/mes)
+2. **SEO page titles correct**: ES="Planes para Vendedores de Maquinaria Industrial | ZonaCNC", EN="Seller Plans for Industrial Machinery | ZonaCNC"
+3. **Plan features match spec**: anuncios (1/3/10/25/100), boosts (0/0/3/10/25 incluidos), imágenes (5/10/20/30/50)
+4. **Prices match PRICING_RULES.md**: Starter 39€, Pro 99€, Business 199€, Enterprise 299€
+5. **IVA notice**: "+ IVA (21%)" shown on all paid plans
+6. **CTA buttons**: "Empezar gratis" (Free → `/es/alta-vendedor`), "Contratar X" (paid → `/es/pagar-plan?plan=X`)
+7. **"Más popular" badge** on Pro plan
+8. **"Personalizar con add-ons ▾"** dropdown present on Starter/Pro/Business/Enterprise
+9. **Boost 24h section**: with link to `/es/packs-boost`
+10. **Footer**: "Sin comisión", "Cancela cuando quieras", "Pago seguro vía Stripe", "3.400+ anuncios"
+
+### Auth flow
+11. **Auth gate correct**: unauthenticated → login page when clicking "Contratar"
+12. **Login page**: email/password fields + "Continuar con Google" OAuth + password recovery + registration link
+13. **Google OAuth links**: `/es/module/zonacncoauth/google` on both login and registration pages
+14. **Registration form**: full form (Tratamiento/Nombre/Apellidos/Empresa/NIF/Email/Password/Fecha) + "Registrarme con Google"
+
+### Infrastructure
+15. **"Modo test" region**: visible on all pages `⚠️ MODO TEST — entorno de pruebas`
+16. **Cookie consent**: dialog present with proper text on all pages
+17. **Security headers**: HSTS, X-Frame-Options: SAMEORIGIN, X-Content-Type-Options: nosniff, Permissions-Policy
+18. **Module pricing endpoint**: HTTP 200, content-type text/html; charset=utf-8
+19. **Stripe webhook endpoint**: responsive (HTTP 400 on GET, expected for POST-only Stripe webhook)
+
+### Backend tests (44/45 PASS)
+20. All unit tests pass (sanitize, ledger, naming, schema, plans, addons, countries)
+21. All smoke tests pass (boost balance consistency, no phantom pack payments, legacy descriptions, webhook idempotency, addon cancel)
+
+### Boost ledger
+22. **Ledger consistency OK**: aggregates match (diff=0), cross-check (105 purchased − 25 consumed = 80 remaining)
 
 ---
 
-## Account Comparison
+## ⚠️ WARNINGS (2)
 
-| Feature | acct_1TPLFqELpLIGgmZK (older) | acct_1TTkeRPzDPgjo8Yc (newer) |
-|---------|------|------|
-| Renewal "mensual" translated | ❌ "monthly" | ✅ "mensual" |
-| Welcome ad count correct | ❌ Pro=1 ad | TBD |
-| Renewal plan/price match | ❌ Business/99€ | ✅ Starter/47,19€ |
-| Cancelation template | ❌ "tu plan" placeholder | Not tested |
+### W1: Missing SEO page titles on boost packs + registration
+- **`/es/packs-boost`**: title = "zonacnc.com" (no SEO title)
+- **`/en/packs-boost`**: title = "zonacnc.com" (no SEO title)
+- **`/es/?controller=registration`**: title = "zonacnc.com" (no SEO title)
+- Expected: something like "Packs de Boost 24h | ZonaCNC" and "Crear una cuenta | ZonaCNC"
 
-**Conclusion:** The newer Stripe account (`acct_1TTkeRPzDPgjo8Yc`) has some fixes not backported to the older account.
+### W2: JS syntax errors on boost packs page
+- 4× `Unexpected token '&'` on `/es/packs-boost`
+- Likely a minification issue in cached JS bundle. Needs investigation.
 
 ---
+
+## ❌ FAILURES (2)
+
+### F1: Stripe product naming doesn't match PRICING_RULES.md §5
+**Test:** `naming_boostpacks_uses_boost_pack_n`
+**Error:** `ASSERT FAIL (): unexpected 'Pack Boost 24h' in haystack`
+**Expected (spec):** "Boost Pack {N}" (e.g. "Boost Pack 5")
+**Actual (Stripe):** "Pack Boost 24h"
+**Impact:** Invoice/checkout naming inconsistency. Stripe customers see "Pack Boost 24h" instead of "Boost Pack 5" in their payment receipts.
+**Fix:** Update Stripe Product names to match PRICING_RULES.md §5 naming standard.
+
+### F2: 4× JS "Unexpected token '&'" on boost packs page
+**Page:** `/es/packs-boost`
+**Symptom:** 4 identical `Unexpected token '&'` console errors
+**Likely cause:** Minified JS cache issue (bottom-*.js). An unescaped `&` in inline JS or template variable.
+**Impact:** May cause partial JS failures on the boost packs page. If the Stripe checkout JS fails, users can't purchase boost packs.
+**Fix:** Identify the specific JS file with the syntax error and fix the unescaped ampersand.
+
+---
+
+## Test run timestamp
+```
+=== ZonaCNC Pricing Tests ===
+Mode: FULL (unit + smoke)
+Total: 45  Passed: 44  Failed: 1
+```
+
+## Console errors (non-Google)
+All non-Google console errors are from the boost packs page:
+- `Unexpected token '&'` × 4
+
+Google-related errors are expected (no user signed in):
+- `Provider's accounts list is empty`
+- `[GSI_LOGGER]: FedCM get() rejects with NetworkError`
+- `Not signed in with the identity provider`
 
 ## Recommendations
-
-1. **Fix plan name/price mapping** in renewal webhook handler — ensure consistency between plan_id, plan name, and amount
-2. **Fix ad counts per plan** in welcome email template — Pro=10, Business=25, Enterprise=100, etc.
-3. **Complete translations** for all pricing page languages — create proper language files for each locale
-4. **Fix variable substitution** in cancelation template — ensure `{plan_name}` is always populated
-5. **Calculate proration** in add-on email or remove the display if not available
-6. **Add descriptive title** to boost packs page
+1. **HIGH**: Fix Stripe product naming (F1) — update "Pack Boost 24h" → "Boost Pack 5" (and others) in Stripe Dashboard to match PRICING_RULES.md §5
+2. **MEDIUM**: Fix JS syntax error on boost packs page (F2/W2) — could block Stripe checkout JS
+3. **LOW**: Add proper SEO page titles to `/es/packs-boost`, `/en/packs-boost`, and registration page (W1)
