@@ -13,7 +13,7 @@
 | Severity | Count | Status |
 |----------|-------|--------|
 | 🔴 HIGH  | 3     | Need fix |
-| 🟡 MEDIUM | 2     | Should fix |
+| 🟡 MEDIUM | 3     | Should fix |
 | 🟢 LOW   | 2     | Nice to fix |
 | ✅ PASS   | 14    | OK |
 
@@ -63,6 +63,14 @@
 - **Issue:** "Periodo: monthly" uses English "monthly" instead of Spanish "Mensual"
 - **Impact:** Minor inconsistency in otherwise Spanish email.
 - **Note:** Fixed in newer Stripe account (`acct_1TTkeRPzDPgjo8Yc`, email #48 shows "mensual" ✅)
+
+### 🟡 MEDIUM-3: Pending invoice created on incomplete checkout visit
+- **Found:** 2026-05-07 13:13 UTC by CRON follow-up (test3@zonacnc.com)
+- **How:** Go to /es/packs-boost → click "Comprar" → visit Stripe checkout → go back without paying
+- **Issue:** A "pendiente" invoice appears in /es/facturacion even though the user never completed the Stripe payment.
+- **Impact:** Clutters billing history with incomplete purchases. Users may be confused seeing pending charges.
+- **Expected:** No invoice should be created until Stripe confirms payment completion.
+- **Example:** Invoice "Boost Pack 5 — 25,00 EUR — pendiente" visible at /es/facturacion with no PDF/Stripe link.
 
 ### 🟢 LOW-2: Boost packs page has generic title
 - **URL:** `/module/zonacncplans/boostpacks`
