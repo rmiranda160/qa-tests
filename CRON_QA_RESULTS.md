@@ -1,5 +1,46 @@
-# CRON QA Results — Responsive Test: new.zonacnc.com
+# CRON QA Results — Combined
 
+## stripe-billing: Post-PR #237 Regression Verification
+**Run:** 2026-05-07 05:49 UTC | **Duration:** ~8 min  
+**PR:** #241 (merged) | **Issue:** #242  
+**Result:** ❌ REGRESSION — 3 prior findings NOT FIXED + 1 new  
+
+PR #237 was merged but i18n fixes are not deployed. All 3 previous findings persist:
+- **Finding #1:** English cambiar-plan entirely in Spanish (REGRESSION)
+- **Finding #2:** English footer partially untranslated (PERSISTS)
+- **Finding #3:** Add-on email shows "(prorrateado por Stripe)" placeholder (PERSISTS)
+- **Finding #4 (NEW):** English subscription page: title="zonacnc.com" (generic), H1="Mi suscripción" (Spanish)
+
+Full report: `findings/CRONQA-2026-05-07-stripe-billing-i18n-regression-post-pr237.md`
+
+---
+
+## stripe-billing: Initial Translation & Template Review
+**Run:** 2026-05-07 04:52 UTC | **Duration:** ~25 min  
+**Scenario:** Stripe billing flow translation & email template review on new.zonacnc.com  
+**Cron ID:** f88c723f-9d7c-485a-b506-55f4e41efab3  
+**Focus:** stripe-billing (1 escenario: review translations/templates in billing pages + emails)  
+**Account:** test26@zonacnc.com | **IMAP:** test26@zonacnc.com / Ttc5ZxPltimz
+
+---
+
+## stripe-billing: Plan Upgrade (Starter → Pro)
+**Run:** 2026-05-07 06:45 UTC | **Duration:** ~15 min  
+**Scenario:** Plan upgrade flow test on new.zonacnc.com  
+**PR:** #245 (merged) | **Issue:** #246  
+**Result:** ✅ PASS (core flow) | ⚠️ 1 template bug + 1 warning  
+**Account:** test8@zonacnc.com  
+
+**Key Findings:**
+- ✅ Plan upgrade works, proration correct (€58.16)
+- 🐛 BUG: Pro welcome email says "Anuncios incluidos: 1" — should be 10
+- ⚠️ No email sent on plan upgrade with existing payment method
+
+Full report: `findings-stripe-billing-20260506.md`
+
+---
+
+## Responsive Test: new.zonacnc.com
 **Date:** 2026-05-07 06:05 UTC  
 **Scope:** Responsive testing across viewports + email template/language verification  
 **Site:** https://new.zonacnc.com  
