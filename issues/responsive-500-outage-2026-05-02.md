@@ -1,9 +1,20 @@
-# Issue: Site-wide HTTP 500 Outage — Responsive Testing Blocked
+# Issue: Site-wide HTTP 500 Outage — Responsive Testing Blocked (SITE-500-001, #231)
 
 **Reported:** 2026-05-02 14:43 UTC  
+**Last confirmed:** 2026-05-07 00:57 UTC  
 **Reporter:** CRON_QA (responsive focus, test7@zonacnc.com)  
 **Severity:** 🔴 Critical  
-**Component:** PrestaShop/PHP application server  
+**Status:** 🔴 OPEN — Multi-day outage (5+ days recurring)  
+**Component:** PrestaShop/PHP application server
+
+## Update Log
+
+| Date | Status | Details |
+|------|--------|--------|
+| 2026-05-02 14:43 | 🔴 First detected | Site-wide 500, all pages |
+| 2026-05-03 | 🟢 Resolved | Site back online, QA passed |
+| 2026-05-06 23:21 | 🔴 Recurred | Site-wide 500 again (SITE-500-001) |
+| 2026-05-07 00:57 | 🔴 Persists | Still 500, Day 2+ of current outage |  
 
 ## Description
 
@@ -38,7 +49,9 @@ Any public URL redirects to localized path then crashes:
 - **15 responsive test combinations** (5 pages × 3 viewports) all blocked
 - User registration impossible (no email confirmation flow to test)
 - All e-commerce functionality inaccessible
-- Previous working state: 13:57 UTC (test22@zonacnc.com, all passing)
+- **10+ consecutive CRON QA runs blocked** across responsive and stripe-billing focus areas
+- Previous working state: 13:57 UTC May 2 (test22@zonacnc.com, all passing)
+- Current outage: Day 2+ (since 2026-05-06 ~23:21 UTC)
 
 ## Likely Cause
 
