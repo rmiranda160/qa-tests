@@ -1,4 +1,53 @@
-# CRON_QA Results — responsive (Latest)
+# CRON_QA Results — stripe-billing (Latest)
+**Run:** 2026-05-07 01:35 UTC | **Duration:** ~22 min  
+**Scenario:** Deep template string audit across 6 accounts (55 billing emails)  
+**Accounts:** test7, test10, test14, test25, test26, test30@zonacnc.com  
+**Mode:** IMAP-only (site new.zonacnc.com returns HTTP 500 — browser testing blocked)  
+**PR:** #236 | **Issue:** #236
+
+## Site Status: ❌ HTTP 500 (~27h+ outage, Day 2+)
+
+## Summary
+
+Deep-dive analysis of 55 billing emails across 6 representative accounts (Starter, Pro, Business, Enterprise plans).
+
+| Metric | Value |
+|---|---|
+| Accounts audited | 6 (of 24) |
+| Billing emails analyzed | 55 |
+| Bugs confirmed | 8 persistent |
+| New bugs found | 2 |
+
+### 🔴 Persistent Bugs (8 reconfirmed)
+
+- **BUG-001:** Wrong ad count (always "1" regardless of plan)
+- **BUG-002:** "Próxima renovación" in welcome emails
+- **BUG-003:** Template vars — ES fixed, EN `{myads_url}` still unresolved
+- **BUG-004:** "Your tu plan plan" EN/ES mix in cancellations
+- **BUG-005:** No IVA breakdown in invoice emails
+- **BUG-006:** EN body for ES locale accounts
+- **BUG-007:** charset=ascii with UTF-8 content
+- **BUG-009:** Add-on anglicism + truncated prorated amount
+
+### 🆕 New Bugs (2)
+
+- **BUG-011:** "tu plan tu plan" duplication in Spanish cancellation emails  
+  `test7#35`: "Confirmamos la cancelación de tu plan tu plan"
+- **BUG-012:** German locale URL (/de/) in Spanish account welcome email  
+  `test26#11`: https://new.zonacnc.com/de/ but body is in Spanish
+
+### Price Analysis
+| Account | Plan | Amount | IVA Disclosed? |
+|---|---|---|---|
+| test7#48 | Starter mensual | 47,19 € | ❌ (39€ + 21%) |
+| test10#15 | Starter monthly | 39,00 € | ❌ |
+| test25#13 | Starter monthly | 39,00 € | ❌ |
+| test14#12 | Business monthly | 199,00 € | ❌ |
+| test7#13 | Business (prorated) | 99,73 € | ❌ |
+
+---
+
+# CRON_QA Results — responsive (Previous)
 **Run:** 2026-05-07 00:57 UTC | **Duration:** ~5 min  
 **Scenario:** Responsive testing (3 viewports) on new.zonacnc.com  
 **Account:** test7@zonacnc.com  
