@@ -1,4 +1,34 @@
-# CRON_QA Results — stripe-billing (Latest)
+# CRON_QA Results — responsive (Latest)
+**Run:** 2026-05-07 00:57 UTC | **Duration:** ~5 min  
+**Scenario:** Responsive testing (3 viewports) on new.zonacnc.com  
+**Account:** test7@zonacnc.com  
+**Mode:** BLOCKED — site returns HTTP 500 on all public pages  
+**PR:** #236 | **Issue:** #231 (SITE-500-001 continues)
+
+## Site Status: ❌ HTTP 500 (~26h+ outage, Day 2+)
+
+```
+HTTP/2 500
+content-length: 0
+x-powered-by: PHP/8.3.30
+```
+
+## Result: ❌ BLOCKED
+
+All responsive testing (3 viewports × all pages) blocked by persistent site-wide 500 error.
+
+- `GET /es/` → 500 (empty body)
+- `GET /en/` → 500 (empty body)
+- `GET /es/login` → 404 (routing works, app crashes on valid routes)
+- Email check (test7): 50 emails, no error alerts from platform
+
+**Root cause:** PrestaShop/PHP application error. Database connectivity or plugin issue suspected.
+
+**New in this run:** Confirmed outage is now Day 2+ (first detected 2026-05-06 ~23:21 UTC).
+
+---
+
+# CRON_QA Results — stripe-billing (Previous)
 **Run:** 2026-05-07 00:50 UTC | **Duration:** ~8 min  
 **Scenario:** IMAP audit across 24 accounts (test7–test30) — template/translation verification  
 **Accounts:** test7–test30@zonacnc.com (24 accounts)  
