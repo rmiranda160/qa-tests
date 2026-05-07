@@ -1,138 +1,65 @@
-# QA Responsive — 2026-05-07 11:33 UTC
+# Responsive QA — new.zonacnc.com — 2026-05-07
 
-**Site:** https://new.zonacnc.com  
-**Viewports tested:** Mobile (375×667), Tablet (768×1024), Desktop (1440×900)  
-**Pages tested:** Home, Category Listing, Product Detail, Pricing, Login, Registration  
+**Date:** 2026-05-07 14:11 UTC
+**Trigger:** CRON QA responsive (focus_area=responsive)
+**Scope:** new.zonacnc.com — Homepage + product detail + login + search
+**Viewports tested:** Mobile (390×844), Tablet (768×1024), Desktop (1440×900)
 
----
+## Summary
 
-## Resumen
+**Result: 3 findings (1 HIGH, 2 MEDIUM)**
 
-| Métrica | Resultado |
-|---------|-----------|
-| Horizontal scroll (mobile) | ❌ Encontrado en 1 página |
-| Horizontal scroll (tablet) | ✅ Sin incidencias |
-| Horizontal scroll (desktop) | ✅ Sin incidencias |
-| Viewport meta tag | ✅ `width=device-width, initial-scale=1` |
-| Hamburguesa menú (mobile) | ✅ Visible |
-| Cookie consent UX (mobile) | ❌ Ocupa 64% del viewport |
-| Títulos SEO | ⚠️ Registration page = "zonacnc.com" |
-| Errores JS en consola | ⚠️ Google One Tap + Unexpected token '&' |
-| Touch targets pequeños | ⚠️ 44 elementos < 44px |
+No body-level horizontal scroll detected on any viewport. However, three specific overflow/target-size issues were identified.
 
 ---
 
-## 🔴 Finding #1 — Horizontal overflow en category listing (mobile)
+## Finding 1 [HIGH]: `.zcnc-hero` section overflows without responsive adaptation
 
-**Severity:** Alta  
-**Page:** `/es/8-centros-de-mecanizado` (category listing)  
-**Viewport:** Mobile 375×667  
-**Evidence:** `body.scrollWidth=511 > clientWidth=375`
+- **Viewports affected:** Mobile (468px vs 390px — 78px overflow), Tablet (922px vs 768px — 154px overflow)
+- **Desktop:** Clean (fits 1440px)
+- **Impact:** Hero section content is rendered wider than the viewport and clipped via `overflow: hidden`. Content at the right edge is invisible to mobile/tablet users. If the section contains CTAs or key messaging, they may be cut off.
+- **Root cause:** The `.zcnc-hero` element appears to have fixed/min-width styling that doesn't adapt below ~468px. Likely using non-responsive absolute widths or lacking `max-width: 100%` on child elements.
+- **Fix direction:** Review CSS for `.zcnc-hero` and its children. Ensure all child elements use `max-width: 100%`, flex-wrap, or percentage-based widths. Consider using `box-sizing: border-box` throughout.
 
-**Root cause:** Product listing row index 5 contiene el título "DEPÓSITO AUTÓNOMO DE REFRIGERACIÓN CON FILTRO." que no se envuelve correctamente dentro del contenedor `.zcnc-row-link` (349px). Los hijos `.zcnc-row-info`, `.zcnc-row-title`, `.zcnc-row-desc`, etc. se extienden hasta 486px (right=511, left=25).
+## Finding 2 [MEDIUM]: Several interactive elements below 44×44px minimum tap target
 
-**CSS culpable:**
-- `.zcnc-row-link` tiene `overflow: visible` → permite que los hijos desborden
-- `.zcnc-row-info` tiene `flex-wrap: nowrap` + `width: 486px` (forzado por el contenido largo)
-- El título largo en MAYÚSCULAS agrava el problema al no tener `word-break` ni `overflow-wrap`
-- `.zcnc-row-desc` tiene `overflow: hidden` pero el daño ya está hecho por los padres
+- **Viewport:** Mobile (390×844)
+- **Elements affected:**
+  - `navbar-brand` (logo link): 128×28px — height 36% below minimum
+  - "Cancelar" button (`.btn-link`): 93×38px
+  - "Crear alerta" CTA (`.zcnc-banner-strip__cta`): 107×30px
+  - "Ver catálogo" CTA (`.zcnc-banner-strip__cta`): 112×30px
+  - "Ver todas las categorías" button: 214×42px (borderline)
+  - Newsletter submit button: 107×38px
+  - Footer expand/collapse toggles (`.stretched-link`): 24×26px
+  - Footer links under categories/brands: 20px height
+- **Impact:** Users on touch devices may have difficulty accurately tapping these targets, particularly the 30px-height CTAs and 20px-height footer links. WCAG 2.1 Success Criterion 2.5.5 (Target Size) recommends 44×44px.
+- **Fix direction:** Add `min-height: 44px` and `min-width: 44px` to interactive elements, or increase padding. For inline links in the footer, ensure sufficient line-height and padding.
 
-**Fix sugerido:**
-1. Añadir `word-break: break-word` o `overflow-wrap: break-word` a `.zcnc-row-title`
-2. Cambiar `.zcnc-row-link` de `overflow: visible` a `overflow: hidden`
-3. Añadir `max-width: 100%` en la cadena de contenedores
-4. Considerar `text-overflow: ellipsis` para títulos muy largos en mobile
+## Finding 3 [MEDIUM]: Font sizes below 12px on mobile
 
----
-
-## 🟡 Finding #2 — Cookie consent ocupa 64% del viewport en mobile
-
-**Severity:** Media  
-**Page:** Todas (global)  
-**Viewport:** Mobile 375×667  
-
-**Evidence:** `.zcnc-cc` mide 426px de alto (top=241, bottom=667), ocupando el 64% de la pantalla en móvil.
-
-Esto bloquea casi todo el contenido útil en primera carga. Aunque es un banner de consentimiento necesario, el tamaño es excesivo.
-
-**Fix sugerido:**
-- Reducir el padding/margins del banner en mobile
-- Usar un diseño más compacto para el texto de consentimiento
-- Considerar un banner tipo "bottom sheet" más pequeño
+- **Font sizes detected:** 11px, 11.2px
+- **Impact:** Text at these sizes may be difficult to read on mobile devices, especially for users with visual impairments. Apple's Human Interface Guidelines and Google's Material Design both recommend minimum 12px for body text.
+- **Fix direction:** Audit elements using font-size below 12px. Increase to at least 12px (0.75rem) for mobile viewports. Use CSS media queries or clamp() for fluid typography.
 
 ---
 
-## 🟡 Finding #3 — Título de página "zonacnc.com" en Registration
+## Pages tested (all passed body-scroll check)
 
-**Severity:** Baja (SEO)  
-**Page:** `/es/?controller=registration`  
-**Viewport:** Todos  
+| Page | Mobile (390) | Tablet (768) | Desktop (1440) |
+|------|:---:|:---:|:---:|
+| Home `/es/` | ⚠️ overflow elements | ⚠️ overflow elements | ✅ Clean |
+| Product detail `/es/inicio/13166-...` | ✅ No scroll | — | — |
+| Login `/es/iniciar-sesion` | ✅ No scroll | — | — |
+| Search `/es/buscar` | ✅ No scroll | — | — |
 
-**Evidence:** `<title>zonacnc.com</title>` — falta un título descriptivo. Otras páginas tienen títulos correctos (ej: "Iniciar Sesión — ZonaCNC Marketplace de Maquinaria").
+## Console errors (non-responsive, informational)
 
-**Fix sugerido:** Añadir título SEO descriptivo: "Crear Cuenta — ZonaCNC Marketplace de Maquinaria"
-
----
-
-## 🟡 Finding #4 — Errores Google One Tap en consola
-
-**Severity:** Baja  
-**Page:** Todas  
-
-**Evidence:** 3 tipos de errores recurrentes en todas las páginas:
-- `Provider's accounts list is empty.`
-- `FedCM get() rejects with NetworkError: Error retrieving a token.`
-- `Not signed in with the identity provider.`
-- `Unexpected token '&'` (35+ ocurrencias)
-
-Estos son errores del módulo Google Sign-In / One Tap (`zonacnc-oauth`). Aunque no rompen funcionalidad, generan ruido y pueden indicar un problema de configuración en FedCM.
+- GSI (Google Sign-In) FedCM NetworkError — expected for non-logged-in users
+- "Unexpected token '&'" — likely GSI-related, not a responsive issue
 
 ---
 
-## 🟡 Finding #5 — Touch targets pequeños
+## Previous run comparison
 
-**Severity:** Baja (accesibilidad)  
-**Page:** Home (mobile)  
-
-**Evidence:** 44 elementos interactivos con width o height < 44px (mínimo recomendado WCAG 2.5.5). Incluye:
-- "Mostrar/ocultar enlaces" buttons: 24×26px
-- Links de categorías y alertas: 30px height
-- Search input: 38px height
-
-**Fix sugerido:** Revisar elementos con height < 44px y aumentar el área táctil con padding.
-
----
-
-## ✅ Páginas sin incidencias responsive
-
-- **Homepage** — Sin overflow horizontal en ningún viewport
-- **Product detail** — Sin overflow, layout responsive correcto
-- **Pricing** — Tarjetas se adaptan correctamente en mobile
-- **Login** — Formulario responsive, sin overflow
-- **Registration** — Formulario responsive, sin overflow
-- **Tablet (768px)** — Todas las páginas sin overflow
-
----
-
-## ✅ Elementos responsive correctos
-
-- Viewport meta tag presente y correcto
-- Menú hamburguesa visible y funcional en mobile
-- Header sticky con z-index adecuado
-- Imágenes responsive (escalan correctamente)
-- Chat FAB posicionado correctamente (bottom-right)
-- Navegación offcanvas para mobile
-- Footer responsive con columnas colapsables
-
----
-
-## Métricas por viewport
-
-| Página | Mobile (375) | Tablet (768) | Desktop (1440) |
-|--------|-------------|-------------|----------------|
-| Home | bodySW=375 ✅ | bodySW=768 ✅ | bodySW=1440 ✅ |
-| Category | bodySW=511 ❌ | bodySW=768 ✅ | bodySW=1440 ✅ |
-| Product | bodySW=375 ✅ | bodySW=768 ✅ | bodySW=1440 ✅ |
-| Pricing | bodySW=375 ✅ | bodySW=768 ✅ | bodySW=1440 ✅ |
-| Login | bodySW=375 ✅ | bodySW=768 ✅ | bodySW=1440 ✅ |
-| Register | bodySW=375 ✅ | bodySW=768 ✅ | bodySW=1440 ✅ |
+No prior RESPONSIVE findings file found in repo — this is the baseline run.
