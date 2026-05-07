@@ -1,4 +1,58 @@
-# CRON_QA Results — stripe-billing (Latest)
+# CRON_QA Results — responsive (Latest)
+**Run:** 2026-05-07 01:53 UTC | **Duration:** ~2 min  
+**Scenario:** Responsive testing (3 viewports) on new.zonacnc.com  
+**Cron ID:** 53983183-66c6-4b72-9b21-404aac116c60  
+**Focus:** responsive (1 escenario, hard cap 30 min)  
+**Mode:** BLOCKED — site returns HTTP 500 on all pages (3rd consecutive responsive run blocked)  
+**Issue:** #231 (SITE-500-001 continues) | **PR:** TBD
+
+## Site Status: ❌ HTTP 500 (2.5h+ outage — Day 1)
+
+```
+HTTP/2 500
+content-length: 0
+x-powered-by: PHP/8.3.30
+server: nginx
+```
+
+## Result: 🔴 BLOCKED
+
+### Responsive Tests: NOT POSSIBLE
+
+| Test | Result |
+|------|--------|
+| Mobile viewport (390×844) | ❌ Cannot load page |
+| Tablet viewport (768×1024) | ❌ Cannot load page |
+| Desktop viewport (1440×900) | ❌ Cannot load page |
+| Touch target analysis | ❌ No DOM content |
+| Horizontal overflow check | ❌ No DOM content |
+| Layout/breakpoint verification | ❌ No DOM content |
+
+### URLs Tested
+
+| URL | Status |
+|-----|--------|
+| `https://new.zonacnc.com/` | 301 → `/es/` → 500 |
+| `https://new.zonacnc.com/es/` | 500 (empty body) |
+| `http://new.zonacnc.com` | 500 (empty body) |
+| MCP Browser (pwmcp-zonacnc) | ERR_HTTP_RESPONSE_CODE_FAILURE |
+| Remote Playwright WS | ECONNREFUSED (51.254.244.216:3000) |
+
+### Outage Timeline
+
+| Time (UTC) | Status |
+|-----------|--------|
+| 2026-05-06 12:18 | ✅ Working |
+| 2026-05-06 20:45 | ✅ Last known good |
+| 2026-05-06 23:21 | ❌ 500 detected (1st run) |
+| 2026-05-07 00:06 | ❌ 500 persists (2nd run) |
+| 2026-05-07 01:53 | ❌ 500 persists (3rd run — this one) |
+
+**Recommendation:** Investigate PHP fatal error on new.zonacnc.com server. Empty body with PrestaShop cookie suggests framework initializes but dies before HTML output. Likely DB connectivity or plugin issue.
+
+---
+
+# CRON_QA Results — stripe-billing (Previous)
 **Run:** 2026-05-07 01:35 UTC | **Duration:** ~22 min  
 **Scenario:** Deep template string audit across 6 accounts (55 billing emails)  
 **Accounts:** test7, test10, test14, test25, test26, test30@zonacnc.com  
