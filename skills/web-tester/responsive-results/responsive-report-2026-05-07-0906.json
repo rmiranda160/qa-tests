@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "date": "2026-05-07T09:06:00Z",
+  "cronId": "53983183-66c6-4b72-9b21-404aac116c60",
+  "url": "https://new.zonacnc.com",
+  "mode": "responsive",
+  "overall_result": "PASS",
+  "critical_issues": 0,
+  "pages_tested": 3,
+  "viewports": [
+    {"name": "mobile", "width": 390, "height": 844},
+    {"name": "tablet", "width": 768, "height": 1024},
+    {"name": "desktop", "width": 1440, "height": 900}
+  ],
+  "results": [
+    {
+      "page": "Homepage",
+      "url": "/es/",
+      "viewports": {
+        "390x844": {"horizontal_overflow": false, "issues": ["44 small tap targets", "min font 11px"]},
+        "768x1024": {"horizontal_overflow": false, "issues": ["53 small tap targets", "min font 11px"]},
+        "1440x900": {"horizontal_overflow": false, "issues": ["56 small tap targets", "min font 11px"]}
+      }
+    },
+    {
+      "page": "Category (Maquinaria Metal)",
+      "url": "/es/28-maquinaria-metal",
+      "viewports": {
+        "390x844": {"horizontal_overflow": false, "issues": ["95 small tap targets", "min font 11.2px"]}
+      }
+    },
+    {
+      "page": "Product Detail (Doosan Puma 2600LMS)",
+      "url": "/es/plaquitas-de-torneado/11870-doosan-puma-2600lms.html",
+      "viewports": {
+        "390x844": {"horizontal_overflow": false, "issues": ["52 small tap targets", "min font 11.2px", "0 overflow images"]}
+      }
+    }
+  ],
+  "hamburger_menu": "functional — contains language selector + contact link",
+  "language_selector": "FIXED — properly wrapped in <select> elements",
+  "site_status": "200 OK (previous 500 outage RESOLVED)",
+  "console_errors": [
+    {"error": "Not signed in with the identity provider", "source": "Google GSI", "impact": "non-critical"},
+    {"error": "[GSI_LOGGER]: FedCM get() rejects with NetworkError", "source": "Google GSI client", "impact": "non-critical"},
+    {"error": "Unexpected token '&'", "source": "zonacnc JS", "impact": "non-critical"}
+  ],
+  "screenshots": [
+    "responsive-mobile-390x844-home-2026-05-07.png",
+    "responsive-tablet-768x1024-home-2026-05-07.png",
+    "responsive-desktop-1440x900-home-2026-05-07.png",
+    "responsive-mobile-390x844-category-2026-05-07.png",
+    "responsive-mobile-390x844-product-2026-05-07.png"
+  ],
+  "emailVerification": {
+    "performed": false,
+    "reason": "No user actions performed — responsive visual testing only, no emails generated"
+  }
+}
