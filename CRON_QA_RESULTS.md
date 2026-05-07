@@ -1,219 +1,178 @@
-# CRON_QA Results — responsive (Latest)
-**Run:** 2026-05-07 01:53 UTC | **Duration:** ~2 min  
-**Scenario:** Responsive testing (3 viewports) on new.zonacnc.com  
-**Cron ID:** 53983183-66c6-4b72-9b21-404aac116c60  
-**Focus:** responsive (1 escenario, hard cap 30 min)  
-**Mode:** BLOCKED — site returns HTTP 500 on all pages (3rd consecutive responsive run blocked)  
-**Issue:** #231 (SITE-500-001 continues) | **PR:** TBD
-
-## Site Status: ❌ HTTP 500 (2.5h+ outage — Day 1)
-
-```
-HTTP/2 500
-content-length: 0
-x-powered-by: PHP/8.3.30
-server: nginx
-```
-
-## Result: 🔴 BLOCKED
-
-### Responsive Tests: NOT POSSIBLE
-
-| Test | Result |
-|------|--------|
-| Mobile viewport (390×844) | ❌ Cannot load page |
-| Tablet viewport (768×1024) | ❌ Cannot load page |
-| Desktop viewport (1440×900) | ❌ Cannot load page |
-| Touch target analysis | ❌ No DOM content |
-| Horizontal overflow check | ❌ No DOM content |
-| Layout/breakpoint verification | ❌ No DOM content |
-
-### URLs Tested
-
-| URL | Status |
-|-----|--------|
-| `https://new.zonacnc.com/` | 301 → `/es/` → 500 |
-| `https://new.zonacnc.com/es/` | 500 (empty body) |
-| `http://new.zonacnc.com` | 500 (empty body) |
-| MCP Browser (pwmcp-zonacnc) | ERR_HTTP_RESPONSE_CODE_FAILURE |
-| Remote Playwright WS | ECONNREFUSED (51.254.244.216:3000) |
-
-### Outage Timeline
-
-| Time (UTC) | Status |
-|-----------|--------|
-| 2026-05-06 12:18 | ✅ Working |
-| 2026-05-06 20:45 | ✅ Last known good |
-| 2026-05-06 23:21 | ❌ 500 detected (1st run) |
-| 2026-05-07 00:06 | ❌ 500 persists (2nd run) |
-| 2026-05-07 01:53 | ❌ 500 persists (3rd run — this one) |
-
-**Recommendation:** Investigate PHP fatal error on new.zonacnc.com server. Empty body with PrestaShop cookie suggests framework initializes but dies before HTML output. Likely DB connectivity or plugin issue.
+# CRON_QA Results — stripe-billing
+**Run:** 2026-05-07 04:52 UTC | **Duration:** ~25 min  
+**Scenario:** Stripe billing flow translation & email template review on new.zonacnc.com  
+**Cron ID:** f88c723f-9d7c-485a-b506-55f4e41efab3  
+**Focus:** stripe-billing (1 escenario: review translations/templates in billing pages + emails)  
+**Account:** test26@zonacnc.com | **IMAP:** test26@zonacnc.com / Ttc5ZxPltimz  
 
 ---
 
-# CRON_QA Results — stripe-billing (Previous)
-**Run:** 2026-05-07 01:35 UTC | **Duration:** ~22 min  
-**Scenario:** Deep template string audit across 6 accounts (55 billing emails)  
-**Accounts:** test7, test10, test14, test25, test26, test30@zonacnc.com  
-**Mode:** IMAP-only (site new.zonacnc.com returns HTTP 500 — browser testing blocked)  
-**PR:** #236 | **Issue:** #236
-
-## Site Status: ❌ HTTP 500 (~27h+ outage, Day 2+)
-
-## Summary
-
-Deep-dive analysis of 55 billing emails across 6 representative accounts (Starter, Pro, Business, Enterprise plans).
-
-| Metric | Value |
-|---|---|
-| Accounts audited | 6 (of 24) |
-| Billing emails analyzed | 55 |
-| Bugs confirmed | 8 persistent |
-| New bugs found | 2 |
-
-### 🔴 Persistent Bugs (8 reconfirmed)
-
-- **BUG-001:** Wrong ad count (always "1" regardless of plan)
-- **BUG-002:** "Próxima renovación" in welcome emails
-- **BUG-003:** Template vars — ES fixed, EN `{myads_url}` still unresolved
-- **BUG-004:** "Your tu plan plan" EN/ES mix in cancellations
-- **BUG-005:** No IVA breakdown in invoice emails
-- **BUG-006:** EN body for ES locale accounts
-- **BUG-007:** charset=ascii with UTF-8 content
-- **BUG-009:** Add-on anglicism + truncated prorated amount
-
-### 🆕 New Bugs (2)
-
-- **BUG-011:** "tu plan tu plan" duplication in Spanish cancellation emails  
-  `test7#35`: "Confirmamos la cancelación de tu plan tu plan"
-- **BUG-012:** German locale URL (/de/) in Spanish account welcome email  
-  `test26#11`: https://new.zonacnc.com/de/ but body is in Spanish
-
-### Price Analysis
-| Account | Plan | Amount | IVA Disclosed? |
-|---|---|---|---|
-| test7#48 | Starter mensual | 47,19 € | ❌ (39€ + 21%) |
-| test10#15 | Starter monthly | 39,00 € | ❌ |
-| test25#13 | Starter monthly | 39,00 € | ❌ |
-| test14#12 | Business monthly | 199,00 € | ❌ |
-| test7#13 | Business (prorated) | 99,73 € | ❌ |
+## Result: ⚠️ PASS with 3 findings
 
 ---
 
-# CRON_QA Results — responsive (Previous)
-**Run:** 2026-05-07 00:57 UTC | **Duration:** ~5 min  
-**Scenario:** Responsive testing (3 viewports) on new.zonacnc.com  
-**Account:** test7@zonacnc.com  
-**Mode:** BLOCKED — site returns HTTP 500 on all public pages  
-**PR:** #236 | **Issue:** #231 (SITE-500-001 continues)
+## Scenario: Billing Flow Translation & Email Template Review
 
-## Site Status: ❌ HTTP 500 (~26h+ outage, Day 2+)
+### Site Under Test
+- `new.zonacnc.com` — ✅ UP (HTTP 200)
+- Test mode banner visible: "⚠️ MODO TEST — entorno de pruebas. Los emails NO llegan a vendedores reales."
 
-```
-HTTP/2 500
-content-length: 0
-x-powered-by: PHP/8.3.30
-```
-
-## Result: ❌ BLOCKED
-
-All responsive testing (3 viewports × all pages) blocked by persistent site-wide 500 error.
-
-- `GET /es/` → 500 (empty body)
-- `GET /en/` → 500 (empty body)
-- `GET /es/login` → 404 (routing works, app crashes on valid routes)
-- Email check (test7): 50 emails, no error alerts from platform
-
-**Root cause:** PrestaShop/PHP application error. Database connectivity or plugin issue suspected.
-
-**New in this run:** Confirmed outage is now Day 2+ (first detected 2026-05-06 ~23:21 UTC).
+### Account Used
+- **Email:** test26@zonacnc.com (from .env.qa.email pool)
+- **Display name:** QA Tester DE TestTwentySix
+- **Plan:** Starter (€39/mes + IVA 21%)
+- **Payment method:** Visa ••••4242
+- **Next charge:** 06/06/2026
+- **Active ads:** 1/4 (3 base + 1 add-on anuncio extra at €12/mes)
 
 ---
 
-# CRON_QA Results — stripe-billing (Previous)
-**Run:** 2026-05-07 00:50 UTC | **Duration:** ~8 min  
-**Scenario:** IMAP audit across 24 accounts (test7–test30) — template/translation verification  
-**Accounts:** test7–test30@zonacnc.com (24 accounts)  
-**Mode:** IMAP-only (site new.zonacnc.com returns HTTP 500 — browser testing not possible)  
-**PR:** #234 | **Issue:** #235
+## Pages Reviewed
 
-## Site Status: ❌ HTTP 500 (18h+ outage)
+### 1. /es/suscripcion (Subscription — Spanish) ✅
+- Plan status, limits, add-ons, payment method, billing history all correct
+- No translation issues detected
+- Invoice #1 visible: Completed on 07/05/2026 for 14.13 EUR
 
-```
-curl -s -o /dev/null -w "%{http_code}" -L https://new.zonacnc.com/
-500
-```
+### 2. /es/cambiar-plan (Change Plan — Spanish) ✅
+- All plans listed with correct pricing and features
+- Pro upgrade preview: credit -39€ (unused Starter days) + new Pro 99€ = charge 60€ today, next invoice 06/06/2026 at 99€/month
+- Add-on handling: keep extra ads at new plan price (€9 instead of €12 for Pro)
+- Help text and refund policy in correct Spanish
 
-## Findings (10 bugs — 9 persist, 1 partial fix)
+### 3. /es/pricing (Pricing — Spanish) ✅
+- All 5 plans displayed correctly with features and pricing
+- "+ IVA (21%)" shown on all paid plans
+- "Sin comisiones sobre ventas" messaging correct
+- Boost 24h section well explained
 
-### 🔴 PERSISTS: BUG-001 — Wrong Ad Count in Welcome Emails (25 instances)
-All welcome emails show "Anuncios incluidos: 1" regardless of plan. Starter=3, Business=50, Pro=10, Enterprise=unlimited actual.
+### 4. /en/pricing (Pricing — English) ⚠️
+- Plan cards and features translated to English correctly ✅
+- Boost section translated ✅
+- No-commission / cancel-anytime / secure-payment / 3,400+ ads messaging translated ✅
+- **Footer has untranslated Spanish text** (see Finding #2)
 
-### 🔴 PERSISTS: BUG-002 — "Renovación" Wording for First Subscription (21 instances)
-Welcome emails say "Próxima renovación" even for brand-new subscriptions.
+### 5. /en/cambiar-plan (Change Plan — English) ❌
+- **Most content is in Spanish** (see Finding #1)
 
-### 🟡 PARTIAL FIX ⚡: BUG-003 — Template Variables in Onboarding
-- **15 OLD emails (May 2-4):** Variables appear as literals: `{new_ad_url}`, `{max_listings}`, etc.
-- **4 NEW emails (May 5-6):** Variables properly resolved — clean onboarding emails
-- Fix deployed between May 4-5, but old broken emails never re-sent
-
-### 🔴 PERSISTS: BUG-004 — EN/ES Mix + Duplicate Words (14 instances)
-"Your tu plan plan" (EN) / "tu plan tu plan" (ES) in cancellation emails across 7 accounts.
-
-### 🟡 PERSISTS: BUG-005 — Invoice Emails: No IVA/Tax Info (14 instances)
-Prices shown without IVA breakdown. Stripe charges €47.19 (€39 + 21% IVA).
-
-### 🟡 PERSISTS: BUG-006 — Wrong Language: EN for ES Accounts (3 instances)
-test26, test30 receive English onboarding/welcome despite ES locale.
-
-### 🟢 PERSISTS: BUG-007 — Wrong Charset: ascii with UTF-8 (3 instances)
-HTML emails declare charset=ascii with UTF-8 content.
-
-### 🟡 PERSISTS: BUG-009 — Add-on Email Anglicism + Missing Amount (2 instances)
-"Add-on añadido" instead of "Complemento añadido". Prorated amount shows placeholder.
-
-### 🟢 PERSISTS: BUG-010 — Welcome Subject Truncated (23 instances)
-Subject ends at "activ" — final "a" in "activa" cut off by encoding length limit.
-
-### ⚠️ SITE-500-001 — Site Outage (BLOCKING)
-new.zonacnc.com returns HTTP 500. 8+ consecutive CRON QA runs blocked. No E2E billing testing possible.
-
-## Summary
-| Metric | Value |
-|---|---|
-| Total emails scanned | 301 |
-| Billing-related | 144 |
-| Bugs found | 10 (9 persist + 1 partial fix) |
-| New billing activity | 0 (site 500) |
-| Site status | ❌ HTTP 500 |
+### 6. /es/facturacion (Invoices — Spanish) ✅
+- Invoice list with download options (PDF + Stripe invoice link)
+- Correct amount and status display
 
 ---
 
-## Previous Run (2026-05-06 23:38 UTC)
+## Email Verification via IMAP
 
-**Run:** 2026-05-06 23:38 UTC | **Duration:** ~25 min  
-**Scenario:** Add-on email audit + cross-plan welcome/invoice/cancellation template comparison  
-**Accounts:** test7, test8, test14, test20, test25, test26, test30@zonacnc.com (7 accounts)  
-**Mode:** IMAP-only (site new.zonacnc.com returns HTTP 500 — browser testing not possible)  
-**PR:** #230 | **Issue:** #231
+### Inbox: 21 emails found for test26@zonacnc.com
 
-### Findings (9 — 4 reconfirmed, 3 new, 1 correction, 1 low)
-🔴 NEW: A5 — Cancellation email language inconsistency (ES account gets EN email)  
-🔴 RECONFIRMED: A2 — Welcome ad count still "1" for ALL plans  
-🔴 RECONFIRMED: A3 — "Renovación" language for first subscription  
-🔴 RECONFIRMED: A4 — "tu plan tu plan" / "Your tu plan plan" duplication  
-🟡 NEW: A1 — Add-on email anglicism + missing prorated amount  
-🟡 NEW: A7 — Welcome subject truncated: "está activ" → "activa"  
-🟡 RECONFIRMED: A6 — Invoice email: IVA included but not disclosed  
-🟢 CORRECTION: A8 — Add-on emails ARE being sent (prior Finding 17 invalidated)  
-🟢 LOW: A9 — No `lang` attribute on HTML email templates
+| # | Date | Subject | Type |
+|---|------|---------|------|
+| 20 | 2026-05-07 | Add-on añadido a tu suscripción Starter | Billing notification |
+| 21 | 2026-05-07 | Factura pagada — Tu plan sigue activo | Invoice paid |
+
+### Email #20: "Add-on añadido a tu suscripción Starter" ⚠️
+- **Content:** Bilingual (text/plain + text/html) notification about adding 1x anuncio extra
+- **Issue:** Prorated amount shows literal text "(prorrateado por Stripe)" instead of the actual charged amount (see Finding #3)
+- Template: HTML uses ZonaCNC dark header branding, Spanish-only
+- **Finding #3 applies**
+
+### Email #21: "Factura pagada — Tu plan sigue activo" ✅
+- **Content:** Invoice paid confirmation for 14.13 EUR, plan remains active
+- Template: Properly formatted, all amounts shown correctly
+- Spanish-only, no English version detected
+- No issues found
 
 ---
 
-## Previous Run (19:12 UTC)
+## Findings
 
-🟡 FINDING 1: Price Discrepancy — IVA Not Shown Before Stripe  
-🟡 FINDING 2: Stripe Checkout Not Localized to Spanish  
-🟡 FINDING 3: Payment Method Names Partially Localized  
-🟢 FINDING 4: Payment Flow Works Correctly
+### Finding #1: English cambiar-plan page is mostly Spanish (MEDIUM)
+
+**URL:** `/en/cambiar-plan`  
+**Title tag:** "Cambiar plan — ZonaCNC" (Spanish, should be "Change plan — ZonaCNC")
+
+**Untranslated elements:**
+| Element | Current (Spanish) | Expected (English) |
+|---------|-------------------|-------------------|
+| Page `<title>` | Cambiar plan — ZonaCNC | Change plan — ZonaCNC |
+| Main heading `<h1>` | Cambiar plan | Change plan |
+| Section heading | Tu plan actual | Your current plan |
+| Section heading | 1. Elige el plan | 1. Choose your plan |
+| Plan descriptions | Hasta X anuncios incluidos | Up to X ads included |
+| Add-on description | Anuncios extra: €X.00/mes | Extra ads: €X.00/month |
+| Pricing display | Cuota mensual del plan: €39,00 /mes | Monthly plan fee: €39.00/month |
+| Period text | Período actual hasta: 06/06/2026 | Current period until: 06/06/2026 |
+| Breadcrumb | Mi cuenta | My account |
+| Help section title | ¿Cómo funciona el cambio de plan? | How does plan switching work? |
+| Upgrade/downgrade text | Upgrade (subir de plan)... | Entire section untranslated |
+| Refund policy | Devolución 7 días — condiciones | 7-day refund — conditions |
+| Refund conditions | No has recibido ningún... | You have not received any... |
+| Empty state text | Ya tienes este plan activo... | You already have this plan... |
+| Plan change note | Add-ons: si subes de plan... | Add-ons: if you upgrade... |
+
+**Root cause:** The `ZonaCNCPlans` module likely has no English translation strings for the cambiar-plan template.
+
+---
+
+### Finding #2: English pages have partially untranslated footer (LOW)
+
+**URLs:** `/en/pricing`, `/en/cambiar-plan`, `/en/suscripcion`
+
+**Untranslated elements in footer:**
+| Element | Current | Expected |
+|---------|---------|----------|
+| Legal section | Aviso legal, Politica de privacidad, Politica de cookies | Legal notice, Privacy policy, Cookie policy |
+| Section header | Nuestra empresa | Our company |
+| "Cómo funciona" link text | Cómo funciona | How it works |
+| "Planes para vendedores" | Planes para vendedores | Seller plans |
+| "Todos los vendedores" | Todos los vendedores | All sellers |
+| "Preguntas frecuentes" | Preguntas frecuentes | FAQ |
+| Newsletter description | Puede darse de baja en cualquier momento. Para ello, consulte nuestra información de contacto en el aviso legal. | You can unsubscribe at any time. To do so, please refer to our contact information in the legal notice. |
+
+**Note:** Category links are partially translated (e.g., "Tornos" still in Spanish while "Press brakes" is translated). Brand links and technical categories appear untranslated, which may be intentional for SEO/recognition purposes.
+
+---
+
+### Finding #3: Add-on email shows literal placeholder instead of prorated amount (MEDIUM)
+
+**Email:** #20 — "Add-on añadido a tu suscripción Starter"  
+**Recipient:** test26@zonacnc.com
+
+**Issue:** The email body shows:
+```
+Precio: 12,00 € /mes (prorrateado por Stripe)
+```
+The text `(prorrateado por Stripe)` is a literal placeholder indicating that Stripe handles proration, but the actual prorated charge amount (e.g., "€10.84 for the remaining 28 days") is never shown. The user sees this ambiguous message and doesn't know what they were actually charged.
+
+**Appears in:** Both `text/plain` and `text/html` parts of the email.
+
+**Expected:** Either show the actual prorated amount (e.g., "€10.84 charged today") or provide a link to the Stripe Customer Portal where the user can see the exact charge.
+
+---
+
+## Passed Checks
+
+| Check | Status |
+|-------|--------|
+| Site accessible (HTTP 200) | ✅ |
+| Login works (test26) | ✅ |
+| Subscription page loads | ✅ |
+| Plan details correct (Starter 3+1) | ✅ |
+| Payment method displayed (••••4242) | ✅ |
+| Next charge date shown | ✅ |
+| Billing history accessible | ✅ |
+| Invoice PDF download available | ✅ |
+| Stripe invoice link works | ✅ |
+| Pro upgrade preview calculations correct | ✅ |
+| Pricing page (ES) correct | ✅ |
+| Pricing page (EN) plan cards correct | ✅ |
+| Plan change buttons functional | ✅ |
+| Invoice email (#21) correctly formatted | ✅ |
+| IMAP email verification works | ✅ |
+| Add-on pricing tiered correctly (€12→9→6→3) | ✅ |
+| Test mode banner present | ✅ |
+
+## Notes
+- **test27/test28**: Passwords not recoverable — reset emails not delivered in test environment (likely same limitation as banner states: test env doesn't send all email types)
+- **test26 credentials**: Test262026! (web), Ttc5ZxPltimz (IMAP) — still valid from prior CRON run
+- **English URLs**: Some English pages work at unexpected paths (e.g., `/en/cambiar-plan` not `/en/change-plan` or `/en/switch-plan` which 404s)
