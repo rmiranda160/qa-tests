@@ -1,0 +1,122 @@
+{
+  "ok": false,
+  "timestamp": "2026-05-08T18:27:40Z",
+  "url": "https://new.zonacnc.com",
+  "mode": "responsive",
+  "method": "headless-http (CSS/HTML structural analysis)",
+  "note": "Playwright browser unavailable (missing system libs: libnspr4, libnss3, etc. — no root to install). Remote WS endpoint at 51.254.244.216:3000 connection refused. Fallback: HTML/CSS structural responsive analysis via curl + grep.",
+  "siteStatus": "MAINTENANCE MODE (HTTP 503)",
+  "redirectChain": ["https://new.zonacnc.com (301)", "https://new.zonacnc.com/es/ (503)"],
+  "summary": "La página de mantenimiento es responsive y ligera, pero tiene 3 issues de accesibilidad/SEO que deben corregirse. El sitio completo no es testeable por estar en modo mantenimiento (módulo zonacnc-prelaunch activo).",
+  "passes": [
+    {
+      "check": "Meta viewport",
+      "result": "PASS",
+      "detail": "Presente: width=device-width, initial-scale=1"
+    },
+    {
+      "check": "Logo responsive (CSS override)",
+      "result": "PASS",
+      "detail": ".error__logo { max-width:100%; height:auto; width:auto } — sobreescribe width=1084 HTML"
+    },
+    {
+      "check": "Layout container responsive",
+      "result": "PASS",
+      "detail": ".layout-error { max-width: calc(100% - 2rem); width: 34rem } — adapta a mobile"
+    },
+    {
+      "check": "CSS responsive breakpoints",
+      "result": "PASS",
+      "detail": "Bootstrap 5 con breakpoints xs(360px), sm(576px), md(768px), lg(992px), xl(1200px), xxl(1400px)"
+    },
+    {
+      "check": "Unidades relativas (rem)",
+      "result": "PASS",
+      "detail": "Font sizes, margins, paddings usan rem — escala con preferencias de usuario"
+    },
+    {
+      "check": "Flexbox layout",
+      "result": "PASS",
+      "detail": "Uso extensivo de flex-wrap, gap, justify-content — responsive nativo"
+    },
+    {
+      "check": "Seguridad HTTPS + headers",
+      "result": "PASS",
+      "detail": "HSTS max-age=31536000, X-Frame-Options: SAMEORIGIN, X-Content-Type-Options: nosniff, Referrer-Policy, Permissions-Policy"
+    },
+    {
+      "check": "Peso de página",
+      "result": "PASS",
+      "detail": "Mantenimiento: ~1.3KB HTML + ~195KB logo + CSS cache. Sin JS, sin webfonts externas. Carga rápida."
+    },
+    {
+      "check": "CSS usa @layer",
+      "result": "PASS",
+      "detail": "Uso de @layer bs-custom-components y utilities para organización de cascade"
+    },
+    {
+      "check": "img-fluid / max-width pattern",
+      "result": "PASS",
+      "detail": "Clases Bootstrap img-fluid y max-width:100% en imágenes del tema"
+    }
+  ],
+  "issues": [
+    {
+      "severity": "medium",
+      "check": "Missing lang attribute",
+      "detail": "<html lang=\"\"> está vacío. Debe ser lang=\"es\" para el idioma español del sitio.",
+      "wcag": "3.1.1 Language of Page (Level A)",
+      "file": "maintenance.tpl o layout-error.tpl del tema Hummingbird"
+    },
+    {
+      "severity": "medium",
+      "check": "Empty page title",
+      "detail": "<title></title> vacío. La página de mantenimiento debe tener título: \"zonacnc.com — En mantenimiento\" o similar.",
+      "wcag": "2.4.2 Page Titled (Level A)",
+      "file": "maintenance.tpl del tema Hummingbird"
+    },
+    {
+      "severity": "low",
+      "check": "Favicon inaccesible en mantenimiento",
+      "detail": "/favicon.ico devuelve 503. Añadir favicon al template de mantenimiento o permitir acceso sin autenticación.",
+      "impact": "Icono roto en bookmarks/pestañas"
+    },
+    {
+      "severity": "low",
+      "check": "Logo lazy-loaded above the fold",
+      "detail": "<img loading=\"lazy\"> en el logo que es LCP (above the fold). No debería ser lazy — lastima el LCP y CLS.",
+      "impact": "Performance (LCP/CLS)"
+    },
+    {
+      "severity": "info",
+      "check": "Sitio en modo mantenimiento",
+      "detail": "HTTP 503 en todas las rutas. Módulo zonacnc-prelaunch activo con noindex global. Imposible testear páginas reales de producto, checkout, registro, etc.",
+      "impact": "Alcance de QA reducido a página de mantenimiento solamente"
+    }
+  ],
+  "viewportsAnalyzed": [
+    { "name": "mobile", "width": 390, "height": 844 },
+    { "name": "tablet", "width": 768, "height": 1024 },
+    { "name": "desktop", "width": 1440, "height": 900 }
+  ],
+  "cssBreakpoints": {
+    "xs": "360px",
+    "sm": "576px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1200px",
+    "xxl": "1400px"
+  },
+  "testedUrls": [
+    { "url": "https://new.zonacnc.com", "status": 301, "redirect": "/es/" },
+    { "url": "https://new.zonacnc.com/es/", "status": 503, "mode": "maintenance" },
+    { "url": "https://new.zonacnc.com/?zcnc_debug=1", "status": "301→503", "note": "Debug bypass no efectivo en mantenimiento" }
+  ],
+  "recommendations": [
+    "1. Corregir <html lang=\"\"> → <html lang=\"es\"> en maintenance.tpl",
+    "2. Añadir <title>zonacnc.com — En mantenimiento</title> en maintenance.tpl",
+    "3. Quitar loading=\"lazy\" del logo en la página de mantenimiento",
+    "4. Permitir acceso a /favicon.ico durante mantenimiento o embeber SVG inline",
+    "5. Cuando se levante el mantenimiento, re-ejecutar QA responsive completa con Playwright real"
+  ]
+}
