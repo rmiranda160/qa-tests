@@ -87,7 +87,10 @@ async function main() {
   
   let browser;
   try {
-    browser = await playwright.chromium.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined;
+    const launchOpts = { headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] };
+    if (executablePath) launchOpts.executablePath = executablePath;
+    browser = await playwright.chromium.launch(launchOpts);
     const page = await browser.newPage();
     
     let result;
