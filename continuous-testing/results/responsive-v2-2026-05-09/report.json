@@ -1,0 +1,577 @@
+{
+  "ok": false,
+  "passed": "❌ FAILED — 18 issues",
+  "timestamp": "2026-05-09T02:25:51.270Z",
+  "url": "https://new.zonacnc.com",
+  "mode": "responsive (headless audit v2)",
+  "pagesTested": 9,
+  "viewports": [
+    "mobile",
+    "tablet",
+    "desktop"
+  ],
+  "cssAnalysis": {
+    "totalCssChecked": 7,
+    "totalMediaQueries": 54,
+    "cssWithMq": 4,
+    "cssWithoutMq": 3,
+    "breakpoints": [
+      400,
+      480,
+      575,
+      600,
+      640,
+      767,
+      768,
+      991,
+      992,
+      1023,
+      1024,
+      1200
+    ]
+  },
+  "checks": [
+    {
+      "check": "homepage_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 249875B"
+    },
+    {
+      "check": "homepage_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage_mobile_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "homepage_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 249875B"
+    },
+    {
+      "check": "homepage_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage_tablet_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "homepage_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 249875B"
+    },
+    {
+      "check": "homepage_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage_desktop_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "pricing_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 243870B"
+    },
+    {
+      "check": "pricing_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "pricing_mobile_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "pricing_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 243869B"
+    },
+    {
+      "check": "pricing_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "pricing_tablet_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "pricing_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 243870B"
+    },
+    {
+      "check": "pricing_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "pricing_desktop_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "category-tornos_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 648000B"
+    },
+    {
+      "check": "category-tornos_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "category-tornos_mobile_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "category-tornos_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 647898B"
+    },
+    {
+      "check": "category-tornos_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "category-tornos_tablet_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "category-tornos_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 647900B"
+    },
+    {
+      "check": "category-tornos_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "category-tornos_desktop_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "category-fresadoras_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 618508B"
+    },
+    {
+      "check": "category-fresadoras_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "category-fresadoras_mobile_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "category-fresadoras_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 618497B"
+    },
+    {
+      "check": "category-fresadoras_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "category-fresadoras_tablet_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "category-fresadoras_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 618537B"
+    },
+    {
+      "check": "category-fresadoras_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "category-fresadoras_desktop_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "product_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 289142B"
+    },
+    {
+      "check": "product_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "product_mobile_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "product_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 289492B"
+    },
+    {
+      "check": "product_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "product_tablet_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "product_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 288963B"
+    },
+    {
+      "check": "product_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "product_desktop_lang",
+      "ok": true,
+      "detail": "es-ES"
+    },
+    {
+      "check": "homepage-en_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 245710B"
+    },
+    {
+      "check": "homepage-en_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-en_mobile_lang",
+      "ok": true,
+      "detail": "en-US"
+    },
+    {
+      "check": "homepage-en_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 245710B"
+    },
+    {
+      "check": "homepage-en_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-en_tablet_lang",
+      "ok": true,
+      "detail": "en-US"
+    },
+    {
+      "check": "homepage-en_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 245710B"
+    },
+    {
+      "check": "homepage-en_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-en_desktop_lang",
+      "ok": true,
+      "detail": "en-US"
+    },
+    {
+      "check": "pricing-en_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 240105B"
+    },
+    {
+      "check": "pricing-en_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "pricing-en_mobile_lang",
+      "ok": true,
+      "detail": "en-US"
+    },
+    {
+      "check": "pricing-en_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 240105B"
+    },
+    {
+      "check": "pricing-en_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "pricing-en_tablet_lang",
+      "ok": true,
+      "detail": "en-US"
+    },
+    {
+      "check": "pricing-en_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 240105B"
+    },
+    {
+      "check": "pricing-en_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "pricing-en_desktop_lang",
+      "ok": true,
+      "detail": "en-US"
+    },
+    {
+      "check": "homepage-fr_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 249847B"
+    },
+    {
+      "check": "homepage-fr_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-fr_mobile_lang",
+      "ok": true,
+      "detail": "fr-FR"
+    },
+    {
+      "check": "homepage-fr_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 249847B"
+    },
+    {
+      "check": "homepage-fr_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-fr_tablet_lang",
+      "ok": true,
+      "detail": "fr-FR"
+    },
+    {
+      "check": "homepage-fr_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 249847B"
+    },
+    {
+      "check": "homepage-fr_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-fr_desktop_lang",
+      "ok": true,
+      "detail": "fr-FR"
+    },
+    {
+      "check": "homepage-de_mobile_status",
+      "ok": true,
+      "detail": "HTTP 200, 248142B"
+    },
+    {
+      "check": "homepage-de_mobile_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-de_mobile_lang",
+      "ok": true,
+      "detail": "de-DE"
+    },
+    {
+      "check": "homepage-de_tablet_status",
+      "ok": true,
+      "detail": "HTTP 200, 248142B"
+    },
+    {
+      "check": "homepage-de_tablet_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-de_tablet_lang",
+      "ok": true,
+      "detail": "de-DE"
+    },
+    {
+      "check": "homepage-de_desktop_status",
+      "ok": true,
+      "detail": "HTTP 200, 248142B"
+    },
+    {
+      "check": "homepage-de_desktop_viewport",
+      "ok": true,
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "check": "homepage-de_desktop_lang",
+      "ok": true,
+      "detail": "de-DE"
+    },
+    {
+      "check": "global_css_media_queries",
+      "ok": true,
+      "detail": "54 MQs in 4/7 CSS files. Breakpoints: [768, 480, 1024, 600, 991, 575, 1023, 640, 400, 767, 992, 1200]px"
+    }
+  ],
+  "issues": [
+    "[P3][/es/@mobile] ⚠️ 9 images without srcset",
+    "[P3][/es/@tablet] ⚠️ 9 images without srcset",
+    "[P3][/es/@desktop] ⚠️ 9 images without srcset",
+    "[P3][/es/15-tornos@mobile] ⚠️ 42 images without srcset",
+    "[P3][/es/15-tornos@tablet] ⚠️ 42 images without srcset",
+    "[P3][/es/15-tornos@desktop] ⚠️ 42 images without srcset",
+    "[P3][/es/16-fresadoras@mobile] ⚠️ 41 images without srcset",
+    "[P3][/es/16-fresadoras@tablet] ⚠️ 41 images without srcset",
+    "[P3][/es/16-fresadoras@desktop] ⚠️ 41 images without srcset",
+    "[P3][/en/@mobile] ⚠️ 9 images without srcset",
+    "[P3][/en/@tablet] ⚠️ 9 images without srcset",
+    "[P3][/en/@desktop] ⚠️ 9 images without srcset",
+    "[P3][/fr/@mobile] ⚠️ 9 images without srcset",
+    "[P3][/fr/@tablet] ⚠️ 9 images without srcset",
+    "[P3][/fr/@desktop] ⚠️ 9 images without srcset",
+    "[P3][/de/@mobile] ⚠️ 9 images without srcset",
+    "[P3][/de/@tablet] ⚠️ 9 images without srcset",
+    "[P3][/de/@desktop] ⚠️ 9 images without srcset"
+  ],
+  "issueCount": 18,
+  "resultsDir": "/home/node/.openclaw/workspace-tester/continuous-testing/results/responsive-v2-2026-05-09",
+  "pageResults": [
+    {
+      "page": {
+        "path": "/es/",
+        "lang": "ES",
+        "name": "homepage"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/es/pricing",
+        "lang": "ES",
+        "name": "pricing"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/es/15-tornos",
+        "lang": "ES",
+        "name": "category-tornos"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/es/16-fresadoras",
+        "lang": "ES",
+        "name": "category-fresadoras"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/es/maquinaria-metal/13230-torno-cnc-de-precision-test-7-modelo-industrial.html",
+        "lang": "ES",
+        "name": "product"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/en/",
+        "lang": "EN",
+        "name": "homepage-en"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/en/pricing",
+        "lang": "EN",
+        "name": "pricing-en"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/fr/",
+        "lang": "FR",
+        "name": "homepage-fr"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    },
+    {
+      "page": {
+        "path": "/de/",
+        "lang": "DE",
+        "name": "homepage-de"
+      },
+      "viewportStatus": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200
+      }
+    }
+  ]
+}
