@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-05-10T17:57:01Z",
+  "cron_id": "53983183-66c6-4b72-9b21-404aac116c60",
+  "mode": "responsive",
+  "url": "https://new.zonacnc.com",
+  "focus_area": "responsive",
+  "scenario": "Stores + Prices Drop + Sitemap + Supplier pages",
+  "methodology": "curl + UA simulation (iPhone Safari iOS 17, Chrome 145 Windows)",
+  "mcp_status": "DOWN (ECONNREFUSED ws://51.254.244.216:3000)",
+  "local_playwright": "DOWN (missing libnspr4.so)",
+  "scenarios": 1,
+  "overall": "FAIL",
+  "total_pages": 17,
+  "pages_200": 7,
+  "pages_404": 10,
+  "new_findings": 6,
+  "known_confirmed": 0,
+  "findings": [
+    {
+      "id": "RESP-STORES-ALL-404",
+      "severity": "P2",
+      "type": "new",
+      "summary": "All 4 Stores pages return 404: /es/tiendas, /en/stores, /fr/magasins, /de/geschaefte",
+      "details": "The 'Our Stores' page is completely inaccessible across all languages. This is a core PrestaShop feature (store locator). 404 pages have full responsive infrastructure (18 offcanvas, 7 hamburger, 12 hreflang, 303 ARIA in ES) but the content layer is broken.",
+      "fix_hint": "Check if Stores module/feature is enabled in BO or if friendly URLs need configuration.",
+      "status": "open"
+    },
+    {
+      "id": "RESP-PRICEDROPS-ESFRDE-404",
+      "severity": "P2",
+      "type": "regression",
+      "summary": "Prices Drop returns 404 in ES, FR, DE. Only /en/prices-drop is 200 OK",
+      "details": "REGESSION: /es/bajamos-precios was 200 OK in 2026-05-09 03:21 test, now returns 404. /fr/prix-en-baisse and /de/preisnachlass also 404. Only English works. This blocks users from seeing discounted products in 3 of 4 languages.",
+      "fix_hint": "Check friendly URL configuration for prices-drop controller in ES/FR/DE.",
+      "status": "open"
+    },
+    {
+      "id": "RESP-PRICEDROPS-EN-TITLE-H1-MISMATCH",
+      "severity": "P3",
+      "type": "new",
+      "summary": "/en/prices-drop shows Title 'New products' and H1 'New products' instead of 'Prices drop'",
+      "details": "The only working Prices Drop page (EN) displays incorrect labels: both <title> and <h1> say 'New products' when they should say 'Prices drop' or equivalent. Likely a template/i18n string issue — the New Products page strings are being reused.",
+      "fix_hint": "Check translations for prices-drop controller — may be using new-products strings as fallback.",
+      "status": "open"
+    },
+    {
+      "id": "RESP-SITEMAP-FR-404",
+      "severity": "P2",
+      "type": "new",
+      "summary": "/fr/plan-de-site returns 404. ES, EN, DE sitemaps are 200 OK",
+      "details": "French sitemap page is inaccessible. ES (/es/mapa-del-sitio), EN (/en/sitemap), and DE (/de/sitemap) return 200 OK.",
+      "fix_hint": "Missing friendly URL entry for sitemap in French.",
+      "status": "open"
+    },
+    {
+      "id": "RESP-SITEMAP-NO-RESPONSIVE-INFRA",
+      "severity": "P3",
+      "type": "new",
+      "summary": "ES, EN, DE sitemap pages (200 OK) lack responsive infrastructure: no viewport meta, no BS grid, no offcanvas/hamburger, no hreflang",
+      "details": "Sitemap pages render as bare HTML without any responsive infrastructure. Missing: viewport meta tag, Bootstrap grid columns, offcanvas mobile menu, hamburger toggle, hreflang alternate links. Page size is 1.25MB (ES) suggesting full-page renders without mobile optimization.",
+      "metrics": {
+        "es_sitemap_size": 1258478,
+        "en_sitemap_size": 1253801,
+        "de_sitemap_size": 1274369,
+        "aria_es": 292,
+        "aria_en": 1,
+        "aria_de": 0
+      },
+      "fix_hint": "Sitemap controller needs to extend the main theme layout to inherit header/footer/responsive infrastructure.",
+      "status": "open"
+    },
+    {
+      "id": "RESP-SUPPLIER-ES-404",
+      "severity": "P3",
+      "type": "new",
+      "summary": "/es/fabricante/1-zonacnc (supplier page) returns 404",
+      "details": "Supplier/manufacturer detail page for zonacnc brand returns 404. This could affect vendor storefront visibility. The manufacturers listing page (/es/fabricantes) was confirmed 200 OK in previous tests.",
+      "fix_hint": "Check if supplier 1 has active products and if the friendly URL is correctly configured.",
+      "status": "open"
+    }
+  ],
+  "passes": [
+    "Homepage ES/EN/FR/DE: 200 OK, viewport meta, BS grid (7 cols), 18 offcanvas, 7 hamburger, 24 flex, 12 hreflang, 208-310 ARIA",
+    "Mobile = Desktop body: IDENTICAL across all pages (server-side rendering consistent)",
+    "CSS media queries: 286 total across 6 CSS files (listings.css:14, mobile-nav.css:3, consent.css:1, widget.css:1, savedsearch.css:1, theme-74ef8b52.css:266)",
+    "404 pages have full responsive infrastructure: viewport meta, BS grid, offcanvas, hamburger, hreflang, ARIA",
+    "/en/prices-drop: 200 OK with responsive infrastructure",
+    "Sitemaps ES/EN/DE: 200 OK (though lacking responsive infra)",
+    "All pages maintain 12 hreflang alternate links (where header present)"
+  ],
+  "metrics": {
+    "homepage_size": {"es": 255516, "en": 251515, "fr": 255611, "de": 254067, "unit": "bytes"},
+    "sitemap_size": {"es": 1258478, "en": 1253801, "de": 1274369, "unit": "bytes"},
+    "404_page_size_avg": 214500,
+    "css_files_with_mq": 6,
+    "total_media_queries": 286,
+    "homepage_offcanvas": 18,
+    "homepage_hamburger": 7,
+    "homepage_aria_es": 310
+  },
+  "comparison_previous": "Pricedrops ES was 200 OK at 2026-05-09 03:21, now 404 (REGRESSION). Stores pages never tested before. Sitemap responsive infra never tested before. Supplier page never tested before.",
+  "areas_remaining": ["Order history (responsive)", "Checkout flow deep (responsive)", "PDP responsive"],
+  "regression_summary": "1 REGRESSION (pricedrops ES 200→404). 5 NEW findings. Stores all-404 is the most impactful — core PS feature completely blocked."
+}
